@@ -19,17 +19,21 @@
     background-image: url(tapdoc.png) !important;
 }
 .dropdownmyp {
+    display: block;
+    padding-left: 96px;
     position: absolute;
-    text-align: right;
-    width:150px;
-    float:right;
+    margin-top: -16px;
+    font-size: 13px;
+    color:#0094e1;
 
 
 }
 
 .dropdown-contentmyp {
     display: none;
-    padding: 25px 20px 5px 30px;
+    padding: 0px 0px 0px 0px;
+    width: 100px;
+    height: 78px;
     background: #fff;
     border-radius: 7px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
@@ -38,11 +42,33 @@
 
 .dropdownmyp:hover .dropdown-contentmyp {
     display: block;
-    text-align: right;
+     position: absolute;
+
 }
 
 .paginationn li{
     padding: 47px;
+}
+.headertable{
+    width:1200px;
+    padding-top: 20px;
+}
+.headertableth{
+    float:right;
+}
+.header1{
+    font-size: 11px;
+    font-weight: 300;
+}
+.header2{
+color:#fe246c;
+
+
+}
+.header3{
+    font-size: 24px;
+    margin-top: -8px;
+    font-weight: 400;
 }
 </style>
 
@@ -107,28 +133,42 @@
 	</p>
 	<![endif]-->
 
-    <the-header v-cloak :cities-arr='[{"value":"1","title":"\u041c\u043e\u0441\u043a\u0432\u0430","active":true},{"value":"2","title":"\u0421\u0430\u043d\u043a\u0442-\u041f\u0435\u0442\u0435\u0440\u0431\u0443\u0440\u0433","active":false},{"value":"21","title":"\u0412\u043e\u0440\u043e\u043d\u0435\u0436","active":false},{"value":"4","title":"\u0415\u043a\u0430\u0442\u0435\u0440\u0438\u043d\u0431\u0443\u0440\u0433","active":false},{"value":"23","title":"\u0418\u0436\u0435\u0432\u0441\u043a","active":false},{"value":"8","title":"\u041a\u0430\u0437\u0430\u043d\u044c","active":false},{"value":"15","title":"\u041a\u0440\u0430\u0441\u043d\u043e\u0434\u0430\u0440","active":false},{"value":"24","title":"\u041a\u0440\u0430\u0441\u043d\u043e\u044f\u0440\u0441\u043a","active":false},{"value":"7","title":"\u041d\u0438\u0436\u043d\u0438\u0439 \u041d\u043e\u0432\u0433\u043e\u0440\u043e\u0434","active":false},{"value":"5","title":"\u041d\u043e\u0432\u043e\u0441\u0438\u0431\u0438\u0440\u0441\u043a","active":false},{"value":"6","title":"\u041f\u0435\u0440\u043c\u044c","active":false},{"value":"17","title":"\u0420\u043e\u0441\u0442\u043e\u0432-\u043d\u0430-\u0414\u043e\u043d\u0443","active":false},{"value":"9","title":"\u0421\u0430\u043c\u0430\u0440\u0430","active":false},{"value":"13","title":"\u0423\u0444\u0430","active":false},{"value":"19","title":"\u0427\u0435\u043b\u044f\u0431\u0438\u043d\u0441\u043a","active":false}]' :blocks='["logo","city","phone","profile"]'>
-	<a href="index.html" class="header__logo" data-test-id="header_logo" slot="header-logo">
-		<img src="static/new-doc-doc/images/logo.png" alt="">
-	</a>
-	<div>Bakı</div>
-			<div class="title-small header_contact_phone" slot="phone">(+994) 927-01-01</div>
-		<div class="caption" slot="text">Kömək lazımdır?. <strong>Zəng edin!</strong></div>
+    <div class="header">
+        <table class="headertable">
+              <tr>
+                 <th>
+                     <div class="brand">
+                        <a href="#"> <img src="{% static 'img/tapdoc.png' %}" width="180px" height="auto"/> </a>
+                      </div>
+                 </th>
+                 <th class="headertableth">
+                     <div>
+                         <p class="header1">Kömək lazımdır? <span class="header2">Zəng Edin!</span></p>
+                         <p class="header3">8 (499) 116-81-46</p>
+                     </div>
 
-	</the-header>
 
-<div class="dropdownmyp">
-  <span>Mouse over me</span>
-  <div class="dropdown-contentmyp">
-    <p><a href="{% url 'login' %}">Login</a></p>
-      <p><a href="{% url 'signup' %}">Signup</a></p>
-  </div>
-</div>
+                     <div class="dropdownmyp">
+                       <span>Mənim Profilim</span>
+                        <div class="dropdown-contentmyp">
+                             <p><a href="{% url 'login' %}">Daxil Ol</a></p>
+                             <p><a href="{% url 'signup' %}">Qeydiyyat</a></p>
+                        </div>
+                     </div>
+                 </th>
+              </tr>
+        </table>
+
+
+    </div>
+
+
+
 
 
 	<hidden-block class="adwords-image bg--white --border-bottom" data-test-id="adwords" v-cloak>
 		<div class="wrap">
-			<img src="i/conversio1.svg" alt="">
+			<img src="{% static 'img/conversio1.svg' %}" alt="">
 		</div>
 	</hidden-block>
 
@@ -233,7 +273,7 @@
         'doctor': {
             'id': 26705,
             'isActive': true,
-            'isFavorite': false,
+            'isFavorite': true,
             'name': 'Анатолий Анатольевич',
             'surname': 'Сергейко',
             'alias': 'Sergeyko_Anatoliy',
