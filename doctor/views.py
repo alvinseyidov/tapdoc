@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render, HttpResponse, redirect
 from doctor.models import Doctor, Clinic
 from .forms import ReviewForm
 from django.db.models import Avg
+from django.db.models import Q
 
 # Create your views here.
 
@@ -12,8 +13,10 @@ def homepage(request):
 def doctor(request):
     doctors_list = Doctor.objects.all()
     query = request.GET.get('q')
+    querygeo = request.GET.get('geo')
     if query:
         doctors_list = doctors_list.filter(first_name__icontains=query)
+
 
 
     paginator = Paginator(doctors_list, 4)

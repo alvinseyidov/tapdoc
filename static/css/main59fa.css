@@ -252,6 +252,7 @@ body {
 .header__phone {
   font-size: 24px;
   margin-top: -10px;
+  margin-right: -44px;
   line-height: 22px;
   color: #000;
   white-space: nowrap;
@@ -1736,10 +1737,42 @@ html.js .header_show {
   margin-top: 13px;
 }
 .header_main .header__logo {
+  margin: -8px 0px 0px 0px;
   width: 175px;
   height: 38px;
   background-size: cover;
 }
+@media screen and (max-width: 1122px) {
+.header__right {
+    float: right;
+    width: 270px;
+    text-align: right;
+    padding-right: 27px;
+}
+
+}
+
+@media screen and (max-width: 933px) {
+.header__right {
+    float: right;
+    width: 270px;
+    text-align: right;
+    padding-right: 79px;
+}
+
+}
+
+
+
+
+
+.header_main .header__logowhite{
+  width: 175px;
+  height: 38px;
+  background-size: cover;
+}
+
+
 .header_main .header__logo img {
   display: none;
 }
@@ -1772,10 +1805,15 @@ a.header_main .header__phone {
   background: none;
 }
 .header_main-fixed .header__logo img {
-  display: block;
+  display: block !important;
 }
+
+.header_main-fixed .header__logowhite {
+  display: none !important;
+}
+
 .header_main-fixed .header__phone {
-  color: #000;
+  color: #000 !important;
 }
 .header_main-fixed .header__phone a,
 a.header_main-fixed .header__phone {
@@ -4185,6 +4223,13 @@ a.header_main-fixed .header__phone {
   .search__fields {
     display: block;
   }
+
+  @media screen and (max-width: 767px){
+.search__fields {
+    display: block !important;
+    width: 300px;
+    margin: 0 0 0 27px;
+}}
   .search__field {
     display: block;
     width: 100%;
@@ -7864,7 +7909,7 @@ body.body-hide-header-links .header__links {
 }
 .search__field_icon:before {
   font-family: 'FontAwesome';
-  content: "\F078";
+
   font-size: 20px;
   color: #828288;
   position: absolute;

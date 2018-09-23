@@ -26,8 +26,8 @@ SECRET_KEY = '!dg%sqr8tf_l9-qzqcc+t1%#xt25%t%wizs!k&ec7cquad6&v@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['alvinsayidzade.pythonanywhere.com']
-
+ALLOWED_HOSTS = []
+# 'alvinsayidzade.pythonanywhere.com'
 
 # Application definition
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'doctor',
     'accounts',
+    'mathfilters',
 ]
 
 MIDDLEWARE = [

@@ -92,7 +92,46 @@
 		}
 	]
 
-</script></head>
+</script>
+    <style>
+
+    .header_main-fixed .dropdownmyp {
+    color: blue !important;
+}
+
+.header_main .dropdownmyp {
+    color: white;
+}
+        .dropdownmyp {
+    display: block;
+    padding: 20px 0px 0px 224px;
+    position: absolute;
+    margin-top: -16px;
+    font-size: 13px;
+    color:#0094e1;
+
+
+}
+
+.dropdown-contentmyp {
+    display: none;
+    padding: 0px 15px 0px 0px;
+    margin: 0 0 0 -9px;
+    width: 100px;
+    height: 78px;
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+
+}
+
+.dropdownmyp:hover .dropdown-contentmyp {
+    display: block;
+     position: absolute;
+
+}
+    </style>
+</head>
 
 <body class="body body_main ">
 
@@ -127,7 +166,9 @@
         <div class="header__inner">
 			<a href="#" class="header__burger"><i class="fa fa-bars" aria-hidden="true"></i></a>
 
-            <a href="index.html" class="header__logo"><img src="../s.docdoc.ru/new-doc-doc/images/logo.png" alt="Tapdoc"/></a>
+            <a href="{% url 'homepage' %}" class="header__logowhite"><img src="{% static 'img/tapdocwhite.png' %}" alt="Tapdoc"/></a>
+            <a href="{% url 'homepage' %}" class="header__logo"><img src="{% static 'img/tapdoc.png' %}" alt="Tapdoc"/></a>
+
 
 
             <aside class="header__right">
@@ -138,6 +179,17 @@
                                                             <span class="header_contact_phone ">
                                     +994 (055) 555-55-55                                </span>
                                                     </div>
+
+                <div class="dropdownmyp">
+                       <span>Mənim Profilim</span>
+                        <div class="dropdown-contentmyp">
+                             <p><a href="{% url 'login' %}">Daxil Ol</a></p>
+                             <p><a href="{% url 'signup' %}">Qeydiyyat</a></p>
+                        </div>
+                     </div>
+
+
+
                                                     
                             </aside>
             <aside class="header__links">
@@ -158,41 +210,31 @@
 		
 	<div class="search">
 		<div class="forms">
-			<form id="searchForm" class="forms__form search_form" method="post" action="doctor.html">
 
-				<input type="hidden" name="spec" class="js-choose-input-spec" id="spec" autocomplete="off" value="" />
-				<input type="hidden" name="serviceId" class="js-choose-input-service" value="" autocomplete="off"  />
-				<input type="hidden" name="diag" class="js-choose-input-diag" id="diag" value="" autocomplete="off"  />
-				<input type="hidden" name="stations" class="js-choose-input-geo" id="stations" autocomplete="off" value="" />
-				<input type="hidden" name="dist" class="js-choose-input-dist" autocomplete="off" value="" />
-				<input type="hidden" name="regcity" class="js-choose-input-regcity" autocomplete="off" value="" />
-				<input type="hidden" name="kidsReception" class="js-choose-input-kidsReception" autocomplete="off" value="" />
-				<input type="hidden" name="departure" class="js-choose-input-departure" autocomplete="off" value="" />
-				<input type="hidden" name="booking" class="js-choose-input-booking" autocomplete="off" value="" />
-				<input type="hidden" name="all-day" class="js-choose-input-all-day" autocomplete="off" value="" />
-				<input type="hidden" name="area" class="js-choose-input-area" autocomplete="off" value="" />
-				<input type="hidden" name="street" class="js-choose-input-area" autocomplete="off" value="" />
-								<input type="hidden" name="isClinicList" autocomplete="off" value="0" />
+			<form id="searchForm" class="forms__form search_form" method="get" action="{% url 'doctor' %}">
 
-				
+
                     <div class="search search_index">
                         <div class="forms">
                             <form action="" id="searchForm" class="forms__form">
                                 <div class="search__fields">
                                     <div class="search__field search__field_zoom">
+                                        {% csrf_token %}
                                         <input type="text"
                                                class="forms__input search__input js-suggest-search-new"
-                                               name="specialist"
+                                               name="q"
                                                data-suggestclass="autocomplete-suggestion-withgroup"
                                                data-autocomplete-id="autocomplete-spec"
                                                placeholder="Həkim, Klinika, Xidmət"
                                                value=""
                                                tabindex="1"
+
                                                data-event-tracker="1"
                                                data-tracker-event="input"
                                                data-tracker-action="search"
                                                data-tracker-label="speciality"
                                                data-tracker-value="__current__value__" />
+
                                         <button class="search__button"><i class="fa fa-search"></i></button>
                                     </div>
                                     <div class="search__field search__field_select">
@@ -205,11 +247,19 @@
                                                data-is-district="0"
                                                value=""
                                                tabindex="2"
+                                               list="browsers"
                                                data-event-tracker="1"
                                                data-tracker-event="input"
                                                data-tracker-action="search"
                                                data-tracker-label="metro"
                                                data-tracker-value="__current__value__" />
+                                        <datalist id="browsers">
+                                            <option class="metro" value="Internet Explorer">
+                                            <option class="metro" value="Firefox">
+                                            <option class="metro" value="Chrome">
+                                            <option class="metro" value="Opera">
+                                            <option class="metro" value="Safari">
+                                        </datalist>
                                     </div>
                                     <div class="search__field search__field_button">
                                         <button class="button button_search forms__button" type="submit">Axtarış</button>
@@ -714,6 +764,7 @@ olan həkimə yazılmaqda kömək edər.</div>
             <div id="popup-container"></div>
     
     <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+
             <script>
 	// Позиции докторов
 	function doctorPositions() {

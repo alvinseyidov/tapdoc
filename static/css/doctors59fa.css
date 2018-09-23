@@ -1446,3 +1446,55 @@ a:hover {
     margin-top: -42vh !important;
   }
 }
+
+@media screen and (max-width: 767px){
+.adwords-image{
+    display:none;
+}
+
+.doctor-card{
+    box-sizing: border-box;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 350px !important;
+    display: block !important;
+    padding: 24px 24px 18px;
+    margin-bottom: 16px;
+    border: 1px solid #dadce6;
+    border-radius: 4px;
+    background-color: #fff;
+}
+.doctor-card__left {
+    width: 88px !important;
+    float: left;
+    text-align: center;
+    position: relative;
+    /* display: inline-block; */
+}
+.avatar-round {
+    width: 60px !important;
+    height: 60px !important;
+}
+
+.doctor-card__center {
+    margin: 0 24px;
+    width: 162px !important;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    padding: 0 1px 1px 10px;
+}
+.doctor-card-rating.stars_and_label {
+    padding: 0 19px 0 0;
+}
+
+.doctor-card-reviews {
+    padding: 0 14px 0 0;
+}
+
+
+
+}

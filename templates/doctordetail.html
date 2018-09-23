@@ -1,4 +1,5 @@
 {% load static %}
+{% load mathfilters %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>     <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie ie6" lang="ru"><![endif]-->
 <!--[if IE 7]>        <html class="no-js lt-ie9 lt-ie8 ie ie7" lang="ru"><![endif]-->
@@ -217,7 +218,7 @@ color:#fe246c;
               <tr>
                  <th>
                      <div class="brand">
-                        <a href="#"> <img src="{% static 'img/tapdoc.png' %}" width="180px" height="auto"/> </a>
+                        <a href="{% url 'homepage' %}"> <img src="{% static 'img/tapdoc.png' %}" width="180px" height="auto"/> </a>
                       </div>
                  </th>
                  <th class="headertableth">
@@ -601,7 +602,7 @@ color:#fe246c;
 		<i class="fa fa-star" aria-hidden="true"></i>
 		<i class="fa fa-star" aria-hidden="true"></i>
 	</div>
-			<div class="rate__value" style="width:{{review.star}}0%;">
+			<div class="rate__value" style="width:{{review.star|mul:2}}0%;">
 			<i class="fa fa-star" aria-hidden="true"></i>
 			<i class="fa fa-star" aria-hidden="true"></i>
 			<i class="fa fa-star" aria-hidden="true"></i>
@@ -617,15 +618,15 @@ color:#fe246c;
                         <meta itemprop="bestRating" content="10">
                         <meta itemprop="worstRating" content="1">
                         <meta itemprop="ratingValue" content="8">
-						{% if review.star == 10 %}
+						{% if review.star == 5 %}
 						<div class="reviews__grade">Əla</div>
-						{% elif review.star == 8 %}
-						<div class="reviews__grade">Yaxşı</div>
-						{% elif review.star == 6 %}
-						<div class="reviews__grade">Orta</div>
 						{% elif review.star == 4 %}
-						<div class="reviews__grade">Pis</div>
+						<div class="reviews__grade">Yaxşı</div>
+						{% elif review.star == 3 %}
+						<div class="reviews__grade">Orta</div>
 						{% elif review.star == 2 %}
+						<div class="reviews__grade">Pis</div>
+						{% elif review.star == 1 %}
                         <div class="reviews__grade">Çox Pis</div>
                     </span>
 						{% endif %}
@@ -650,135 +651,122 @@ color:#fe246c;
 
         <div class="reviews__bottom">
 		                    <span class="reviews__more js-toggle js-reviews-toggle"
-                      data-replace="Свернуть отзывы"><span>показать</span> ещё 38 отзывов</span>
+                      data-replace="Свернуть отзывы"></span>
 
             <div class="reviews__button">
                 <div class="button button_showform js-review-form-show" data-replace="Свернуть"
                      data-event-tracker="1"
                      data-tracker-event="click"
                      data-tracker-action="review-form" >
-                    Оставить отзыв
+                    Rəy Əlavə Et
                 </div>
             </div>
         </div>
-		<div><form method="post" novalidate id="reviewform">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit" class="btn btn-primary">Login</button>
-    </form>
-		<select name="clinic" form="reviewform">
-			{% for clinic in doctor.clinics.all %}
-  <option value="{{clinic.id}}">{{clinic.name}}</option>
-  			{% endfor %}
-</select>
 
-		</div>
+
+
     </div>
     </div>
+
+
 
                             <div class="doctor__form">
-                                <div class="reviewform js-review-form hidden">
-	<form class="reviewform__form review_form review-form--doctor review_form clearfix" action="https://docdoc.ru/doctors/createReview" novalidate="novalidate">
-		<div class="reviewform__title">Оставьте свой отзыв. Нам важно ваше мнение</div>
-		<div class="reviewform__rate">
-			<div class="reviewform__field">
-				<div class="reviewform__label reviewform__label_grade">Ваша оценка врачу:</div>
-				<div class="reviewform__rating">
-					<div class="reviews__form-rating__val"><input type="hidden" id="review-rating_doctor" class="js-rating-score reviewform__input" name="rating_doctor" autocomplete="off"><div class="js-rating" data-score-selector=".js-rating-score"></div></div>
-				    <div><label class="label-error error" style="display: none;"></label></div>
-				</div>
-			</div>
-		</div>
-		<div class="reviewform__field">
-			<div class="reviewform__label">Отзыв о враче:</div>
-			<textarea class="reviewform__input" rows="4" placeholder="Расскажите подробно ваши впечатления: насколько комфортными были условия проведения приёма, внимательно ли общался с вами специалист, подробно ли отвечал на вопросы и пр. Помните, отзыв призван помочь людям при выборе врача." name="reviewComment"  data-required="true"
-			          data-event-tracker="1"
-			          data-tracker-event="input"
-			          data-tracker-action="review-form"
-			          data-tracker-label="text"
-			          data-tracker-value="__current__value__" ></textarea>
-			<label class="label-error error" style="display: none;"></label>
-		</div>
-		<div class="reviewform__field">
-			<div class="reviewform__label">Введите ваше имя:</div>
-			<label for="reviewName" class="reviewform__icon reviewform__icon_user"></label>
-			<div class="reviewform__fieldset">
-				<input type="text" class="reviewform__input" placeholder="Контактное лицо" id="reviewName" name="reviewName" value=""
-				       data-event-tracker="1"
-				       data-tracker-event="input"
-				       data-tracker-action="review-form"
-				       data-tracker-label="name"
-				       data-tracker-value="__current__value__" />
-				<label for="reviewName" class="label-error error" style="display: none;"></label>
-			</div>
-		</div>
-		<div class="reviewform__field ">
-			<div class="reviewform__label">Введите ваш телефон:</div>
-			<label for="reviewPhone" class="reviewform__icon reviewform__icon_phone"></label>
-			<div class="reviewform__fieldset">
-				<input type="tel" class="reviewform__input" placeholder="Ваш телефон" data-tel="yes" id="reviewPhone" name="reviewPhone" value=""
-				       data-event-tracker="1"
-				       data-tracker-event="input"
-				       data-tracker-action="review-form"
-				       data-tracker-label="phone"
-				       data-tracker-value="__current__value__" >
-				<label for="reviewPhone" class="label-error error" style="display: none;"></label>
-			</div>
-		    			    <div class="reviewform__note">*на указанный вами номер будет отправлено SMS с кодом подтверждения</div>
-            		</div>
-        <div class="reviewform__code hidden">
-            <div class="reviewform__field">
-                <div class="reviewform__label">Код из SMS:</div>
-                <label for="validatePhoneCode" class="reviewform__icon reviewform__icon_code"></label>
-                <div class="reviewform__fieldset">
-                    <input type="text" class="reviewform__input" placeholder="xxxx" id="validatePhoneCode" name="validatePhoneCode" />
-                    <label for="validatePhoneCode" class="label-error error" style="display: none;"></label>
-                </div>
-
-                <div class="repeat-validate-code-block js-repeat-validate-code">
-                    Отправить еще раз
-                    <span class="js-repeat-validate-code-count"></span>
-                    <span class="js-repeat-validate-code-interval">через 30 сек.</span>
+    <div class="reviewform js-review-form hidden">
+        <form method="post" class="reviewform__form review_form review-form--doctor review_form clearfix" action="{% url 'doctordetail' doctor.id %}" novalidate="novalidate">
+            {% csrf_token %}
+			<div class="reviewform__title">Оставьте свой отзыв. Нам важно ваше мнение</div>
+            <div class="reviewform__rate">
+                <div class="reviewform__field">
+                    <div class="reviewform__label reviewform__label_grade">Ваша оценка врачу:</div>
+                    <div class="reviewform__rating">
+                        <div class="reviews__form-rating__val"><input type="hidden" id="review-rating_doctor" class="js-rating-score reviewform__input" name="star" autocomplete="off">
+                            <div class="js-rating" data-score-selector=".js-rating-score"></div>
+                        </div>
+                        <div><label class="label-error error" style="display: none;"></label></div>
+                    </div>
                 </div>
             </div>
+            <div class="reviewform__field">
+                <div class="reviewform__label">Отзыв о враче:</div>
+                <textarea class="reviewform__input" rows="4" placeholder="Расскажите подробно ваши впечатления: насколько комфортными были условия проведения приёма, внимательно ли общался с вами специалист, подробно ли отвечал на вопросы и пр. Помните, отзыв призван помочь людям при выборе врача." name="message" data-required="true" data-event-tracker="1" data-tracker-event="input" data-tracker-action="review-form" data-tracker-label="text" data-tracker-value="__current__value__"></textarea>
+                <label class="label-error error" style="display: none;"></label>
+            </div>
+
+
+
+
+
+
+            <div class="reviewform__field">
+                <div class="reviewform__label">Введите ваше имя:</div>
+                <label for="reviewName" class="reviewform__icon reviewform__icon_user"></label>
+                <div class="reviewform__fieldset">
+                    <input type="text" class="reviewform__input" placeholder="Контактное лицо" id="reviewName" name="clinic" value="" data-event-tracker="1" data-tracker-event="input" data-tracker-action="review-form" data-tracker-label="name" data-tracker-value="__current__value__" />
+                    <label for="reviewName" class="label-error error" style="display: none;"></label>
+                </div>
+            </div>
+            <div class="reviewform__field ">
+                <div class="reviewform__label">Введите ваш телефон:</div>
+                <label for="reviewPhone" class="reviewform__icon reviewform__icon_phone"></label>
+                <div class="reviewform__fieldset">
+                    <input type="tel" class="reviewform__input" placeholder="Ваш телефон" data-tel="yes" id="reviewPhone" name="reviewPhone" value="" data-event-tracker="1" data-tracker-event="input" data-tracker-action="review-form" data-tracker-label="phone" data-tracker-value="__current__value__">
+                    <label for="reviewPhone" class="label-error error" style="display: none;"></label>
+                </div>
+                <div class="reviewform__note">*на указанный вами номер будет отправлено SMS с кодом подтверждения</div>
+            </div>
+            <div class="reviewform__code hidden">
+                <div class="reviewform__field">
+                    <div class="reviewform__label">Код из SMS:</div>
+                    <label for="validatePhoneCode" class="reviewform__icon reviewform__icon_code"></label>
+                    <div class="reviewform__fieldset">
+                        <input type="text" class="reviewform__input" placeholder="xxxx" id="validatePhoneCode" name="validatePhoneCode" />
+                        <label for="validatePhoneCode" class="label-error error" style="display: none;"></label>
+                    </div>
+
+                    <div class="repeat-validate-code-block js-repeat-validate-code">
+                        Отправить еще раз
+                        <span class="js-repeat-validate-code-count"></span>
+                        <span class="js-repeat-validate-code-interval">через 30 сек.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="validation-error hidden error"></div>
+            <input type="hidden" name="doctorId" id="doctor-id" value="26705" />
+            <div class="reviewform__bottom">
+                <div class="reviewform__button">
+                    <button type="submit" class="button button_submit phone-num-block " data-event-tracker="1" data-tracker-event="click" data-tracker-action="send-review">Rəy Əlavə Et</button>
+                    <div class="phone-code-block hidden">
+                        <button type="submit" class="button button_submit">
+                            <div class="button__cont js-click-spinner" data-spinner-timeout="600">Подтвердить</div>
+                        </button>
+                        <div class="reviewform__repeat"><a href="#" class="repeat-phone">Ввести другой номер</a></div>
+                    </div>
+                </div>
+                <div class="reviewform__rules">
+                    DocDoc не публикует отзывы, которые содержат оскорбления и ненормативную лексику
+                    <div class="reviewform__rules-note">
+                        <span class="doctor__tooltip js-tooltip-custom">как мы собираем отзывы</span>
+                        <div class="hidden js-tooltip-html">
+                            <div class="doc__tooltip">
+                                Вы можете оставить отзыв на DocDoc только в том случае, если записывались на<br />
+                                прием с помощью нашего портала. Каждый отзыв проходит тщательную проверку<br />
+                                и это позволяет нам исключить появление рекламных или заказных отзывов.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="reviewform__success">
+            Спасибо за отзыв, ваше мнение очень важно для нас.<br />Отзыв отправлен на проверку и будет опубликован в том случае, если Вы записывались на прием с помощью нашего сервиса.
         </div>
-		<div class="validation-error hidden error"></div>
-		<input type="hidden" name="doctorId" id="doctor-id" value="26705" />
-		<div class="reviewform__bottom">
-			<div class="reviewform__button">
-				<button type="submit" class="button button_submit phone-num-block "
-				        data-event-tracker="1"
-				        data-tracker-event="click"
-				        data-tracker-action="send-review" >Оставить отзыв</button>
-				<div class="phone-code-block hidden">
-					<button type="submit" class="button button_submit">
-						<div class="button__cont js-click-spinner" data-spinner-timeout="600">Подтвердить</div>
-					</button>
-					<div class="reviewform__repeat"><a href="#" class="repeat-phone">Ввести другой номер</a></div>
-				</div>
-			</div>
-			<div class="reviewform__rules">
-				DocDoc не публикует отзывы, которые содержат оскорбления и ненормативную лексику
-				<div class="reviewform__rules-note">
-					<span class="doctor__tooltip js-tooltip-custom">как мы собираем отзывы</span>
-					<div class="hidden js-tooltip-html">
-						<div class="doc__tooltip">
-							Вы можете оставить отзыв на DocDoc только в том случае, если записывались на<br />
-							прием с помощью нашего портала. Каждый отзыв проходит тщательную проверку<br />
-							и это позволяет нам исключить появление рекламных или заказных отзывов.
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</form>
-	<div class="reviewform__success">
-		Спасибо за отзыв, ваше мнение очень важно для нас.<br />Отзыв отправлен на проверку и будет опубликован в том случае, если Вы записывались на прием с помощью нашего сервиса.
-	</div>
+    </div>
+
+
 </div>
 
 
-                            </div>
+
 
                         </div>
 
@@ -792,739 +780,6 @@ color:#fe246c;
     </div>
 
 
-<div class="doctors__nearby">
-	<div class="wrapper">
-		<div class="nearby">
-			<div class="nearby__title">Врачи поблизости</div>
-			<div class="nearby__inner">
-				<div class="nearby__carousel">
-
-
-						<a href="https://docdoc.ru/doctor/Voevoda_Evgeniy" class="nearby__item">
-							<div class="nearby__content">
-								<div class="nearby__top">
-									<div class="nearby__doc">
-										<div class="nearby__photo">
-                                            <img src="https://cdn.docdoc.ru/doctor/41113_small.jpg?1534463112" alt="" />										</div>
-
-										<div class="nearby__rating">
-																						<div class="rate rate_small">
-												<div class="rate__default">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-												</div>
-																									<div class="rate__value" style="width:92%;">
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-													</div>
-																							</div>
-										</div>
-									</div>
-									<div class="nearby__info">
-										<div class="nearby__name">
-												Воевода<br>
-												Евгений Петрович										</div>
-										<div class="nearby__prof">
-											Хирург, Колопроктолог<br>
-																							Cтаж
-												36 лет																					</div>
-																					<div class="nearby__price">от 2100 руб.</div>
-
-										<div class="nearby__reviews">
-																							35 отзывов																					</div>
-									</div>
-								</div>
-								<div class="nearby__bottom">
-                                    <div class="nearby__metro">
-                                                                                                                                                                                    <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_4"></span>Цветной бульвар</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_10"></span>Трубная</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_5"></span>Сухаревская</span>                                                                                                                        </div>
-								</div>
-							</div>
-						</a>
-
-
-						<a href="https://docdoc.ru/doctor/Pavlova_Oksana" class="nearby__item">
-							<div class="nearby__content">
-								<div class="nearby__top">
-									<div class="nearby__doc">
-										<div class="nearby__photo">
-                                            <img src="https://cdn.docdoc.ru/doctor/71114_small.jpg?1534463308" alt="" />										</div>
-
-										<div class="nearby__rating">
-																						<div class="rate rate_small">
-												<div class="rate__default">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-												</div>
-																									<div class="rate__value" style="width:86%;">
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-													</div>
-																							</div>
-										</div>
-									</div>
-									<div class="nearby__info">
-										<div class="nearby__name">
-												Павлова<br>
-												Оксана Алексеевна										</div>
-										<div class="nearby__prof">
-											Ортопед, Хирург, Травматолог<br>
-																							Cтаж
-												13 лет																					</div>
-																					<div class="nearby__price">от 1600 руб.</div>
-
-										<div class="nearby__reviews">
-																							4 отзыва																					</div>
-									</div>
-								</div>
-								<div class="nearby__bottom">
-                                    <div class="nearby__metro">
-                                                                                                                                                                                    <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_10"></span>Римская</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_3"></span>Площадь Ильича</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_11"></span>Таганская</span>                                                                                                                        </div>
-								</div>
-							</div>
-						</a>
-
-
-						<a href="https://docdoc.ru/doctor/Anchikov_Grigorii" class="nearby__item">
-							<div class="nearby__content">
-								<div class="nearby__top">
-									<div class="nearby__doc">
-										<div class="nearby__photo">
-                                            <img src="https://cdn.docdoc.ru/doctor/2000_small.jpg?1534462827" alt="" />										</div>
-
-										<div class="nearby__rating">
-																						<div class="rate rate_small">
-												<div class="rate__default">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-												</div>
-																									<div class="rate__value" style="width:95%;">
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-													</div>
-																							</div>
-										</div>
-									</div>
-									<div class="nearby__info">
-										<div class="nearby__name">
-												Анчиков<br>
-												Григорий Юрьевич										</div>
-										<div class="nearby__prof">
-											Флеболог, Хирург, Проктолог<br>
-																							Cтаж
-												37 лет																					</div>
-																					<div class="nearby__price">от 2590 руб.</div>
-
-										<div class="nearby__reviews">
-																							96 отзывов																					</div>
-									</div>
-								</div>
-								<div class="nearby__bottom">
-                                    <div class="nearby__metro">
-                                                                                                                                                                                    <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_7"></span>Красносельская</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_8"></span>Бауманская</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_7"></span>Комсомольская</span>                                                                                                                        </div>
-								</div>
-							</div>
-						</a>
-
-
-						<a href="https://docdoc.ru/doctor/Kashatnikov_Konstantin" class="nearby__item">
-							<div class="nearby__content">
-								<div class="nearby__top">
-									<div class="nearby__doc">
-										<div class="nearby__photo">
-                                            <img src="https://cdn.docdoc.ru/doctor/2048_small.jpg?1534462828" alt="" />										</div>
-
-										<div class="nearby__rating">
-																						<div class="rate rate_small">
-												<div class="rate__default">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-												</div>
-																									<div class="rate__value" style="width:86%;">
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-													</div>
-																							</div>
-										</div>
-									</div>
-									<div class="nearby__info">
-										<div class="nearby__name">
-												Кашатников<br>
-												Константин Владимирович										</div>
-										<div class="nearby__prof">
-											Хирург, УЗИ-специалист<br>
-																							Cтаж
-												8 лет																					</div>
-																					<div class="nearby__price">от 2190 руб.</div>
-
-										<div class="nearby__reviews">
-																							34 отзыва																					</div>
-									</div>
-								</div>
-								<div class="nearby__bottom">
-                                    <div class="nearby__metro">
-                                                                                                                                                                                    <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_7"></span>Красносельская</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_8"></span>Бауманская</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_7"></span>Комсомольская</span>                                                                                                                        </div>
-								</div>
-							</div>
-						</a>
-
-
-						<a href="https://docdoc.ru/doctor/Abdulkerimov_Zaypulla" class="nearby__item">
-							<div class="nearby__content">
-								<div class="nearby__top">
-									<div class="nearby__doc">
-										<div class="nearby__photo">
-                                            <img src="https://cdn.docdoc.ru/doctor/59973_small.jpg?1534463239" alt="" />										</div>
-
-										<div class="nearby__rating">
-																						<div class="rate rate_small">
-												<div class="rate__default">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-												</div>
-																									<div class="rate__value" style="width:95%;">
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-													</div>
-																							</div>
-										</div>
-									</div>
-									<div class="nearby__info">
-										<div class="nearby__name">
-												Абдулкеримов<br>
-												Зайпулла Ахмедович										</div>
-										<div class="nearby__prof">
-											Онколог, Хирург, Колопроктолог<br>
-																							Cтаж
-												21 год																					</div>
-																					<div class="nearby__price">от 3900 руб.</div>
-
-										<div class="nearby__reviews">
-																							5 отзывов																					</div>
-									</div>
-								</div>
-								<div class="nearby__bottom">
-                                    <div class="nearby__metro">
-                                                                                                                                                                                    <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_7"></span>Красносельская</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_8"></span>Бауманская</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_7"></span>Комсомольская</span>                                                                                                                        </div>
-								</div>
-							</div>
-						</a>
-
-
-						<a href="https://docdoc.ru/doctor/Bashankaev_Nikolay" class="nearby__item">
-							<div class="nearby__content">
-								<div class="nearby__top">
-									<div class="nearby__doc">
-										<div class="nearby__photo">
-                                            <img src="https://cdn.docdoc.ru/doctor/22567_small.jpg?1534463005" alt="" />										</div>
-
-										<div class="nearby__rating">
-																						<div class="rate rate_small">
-												<div class="rate__default">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-												</div>
-																									<div class="rate__value" style="width:95%;">
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-													</div>
-																							</div>
-										</div>
-									</div>
-									<div class="nearby__info">
-										<div class="nearby__name">
-												Башанкаев<br>
-												Николай Андреевич										</div>
-										<div class="nearby__prof">
-											Хирург, Проктолог<br>
-																							Cтаж
-												40 лет																					</div>
-																					<div class="nearby__price">от 2400 руб.</div>
-
-										<div class="nearby__reviews">
-																							108 отзывов																					</div>
-									</div>
-								</div>
-								<div class="nearby__bottom">
-                                    <div class="nearby__metro">
-                                                                                                                                                                                    <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_2"></span>Смоленская</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_2"></span>Арбатская</span>                                                                                                                        </div>
-								</div>
-							</div>
-						</a>
-
-
-						<a href="https://docdoc.ru/doctor/Mikhailenko_Anatolii" class="nearby__item">
-							<div class="nearby__content">
-								<div class="nearby__top">
-									<div class="nearby__doc">
-										<div class="nearby__photo">
-                                            <img src="https://cdn.docdoc.ru/doctor/81_small.jpg?1534462804" alt="" />										</div>
-
-										<div class="nearby__rating">
-																						<div class="rate rate_small">
-												<div class="rate__default">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-												</div>
-																									<div class="rate__value" style="width:92%;">
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-													</div>
-																							</div>
-										</div>
-									</div>
-									<div class="nearby__info">
-										<div class="nearby__name">
-												Михайленко<br>
-												Анатолий Николаевич										</div>
-										<div class="nearby__prof">
-											Маммолог, Хирург<br>
-																							Cтаж
-												37 лет																					</div>
-																					<div class="nearby__price">от 2100 руб.</div>
-
-										<div class="nearby__reviews">
-																							230 отзывов																					</div>
-									</div>
-								</div>
-								<div class="nearby__bottom">
-                                    <div class="nearby__metro">
-                                                                                                                                                                                    <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_3"></span>Марксистская</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_11"></span>Таганская</span>                                                                                                                        </div>
-								</div>
-							</div>
-						</a>
-
-
-						<a href="https://docdoc.ru/doctor/Tarasova_Darya_2" class="nearby__item">
-							<div class="nearby__content">
-								<div class="nearby__top">
-									<div class="nearby__doc">
-										<div class="nearby__photo">
-                                            <img src="https://cdn.docdoc.ru/doctor/41595_small.jpg?1534463116" alt="" />										</div>
-
-										<div class="nearby__rating">
-																						<div class="rate rate_small">
-												<div class="rate__default">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-												</div>
-																									<div class="rate__value" style="width:86%;">
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-													</div>
-																							</div>
-										</div>
-									</div>
-									<div class="nearby__info">
-										<div class="nearby__name">
-												Тарасова<br>
-												Дарья Сергеевна										</div>
-										<div class="nearby__prof">
-											Хирург, Проктолог<br>
-																							Cтаж
-												4 года																					</div>
-																					<div class="nearby__price">от 1900 руб.</div>
-
-										<div class="nearby__reviews">
-																							6 отзывов																					</div>
-									</div>
-								</div>
-								<div class="nearby__bottom">
-                                    <div class="nearby__metro">
-                                                                                                                                                                                    <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_9"></span>Таганская</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_3"></span>Марксистская</span>                                                                                                                        </div>
-								</div>
-							</div>
-						</a>
-
-
-						<a href="https://docdoc.ru/doctor/Stepanenko_Anna" class="nearby__item">
-							<div class="nearby__content">
-								<div class="nearby__top">
-									<div class="nearby__doc">
-										<div class="nearby__photo">
-                                            <img src="https://cdn.docdoc.ru/doctor/59447_small.jpg?1534463236" alt="" />										</div>
-
-										<div class="nearby__rating">
-																						<div class="rate rate_small">
-												<div class="rate__default">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-												</div>
-																									<div class="rate__value" style="width:92%;">
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-													</div>
-																							</div>
-										</div>
-									</div>
-									<div class="nearby__info">
-										<div class="nearby__name">
-												Степаненко<br>
-												Анна Григорьевна										</div>
-										<div class="nearby__prof">
-											Ортопед, Хирург, Травматолог<br>
-																							Cтаж
-												30 лет																					</div>
-																					<div class="nearby__price">от 1900 руб.</div>
-
-										<div class="nearby__reviews">
-																							13 отзывов																					</div>
-									</div>
-								</div>
-								<div class="nearby__bottom">
-                                    <div class="nearby__metro">
-                                                                                                                                                                                    <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_9"></span>Таганская</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_3"></span>Марксистская</span>                                                                                                                        </div>
-								</div>
-							</div>
-						</a>
-
-
-						<a href="https://docdoc.ru/doctor/Goncharova_Mariya" class="nearby__item">
-							<div class="nearby__content">
-								<div class="nearby__top">
-									<div class="nearby__doc">
-										<div class="nearby__photo">
-                                            <img src="https://cdn.docdoc.ru/doctor/40725_small.jpg?1534463110" alt="" />										</div>
-
-										<div class="nearby__rating">
-																						<div class="rate rate_small">
-												<div class="rate__default">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-												</div>
-																									<div class="rate__value" style="width:86%;">
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-													</div>
-																							</div>
-										</div>
-									</div>
-									<div class="nearby__info">
-										<div class="nearby__name">
-												Гончарова<br>
-												Мария Васильевна										</div>
-										<div class="nearby__prof">
-											Гастроэнтеролог, Хирург, УЗИ-специалист<br>
-																							Cтаж
-												11 лет																					</div>
-																					<div class="nearby__price">от 1900 руб.</div>
-
-										<div class="nearby__reviews">
-																							17 отзывов																					</div>
-									</div>
-								</div>
-								<div class="nearby__bottom">
-                                    <div class="nearby__metro">
-                                                                                                                                                                                    <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_9"></span>Таганская</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_3"></span>Марксистская</span>                                                                                                                        </div>
-								</div>
-							</div>
-						</a>
-
-
-						<a href="https://docdoc.ru/doctor/Gurevich_Rodion" class="nearby__item">
-							<div class="nearby__content">
-								<div class="nearby__top">
-									<div class="nearby__doc">
-										<div class="nearby__photo">
-                                            <img src="https://cdn.docdoc.ru/doctor/79448_small.jpg?1534463354" alt="" />										</div>
-
-										<div class="nearby__rating">
-																						<div class="rate rate_small">
-												<div class="rate__default">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-												</div>
-																									<div class="rate__value" style="width:86%;">
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-													</div>
-																							</div>
-										</div>
-									</div>
-									<div class="nearby__info">
-										<div class="nearby__name">
-												Гуревич<br>
-												Родион Хакимович										</div>
-										<div class="nearby__prof">
-											Хирург<br>
-																							Cтаж
-												7 лет																					</div>
-																					<div class="nearby__price">от 1900 руб.</div>
-
-										<div class="nearby__reviews">
-																							нет отзывов																					</div>
-									</div>
-								</div>
-								<div class="nearby__bottom">
-                                    <div class="nearby__metro">
-                                                                                                                                                                                    <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_9"></span>Таганская</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_3"></span>Марксистская</span>                                                                                                                        </div>
-								</div>
-							</div>
-						</a>
-
-
-						<a href="https://docdoc.ru/doctor/Shershnev_Roman" class="nearby__item">
-							<div class="nearby__content">
-								<div class="nearby__top">
-									<div class="nearby__doc">
-										<div class="nearby__photo">
-                                            <img src="https://cdn.docdoc.ru/doctor/2074_small.jpg?1534498204" alt="" />										</div>
-
-										<div class="nearby__rating">
-																						<div class="rate rate_small">
-												<div class="rate__default">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-												</div>
-																									<div class="rate__value" style="width:92%;">
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-													</div>
-																							</div>
-										</div>
-									</div>
-									<div class="nearby__info">
-										<div class="nearby__name">
-												Шершнев<br>
-												Роман Анатольевич										</div>
-										<div class="nearby__prof">
-											Пластический хирург, Флеболог, Хирург, Проктолог, Колопроктолог<br>
-																							Cтаж
-												21 год																					</div>
-																					<div class="nearby__price">бесплатно</div>
-
-										<div class="nearby__reviews">
-																							55 отзывов																					</div>
-									</div>
-								</div>
-								<div class="nearby__bottom">
-                                    <div class="nearby__metro">
-                                                                                                                                                                                    <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_10"></span>Римская</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_3"></span>Площадь Ильича</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_3"></span>Марксистская</span>                                                                                                                        </div>
-								</div>
-							</div>
-						</a>
-
-
-						<a href="https://docdoc.ru/doctor/Danilov_Andrey" class="nearby__item">
-							<div class="nearby__content">
-								<div class="nearby__top">
-									<div class="nearby__doc">
-										<div class="nearby__photo">
-                                            <img src="https://cdn.docdoc.ru/doctor/9604_small.jpg?1534485607" alt="" />										</div>
-
-										<div class="nearby__rating">
-																						<div class="rate rate_small">
-												<div class="rate__default">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-												</div>
-																									<div class="rate__value" style="width:95%;">
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-													</div>
-																							</div>
-										</div>
-									</div>
-									<div class="nearby__info">
-										<div class="nearby__name">
-												Данилов<br>
-												Андрей Ильич										</div>
-										<div class="nearby__prof">
-											Флеболог, Хирург, Проктолог<br>
-																							Cтаж
-												37 лет																					</div>
-																					<div class="nearby__price">от 1800 руб.</div>
-
-										<div class="nearby__reviews">
-																							367 отзывов																					</div>
-									</div>
-								</div>
-								<div class="nearby__bottom">
-                                    <div class="nearby__metro">
-                                                                                                                                                                                    <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_10"></span>Римская</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_3"></span>Площадь Ильича</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_3"></span>Марксистская</span>                                                                                                                        </div>
-								</div>
-							</div>
-						</a>
-
-
-						<a href="https://docdoc.ru/doctor/Sottaeva_Valentina" class="nearby__item">
-							<div class="nearby__content">
-								<div class="nearby__top">
-									<div class="nearby__doc">
-										<div class="nearby__photo">
-                                            <img src="https://cdn.docdoc.ru/doctor/988_small.jpg?1534467602" alt="" />										</div>
-
-										<div class="nearby__rating">
-																						<div class="rate rate_small">
-												<div class="rate__default">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-												</div>
-																									<div class="rate__value" style="width:89%;">
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-													</div>
-																							</div>
-										</div>
-									</div>
-									<div class="nearby__info">
-										<div class="nearby__name">
-												Соттаева<br>
-												Валентина Ханафиевна										</div>
-										<div class="nearby__prof">
-											Хирург, Проктолог, Колопроктолог<br>
-																							Cтаж
-												13 лет																					</div>
-																					<div class="nearby__price">от 1800 руб.</div>
-
-										<div class="nearby__reviews">
-																							282 отзыва																					</div>
-									</div>
-								</div>
-								<div class="nearby__bottom">
-                                    <div class="nearby__metro">
-                                                                                                                                                                                    <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_10"></span>Римская</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_3"></span>Площадь Ильича</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_3"></span>Марксистская</span>                                                                                                                        </div>
-								</div>
-							</div>
-						</a>
-
-
-						<a href="https://docdoc.ru/doctor/Chepezubov_Denis" class="nearby__item">
-							<div class="nearby__content">
-								<div class="nearby__top">
-									<div class="nearby__doc">
-										<div class="nearby__photo">
-                                            <img src="https://cdn.docdoc.ru/doctor/6666_small.jpg?1534462878" alt="" />										</div>
-
-										<div class="nearby__rating">
-																						<div class="rate rate_small">
-												<div class="rate__default">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-												</div>
-																									<div class="rate__value" style="width:95%;">
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-														<i class="fa fa-star" aria-hidden="true"></i>
-													</div>
-																							</div>
-										</div>
-									</div>
-									<div class="nearby__info">
-										<div class="nearby__name">
-												Чепезубов<br>
-												Денис Геннадьевич										</div>
-										<div class="nearby__prof">
-											Маммолог, Хирург<br>
-																							Cтаж
-												19 лет																					</div>
-																					<div class="nearby__price">от 2462 руб.</div>
-
-										<div class="nearby__reviews">
-																							58 отзывов																					</div>
-									</div>
-								</div>
-								<div class="nearby__bottom">
-                                    <div class="nearby__metro">
-                                                                                                                                                                                    <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_10"></span>Римская</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_3"></span>Площадь Ильича</span>, <span class="nearby__metro-item"><span class="i-metro-sm i-metro--line_3"></span>Марксистская</span>                                                                                                                        </div>
-								</div>
-							</div>
-						</a>
-
-
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 </section>
 
 		 <div class="footer-push"></div>     </section>
