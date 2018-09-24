@@ -1509,12 +1509,22 @@ a:hover {
 }
 .tapdoc-form-input1{
   display: block;
+  margin: auto;
+  margin-top: 4px;
 }
 .tapdoc-form-input2{
   display: block;
+  margin: auto;
+  margin-top: 4px;
 }
 .tapdoc-form-button{
-
+  display: block;
+  margin: auto;
+  width: 300px;
+  margin-top: 4px;
+}
+.tapdoc-form{
+  padding: 8px 0 0 0;
 }
 
 section.select-box-with-calendar.--sticky.--visible {
