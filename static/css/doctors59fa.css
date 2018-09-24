@@ -1465,6 +1465,7 @@ a:hover {
     border: 1px solid #dadce6;
     border-radius: 4px;
     background-color: #fff;
+    margin-left: 5px;
 }
 .doctor-card__left {
     width: 88px !important;
@@ -1529,6 +1530,19 @@ a:hover {
 
 section.select-box-with-calendar.--sticky.--visible {
     display: none;
+}
+.mobilelogo {
+
+}
+.mobilelogo img {
+  width: 147px;
+  margin: -7px 0px 0 23px;
+}
+.burgertapdocside {
+    float: left;
+}
+.headermobile {
+    padding: 13px 0px 0 6px;
 }
 }
 
