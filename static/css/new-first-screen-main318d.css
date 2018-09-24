@@ -131,6 +131,15 @@ div.search {
 	display: block;
 }
 
+@media screen and (max-width: 767px){
+	.header_main .header__inner .header__logowhite img {
+
+	    width: 129px;
+	    margin: -7px 0 0 0;
+	}
+}
+
+
 .recommended_today_title {
 	text-align: center;
 	color: #848D9F;
