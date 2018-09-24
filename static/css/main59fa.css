@@ -1747,7 +1747,7 @@ html.js .header_show {
     float: right;
     width: 270px;
     text-align: right;
-    padding-right: 27px;
+    padding-right: 71px;
 }
 
 }
@@ -1759,6 +1759,20 @@ html.js .header_show {
     text-align: right;
     padding-right: 79px;
 }
+
+}
+
+
+@media (min-width: 767px) and (max-width: 933px) { 
+  .search__field_zoom {
+      width: 290px !important;
+  }
+  .search__field_select {
+      width: 290px !important;
+  }
+  .search__field_button {
+      width: 110px !important;
+  }
 
 }
 
@@ -4228,7 +4242,7 @@ a.header_main-fixed .header__phone {
 .search__fields {
     display: block !important;
     width: 300px;
-    margin: 0 0 0 27px;
+    margin: auto;
 }}
   .search__field {
     display: block;
@@ -4331,10 +4345,10 @@ a.header_main-fixed .header__phone {
     height: 490px;
   }
   .footer-push {
-    height: 490px;
+    height: 460px;
   }
   .footer__inner {
-    padding: 36px 30px 0;
+    padding: 17px 30px 0;
     display: block;
     box-sizing: border-box;
   }
