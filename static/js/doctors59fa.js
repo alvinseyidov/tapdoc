@@ -3064,7 +3064,7 @@ var doctors = webpackJsonp_name_([4], Array(98).concat([function(t, e, i) {
     ]), n.locals && (t.exports = n.locals);
     i(4)("e325bcc8", n, !0, {})
 }, function(t, e, i) {
-    e = t.exports = i(3)(void 0), e.push([t.i, '.doctor-slots{min-height:103px}.doctor-slots__select{margin-bottom:12px}.doctor-slots__text{color:#848d9f;margin-bottom:8px}.doctor-slots__list{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-flow:wrap;-ms-flex-flow:wrap;flex-flow:wrap}.doctor-slots__list.\\--default .doctor-slots__list-item.button{width:62px}.doctor-slots__list.\\--default .doctor-slots__list-item.button:not(:nth-child(5n)){margin:0 8px 8px 0}.doctor-slots__list.\\--default .doctor-slots__list-item.button:not(.\\--expand){padding:6px 12px}.doctor-slots__list.\\--interval .doctor-slots__list-item.button{width:167px}.doctor-slots__list.\\--interval .doctor-slots__list-item.button:not(:nth-child(2n)){margin:0 8px 8px 0}.doctor-slots__list.\\--exclusive .doctor-slots__list-item.button:not(.\\--expand){padding:6px;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between}.doctor-slots__list.\\--exclusive .doctor-slots__list-item.button:not([data-exclusive="1"]):not(.\\--expand){padding:6px 12px}', ""])
+    e = t.exports = i(3)(void 0), e.push([t.i, '', ""])
 }, function(t, e, i) {
     "use strict";
 
@@ -3194,12 +3194,6 @@ var doctors = webpackJsonp_name_([4], Array(98).concat([function(t, e, i) {
             }, [t._v("Врач принимает в нескольких клиниках")]) : t._e(), t._v(" "), t.clinicsForSelect.length > 1 ? i("SelectBox", {
                 staticClass: "doctor-slots__select",
                 attrs: {
-                    "set-first-item-active": !1,
-                    "options-arr": t.clinicsForSelect,
-                    narrow: !0,
-                    "ui-test-id-button": t.dataTestId + ".clinic_select_button",
-                    "ui-test-id-items-wrap": t.dataTestId + ".clinic_select_items",
-                    type: "grey"
                 },
                 on: {
                     "select-change": t.changeClinic
@@ -3209,25 +3203,21 @@ var doctors = webpackJsonp_name_([4], Array(98).concat([function(t, e, i) {
                 attrs: {
                     "data-test-id": t.dataTestId + ".caption"
                 }
-            }, [t.isAllDays ? t._e() : i("span", [t._v("Выберите время приема для записи онлайн")]), t._v(" "), t.isAllDays && (t.isToday() || t.displayed) ? i("span", [t._v("Выберите время для записи на "), i("b", [t._v(t._s(t.getDayLabel()))])]) : t._e(), t._v(" "), !t.isAllDays || t.isToday() || t.displayed ? t._e() : i("span", [t._v("У врача всё занято. Ближайшая запись на "), i("b", [t._v(t._s(t.getDayLabel()))])])]) : t._e(), t._v(" "), t.displayedSlots.length > 0 && t.displayedSlots[0].isInterval ? i("div", {
+            }, [t.isAllDays ? t._e() : i("span", [t._v("Выберите время приема для записи онлайн")]), t._v(" "), t.isAllDays && (t.isToday() || t.displayed) ? i("span", [t._v("Qəbula yazılmaq üçün əlaqə saxlayın"), i("b", [t._v(t._s())])]) : t._e(), t._v(" "), !t.isAllDays || t.isToday() || t.displayed ? t._e() : i("span", [t._v("Qəbula yazılmaq üçün əlaqə saxlayın"), i("b", [t._v(t._s())])])]) : t._e(), t._v(" "), t.displayedSlots.length > 0 && t.displayedSlots[0].isInterval ? i("div", {
                 staticClass: "doctor-slots__text caption",
                 attrs: {
-                    "data-test-id": t.dataTestId + ".caption"
+
                 }
             }, [t.isAllDays ? t._e() : i("span", [t._v("Когда вам удобно прийти к врачу? Выберите время и мы предложим подходящий вариант")]), t._v(" "), t.isAllDays && (t.isToday() || t.displayed) ? i("span", [t._v("Когда вам удобно прийти к врачу? Выберите время на "), i("b", [t._v(t._s(t.getDayLabel()))]), t._v(" и мы предложим подходящий вариант")]) : t._e(), t._v(" "), !t.isAllDays || t.isToday() || t.displayed ? t._e() : i("span", [t._v("У врача всё занято. Ближайшая запись на "), i("b", [t._v(t._s(t.getDayLabel()))])])]) : t._e(), t._v(" "), t.displayedSlots.length > 0 ? [!t.isAllDays || t.isToday() || t.displayed ? i("div", {
                 staticClass: "doctor-slots__list",
                 class: {
-                    "--interval": t.displayedSlots && t.displayedSlots[0].isInterval, "--default": t.displayedSlots && !t.displayedSlots[0].isInterval, "--exclusive": t.displayedSlots && t.hasExclusiveSlot
-                }
+                    }
             }, [t._l(t.displayedSlots, function(e, n) {
-                return i("VButton", {
+                return i("", {
                     key: "slot-" + e,
                     staticClass: "doctor-slots__list-item",
                     attrs: {
-                        "data-test-id": t.dataTestId + ".slots." + n,
-                        "data-ga-label": "" + e.gaLabel,
-                        "data-ga-action": "clickTable",
-                        "data-exclusive": "" + e.exclusive
+
                     },
                     on: {
                         click: function(i) {
@@ -3255,7 +3245,7 @@ var doctors = webpackJsonp_name_([4], Array(98).concat([function(t, e, i) {
                 attrs: {
                     name: t.expanded ? "angle-bkt--big-white-up" : "ellipsis"
                 }
-            })], 1) : t._e()], 2) : i("div", [i("VButton", {
+            })], 1) : t._e()], 2) : i("div", [i("", {
                 attrs: {
                     color: "grey"
                 },
@@ -3267,13 +3257,11 @@ var doctors = webpackJsonp_name_([4], Array(98).concat([function(t, e, i) {
             }, [t._v("\n                Tezliklə aktiv olacaq \n            ")])], 1)] : [i("div", {
                 staticClass: "doctor-slots__text --empty-slots caption",
                 attrs: {
-                    "data-test-id": t.dataTestId + ".caption"
+
                 }
             }, [i("div", [t._v("В этой клинике у врача нет онлайн-расписания.")]), t._v(" "), i("div", [t._v("Оставьте заявку и мы перезвоним в течение 10 минут")])]), t._v(" "), i("VButton", {
                 attrs: {
-                    "data-test-id": t.dataTestId + ".submit",
-                    "data-ga-label": "" + t.generalGaLabel,
-                    "data-ga-action": "clickButton"
+
                 },
                 on: {
                     click: function(e) {

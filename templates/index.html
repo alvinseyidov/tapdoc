@@ -906,10 +906,16 @@
             </div>
 
             <div class="dropdownmyp">
-              <span>Mənim Profilim</span>
+              <span>Şəxsi Kabinet</span>
               <div class="dropdown-contentmyp">
-                <p><a href="{% url 'login' %}">Daxil Ol</a></p>
-                <p><a href="{% url 'signup' %}">Qeydiyyat</a></p>
+              {% if user.is_authenticated %}
+                <p><a href="{% url 'account' %}">Profilim</a></p>
+                <p><a href="{% url 'logout' %}">Çıxış</a></p>
+
+              {% else %}
+              <p><a href="{% url 'login' %}">Daxil Ol</a></p>
+              <p><a href="{% url 'signup' %}">Qeydiyyat</a></p>
+              {% endif %}
               </div>
             </div>
 
