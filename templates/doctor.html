@@ -153,6 +153,47 @@ padding: 42px 13px 51px 25%;
 	    width: 91px;
     height: 40px;
 	}
+
+
+
+	.sidenavtapdocside {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenavtapdocside a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenavtapdocside a:hover {
+    color: #f1f1f1;
+}
+
+.sidenavtapdocside .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenavtapdocside {padding-top: 15px;}
+  .sidenavtapdocside a {font-size: 18px;}
+}
 </style>
 
 	<link rel="apple-touch-icon" sizes="180x180"
@@ -216,36 +257,22 @@ padding: 42px 13px 51px 25%;
 	</p>
 	<![endif]-->
 
-    <!--<div class="header">
-        <table class="headertable">
-              <tr>
-                 <th>
-                     <div class="brand">
-                        <a href="{% url 'homepage'%}"> <img src="{% static 'img/tapdoc.png' %}" width="180px" height="auto"/> </a>
-                      </div>
-                 </th>
-                 <th class="headertableth">
-                     <div>
-                         <p class="header1">Kömək lazımdır? <span class="header2">Zəng Edin!</span></p>
-                         <p class="header3">8 (499) 116-81-46</p>
-                     </div>
+    
 
 
-                     <div class="dropdownmyp">
-                       <span>Mənim Profilim</span>
-                        <div class="dropdown-contentmyp">
-                             <p><a href="{% url 'login' %}">Daxil Ol</a></p>
-                             <p><a href="{% url 'signup' %}">Qeydiyyat</a></p>
-                        </div>
-                     </div>
-                 </th>
-              </tr>
-        </table>
+<div class="headermobile">
+		<div id="mySidenavtapdocside" class="sidenavtapdocside">
+		<a href="javascript:void(0)" class="closebtntapdocside" onclick="closeNavtapdocside()">&times;</a>
+		<a href="#">About</a>
+		<a href="#">Services</a>
+		<a href="#">Clients</a>
+		<a href="#">Contact</a>
+		</div>
 
 
-    </div>-->
+		<div class="burgertapdocside"><span style="font-size:30px;cursor:pointer" onclick="openNavtapdocside()">&#9776;</span></div>
 
-
+</div>
 
 
 
@@ -585,36 +612,6 @@ padding: 42px 13px 51px 25%;
 
 
 
-
-
-
-
-
-
-
-
-    <the-pagination v-cloak>
-        <v-button href="doctor/page/1.html" :type="'link'" :color="'white'"
-             class="left disabled">
-            <v-icon :name="'arrow-left'"></v-icon>
-        </v-button>
-
-                                                    <v-button href="doctor/page/1.html" :type="'link'" :color="'dark-grey'">1</v-button>
-                                                        <v-button href="doctor.html" :type="'link'" :color="'white'">2</v-button>
-                                                        <v-button href="doctor.html" :type="'link'" :color="'white'">3</v-button>
-                                                        <v-button href="doctor.html" :type="'link'" :color="'white'">4</v-button>
-                                                        <v-button href="doctor.html" :type="'link'" :color="'white'">5</v-button>
-                                                        <v-button href="doctor.html" :type="'link'" :color="'white'">6</v-button>
-                                                        <v-button href="doctor.html" :type="'link'" :color="'white'">7</v-button>
-                                                <span class="ellipsis">...</span>
-                                    <v-button href="doctor.html" :type="'link'" :color="'white'">804</v-button>
-
-        <v-button href="doctor/page/2.html" :type="'link'"
-             :color="'white'"
-             class="right ">
-            <v-icon :name="'arrow-right'"></v-icon>
-        </v-button>
-    </the-pagination>
 
 
 <hidden-block class="bg--white --border-top --border-bottom" v-cloak>
@@ -1081,48 +1078,7 @@ padding: 42px 13px 51px 25%;
 
 
 
-<the-footer
-    :socials="{
 
-        fb: 'https://www.facebook.com/docdoc.ru/',
-        youtube: 'https://www.youtube.com/channel/UCzmp8WzYmly2Dskaf5HuIXg',
-
-        google: 'https://plus.google.com/u/0/communities/100822418719925616773'
-    }"
->
-    <div slot="service">
-        <a href="about.html">Haqqımızda</a>
-        <a href="http://vacancy.docdoc.ru/">Vakansiyalar</a>
-        <a href="about/press.html">Press</a>
-        <a href="about/team.html">Komanda</a>
-        <a href="about/contacts.html">Əlaqə</a>
-        <a href="about/faq.html">FAQ</a>
-        <a href="sitemap.html">Saytın Xəritəsi</a>
-        <a href="offer.html">İstifadəçi Razılaşması</a>
-    </div>
-    <div slot="pacient">
-        <a href="doctor.html">Həkimlər</a>
-        <a href="clinic.html">Klinikalar</a>
-                    <a href="https://diagnostica.docdoc.ru/">Diaqnostika</a>
-                <a href="service.html">Xidmətlər</a>
-        <a href="library.html">Tibbi Kitabxana</a>
-        <a href="https://illness.docdoc.ru/">Xəstəliklərin Kitabçası</a>
-        <a href="confidentiality.html">Güvənirlik</a>
-        <a href="agreement.html">Şəxsi Məlumatların Qorunması</a>
-		        	<a href="http://live.docdoc.ru/docsales" target="_blank">Kampaniyalar</a>
-		    </div>
-    <div slot="clinics">
-        <a href="lk/auth.html" rel="nofollow">Şəxsi Kabinet</a>
-        <a href="register.html" rel="nofollow">Qeydiyyat</a>
-    </div>
-    <div slot="partners">
-        <a href="https://pk.docdoc.ru/" rel="nofollow">Şəxsi Kabinet</a>
-        <a href="https://pk.docdoc.ru/affiliate" rel="nofollow">Partnyorluq Programı</a>
-    </div>
-            <a href="tel:84959270101" slot="phone" class="header_contact_phone">
-             (+994) 927-01-01        </a>
-        <a href="mailto:info@docdoc.ru" slot="email">info@tapdoc.az</a>
-</the-footer>
 
     <the-popup></the-popup>
 </div>
@@ -1139,6 +1095,15 @@ padding: 42px 13px 51px 25%;
 <script src="{% static 'js/doctors59fa.js' %}"></script>
 
 <script src="{% static 'js/jquery-1.11.1.min59fa.js?2937290733' %}"></script>
+<script>
+function openNavtapdocside() {
+	document.getElementById("mySidenavtapdocside").style.width = "250px";
+}
+
+function closeNavtapdocside() {
+	document.getElementById("mySidenavtapdocside").style.width = "0";
+}
+</script>
     <script>
 	// Плагин для отправки хитов GA в локальное хранилище, вызов в gtm
 	function BqHitSender() {

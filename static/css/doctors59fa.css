@@ -1271,13 +1271,13 @@ p.title-small {
   background-color: transparent;
 }
 #app-root {
-  min-width: 1000px;
+
 }
 [v-cloak] {
   display: none;
 }
 .wrap {
-  width: 1000px;
+  max-width: 1000px !important;
   margin: 0 auto;
   height: 100%;
   box-sizing: border-box;
@@ -1494,7 +1494,36 @@ a:hover {
 .doctor-card-reviews {
     padding: 0 14px 0 0;
 }
-
-
+.headertable{
+  display: none;
+}
+.bg--white {
+    display: none;
+}
+.filters {
+    display: none;
+}
+.tapdoc-form-bg {
+    background-color: #f2f3f5;
+    padding: 0 0 0 0;
+}
+.tapdoc-form-input1{
+  display: block;
+}
+.tapdoc-form-input2{
+  display: block;
+}
+.tapdoc-form-button{
 
 }
+
+section.select-box-with-calendar.--sticky.--visible {
+    display: none;
+}
+}
+
+
+@media screen and (min-width: 767px){
+.headermobile{
+  display: none;
+}}
