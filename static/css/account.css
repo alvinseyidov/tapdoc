@@ -256,6 +256,7 @@ margin: 7px 0 8px 0px;
 .karttext{
 	width: 78%;
 	float:left;
+  padding: 0 2px 0 47px;
 }
 
 
@@ -268,10 +269,37 @@ margin: 7px 0 8px 0px;
 }
 
 .kart3{
-	    height: 142px;
+
     border-radius: 10px;
-    background: url(https://cdn.ondoc.me/img/e1be591….png) right bottom no-repeat,linear-gradient(to left,#2dc8d7,#57dadf);
     margin: 13px 0 18px 0;
+}
+
+@media screen and (max-width: 767px){
+  .karttext {
+
+      padding: 0 2px 0 47px;
+  }
+  .main3 {
+    padding: 4px 15px 16px 15px;
+    margin: 9px 0 9px 0;
+    width: 100%;
+    float: none;
+}
+.main2 {
+    padding: 4px 15px 16px 0px;
+    margin: 9px 0 9px 0;
+    width: 100%;
+    float: none;
+}
+.kart3 img{
+  width: 100%;
+}
+.kart3 {
+  height: 290px;
+}
+}
+.kart3 img{
+  width: 100%;
 }
 .kart31{
 	width: 60%;
