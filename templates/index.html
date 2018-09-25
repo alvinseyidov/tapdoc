@@ -779,6 +779,7 @@
 
   <script src="{% static 'js/modernizr-custom59fa.js' %}"></script>
 
+
   <script type="application/ld+json">
     [{
         "@context": "https://schema.org",
@@ -1370,12 +1371,13 @@
                           </div>
                           <div class="help__field">
                             <div class="forms__field">
-                              <input class="forms__input" type="text" name="requestPhone" placeholder="+994 ___ ___-__-__" />
+                                <input class="forms__input" type="text" value="(___) ___-____" data-mask="(___) ___-____"/>
                             </div>
                               <div class="error hidden">Введите ваш номер телефона!</div>
                             </div>
                         </form>
                         <div class="callback-form-success hidden help__text">Спасибо, мы вам перезвоним!</div>
+
                       </div>
                     </div>
                   </div>
@@ -1477,7 +1479,6 @@
     </div>
     <div class="popup__click js-popup-overlay"></div>
   </div>
-
 
 
   <script src="widget/js59fa?2937290733" type="text/javascript" id="docdoc-platform2"></script>
@@ -1601,6 +1602,7 @@
   <!-- End Google Tag Manager -->
   <script src="../s.docdoc.ru/compile/yandex-map59fa.js?2937290733"></script>
 
+
   <script type="text/javascript" src="{% static 'js/jquery.debounce.minf9e3.js'%}"></script>
   <script type="text/javascript" src="{% static 'js/fastPreviewSearch5e1f.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/vue.2.5.16.minbdfc.js' %}"></script>
@@ -1619,6 +1621,47 @@
       "agent": ""
     }
   </script>
+  <script>
+Array.prototype.forEach.call(document.body.querySelectorAll("*[data-mask]"), applyDataMask);
+
+function applyDataMask(field) {
+    var mask = field.dataset.mask.split('');
+
+    // For now, this just strips everything that's not a number
+    function stripMask(maskedData) {
+        function isDigit(char) {
+            return /\d/.test(char);
+        }
+        return maskedData.split('').filter(isDigit);
+    }
+
+    // Replace `_` characters with characters from `data`
+    function applyMask(data) {
+        return mask.map(function(char) {
+            if (char != '_') return char;
+            if (data.length == 0) return char;
+            return data.shift();
+        }).join('')
+    }
+
+    function reapplyMask(data) {
+        return applyMask(stripMask(data));
+    }
+
+    function changed() {
+        var oldStart = field.selectionStart;
+        var oldEnd = field.selectionEnd;
+
+        field.value = reapplyMask(field.value);
+
+        field.selectionStart = oldStart;
+        field.selectionEnd = oldEnd;
+    }
+
+    field.addEventListener('click', changed)
+    field.addEventListener('keyup', changed)
+}
+</script>
 </body>
 
 <!-- Mirrored from docdoc.ru/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 17 Aug 2018 09:49:57 GMT -->
