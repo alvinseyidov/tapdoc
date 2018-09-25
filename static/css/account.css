@@ -276,7 +276,7 @@ margin: 7px 0 8px 0px;
 
 @media screen and (max-width: 500px){
 .kart3 {
-    height: 138px;
+    height: 138px !important;
 }}
 @media screen and (max-width: 767px){
   .karttext {
