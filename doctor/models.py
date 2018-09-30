@@ -30,7 +30,7 @@ class Doctor(models.Model):
     image = models.ImageField(null=True, blank=True)
     description = models.TextField(max_length=10000, null=True)
     professions = models.ManyToManyField(Profession, related_name='doctors')
-    wishlist = models.ManyToManyField(User, related_name='wishlist', null=True)
+    wishlist = models.ManyToManyField(User, related_name='wishlist', blank=True)
 
 
     def __str__(self):
