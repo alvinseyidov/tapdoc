@@ -163,51 +163,18 @@
       </div>
       <div class="main4">
         <div class="main2">
+          {% for doctor in doctors %}
           <div class="kart">
             <div class="karticon">
-              <img src="{% static 'img/avatar1.png'%}"/>
-
-
+              <img src="{{doctor.image.url}}"/>
 											</div>
               <div class="karttext">
-                <h6>Lorem Ipsum</h6>
+                <h6>{{doctor.first_name}}  {{doctor.last_name}} </h6>
                 <p>afvasdfvasdvas dvasdvasdvasd </p>
-
-
               </div>
-
-
             </div>
-            <div class="kart">
-              <div class="karticon">
-                <img src="{% static 'img/avatar1.png'%}"/>
 
-
-											</div>
-                <div class="karttext">
-                  <h6>Lorem Ipsum</h6>
-                  <p>afvasdfvasdvasd vasdvasdvasd</p>
-
-
-                </div>
-
-
-              </div>
-              <div class="kart">
-                <div class="karticon">
-                  <img src="{% static 'img/avatar1.png'%}"/>
-
-
-											</div>
-                  <div class="karttext">
-                    <h6>Lorem Ipsum</h6>
-                    <p>afvasdfvasdva sdvasdvasdvasd</p>
-
-
-                  </div>
-
-
-                </div>
+          {% endfor %}
 
 
               </div>

@@ -7,6 +7,9 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
 }
+.karticon img {
+    width: 51px;
+}
 
 p {
     font-family: 'Poppins', sans-serif;

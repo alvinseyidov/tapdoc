@@ -1,6 +1,6 @@
 from django.contrib.auth import login as auth_login
 from django.shortcuts import render, redirect
-
+from doctor.models import Doctor, User
 from .forms import SignUpForm
 
 def signup(request):
@@ -15,4 +15,10 @@ def signup(request):
     return render(request, 'signup.html', {'form': form})
 
 def account(request):
-    return render(request, 'account.html')
+    doctors_list = Doctor.objects.all()
+    wishlist1 = User.objects.first()
+    wishlist = wishlist1.wishlist.all()
+    context = {
+        "doctors": wishlist
+    }
+    return render(request, 'account.html', context)
