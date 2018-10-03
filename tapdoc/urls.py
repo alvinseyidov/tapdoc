@@ -32,6 +32,8 @@ urlpatterns = [
     path('account/',accounts_views.account , name='account'),
     path('doctor/<int:id>/addtofavor', views.addtofavor, name='addtofavor'),
     path('doctor/<int:id>/removefavor', views.removefavor, name='removefavor'),
+    path('doctor/<int:id>/addtofavordoctor', views.addtofavordoctor, name='addtofavordoctor'),
+    path('doctor/<int:id>/removefavordoctor', views.removefavordoctor, name='removefavordoctor'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

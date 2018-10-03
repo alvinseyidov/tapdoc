@@ -744,7 +744,7 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/new-first-screen-main318d.css' %}" />
   <script type="text/javascript" src="{% static 'js/new-first-screen-main318d.js' %}"></script>
   <script type="text/javascript" src="../s.docdoc.ru/js/eventTracker59fa.js?2937290733" id="event-tracker-script" data-category="site-index" defer="defer"></script>
-  <title>DocDoc - сервис поиска врача и записи на прием</title>
+  <title>Tapdoc - Həkim Axtarışı</title>
 
   <link rel="stylesheet" href="static/compile/fonts59fa.css?2937290733">
 
@@ -864,7 +864,7 @@
     <div class="leftmenu__inner">
       <ul class="leftmenu__list leftmenu__list_top">
         <li>
-          <a href="index.html" class="js-hover"><i class="fa fa-home" aria-hidden="true"></i>Ana Səhifə</a>
+          <a href="{% url 'homepage' %}" class="js-hover"><i class="fa fa-home" aria-hidden="true"></i>Ana Səhifə</a>
         </li>
 
 
@@ -874,12 +874,21 @@
       </div>
       <div id="left_menu_lk">
       <ul class="leftmenu__list leftmenu__list_top">
+      {% if user.is_authenticated %}
       <li>
-        <a href="index.html" class="js-hover"><i class="fa fa-sign-in" aria-hidden="true"></i>Daxil Ol</a>
+        <a href="{% url 'account' %}" class="js-hover"><i class="fa fa-sign-in" aria-hidden="true"></i>Profilim</a>
       </li>
       <li>
-        <a href="index.html" class="js-hover"><i class="fa fa-user" aria-hidden="true"></i>Qeydiyyat</a>
+        <a href="{% url 'logout' %}" class="js-hover"><i class="fa fa-user" aria-hidden="true"></i>Çıxış</a>
       </li>
+      {% else %}
+      <li>
+        <a href="{% url 'login' %}" class="js-hover"><i class="fa fa-sign-in" aria-hidden="true"></i>Daxil Ol</a>
+      </li>
+      <li>
+        <a href="{% url 'signup' %}" class="js-hover"><i class="fa fa-user" aria-hidden="true"></i>Qeydiyyat</a>
+      </li>
+      {% endif %}
       </ul>
       </div>
     </div>
@@ -1083,53 +1092,53 @@
                 <li class="suggested-features-showcase__item">
                   <a data-layer-event="click_doctor" data-layer-card-type="main popular" class="suggested-feature" href="doctor/dermatolog.html">
 							<header class="suggested-feature__header">
-								<h3 class="suggested-feature__title">Ən Yaxşı</h3>
+								<h3 class="suggested-feature__title">Həkimlər</h3>
 								<div class="suggested-feature__icon">
 									<svg class="icon">
 										<use x="0" y="0" xlink:href="static/i/first-screen/svg.svg#star"></use>
 									</svg>
 								</div>
 							</header>
-							<p class="suggested-feature__description">Ən Yaxşı <br>Dermotoloqlar</p>
+							<p class="suggested-feature__description">Bütün <br>Həkimlər</p>
 						</a>
                 </li>
                 <li class="suggested-features-showcase__item">
                   <a data-layer-event="click_mobapp" data-layer-card-type="main" href="#apps_anchor" class="suggested-feature highlighted">
 								<header class="suggested-feature__header">
-									<h3 class="suggested-feature__title">Hər zaman sizinlə</h3>
+									<h3 class="suggested-feature__title">Diaqnostika</h3>
 									<div class="suggested-feature__icon">
 										<svg class="icon">
 											<use x="0" y="0" xlink:href="static/i/first-screen/svg.svg#smartphone"></use>
 										</svg>
 									</div>
 								</header>
-								<p class="suggested-feature__description">Mobil Applikasiya</p>
+								<p class="suggested-feature__description">Diaqnostika <br>Mərkəzləri</p>
 							</a>
                 </li>
                 <li class="suggested-features-showcase__item">
                   <a data-layer-event="click_doctor" data-layer-card-type="main cheap" class="suggested-feature" href="doctor/lor_otolaringolog/order/price.html">
 							<header class="suggested-feature__header">
-								<h3 class="suggested-feature__title">Ekonom</h3>
+								<h3 class="suggested-feature__title">Siğorta</h3>
 								<div class="suggested-feature__icon">
 									<svg class="icon">
 										<use x="0" y="0" xlink:href="static/i/first-screen/svg.svg#wallet"></use>
 									</svg>
 								</div>
 							</header>
-							<p class="suggested-feature__description">Sərfəli LOR Həkimlər</p>
+							<p class="suggested-feature__description">Tibbi <br>Siğorta</p>
 						</a>
                 </li>
                 <li class="suggested-features-showcase__item">
                   <a data-layer-event="click_dms" data-layer-card-type="main" class="suggested-feature" href="dms.html">
 								<header class="suggested-feature__header">
-									<h3 class="suggested-feature__title">Sizə Uyğun</h3>
+									<h3 class="suggested-feature__title">Rahatlıq</h3>
 									<div class="suggested-feature__icon">
 										<svg class="icon">
 											<use x="0" y="0" xlink:href="static/i/first-screen/svg.svg#page"></use>
 										</svg>
 									</div>
 								</header>
-								<p class="suggested-feature__description">Tibbi Siğorta</p>
+								<p class="suggested-feature__description">Mobil Applikasiya</p>
 							</a>
                 </li>
               </ul>
@@ -1142,16 +1151,16 @@
         <div class="benefits">
           <div class="benefits__mobile">
             <div class="benefits__mobile-item benefits__mobile-item_1">
-              <div class="benefits__mobile-title">Проверенные врачи</div>
-              <div class="benefits__mobile-text">Мы проверяем информацию о врачах и контролируем ее актуальность. Публикуем все отзывы пациентов вне зависимости от поставленной оценки</div>
+              <div class="benefits__mobile-title">Ən Gerçək Rəylər</div>
+              <div class="benefits__mobile-text">Həkimlər haqqında yazılan rəylər yalnız həkimin qəbulunda olan xəstələr tərəfindən yazılır və dəqiq olub-olmamağı bizim tərəfimizdən yoxlanılır.</div>
             </div>
             <div class="benefits__mobile-item benefits__mobile-item_2">
-              <div class="benefits__mobile-title">Запись на удобное время</div>
-              <div class="benefits__mobile-text">У большинства врачей на сайте есть онлайн-расписание. Это значит, что вы за пару минут выберете подходящего врача и мгновенно запишетесь на прием. Оплачивать на сайте ничего не нужно.</div>
+              <div class="benefits__mobile-title">Uyğun Vaxtda Yazıl</div>
+              <div class="benefits__mobile-text">Həkim qəbuluna yazılmaq üçün həkimi seçirsiniz və bizimlə əlaqə saxlayaraq sizə ən uyğun vaxta həkim qəbuluna yazılmağa kömək edirik.</div>
             </div>
             <div class="benefits__mobile-item benefits__mobile-item_3">
-              <div class="benefits__mobile-title">Врачи рядом с вами</div>
-              <div class="benefits__mobile-text">На сайте 11857 врачей из любого района города. Вы легко найдете врача в удобном месте и запишитесь на прием в пару кликов.</div>
+              <div class="benefits__mobile-title">Sizə Yaxın Həkimlər</div>
+              <div class="benefits__mobile-text">Xidmətimizin bir üstünlüyü də odur ki, siz məkanlara görə də həkim axtarışı edə bilirsiniz. Sizə yaxın olan bütün həkimlərin siyahısını görə bilirsiniz.</div>
             </div>
           </div>
           <div class="benefits__inner">
@@ -1288,65 +1297,65 @@
                     <div class="specs__inner">
                       <div class="specs__items">
                         <div class="specs__cols">
-                          <div><a href="doctor/akusher.html"><span>591</span> <span>Gnikoloq</span></a></div>
-                          <div><a href="doctor/allergolog.html"><span>121</span> <span>Allerqoloq</span></a></div>
-                          <div><a href="doctor/androlog.html"><span>197</span> <span>Androloq</span></a></div>
-                          <div><a href="doctor/anesteziolog.html"><span>54</span> <span>Anestizioloq</span></a></div>
-                          <div><a href="doctor/artrolog.html"><span>16</span> <span>Artroloq</span></a></div>
-                          <div><a href="doctor/venerolog.html"><span>220</span> <span>Veneroloq</span></a></div>
-                          <div><a href="doctor/vertebrolog.html"><span>58</span> <span>Stomotoloq</span></a></div>
-                          <div><a href="doctor/gastroenterolog.html"><span>244</span> <span>Qastroentroloq</span></a></div>
-                          <div><a href="doctor/gematolog.html"><span>25</span> <span>Hemotoloq</span></a></div>
-                          <div><a href="doctor/genetik.html"><span>19</span> <span>Genetika</span></a></div>
-                          <div><a href="doctor/gepatolog.html"><span>47</span> <span>Hepatoloq</span></a></div>
-                          <div><a href="doctor/ginekolog.html"><span>813</span> <span>Mamalıq</span></a></div>
-                          <div><a href="doctor/gomeopat.html"><span>28</span> <span>Homepat</span></a></div>
-                          <div><a href="doctor/dermatolog.html"><span>440</span> <span>Dermotoloq</span></a></div>
-                          <div><a href="doctor/dietolog.html"><span>80</span> <span>Dietoloq</span></a></div>
-                          <div><a href="doctor/immunolog.html"><span>107</span> <span>İmmunoloq</span></a></div>
-                          <div><a href="doctor/infektsionist.html"><span>29</span> <span>İnfeksionist</span></a></div>
-                          <div><a href="doctor/kardiolog.html"><span>280</span> <span>Kardioloq</span></a></div>
-                          <div><a href="doctor/koloproktolog.html"><span>63</span> <span>Fiziterapist</span></a></div>
-                          <div><a href="doctor/kosmetolog.html"><span>400</span> <span>Kasmetoloq</span></a></div>
-                          <div><a href="doctor/logoped.html"><span>48</span> <span>Loqoped</span></a></div>
-                          <div><a href="doctor/lor_otolaringolog.html"><span>351</span> <span>Lor</span></a></div>
-                          <div><a href="doctor/mammolog.html"><span>135</span> <span>Mammoloq</span></a></div>
-                          <div><a href="doctor/manualnaya_terapiya.html"><span>238</span> <span>Terapevt</span></a></div>
-                          <div><a href="doctor/massazhist.html"><span>207</span> <span>Masajist</span></a></div>
-                          <div><a href="doctor/mikolog.html"><span>31</span> <span>Mikoloq</span></a></div>
-                          <div><a href="doctor/narkolog.html"><span>124</span> <span>Narkoloq</span></a></div>
-                          <div><a href="doctor/nevrolog.html"><span>500</span> <span>Nevroloq</span></a></div>
-                          <div><a href="doctor/neyropsiholog.html"><span>32</span> <span>Psixoloq</span></a></div>
-                          <div><a href="doctor/neirohirurg.html"><span>31</span> <span>Neyrocərrah</span></a></div>
-                          <div><a href="doctor/neonatolog.html"><span>17</span> <span>Neonataloq</span></a></div>
-                          <div><a href="doctor/nefrolog.html"><span>31</span> <span>Nefroloq</span></a></div>
-                          <div><a href="doctor/okulist.html"><span>283</span> <span>Okulist</span></a></div>
-                          <div><a href="doctor/onkolog.html"><span>152</span> <span>Onkoloq</span></a></div>
-                          <div><a href="doctor/ortoped.html"><span>293</span> <span>Ortoped</span></a></div>
-                          <div><a href="doctor/osteopat.html"><span>130</span> <span>Oesteopat</span></a></div>
-                          <div><a href="doctor/pediatr.html"><span>331</span> <span>Pediatr</span></a></div>
-                          <div><a href="doctor/plasticheskij_hirurg.html"><span>111</span> <span>Plastik Cərrah</span></a></div>
-                          <div><a href="doctor/proktolog.html"><span>106</span> <span>Proktoloq</span></a></div>
-                          <div><a href="doctor/psihiatr.html"><span>215</span> <span>Psixiatr</span></a></div>
-                          <div><a href="doctor/psiholog.html"><span>375</span> <span>Psixoloq</span></a></div>
-                          <div><a href="doctor/psihoterapevt.html"><span>271</span> <span>Psixoterapevt</span></a></div>
-                          <div><a href="doctor/pulmonolog.html"><span>68</span> <span>Pulmonoloq</span></a></div>
-                          <div><a href="doctor/revmatolog.html"><span>59</span> <span>Revmotoloq</span></a></div>
-                          <div><a href="doctor/reproduktolog_eko.html"><span>61</span> <span>Reprodoktoloq</span></a></div>
-                          <div><a href="doctor/refleksoterapevt.html"><span>170</span> <span>Refleksoterapevt</span></a></div>
-                          <div><a href="doctor/seksolog.html"><span>25</span> <span>Seksoloq</span></a></div>
-                          <div><a href="doctor/stomatolog.html"><span>987</span> <span>Stomotoloq</span></a></div>
-                          <div><a href="doctor/terapevt.html"><span>515</span> <span>Terapevt</span></a></div>
-                          <div><a href="doctor/travmatolog.html"><span>199</span> <span>Travmatoloq</span></a></div>
-                          <div><a href="doctor/triholog.html"><span>104</span> <span>Trixoloq</span></a></div>
-                          <div><a href="doctor/vrach_uzi.html"><span>680</span> <span>Uzi mütəxəssisi</span></a></div>
-                          <div><a href="doctor/urolog.html"><span>366</span> <span>Uroloq</span></a></div>
-                          <div><a href="doctor/fizioterapevt.html"><span>141</span> <span>Fizioloq</span></a></div>
-                          <div><a href="doctor/flebolog.html"><span>127</span> <span>Floboloq</span></a></div>
-                          <div><a href="doctor/hirurg.html"><span>473</span> <span>Cərrah</span></a></div>
-                          <div><a href="doctor/chelustnolicevoj_hirurg.html"><span>40</span> <span>Ümumi Cərrah</span></a></div>
-                          <div><a href="doctor/endokrinolog.html"><span>235</span> <span>Endokrinoloq</span></a></div>
-                          <div><a href="doctor/endoskopist.html"><span>124</span> <span>Endoskopist</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>591</span> <span>Gnikoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>121</span> <span>Allerqoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>197</span> <span>Androloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>54</span> <span>Anestizioloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>16</span> <span>Artroloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>220</span> <span>Veneroloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>58</span> <span>Stomotoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>244</span> <span>Qastroentroloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>25</span> <span>Hemotoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>19</span> <span>Genetika</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>47</span> <span>Hepatoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>813</span> <span>Mamalıq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>28</span> <span>Homepat</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>440</span> <span>Dermotoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>80</span> <span>Dietoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>107</span> <span>İmmunoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>29</span> <span>İnfeksionist</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>280</span> <span>Kardioloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>63</span> <span>Fiziterapist</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>400</span> <span>Kasmetoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>48</span> <span>Loqoped</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>351</span> <span>Lor</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>135</span> <span>Mammoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>238</span> <span>Terapevt</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>207</span> <span>Masajist</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>31</span> <span>Mikoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>124</span> <span>Narkoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>500</span> <span>Nevroloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>32</span> <span>Psixoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>31</span> <span>Neyrocərrah</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>17</span> <span>Neonataloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>31</span> <span>Nefroloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>283</span> <span>Okulist</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>152</span> <span>Onkoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>293</span> <span>Ortoped</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>130</span> <span>Oesteopat</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>331</span> <span>Pediatr</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>111</span> <span>Plastik Cərrah</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>106</span> <span>Proktoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>215</span> <span>Psixiatr</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>375</span> <span>Psixoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>271</span> <span>Psixoterapevt</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>68</span> <span>Pulmonoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>59</span> <span>Revmotoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>61</span> <span>Reprodoktoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>170</span> <span>Refleksoterapevt</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>25</span> <span>Seksoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>987</span> <span>Stomotoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>515</span> <span>Terapevt</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>199</span> <span>Travmatoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>104</span> <span>Trixoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>680</span> <span>Uzi mütəxəssisi</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>366</span> <span>Uroloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>141</span> <span>Fizioloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>127</span> <span>Floboloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>473</span> <span>Cərrah</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>40</span> <span>Ümumi Cərrah</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>235</span> <span>Endokrinoloq</span></a></div>
+                          <div><a href="{% url 'doctor' %}"><span>124</span> <span>Endoskopist</span></a></div>
                         </div>
                       </div>
                     </div>
@@ -1399,43 +1408,43 @@
             <nav class="footer__nav">
               <div class="footer__title">Xidmətlər</div>
               <ul class="footer__list">
-                <li><a href="about.html">Haqqımızda</a></li>
-                <li><a href="http://vacancy.docdoc.ru/">Vakansiyalar</a></li>
-                <li><a href="about/press.html">Press</a></li>
-                <li><a href="about/team.html">Komandamız</a></li>
-                <li><a href="about/contacts.html">Əlaqə</a></li>
-                <li><a href="about/faq.html">FAQ</a></li>
-                <li><a href="sitemap.html">Saytın Xəritəsi</a></li>
-                <li><a href="offer.html">Razılaşmalar</a></li>
+                <li><a href="#">Haqqımızda</a></li>
+                <li><a href="#">Vakansiyalar</a></li>
+                <li><a href="#">Press</a></li>
+                <li><a href="#">Komandamız</a></li>
+                <li><a href="#">Əlaqə</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Saytın Xəritəsi</a></li>
+                <li><a href="#">Razılaşmalar</a></li>
               </ul>
             </nav>
             <nav class="footer__nav">
               <div class="footer__title">Xəstələr Üçün</div>
               <ul class="footer__list">
-                <li><a href="doctor.html">Həkimlər</a></li>
-                <li><a href="clinic.html">Klinakalar</a></li>
-                <li><a href="https://diagnostica.docdoc.ru/">Diaqnostika</a></li>
-                <li><a href="service.html">Xidmətlər</a></li>
-                <li><a href="library.html">Tibbi Kitabxanalar</a></li>
-                <li><a href="https://illness.docdoc.ru/">Xəstəliklər</a></li>
-                <li><a href="http://live.docdoc.ru/docsales">Endirim Aksiyalar</a></li>
-                <li><a href="confidentiality.html">Güvənirlik</a></li>
-                <li><a href="agreement.html">Şəxsi Məlumatların Qorunulması</a></li>
+                <li><a href="#">Həkimlər</a></li>
+                <li><a href="#">Klinakalar</a></li>
+                <li><a href="#">Diaqnostika</a></li>
+                <li><a href="#">Xidmətlər</a></li>
+                <li><a href="#">Tibbi Kitabxanalar</a></li>
+                <li><a href="#">Xəstəliklər</a></li>
+                <li><a href="#">Endirim Aksiyalar</a></li>
+                <li><a href="#">Güvənirlik</a></li>
+                <li><a href="#">Şəxsi Məlumatların Qorunulması</a></li>
               </ul>
             </nav>
             <nav class="footer__nav">
               <div class="footer__nav-group">
                 <div class="footer__title">Həkim və Klinikalar</div>
                 <ul class="footer__list">
-                  <li><a href="lk/auth.html" rel="nofollow">Şəxsi Kabinet</a></li>
-                  <li><a href="register.html" rel="nofollow">Qeydiyyat</a></li>
+                  <li><a href="#" rel="nofollow">Şəxsi Kabinet</a></li>
+                  <li><a href="#" rel="nofollow">Qeydiyyat</a></li>
                 </ul>
               </div>
               <div class="footer__nav-group">
                 <div class="footer__title">Partnyorlar</div>
                 <ul class="footer__list">
-                  <li><a href="https://pk.docdoc.ru/" rel="nofollow">Şəxsi Kabinet</a></li>
-                  <li><a href="https://pk.docdoc.ru/affiliate" rel="nofollow">Partnyorluq Programı</a></li>
+                  <li><a href="#" rel="nofollow">Şəxsi Kabinet</a></li>
+                  <li><a href="#" rel="nofollow">Partnyorluq Programı</a></li>
                 </ul>
               </div>
             </nav>
@@ -1444,7 +1453,7 @@
         <aside class="footer__right">
           <div class="footer__logo"><img src="../s.docdoc.ru/new-doc-doc/images/logo.png" alt="" width="140" /></div>
             <div class="footer__contacts">
-              Bizə Yazın: <b><a href="mailto:info@docdoc.ru">info@tapdoc.az</a></b><br />
+              Bizə Yazın: <b><a href="mailto:info@tapdoc.az">info@tapdoc.az</a></b><br />
                                                     Bizə Zəng:
               <span class="header_contact_phone ">
 							+994 55 555 55 55 						</span>
@@ -1452,16 +1461,16 @@
               <span class="footer__copyright">© tapdoc.az 2018</span>
             </div>
             <div class="footer__socials">
-              <a href="https://vk.com/docdoc_ru" target="_blank" class="footer__social footer__social_vk"></a>
-              <a href="https://www.facebook.com/docdoc.ru/" target="_blank" class="footer__social footer__social_fb"></a>
+              <a href="#" target="_blank" class="footer__social footer__social_vk"></a>
+              <a href="#" target="_blank" class="footer__social footer__social_fb"></a>
 
-              <a href="https://www.youtube.com/channel/UCzmp8WzYmly2Dskaf5HuIXg" target="_blank" class="footer__social footer__social_youtube"></a>
+              <a href="#" target="_blank" class="footer__social footer__social_youtube"></a>
             </div>
         </aside>
       </div>
     </div>
     <div class="callback-block">
-      <a href="tel:+74991168178" class="callback" data-page="site" data-action="index">
+      <a href="tel:+99455555555" class="callback" data-page="site" data-action="index">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>Bizə Zəng Edin</span>
             </a>

@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   <!-- Our Custom CSS -->
   <link rel="stylesheet" href="{% static 'css/account.css'%}">
+  <link rel="stylesheet" href="{% static 'css/chunks59fa.css' %}">
+	<link rel="stylesheet" href="{% static 'css/doctors59fa.css' %}">
 
   <!-- Font Awesome JS -->
   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -153,10 +155,9 @@
       <div class="main">
         <h5>Hansı xidmət axtarırsınız?</h5>
         <input class="search" type="text" placeholder="Axtarmaq istədiyiniz sözü daxil edin...."/>
-        <a class="btn btn-outline-primary oftol" role="button" href="#" style="padding-top:4px;margin-top:7px;margin-bottom:0px;padding-bottom:9px;border-radius:23px;background-color:#f5f5f5;color:#515151;border-color:#f5f5f5;font-size:14px;height:33px;">&nbsp;Oftolmoloq</a>
-        <a class="btn btn-outline-primary pediatr" role="button" href="#" style="padding-top:4px;margin-top:7px;margin-bottom:0px;padding-bottom:9px;border-radius:23px;background-color:#f5f5f5;color:#515151;border-color:#f5f5f5;font-size:14px;height:33px;">&nbsp;Pediatr</a>
+        <a class="btn btn-outline-primary oftol" role="button" href="#" style="padding-top:4px;margin-top:7px;margin-bottom:0px;padding-bottom:9px;border-radius:23px;background-color:#f5f5f5;color:#515151;border-color:#f5f5f5;font-size:14px;height:33px;">&nbsp;Pediatr</a>
         <a class="btn btn-outline-primary kardioloq" role="button" href="#" style="padding-top:4px;margin-top:7px;margin-bottom:0px;padding-bottom:9px;border-radius:23px;background-color:#f5f5f5;color:#515151;border-color:#f5f5f5;font-size:14px;height:33px;">&nbsp;Kardioloq</a>
-        <a class="btn btn-outline-primary oftol" role="button" href="#" style="padding-top:4px;margin-top:7px;margin-bottom:0px;padding-bottom:9px;border-radius:23px;background-color:#f5f5f5;color:#515151;border-color:#f5f5f5;font-size:14px;height:33px;">&nbsp;Oftolmoloq</a>
+        <a class="btn btn-outline-primary oftol" role="button" href="#" style="padding-top:4px;margin-top:7px;margin-bottom:0px;padding-bottom:9px;border-radius:23px;background-color:#f5f5f5;color:#515151;border-color:#f5f5f5;font-size:14px;height:33px;">&nbsp;Psxiatr</a>
         <a class="btn btn-outline-primary cerrah" role="button" href="#" style="padding-top:4px;margin-top:7px;margin-bottom:0px;padding-bottom:9px;border-radius:23px;background-color:#f5f5f5;color:#515151;border-color:#f5f5f5;font-size:14px;height:33px;">&nbsp;Cərrah</a>
 
 
@@ -191,6 +192,255 @@
                   <div>
                   </div>
                 </div>
+
+
+
+
+                <div id="app-root">
+
+
+
+<the-doctor-list
+	:current="''"
+	:is-insurance-list="false"
+    :sticky-text="'Врачи '"
+>
+            <doctor-card
+        :data="{
+        'isAllDays': true,
+        'doctor': {
+            'id': 26705,
+            'isActive': true,
+            'isFavorite': true,
+            'name': 'Анатолий Анатольевич',
+            'surname': 'Сергейко',
+            'alias': 'Sergeyko_Anatoliy',
+            'sex': '1',
+            'url': '/doctor/Sergeyko_Anatoliy',
+            'logo': 'https://cdn.docdoc.ru/doctor/26705.162x162.jpg?1534467602',
+            'tipMessage': 'Вчера к этому специалисту записалось 5 человек',
+            'departure': false,
+            'kidsReception': false,
+            'rating': {
+                'label': 'Потрясающе',
+                'value': 9.5            },
+            'popularityRating': 2378.0732931727,
+            'doctorExt': false,
+            'index': 0        },
+
+                    'rank': null,
+
+        'specialities': [
+                    {
+                'id': 95,
+                'name': 'Хирург',
+                'alias': 'hirurg',
+            },
+                    {
+                'id': 133,
+                'name': 'Эндоскопист',
+                'alias': 'endoskopist',
+            },
+                ],
+        'highlight': 0,
+        'clinics': [
+                            {
+                    'active': true,
+                    'id': 5719,
+                    'name': 'Медицинский центр Трастмед на Таганке',
+                    'alias': 'trastmed',
+                    'url': '/clinic/trastmed',
+                    'phone': '8 (499) 519-31-04',
+                    'price': 1700,
+                    'specialPrice': 1530,
+                    'coords': [55.7422450000, 37.6559030000],
+                    'isPrivateDoctor': false,
+                    'address': {
+                        'street': 'ул. Александра Солженицына',
+                        'house': 'д. 5, стр.1',
+                        'fullAddress': 'г. Москва, ул. Александра Солженицына, д. 5, стр.1'
+                    },
+                                            'stations': [
+                                                    {
+                                'id': 144,
+                                'name': 'Таганская',
+                                'alias': 'taganskaya',
+                                'lineId': 11,
+                                'url': '/doctor/station/taganskaya',
+                                'distance': '490 м'
+                            },
+                                                    {
+                                'id': 77,
+                                'name': 'Марксистская',
+                                'alias': 'marksistskaya',
+                                'lineId': 3,
+                                'url': '/doctor/station/marksistskaya',
+                                'distance': '580 м'
+                            },
+                                                    {
+                                'id': 145,
+                                'name': 'Таганская',
+                                'alias': 'taganskaya',
+                                'lineId': 9,
+                                'url': '/doctor/station/taganskaya',
+                                'distance': '730 м'
+                            },
+                                                ],
+                                        'cityId': 1                },
+                    ],
+        'isInsuranceList': false,
+        'generalGaLabel': 'doctor offline form',
+                    'slots': {
+
+                                            5719: [
+                                                            {title: '15:30', dateAdmission: '2018-08-17T15:30:00', gaLabel: 'doctor online form', exclusive: ''},
+                                                            {title: '16:00', dateAdmission: '2018-08-17T16:00:00', gaLabel: 'doctor online form', exclusive: ''},
+                                                            {title: '16:30', dateAdmission: '2018-08-17T16:30:00', gaLabel: 'doctor online form', exclusive: ''},
+                                                            {title: '17:00', dateAdmission: '2018-08-17T17:00:00', gaLabel: 'doctor online form', exclusive: ''},
+                                                            {title: '18:00', dateAdmission: '2018-08-17T18:00:00', gaLabel: 'doctor online form', exclusive: ''},
+                                                            {title: '18:30', dateAdmission: '2018-08-17T18:30:00', gaLabel: 'doctor online form', exclusive: ''},
+                                                            {title: '19:30', dateAdmission: '2018-08-17T19:30:00', gaLabel: 'doctor online form', exclusive: ''},
+                                                            {title: '20:30', dateAdmission: '2018-08-17T20:30:00', gaLabel: 'doctor online form', exclusive: ''},
+                                                    ],
+
+                            },
+                            'intervals': { }
+            }"
+>
+    <doctor-card-rating
+            :rating="9.5"
+            :doctor-ext="false"
+            :doctor-index="0"
+            :view-type="'stars_and_label'"
+            :label-count-reviews="'41 отзыв'"
+            :count-reviews="41"
+            label="Потрясающе"
+            slot="rating"
+    >
+        <span>9.5</span>
+    </doctor-card-rating>
+
+    <div slot="specialities">
+                    <span>Хирург</span>
+                    <span>Эндоскопист</span>
+            </div>
+
+    <a href="doctor/Sergeyko_Anatoliy.html" target="_blank" slot="name" data-test-id="doctor_list_item.0.name">
+        Сергейко Анатолий Анатольевич    </a>
+
+            <a href="doctor/Sergeyko_Anatoliy.html#reviews" slot="reviews" data-test-id="doctor_list_item.0.reviews">
+                            41 отзыв                    </a>
+
+            <doctor-card-clinic-profession slot="profession" data-test-id="doctor_list_item.0.proof">
+            <span class="doctor-card-clinic-profession__years">Стаж 23                года            </span>
+                            <span>Врач первой категории</span>
+                                        <span>к.м.н.</span>
+                    </doctor-card-clinic-profession>
+
+    <div slot="clinics">
+                    <doctor-card-clinic
+                    :doctor-id="26705"
+                    :clinic-id="5719"
+                    :active="true"
+                    :is-private-doctor="false"
+                    :doctor-ext="false"
+                    :doctor-index="0"
+            >
+                <a href="clinic/trastmed.html" slot="name">
+                    Медицинский центр Трастмед на Таганке                </a>
+                <span slot="address">
+                    г. Москва, ул. Александра Солженицына, д. 5, стр.1                </span>
+                <div slot="stations">
+                                            <a data-line="11" href="doctor/station/taganskaya.html">
+                            Таганская, 490 м                        </a>
+                                            <a data-line="3" href="doctor/station/marksistskaya.html">
+                            Марксистская, 580 м                        </a>
+                                            <a data-line="9" href="doctor/station/taganskaya.html">
+                            Таганская, 730 м                        </a>
+                                    </div>
+            </doctor-card-clinic>
+            </div>
+
+    <div slot="phones">
+                                    <doctor-card-clinic-phone
+                        :doctor-id="26705"
+                        :clinic-id="5719"
+                        :active="true"
+                        data-test-id="doctor_list_item.0."
+                >
+                    <a href="tel:84995193104"
+                       data-test-id="doctor_list_item.0.phone_number"
+                       data-ga-label="doctor online form"
+                       data-ga-action="clickPhoneNumber">
+                        8 (499) 519-31-04                    </a>
+                </doctor-card-clinic-phone>
+                        </div>
+
+    <div slot="prices">
+                    <doctor-card-price
+                    :is-insurance-doctor="false"
+                    :highlighted="false"
+                    :has-promo-price="true"
+                    :has-standard-price="true"
+                    :is-discount-conditions-enabled="true"
+                    :doctor-id="26705"
+                    :clinic-id="5719"
+                    :active="true"
+                    :doctor-ext="false"
+                    :doctor-index="0"
+                    :tooltip-prices="[
+                                            {
+                            'clinicAddress': 'ул. Александра Солженицына, д. 5, стр.1',
+                            'price': 1700,
+                            'specialPrice': 1530,
+                            'sectorNames': 'Хирург'
+                        },
+                                            {
+                            'clinicAddress': 'ул. Александра Солженицына, д. 5, стр.1',
+                            'price': 1700,
+                            'specialPrice': null,
+                            'sectorNames': 'Эндоскопист'
+                        },
+                                    ]"
+            >
+                <template slot="tooltipText">
+                    <b>Врач соответствует стандарту DocDoc.</b><br/>
+
+В стоимость первичного приема врача-хирурга<br />
+ гарантированно входит консультация, осмотр и назначение лечения.
+<a href="standart_priema.html" rel="nofollow" target="_blank">Узнать подробнее</a>                </template>
+                                    <span slot="price">1700</span>
+
+                                            <span slot="special-price">1530</span>
+                                                </doctor-card-price>
+            </div>
+</doctor-card>
+
+
+	</the-doctor-list>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<script>
+    window.frontRefs = {
+        "isAuthorized": Boolean(),
+        "apiEndpoint": 'https://api.docdoc.ru/jsonRpc'
+    };
+    document.cookie = '_ga_au=' + Number(window.frontRefs.isAuthorized) + '; path=/; expires=Tue, 19 Jan 2038 03:14:07 GMT;';
+</script>
+
+<script src="{% static 'js/chunks59fa.js' %}"></script>
+<script src="{% static 'js/doctors59fa.js' %}"></script>
 
                 <!-- jQuery CDN - Slim version (=without AJAX) -->
                 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

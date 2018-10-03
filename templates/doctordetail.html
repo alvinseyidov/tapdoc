@@ -107,6 +107,19 @@ color:#fe246c;
     margin-top: -8px;
     font-weight: 400;
 }
+
+
+.addfavor {
+    position: absolute;
+    margin: -1px 0 1px -71px;
+}
+
+@media screen and (max-width: 767px){
+  .addfavor {
+      position: absolute;
+      margin: -1px 0 1px -40px;
+  }
+}
 </style>
 
 
@@ -269,14 +282,14 @@ color:#fe246c;
 
 
                             <span class="doc__face">
-                                                                    <span class="favorite-button"></span>
+                            {% if user in wishlist %}
+                            <a href="{% url 'removefavor' doctor.id %}" class="addfavor"><img src="{% static 'img/like.png'%}"/></a>
+                            {% else %}
+                            <a href="{% url 'addtofavor' doctor.id %}" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
+                            {% endif %}
                                                                 <img itemprop="image" src="{{ doctor.image.url}}" alt="Сергейко Анатолий Анатольевич" />
 		        			</span>
-							{% if user in wishlist %}
-							<a href="{% url 'removefavor' doctor.id %}">Favored</a>
-							{% else %}
-							<a href="{% url 'addtofavor' doctor.id %}">Favor</a>
-							{% endif %}
+                  
 
                             <div class="doctor-card-popup-overlay js-doctor-popup-overlay"></div>
 

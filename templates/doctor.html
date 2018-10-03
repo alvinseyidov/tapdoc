@@ -928,6 +928,11 @@ span.headerdesktop_contact_phone {
 .headerdesktopright{
 	float: right;
 }
+
+.addfavor {
+    position: absolute;
+    margin: 13px 0 0 11px;
+}
 </style>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="static/new-doc-doc/favicon/apple-touch-icon.png">
@@ -1125,6 +1130,11 @@ span.headerdesktop_contact_phone {
 
 
 
+				{% if user in doctor.wishlist.all %}
+				<a href="{% url 'removefavordoctor' doctor.id %}" class="addfavor"><img src="{% static 'img/like.png'%}"/></a>
+				{% else %}
+				<a href="{% url 'addtofavordoctor' doctor.id %}" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
+				{% endif %}
 
 				<doctor-card :data="{
         'isAllDays': true,
@@ -1136,7 +1146,7 @@ span.headerdesktop_contact_phone {
             'surname': 'Сергейко',
             'alias': 'Sergeyko_Anatoliy',
             'sex': '1',
-            'url': '/doctor/Sergeyko_Anatoliy',
+            'url': '{% url 'doctordetail' doctor.id %}',
             'logo': '{{doctor.image.url}}',
             'tipMessage': 'Dünən bu mütəxəssisə 5 nəfər qəbula yazılıb',
             'departure': false,
@@ -1235,11 +1245,13 @@ span.headerdesktop_contact_phone {
 						<span>Endokrinoloq</span>
 					</div>
 
+
 					<a href="{% url 'doctordetail' doctor.id %}" slot="name" data-test-id="doctor_list_item.0.name">
         {{doctor.first_name}}  {{doctor.last_name}}    </a>
 
 					<a href="doctor/Sergeyko_Anatoliy.html#reviews" slot="reviews" data-test-id="doctor_list_item.0.reviews">
-                            41 rəy                    </a>
+                            41 rəy                    </a><span>h</span>
+
 
 					<doctor-card-clinic-profession slot="profession" data-test-id="doctor_list_item.0.proof">
 						<span class="doctor-card-clinic-profession__years">Staj 23                il            </span>
@@ -1299,6 +1311,7 @@ span.headerdesktop_contact_phone {
 							<span slot="special-price">50</span>
 						</doctor-card-price>
 					</div>
+
 				</doctor-card>
 
 
@@ -1310,6 +1323,13 @@ span.headerdesktop_contact_phone {
 
 
 				{% endfor %}
+
+
+
+
+
+
+
 
 
 			</the-doctor-list>
@@ -1877,7 +1897,7 @@ function closeNavtapdocside() {
 </script>
 		<!-- End Google Tag Manager -->
 
-		
+
 
 		<script>
 			window.dmsPolicy = {
