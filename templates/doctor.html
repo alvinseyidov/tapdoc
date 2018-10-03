@@ -1132,9 +1132,7 @@ span.headerdesktop_contact_phone {
 
 				{% if user in doctor.wishlist.all %}
 				<a href="{% url 'removefavordoctor' doctor.id %}" class="addfavor"><img src="{% static 'img/like.png'%}"/></a>
-				{% else %}
-				<a href="{% url 'addtofavordoctor' doctor.id %}" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
-				{% endif %}
+					{% endif %}
 
 				<doctor-card :data="{
         'isAllDays': true,
@@ -1146,7 +1144,7 @@ span.headerdesktop_contact_phone {
             'surname': 'Сергейко',
             'alias': 'Sergeyko_Anatoliy',
             'sex': '1',
-            
+
             'logo': '{{doctor.image.url}}',
             'tipMessage': 'Dünən bu mütəxəssisə 5 nəfər qəbula yazılıb',
             'departure': false,
