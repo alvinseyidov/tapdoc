@@ -38,7 +38,7 @@
 
         <link rel="stylesheet" href="http://tapdoc.az/static/compile/fonts.css?2937290733">
 
-	         <link rel="stylesheet" href="https://s.docdoc.ru/compile/style.css?2937290733">
+	         <link rel="stylesheet" href="{% static 'css/footerstyle.css' %}">
         <link rel="apple-touch-icon" sizes="180x180" href="https://s.docdoc.ru/new-doc-doc/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="https://s.docdoc.ru/new-doc-doc/favicon/favicon-32x32.png" sizes="32x32">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -183,75 +183,11 @@ color:#fe246c;
     <![endif]-->
 
 
-    <aside class="leftmenu ">
-        <div class="leftmenu__inner">
-            <ul class="leftmenu__list leftmenu__list_top">
-                <li>
-                    <a href="http://tapdoc.az/" class="js-hover"><i class="fa fa-home" aria-hidden="true"></i>Главная</a>
-                </li>
-                <li>
-                    <div class="leftmenu__city">
-                        <div class="leftmenu-city">
-                            <form action="http://tapdoc.az/site/changeCity" name="cityselector" method="get">
-                                <select name="cityId"  class="leftmenu-city__select js-select js-city-selector js-hover"
-                                        data-event-tracker="1" data-tracker-event="click"
-                                        data-tracker-action="switch-city"
-                                >
-                                                                            <option selected="selected" value="1">Москва</option>
-                                                                            <option  value="2">Санкт-Петербург</option>
-                                                                            <option  value="21">Воронеж</option>
-                                                                            <option  value="4">Екатеринбург</option>
-                                                                            <option  value="23">Ижевск</option>
-                                                                            <option  value="8">Казань</option>
-                                                                            <option  value="15">Краснодар</option>
-                                                                            <option  value="24">Красноярск</option>
-                                                                            <option  value="7">Нижний Новгород</option>
-                                                                            <option  value="5">Новосибирск</option>
-                                                                            <option  value="6">Пермь</option>
-                                                                            <option  value="17">Ростов-на-Дону</option>
-                                                                            <option  value="9">Самара</option>
-                                                                            <option  value="13">Уфа</option>
-                                                                            <option  value="19">Челябинск</option>
-                                                                    </select>
-                            </form>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <div class="leftmenu__line"></div>
-                            <div id="left_menu_lk"></div>
-                    </div>
-        <div class="leftmenu__overlay"></div>
-    </aside>
+
 
     <section class="outer">
 
-		<div class="header">
-        <table class="headertable">
-              <tr>
-                 <th>
-                     <div class="brand">
-                        <a href="{% url 'homepage' %}"> <img src="{% static 'img/tapdoc.png' %}" width="180px" height="auto"/> </a>
-                      </div>
-                 </th>
-                 <th class="headertableth">
-                     <div>
-                         <p class="header1">Kömək lazımdır? <span class="header2">Zəng Edin!</span></p>
-                         <p class="header3">8 (499) 116-81-46</p>
-                     </div>
 
-
-                     <div class="dropdownmyp">
-                       <span>Mənim Profilim</span>
-                        <div class="dropdown-contentmyp">
-                             <p><a href="{% url 'login' %}">Daxil Ol</a></p>
-                             <p><a href="{% url 'signup' %}">Qeydiyyat</a></p>
-                        </div>
-                     </div>
-                 </th>
-              </tr>
-        </table>
-    </div>
 
 
 
@@ -289,7 +225,7 @@ color:#fe246c;
                             {% endif %}
                                                                 <img itemprop="image" src="{{ doctor.image.url}}" alt="Сергейко Анатолий Анатольевич" />
 		        			</span>
-                  
+
 
                             <div class="doctor-card-popup-overlay js-doctor-popup-overlay"></div>
 

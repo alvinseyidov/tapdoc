@@ -11,6 +11,7 @@
 	<meta name="description" content="Запись в клиники Москвы через Интернет. Все медицинские центры Москвы на одном сайте! Рейтинги, отзывы посетителей." />
 	<meta name="keywords" content="запись на прием к врачу, запись к врачу через интернет, записаться на прием к врачу через интернет, интернет запись на прием к врачу, электронная запись к врачу, нужен врач, лучшие врачи москвы, отзывы о врачах москвы, платные врачи москва, врачи города москвы" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
 	<script type="text/javascript">
 		(window.NREUM || (NREUM = {})).loader_config = {
 			xpid: "UwQHUFJTGwIFV1FaAgQH"
@@ -785,7 +786,9 @@ color:#fe246c;
 
 .tapdoc-form-bg{
 background-color: #f2f3f5;
-padding: 42px 13px 51px 25%;
+padding-top: 42px;
+padding-bottom: 52px;
+padding-left: 18%;
 }
 
 .tapdoc-form-input1{
@@ -933,8 +936,40 @@ span.headerdesktop_contact_phone {
     position: absolute;
     margin: 13px 0 0 11px;
 }
-</style>
 
+.tapdoc-form-input3 {
+    width: 73%;
+    display: inline;
+    float: right;
+    margin: 12px 0 0 0;
+}
+.tapdoc-form-input4 {
+    width: 13%;
+    display: inline;
+    float: right;
+    margin: 12px 0 0 0;
+}
+
+.tapdoc-form-input5 {
+    width: 13%;
+    display: inline;
+    float: right;
+    margin: 12px 0 0 0;
+}
+
+@media screen and (max-width: 767px){
+  .tapdoc-form-input3 {
+    display: none;
+}
+.tapdoc-form-input4 {
+	display: none;
+}
+.tapdoc-form-input5 {
+	display: none;
+}
+}
+</style>
+<link rel="stylesheet" href="{% static 'css/footerstyle.css' %}">
 	<link rel="apple-touch-icon" sizes="180x180" href="static/new-doc-doc/favicon/apple-touch-icon.png">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link rel="icon" type="image/png" href="static/new-doc-doc/favicon/favicon-32x32.png" sizes="32x32">
@@ -1069,8 +1104,12 @@ span.headerdesktop_contact_phone {
 		  <option value="Opera">
 		  <option value="Safari">
 		</datalist>
+		<button type="submit" class="tapdoc-form-button">Axtarış</button>
+<div class="tapdoc-form-input3"><input type="checkbox" name="vehicle1" value="Bike"> Pediatr</div>
+<div class="tapdoc-form-input4"><input type="checkbox" name="vehicle1" value="Bike"> Pediatr</div>
+<div class="tapdoc-form-input5"><input type="checkbox" name="vehicle1" value="Bike"> Pediatr</div>
 
-					<button type="submit" class="tapdoc-form-button">Axtarış</button>
+
 
 				</form>
 
@@ -1131,9 +1170,9 @@ span.headerdesktop_contact_phone {
 
 
 				{% if user in doctor.wishlist.all %}
-				<a href="{% url 'removefavor' doctor.id %}" class="addfavor"><img src="{% static 'img/like.png'%}"/></a>
+				<a href="{% url 'doctorremovefavor' doctor.id %}" class="addfavor"><img src="{% static 'img/like.png'%}"/></a>
 				{% else %}
-				<a href="{% url 'addtofavor' doctor.id %}" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
+				<a href="{% url 'doctoraddtofavor' doctor.id %}" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
 				{% endif %}
 
 				<doctor-card :data="{
@@ -1741,6 +1780,9 @@ span.headerdesktop_contact_phone {
 
 
 
+
+
+
 					<script type="application/ld+json">
 						{
 							"@context": "https://schema.org",
@@ -1832,7 +1874,82 @@ span.headerdesktop_contact_phone {
 				</div>
 			</hidden-block>
 
-
+			<div class="footer">
+			<div class="wrapper">
+							<div class="footer__inner">
+									<aside class="footer__left">
+											<div class="footer__navs">
+													<nav class="footer__nav">
+															<div class="footer__title">Сервис</div>
+															<ul class="footer__list">
+																	<li><a href="http://tapdoc.az/about">О нас</a></li>
+																	<li><a href="http://vacancy.docdoc.ru/">Вакансии</a></li>
+																	<li><a href="http://tapdoc.az/about/press">Пресса</a></li>
+																	<li><a href="http://tapdoc.az/about/team">Команда</a></li>
+																	<li><a href="http://tapdoc.az/about/contacts">Контакты</a></li>
+																	<li><a href="http://tapdoc.az/about/faq">FAQ</a></li>
+																	<li><a href="http://tapdoc.az/sitemap">Карта сайта</a></li>
+																	<li><a href="http://tapdoc.az/offer">Соглашение</a></li>
+															</ul>
+													</nav>
+													<nav class="footer__nav">
+															<div class="footer__title">Пациенту</div>
+															<ul class="footer__list">
+																	<li><a href="http://tapdoc.az/doctor">Врачи</a></li>
+																	<li><a href="http://tapdoc.az/clinic">Клиники</a></li>
+																																			<li><a href="https://diagnostica.docdoc.ru/">Диагностика</a></li>
+																																	<li><a href="http://tapdoc.az/service">Услуги</a></li>
+																	<li><a href="http://tapdoc.az/library">Медицинская библиотека</a></li>
+																	<li><a href="https://illness.docdoc.ru/">Справочник заболеваний</a></li>
+																										<li><a href="http://live.docdoc.ru/docsales">Условия акции “Врачи со скидкой”</a></li>
+																	<li><a href="http://tapdoc.az/confidentiality">Конфиденциальность</a></li>
+									<li><a href="http://tapdoc.az/agreement">Согласие на обработку персональных данных</a></li>
+															</ul>
+													</nav>
+													<nav class="footer__nav">
+															<div class="footer__nav-group">
+																	<div class="footer__title">Врачу и клинике</div>
+																	<ul class="footer__list">
+																			<li><a href="http://tapdoc.az/lk" rel="nofollow">Личный кабинет</a></li>
+																			<li><a href="http://tapdoc.az/register" rel="nofollow">Регистрация</a></li>
+																	</ul>
+															</div>
+															<div class="footer__nav-group">
+																	<div class="footer__title">Партнёрам</div>
+																	<ul class="footer__list">
+																			<li><a href="https://pk.docdoc.ru/" rel="nofollow">Личный кабинет</a></li>
+																			<li><a href="https://pk.docdoc.ru/affiliate" rel="nofollow">Партнёрская программа</a></li>
+																	</ul>
+															</div>
+													</nav>
+											</div>
+									</aside>
+									<aside class="footer__right">
+											<div class="footer__logo"><img src="https://s.docdoc.ru/new-doc-doc/images/logofooter_custom.png" alt="" width="140" /></div>
+											<div class="footer__contacts">
+													Пишите нам: <b><a href="mailto:info@docdoc.ru">info@docdoc.ru</a></b><br />
+																											Звоните нам:
+																															<span class="header_contact_phone ">
+								8 (495) 927-01-01						</span>
+																													<br />
+																									<span class="footer__copyright">© docdoc.ru 2018</span>
+											</div>
+											<div class="footer__socials">
+													<a href="https://vk.com/docdoc_ru" target="_blank" class="footer__social footer__social_vk"></a>
+													<a href="https://www.facebook.com/docdoc.ru/" target="_blank" class="footer__social footer__social_fb"></a>
+													<a href="https://www.ok.ru/group/52866723872862" target="_blank" class="footer__social footer__social_ok"></a>
+													<a href="https://www.youtube.com/channel/UCzmp8WzYmly2Dskaf5HuIXg" target="_blank" class="footer__social footer__social_youtube"></a>
+											</div>
+									</aside>
+							</div>
+			</div>
+						<div class="callback-block">
+					<a href="tel:+74959270101" class="callback" data-page="doctors" data-action="show">
+									<i class="fa fa-phone" aria-hidden="true"></i>
+									<span>Bizimlə Əlaqə</span>
+							</a>
+					</div>
+			</div>
 
 
 

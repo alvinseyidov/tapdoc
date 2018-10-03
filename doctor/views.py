@@ -68,13 +68,13 @@ def removefavor(request, id):
 
     return redirect('doctordetail', id=id)
 
-def addtofavordoctor(request, id):
+def doctoraddtofavor(request, id):
     doctor = get_object_or_404(Doctor, id=id)
     doctor.wishlist.add(request.user)
 
     return redirect('doctor')
 
-def removefavordoctor(request, id):
+def doctorremovefavor(request, id):
     doctor = get_object_or_404(Doctor, id=id)
     doctor.wishlist.remove(request.user)
 

@@ -1503,7 +1503,7 @@ a:hover {
   display: none;
 }
 .bg--white {
-    display: none;
+
 }
 .filters {
     display: none;
@@ -1566,9 +1566,15 @@ section.select-box-with-calendar.--sticky.--visible {
 }
 
 @media screen and (max-width: 1036px){
-  section.bg--white.--border-top.--border-bottom {
+  .speciality-list  {
       display: none;
   }
+   .title-medium {
+      display: none;
+  }
+  article.text-content.wrap {
+    display: none;
+}
 }
 @media screen and (max-width: 350px){
   .doctor-card__right {

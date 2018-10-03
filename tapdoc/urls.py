@@ -32,8 +32,8 @@ urlpatterns = [
     path('account/',accounts_views.account , name='account'),
     path('doctor/<int:id>/addtofavor', views.addtofavor, name='addtofavor'),
     path('doctor/<int:id>/removefavor', views.removefavor, name='removefavor'),
-    path('doctor/<int:id>/addtofavordoctor', views.addtofavordoctor, name='addtofavordoctor'),
-    path('doctor/<int:id>/removefavordoctor', views.removefavordoctor, name='removefavordoctor'),
+    path('doctor/<int:id>/doctoraddtofavor', views.doctoraddtofavor, name='doctoraddtofavor'),
+    path('doctor/<int:id>/doctorremovefavor', views.doctorremovefavor, name='doctorremovefavor'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
