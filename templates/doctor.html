@@ -1131,8 +1131,10 @@ span.headerdesktop_contact_phone {
 
 
 				{% if user in doctor.wishlist.all %}
-				<a href="{% url 'removefavordoctor' doctor.id %}" class="addfavor"><img src="{% static 'img/like.png'%}"/></a>
-					{% endif %}
+				<a href="{% url 'removefavor' doctor.id %}" class="addfavor"><img src="{% static 'img/like.png'%}"/></a>
+				{% else %}
+				<a href="{% url 'addtofavor' doctor.id %}" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
+				{% endif %}
 
 				<doctor-card :data="{
         'isAllDays': true,
