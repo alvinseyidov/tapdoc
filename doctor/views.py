@@ -28,6 +28,10 @@ def doctor(request):
     }
     return render(request, 'doctor.html', context)
 
+def clinic(request):
+
+    return render(request, 'clinic.html')
+
 
 def doctordetail(request, id):
     doctor = get_object_or_404(Doctor, id=id)

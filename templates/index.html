@@ -1090,7 +1090,7 @@
               <div class="recommended_today_title" style="color:white;">Bu gün tövsiyyə olunanlar</div>
               <ul class="suggested-features-showcase">
                 <li class="suggested-features-showcase__item">
-                  <a data-layer-event="click_doctor" data-layer-card-type="main popular" class="suggested-feature" href="doctor/dermatolog.html">
+                  <a data-layer-event="click_doctor" data-layer-card-type="main popular" class="suggested-feature" href="{% url 'doctor'%}">
 							<header class="suggested-feature__header">
 								<h3 class="suggested-feature__title">Həkimlər</h3>
 								<div class="suggested-feature__icon">
@@ -1103,7 +1103,7 @@
 						</a>
                 </li>
                 <li class="suggested-features-showcase__item">
-                  <a data-layer-event="click_mobapp" data-layer-card-type="main" href="#apps_anchor" class="suggested-feature highlighted">
+                  <a data-layer-event="click_mobapp" data-layer-card-type="main" href="{% url 'clinic'%}" class="suggested-feature highlighted">
 								<header class="suggested-feature__header">
 									<h3 class="suggested-feature__title">Diaqnostika</h3>
 									<div class="suggested-feature__icon">
@@ -1112,7 +1112,7 @@
 										</svg>
 									</div>
 								</header>
-								<p class="suggested-feature__description">Diaqnostika <br>Mərkəzləri</p>
+								<p class="suggested-feature__description">Tibbi <br>Mərkəzlər</p>
 							</a>
                 </li>
                 <li class="suggested-features-showcase__item">
