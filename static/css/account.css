@@ -444,8 +444,12 @@ section.select-box-with-calendar.--sticky.--visible {
 .addfavor {
     position: absolute;
     margin: 13px 0 0 11px;
+    z-index: 2;
 }
+.doctor-card__left {
 
+    z-index: 1;
+}
 .addfavor img {
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 24px 0 rgba(0, 0, 0, 0.19);
     border-radius: 39px;
