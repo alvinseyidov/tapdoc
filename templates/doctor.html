@@ -968,6 +968,11 @@ span.headerdesktop_contact_phone {
 	display: none;
 }
 }
+
+.addfavor img {
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 24px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 39px;
+}
 </style>
 <link rel="stylesheet" href="{% static 'css/footerstyle.css' %}">
 	<link rel="apple-touch-icon" sizes="180x180" href="static/new-doc-doc/favicon/apple-touch-icon.png">
@@ -1170,9 +1175,9 @@ span.headerdesktop_contact_phone {
 
 
 				{% if user in doctor.wishlist.all %}
-				<a href="{% url 'doctorremovefavor' doctor.id %}" class="addfavor"><img src="{% static 'img/like.png'%}"/></a>
+				<a href="{% url 'doctorremovefavor' doctor.id %}" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
 				{% else %}
-				<a href="{% url 'doctoraddtofavor' doctor.id %}" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
+				<a href="{% url 'doctoraddtofavor' doctor.id %}" class="addfavor"><img src="{% static 'img/like.png'%}"/></a>
 				{% endif %}
 
 				<doctor-card :data="{

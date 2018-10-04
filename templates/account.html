@@ -164,39 +164,9 @@
       </div>
       <div class="main4">
         <div class="main2">
-          {% for doctor in doctors %}
-          <div class="kart">
-            <div class="karticon">
-              <img src="{{doctor.image.url}}"/>
-											</div>
-              <div class="karttext">
-                <h6>{{doctor.first_name}}  {{doctor.last_name}} </h6>
-                <p>afvasdfvasdvas dvasdvasdvasd </p>
-              </div>
-            </div>
 
-          {% endfor %}
-
-
-              </div>
-
-              <div class="main3">
-                <div class="kart3">
-                  <img src="{% static 'img/1.png'%}"/>
-                  </div>
-                  <div class="kart3">
-                    <img src="{% static 'img/2.png'%}"/>
-                    </div>
-
-                  </div>
-                  <div>
-                  </div>
-                </div>
-
-
-
-
-                <div id="app-root">
+<div class="kart">
+            <div id="app-root">
 
 
 
@@ -205,8 +175,16 @@
 	:is-insurance-list="false"
     :sticky-text="'Врачи '"
 >
-            <doctor-card
-        :data="{
+
+
+
+{% for doctor in doctors %}
+{% if user in doctor.wishlist.all %}
+<a href="{% url 'doctorremovefavor' doctor.id %}" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
+{% else %}
+<a href="{% url 'doctoraddtofavor' doctor.id %}" class="addfavor"><img src="{% static 'img/like.png'%}"/></a>
+{% endif %}
+<doctor-card :data="{
         'isAllDays': true,
         'doctor': {
             'id': 26705,
@@ -216,13 +194,13 @@
             'surname': 'Сергейко',
             'alias': 'Sergeyko_Anatoliy',
             'sex': '1',
-            'url': '/doctor/Sergeyko_Anatoliy',
-            'logo': 'https://cdn.docdoc.ru/doctor/26705.162x162.jpg?1534467602',
-            'tipMessage': 'Вчера к этому специалисту записалось 5 человек',
+
+            'logo': '{{doctor.image.url}}',
+            'tipMessage': 'Dünən bu mütəxəssisə 5 nəfər qəbula yazılıb',
             'departure': false,
             'kidsReception': false,
             'rating': {
-                'label': 'Потрясающе',
+                'label': 'Möhtəşəm',
                 'value': 9.5            },
             'popularityRating': 2378.0732931727,
             'doctorExt': false,
@@ -305,118 +283,86 @@
 
                             },
                             'intervals': { }
-            }"
->
-    <doctor-card-rating
-            :rating="9.5"
-            :doctor-ext="false"
-            :doctor-index="0"
-            :view-type="'stars_and_label'"
-            :label-count-reviews="'41 отзыв'"
-            :count-reviews="41"
-            label="Потрясающе"
-            slot="rating"
-    >
-        <span>9.5</span>
-    </doctor-card-rating>
+            }">
+					<doctor-card-rating :rating="9.5" :doctor-ext="false" :doctor-index="0" :view-type="'stars_and_label'" :label-count-reviews="'41 отзыв'" :count-reviews="41" label="Möhtəşəm" slot="rating">
+						<span>9.5</span>
+					</doctor-card-rating>
 
-    <div slot="specialities">
-                    <span>Хирург</span>
-                    <span>Эндоскопист</span>
-            </div>
+					<div slot="specialities">
+						<span>Cərrah</span>
+						<span>Endokrinoloq</span>
+					</div>
 
-    <a href="doctor/Sergeyko_Anatoliy.html" target="_blank" slot="name" data-test-id="doctor_list_item.0.name">
-        Сергейко Анатолий Анатольевич    </a>
 
-            <a href="doctor/Sergeyko_Anatoliy.html#reviews" slot="reviews" data-test-id="doctor_list_item.0.reviews">
-                            41 отзыв                    </a>
+					<a href="{% url 'doctordetail' doctor.id %}" slot="name" data-test-id="doctor_list_item.0.name">
+        {{doctor.first_name}}  {{doctor.last_name}}    </a>
 
-            <doctor-card-clinic-profession slot="profession" data-test-id="doctor_list_item.0.proof">
-            <span class="doctor-card-clinic-profession__years">Стаж 23                года            </span>
-                            <span>Врач первой категории</span>
-                                        <span>к.м.н.</span>
-                    </doctor-card-clinic-profession>
+					<a href="doctor/Sergeyko_Anatoliy.html#reviews" slot="reviews" data-test-id="doctor_list_item.0.reviews">
+                            41 rəy                    </a><span>h</span>
 
-    <div slot="clinics">
-                    <doctor-card-clinic
-                    :doctor-id="26705"
-                    :clinic-id="5719"
-                    :active="true"
-                    :is-private-doctor="false"
-                    :doctor-ext="false"
-                    :doctor-index="0"
-            >
-                <a href="clinic/trastmed.html" slot="name">
-                    Медицинский центр Трастмед на Таганке                </a>
-                <span slot="address">
-                    г. Москва, ул. Александра Солженицына, д. 5, стр.1                </span>
-                <div slot="stations">
-                                            <a data-line="11" href="doctor/station/taganskaya.html">
-                            Таганская, 490 м                        </a>
-                                            <a data-line="3" href="doctor/station/marksistskaya.html">
-                            Марксистская, 580 м                        </a>
-                                            <a data-line="9" href="doctor/station/taganskaya.html">
-                            Таганская, 730 м                        </a>
-                                    </div>
-            </doctor-card-clinic>
-            </div>
 
-    <div slot="phones">
-                                    <doctor-card-clinic-phone
-                        :doctor-id="26705"
-                        :clinic-id="5719"
-                        :active="true"
-                        data-test-id="doctor_list_item.0."
-                >
-                    <a href="tel:84995193104"
+					<doctor-card-clinic-profession slot="profession" data-test-id="doctor_list_item.0.proof">
+						<span class="doctor-card-clinic-profession__years">Staj 23                il            </span>
+
+					</doctor-card-clinic-profession>
+
+					<div slot="clinics">
+					<button class="button qebul">Qəbula Yazılma</button>
+						<doctor-card-clinic :doctor-id="26705" :clinic-id="5719" :active="true" :is-private-doctor="false" :doctor-ext="false" :doctor-index="0">
+							<a href="clinic/trastmed.html" slot="name">
+                    Oksigen Klinikası               </a>
+							<span slot="address">
+                    Bakı şəhəri Nizami rayonu Çapayev küçəsi 43                </span>
+							<div slot="stations">
+								<a data-line="11" href="doctor/station/taganskaya.html">
+                            Gənclik, 490 м                        </a>
+								<a data-line="3" href="doctor/station/marksistskaya.html">
+                            Nərimanov, 580 м                        </a>
+								<a data-line="9" href="doctor/station/taganskaya.html">
+                            Memar Əcəmi, 730 м                        </a>
+							</div>
+						</doctor-card-clinic>
+					</div>
+
+					<div slot="phones">
+						<doctor-card-clinic-phone :doctor-id="26705" :clinic-id="5719" :active="true" data-test-id="doctor_list_item.0.">
+							<a href="tel:84995193104"
                        data-test-id="doctor_list_item.0.phone_number"
                        data-ga-label="doctor online form"
                        data-ga-action="clickPhoneNumber">
-                        8 (499) 519-31-04                    </a>
-                </doctor-card-clinic-phone>
-                        </div>
+                         (+994) 519-31-04                    </a>
+						</doctor-card-clinic-phone>
+					</div>
 
-    <div slot="prices">
-                    <doctor-card-price
-                    :is-insurance-doctor="false"
-                    :highlighted="false"
-                    :has-promo-price="true"
-                    :has-standard-price="true"
-                    :is-discount-conditions-enabled="true"
-                    :doctor-id="26705"
-                    :clinic-id="5719"
-                    :active="true"
-                    :doctor-ext="false"
-                    :doctor-index="0"
-                    :tooltip-prices="[
+					<div slot="prices">
+						<doctor-card-price :is-insurance-doctor="false" :highlighted="false" :has-promo-price="true" :has-standard-price="true" :is-discount-conditions-enabled="true" :doctor-id="26705" :clinic-id="5719" :active="true" :doctor-ext="false"
+						  :doctor-index="0" :tooltip-prices="[
                                             {
-                            'clinicAddress': 'ул. Александра Солженицына, д. 5, стр.1',
-                            'price': 1700,
-                            'specialPrice': 1530,
-                            'sectorNames': 'Хирург'
+                            'clinicAddress': 'Bakı şəhəri Nəsimi rayonu Azadlıq küçəsi 49',
+                            'price': 70,
+                            'specialPrice': 60,
+                            'sectorNames': 'Cərrah'
                         },
                                             {
-                            'clinicAddress': 'ул. Александра Солженицына, д. 5, стр.1',
-                            'price': 1700,
+                            'clinicAddress': 'Bakı şəhəri Nizami rayonu Çapayev küçəsi 43',
+                            'price': 50,
                             'specialPrice': null,
-                            'sectorNames': 'Эндоскопист'
+                            'sectorNames': 'Endokrinoloq'
                         },
-                                    ]"
-            >
-                <template slot="tooltipText">
-                    <b>Врач соответствует стандарту DocDoc.</b><br/>
+                                    ]">
+							<template slot="tooltipText">
+                    <b>Həkim tapdoc'un standartına uyğundur.</b><br/>
 
-В стоимость первичного приема врача-хирурга<br />
- гарантированно входит консультация, осмотр и назначение лечения.
-<a href="standart_priema.html" rel="nofollow" target="_blank">Узнать подробнее</a>                </template>
-                                    <span slot="price">1700</span>
+               </template>
+							<span slot="price">60</span>
 
-                                            <span slot="special-price">1530</span>
-                                                </doctor-card-price>
-            </div>
-</doctor-card>
+							<span slot="special-price">50</span>
+						</doctor-card-price>
+					</div>
 
+				</doctor-card>
 
+{% endfor %}
 	</the-doctor-list>
 
 
@@ -431,6 +377,26 @@
 
 
 </div>
+            </div>
+
+              </div>
+
+              <div class="main3">
+                <div class="kart3">
+                  <img src="{% static 'img/1.png'%}"/>
+                  </div>
+                  <div class="kart3">
+                    <img src="{% static 'img/2.png'%}"/>
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+
+
+
 <script>
     window.frontRefs = {
         "isAuthorized": Boolean(),

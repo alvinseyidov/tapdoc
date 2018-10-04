@@ -120,6 +120,11 @@ color:#fe246c;
       margin: -1px 0 1px -40px;
   }
 }
+
+.addfavor img {
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 24px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 39px;
+}
 </style>
 
 
@@ -219,9 +224,9 @@ color:#fe246c;
 
                             <span class="doc__face">
                             {% if user in wishlist %}
-                            <a href="{% url 'removefavor' doctor.id %}" class="addfavor"><img src="{% static 'img/like.png'%}"/></a>
+                            <a href="{% url 'removefavor' doctor.id %}" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
                             {% else %}
-                            <a href="{% url 'addtofavor' doctor.id %}" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
+                            <a href="{% url 'addtofavor' doctor.id %}" class="addfavor"><img src="{% static 'img/like.png'%}"/></a>
                             {% endif %}
                                                                 <img itemprop="image" src="{{ doctor.image.url}}" alt="Сергейко Анатолий Анатольевич" />
 		        			</span>
