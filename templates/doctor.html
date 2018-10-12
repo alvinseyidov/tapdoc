@@ -942,7 +942,7 @@ span.headerdesktop_contact_phone {
     z-index: 1;
 }
 .tapdoc-form-input3 {
-    width: 73%;
+    width: 64%;
     display: inline;
     float: right;
     margin: 12px 0 0 0;
@@ -955,7 +955,19 @@ span.headerdesktop_contact_phone {
 }
 
 .tapdoc-form-input5 {
-    width: 13%;
+    width: 10%;
+    display: inline;
+    float: right;
+    margin: 12px 0 0 0;
+}
+.tapdoc-form-input6 {
+    width: 12%;
+    display: inline;
+    float: right;
+    margin: 12px 0 0 0;
+}
+.tapdoc-form-input7 {
+    width: 6%;
     display: inline;
     float: right;
     margin: 12px 0 0 0;
@@ -971,11 +983,29 @@ span.headerdesktop_contact_phone {
 .tapdoc-form-input5 {
 	display: none;
 }
+.tapdoc-form-input6 {
+	display: none;
+}
+.tapdoc-form-input7 {
+	display: none;
+}
 }
 
 .addfavor img {
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 24px 0 rgba(0, 0, 0, 0.19);
     border-radius: 39px;
+}
+
+.doctab {
+
+    border: 1px solid #eef2f8;
+    padding: 12px 0 23px 0;
+    height: 23px;
+    margin: 0 0 0 0;
+}
+.doctab a {
+    line-height: 3.45 !important;
+		border: 1px solid #e0e5ec !important;
 }
 </style>
 <link rel="stylesheet" href="{% static 'css/footerstyle.css' %}">
@@ -1100,6 +1130,16 @@ span.headerdesktop_contact_phone {
 		</div>
 			</hidden-block>
 
+			<div class="doctab">
+			<div class="filters wrap" data-test-id="filters">
+				<sorting-filters v-cloak>
+					<a href="doctor.html" class="active">HEKIMLER</a>
+					<a href="doctor/order/rating.html" class="">KLINIKA</a>
+					<a href="doctor/order/experience.html" class="">DIAQNOSTIKA</a>
+				</sorting-filters>
+
+			</div>
+			</div>
 
 			<div class="tapdoc-form-bg">
 				<form class="tapdoc-form" action="{% url 'doctor' %}">
@@ -1114,9 +1154,11 @@ span.headerdesktop_contact_phone {
 		  <option value="Safari">
 		</datalist>
 		<button type="submit" class="tapdoc-form-button">Axtarış</button>
-<div class="tapdoc-form-input3"><input type="checkbox" name="vehicle1" value="Bike"> Pediatr</div>
-<div class="tapdoc-form-input4"><input type="checkbox" name="vehicle1" value="Bike"> Pediatr</div>
-<div class="tapdoc-form-input5"><input type="checkbox" name="vehicle1" value="Bike"> Pediatr</div>
+<div class="tapdoc-form-input3"><input type="checkbox" name="vehicle1" value="Bike"> Eve Gelsin</div>
+<div class="tapdoc-form-input4"><input type="checkbox" name="vehicle1" value="Bike"> Usaq Hekimi</div>
+<div class="tapdoc-form-input5"><input type="checkbox" name="vehicle1" value="Bike"> Sigorta</div>
+<div class="tapdoc-form-input6"><input type="checkbox" name="vehicle1" value="Bike">  <i class="fa fa-male" style="font-size:18px;"></i> <input type="checkbox" name="vehicle1" value="Bike">  <i class="fa fa-female" style="font-size:18px;"></i> </div>
+
 
 
 
