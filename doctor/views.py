@@ -9,6 +9,10 @@ from django.db.models import Q
 
 def homepage(request):
     return render(request, 'index.html')
+def logindoc(request):
+    return render(request, 'logindoc.html')
+def loginclinic(request):
+    return render(request, 'loginclinic.html')
 
 def doctor(request):
     doctors_list = Doctor.objects.all()

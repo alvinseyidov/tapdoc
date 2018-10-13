@@ -37,14 +37,13 @@
 	<!-- /theme JS files -->
 
 </head>
-
 <body>
 
 	<!-- Main navbar -->
 	<div class="navbar navbar-expand-md navbar-dark">
 		<div class="navbar-brand wmin-200">
 			<a href="index.html" class="d-inline-block">
-				<img src="{% static 'adminglobal_assets/images/logo_dark.png'%}" alt="">
+				<img src="{% static 'adminglobal_assets/images/logo_dark.png' %}" alt="">
 			</a>
 		</div>
 
@@ -181,7 +180,7 @@
 							<ul class="media-list">
 								<li class="media">
 									<div class="mr-3 position-relative">
-										<img src="{% static 'adminglobal_assets/images/placeholders/placeholder.jpg'%}" width="36" height="36" class="rounded-circle" alt="">
+										<img src="{% static 'adminglobal_assets/images/placeholders/placeholder.jpg' %}" width="36" height="36" class="rounded-circle" alt="">
 									</div>
 
 									<div class="media-body">
@@ -198,7 +197,7 @@
 
 								<li class="media">
 									<div class="mr-3 position-relative">
-										<img src="{% static 'adminglobal_assets/images/placeholders/placeholder.jpg'%}" width="36" height="36" class="rounded-circle" alt="">
+										<img src="{% static 'adminglobal_assets/images/placeholders/placeholder.jpg' %}" width="36" height="36" class="rounded-circle" alt="">
 									</div>
 
 									<div class="media-body">
@@ -215,7 +214,7 @@
 
 								<li class="media">
 									<div class="mr-3">
-										<img src="{% static 'adminglobal_assets/images/placeholders/placeholder.jpg'%}" width="36" height="36" class="rounded-circle" alt="">
+										<img src="{% static 'adminglobal_assets/images/placeholders/placeholder.jpg' %}" width="36" height="36" class="rounded-circle" alt="">
 									</div>
 									<div class="media-body">
 										<div class="media-title">
@@ -231,7 +230,7 @@
 
 								<li class="media">
 									<div class="mr-3">
-										<img src="{% static 'adminglobal_assets/images/placeholders/placeholder.jpg'%}" width="36" height="36" class="rounded-circle" alt="">
+										<img src="{% static 'adminglobal_assets/images/placeholders/placeholder.jpg' %}" width="36" height="36" class="rounded-circle" alt="">
 									</div>
 									<div class="media-body">
 										<div class="media-title">
@@ -247,7 +246,7 @@
 
 								<li class="media">
 									<div class="mr-3">
-										<img src="{% static 'adminglobal_assets/images/placeholders/placeholder.jpg'%}" width="36" height="36" class="rounded-circle" alt="">
+										<img src="{% static 'adminglobal_assets/images/placeholders/placeholder.jpg' %}" width="36" height="36" class="rounded-circle" alt="">
 									</div>
 									<div class="media-body">
 										<div class="media-title">
@@ -271,7 +270,7 @@
 
 				<li class="nav-item dropdown dropdown-user">
 					<a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
-						<img src="{% static 'adminglobal_assets/images/placeholders/placeholder.jpg'%}" class="rounded-circle" alt="">
+						<img src="{% static 'adminglobal_assets/images/placeholders/placeholder.jpg' %}" class="rounded-circle" alt="">
 						<span>Elvin</span>
 					</a>
 
@@ -324,7 +323,7 @@
 						<div class="card-body">
 							<div class="media">
 								<div class="mr-3">
-									<a href="#"><img src="{% static 'adminglobal_assets/images/placeholders/placeholder.jpg'%}" width="38" height="38" class="rounded-circle" alt=""></a>
+									<a href="#"><img src="{% static 'adminglobal_assets/images/placeholders/placeholder.jpg' %}" width="38" height="38" class="rounded-circle" alt=""></a>
 								</div>
 
 								<div class="media-body">
@@ -342,12 +341,13 @@
 					</div>
 					<!-- /user menu -->
 
+
 					<!-- Main navigation -->
 					<div class="card-body p-0">
 						<ul class="nav nav-sidebar" data-nav-type="accordion">
 
 							<!-- Main -->
-							<li class="nav-item nav-item-expanded nav-item-open">
+							<li class="nav-item">
 								<a href="{% url 'account'%}" class="nav-link">
 									<i class="icon-home4"></i>
 									<span>
@@ -388,7 +388,7 @@
 								<a href="{% url 'accountdoctors'%}" class="nav-link"><i class="icon-indent-decrease2"></i> <span>Həkimlər</span></a>
 
 							</li>
-							<li class="nav-item">
+							<li class="nav-item nav-item-expanded nav-item-open">
 								<a href="{% url 'accountcinics'%}" class="nav-link"><i class="icon-menu3"></i> <span>Klinikalar</span></a>
 
 							</li>
@@ -421,7 +421,7 @@
 						<!-- Marketing campaigns -->
 						<div class="card">
 					<div class="card-header header-elements-inline">
-						<h6 class="card-title">Search</h6>
+						<h6 class="card-title">Axtarış</h6>
 						<div class="header-elements">
 							<div class="list-icons">
 		                		<a class="list-icons-item" data-action="collapse"></a>
@@ -432,7 +432,7 @@
 					<div class="card-body" style="">
 						<form action="#">
 							<div class="form-group-feedback form-group-feedback-right">
-								<input type="search" class="form-control" placeholder="Search">
+								<input type="search" class="form-control" placeholder="Axtarış...">
 								<div class="form-control-feedback">
 									<i class="icon-search4 font-size-base text-muted"></i>
 								</div>
@@ -454,108 +454,146 @@
 
 
 				<div class="row">
-					<div class="col-xl-8">
+					<div class="col-xl-12">
 
 						<!-- Marketing campaigns -->
-						<div class="card">
 
+
+						<div class="card">
+							<div class="card-header header-elements-sm-inline">
+								<h6 class="card-title">Yadda Saxlanılan Klinikalar</h6>
+								<div class="header-elements">
+									<span class="badge bg-success badge-pill">28 klinika</span>
+									<div class="list-icons ml-3">
+				                		<div class="list-icons-item dropdown">
+				                			<a href="#" class="list-icons-item dropdown-toggle" data-toggle="dropdown"><i class="icon-menu7"></i></a>
+											<div class="dropdown-menu">
+												<a href="#" class="dropdown-item"><i class="icon-sync"></i> Listi Yenilə</a>
+												<a href="#" class="dropdown-item"><i class="icon-list-unordered"></i> Daha Ətraflı</a>
+												<a href="#" class="dropdown-item"><i class="icon-pie5"></i> Statistika</a>
+												<div class="dropdown-divider"></div>
+												<a href="#" class="dropdown-item"><i class="icon-cross3"></i> Hamısını Sil</a>
+											</div>
+				                		</div>
+				                	</div>
+			                	</div>
+							</div>
 
 							<div class="card-body d-sm-flex align-items-sm-center justify-content-sm-between flex-sm-wrap">
-								<div class="col-sm-12 col-lg-1 ">
-
+									<a href="{% url 'accountclinicdetail'%}"><div class="d-flex align-items-center mb-3 mb-sm-0">
 									<div class="ml-3 ads1user">
-										<img src="{% static 'adminglobal_assets/images/userss.png'%}" style="margin: 0 4px 0 -23px;"/>
+										<img class="rounded-circle" src="{% static 'img/clinic1.jpg' %}" width="50px"/>
 										</div>
-								</div>
-								<div class="col-sm-12 col-lg-11">
-
 									<div class="ml-3">
-										<h5 class="font-weight-semibold mb-0">DÜZƏLİŞ ET</h5>
-										<p>Укажите ваше имя и фамилию, чтобы записываться на прием в клиники и получать медицинские данные</p>
+										<h5 class="font-weight-semibold mb-0">Oxygen Klinikası </h5>
+										<span class="badge badge-mark border-success mr-1"></span> <span class="text-muted">Bakı ş.</span>
 									</div>
+								</div></a>
+
+								<div class="d-flex align-items-center mb-3 mb-sm-0">
+
 								</div>
 
-
-
+								<div>
+									<a href="#" class="btnn">Qəbula Yazıl</a>
+									<a href="#" class="btnn"><i class="icon-bubbles5"></i> </a>
+									<a href="#" class="btnn"><i class="icon-phone"></i></a>
+								</div>
 							</div>
 
+							<div class="card-body d-sm-flex align-items-sm-center justify-content-sm-between flex-sm-wrap">
+							<a href="{% url 'accountclinicdetail'%}">	<div class="d-flex align-items-center mb-3 mb-sm-0">
+									<div class="ml-3 ads1user">
+										<img class="rounded-circle" src="{% static 'img/clinic2.gif' %}" width="50px"/>
+										</div>
+									<div class="ml-3">
+										<h5 class="font-weight-semibold mb-0">Diaqnostika Mərkəzi </h5>
+										<span class="badge badge-mark border-success mr-1"></span> <span class="text-muted">Bakı ş.</span>
+									</div>
+								</div></a>
 
-						</div>
+								<div class="d-flex align-items-center mb-3 mb-sm-0">
 
-						<div class="card">
+								</div>
+
+								<div>
+									<a href="#" class="btnn">Qəbula Yazıl</a>
+									<a href="#" class="btnn"><i class="icon-bubbles5"></i> </a>
+									<a href="#" class="btnn"><i class="icon-phone"></i></a>
+								</div>
+							</div>
 
 
 							<div class="card-body d-sm-flex align-items-sm-center justify-content-sm-between flex-sm-wrap">
-								<div class="col-sm-12 col-lg-1 ">
-
+								<a href="{% url 'accountclinicdetail'%}"><div class="d-flex align-items-center mb-3 mb-sm-0">
 									<div class="ml-3 ads1user">
-										<img src="{% static 'adminglobal_assets/images/useractivate.png'%}" style="margin: 0 4px 0 -23px;"/>
+										<img class="rounded-circle" src="{% static 'img/clinic3.jpg' %}" width="50px"/>
 										</div>
-								</div>
-								<div class="col-sm-12 col-lg-11">
-
 									<div class="ml-3">
-										<h5 class="font-weight-semibold mb-0">AKTİVLƏŞDİR</h5>
-										<p>Укажите ваше имя и фамилию, чтобы записываться на прием в клиники и получать медицинские данные</p>
-											</div>
+										<h5 class="font-weight-semibold mb-0">Cərrahiyyə Klinika </h5>
+										<span class="badge badge-mark border-success mr-1"></span> <span class="text-muted">Bakı ş.</span>
+									</div>
+								</div></a>
+
+								<div class="d-flex align-items-center mb-3 mb-sm-0">
+
 								</div>
 
-
-
+								<div>
+									<a href="#" class="btnn">Qəbula Yazıl</a>
+									<a href="#" class="btnn"><i class="icon-bubbles5"></i> </a>
+									<a href="#" class="btnn"><i class="icon-phone"></i></a>
+								</div>
 							</div>
-
-
-						</div>
-
-						<div class="card">
 
 
 							<div class="card-body d-sm-flex align-items-sm-center justify-content-sm-between flex-sm-wrap">
-								<div class="col-sm-12 col-lg-1 ">
-
+								<a href="{% url 'accountclinicdetail'%}"><div class="d-flex align-items-center mb-3 mb-sm-0">
 									<div class="ml-3 ads1user">
-										<img src="{% static 'adminglobal_assets/images/userss.png'%}" style="margin: 0 4px 0 -23px;"/>
+										<img class="rounded-circle" src="{% static 'img/clinic4.png' %}" width="50px"/>
 										</div>
-								</div>
-								<div class="col-sm-12 col-lg-11">
-
 									<div class="ml-3">
-										<h5 class="font-weight-semibold mb-0">YENİLƏ</h5>
-										<p>Укажите ваше имя и фамилию, чтобы записываться на прием в клиники и получать медицинские данные</p>
-											</div>
+										<h5 class="font-weight-semibold mb-0">Uşaq Klinikası </h5>
+										<span class="badge badge-mark border-success mr-1"></span> <span class="text-muted">Bakı ş.</span>
+									</div>
+								</div></a>
+
+								<div class="d-flex align-items-center mb-3 mb-sm-0">
+
 								</div>
 
-
-
+								<div>
+									<a href="#" class="btnn">Qəbula Yazıl</a>
+									<a href="#" class="btnn"><i class="icon-bubbles5"></i> </a>
+									<a href="#" class="btnn"><i class="icon-phone"></i></a>
+								</div>
 							</div>
-
-
-						</div>
-						<div class="card">
 
 
 							<div class="card-body d-sm-flex align-items-sm-center justify-content-sm-between flex-sm-wrap">
-								<div class="col-sm-12 col-lg-1 ">
-
+								<a href="{% url 'accountclinicdetail'%}"><div class="d-flex align-items-center mb-3 mb-sm-0">
 									<div class="ml-3 ads1user">
-										<img src="{% static 'adminglobal_assets/images/userss.png'%}" style="margin: 0 4px 0 -23px;"/>
+										<img class="rounded-circle" src="{% static 'img/clinic5.png' %}" width="50px"/>
 										</div>
-								</div>
-								<div class="col-sm-12 col-lg-11">
-
 									<div class="ml-3">
-										<h5 class="font-weight-semibold mb-0">MÜRACİƏT</h5>
-										<p>Укажите ваше имя и фамилию, чтобы записываться на прием в клиники и получать медицинские данные</p>
-											</div>
+										<h5 class="font-weight-semibold mb-0">New Med Klinika </h5>
+										<span class="badge badge-mark border-success mr-1"></span> <span class="text-muted">Bakı ş.</span>
+									</div>
+								</div></a>
+
+								<div class="d-flex align-items-center mb-3 mb-sm-0">
+
 								</div>
 
-
-
+								<div>
+									<a href="#" class="btnn">Qəbula Yazıl</a>
+									<a href="#" class="btnn"><i class="icon-bubbles5"></i> </a>
+									<a href="#" class="btnn"><i class="icon-phone"></i></a>
+								</div>
 							</div>
 
 
 						</div>
-
 
 						<!-- /marketing campaigns -->
 
@@ -569,83 +607,7 @@
 
 					</div>
 
-					<div class="col-xl-4 col-lg-5 col-md-6">
-						<!-- My messages -->
-						<div class="card ads2">
-							<div class="card-header header-elements-inline">
-								<h4 class="card-title">DƏSTƏK ALMAQ</h4>
 
-							</div>
-
-							<!-- Numbers -->
-							<div class="card-body py-0">
-								<div class="row text-center">
-									<div class="col-8">
-										<div class="mb-3">
-											<h5 class="font-weight-semibold mb-0">İstədiyiniz zaman məsləhət ala bilərsiniz.</h5>
-
-										</div>
-									</div>
-
-
-
-									<div class="col-4">
-
-												<img src="{% static 'adminassets/css/ads2.png' %}"/>
-
-									</div>
-								</div>
-							</div>
-							<!-- /numbers -->
-
-
-							<!-- Area chart -->
-							<div id="messages-stats"></div>
-							<!-- /area chart -->
-
-
-
-						</div>
-
-
-						<div class="card ads2">
-							<div class="card-header header-elements-inline">
-								<h4 class="card-title">24/7</h4>
-
-							</div>
-
-							<!-- Numbers -->
-							<div class="card-body py-0">
-								<div class="row">
-									<div class="col-8">
-										<div class="mb-3">
-											<h5 class="font-weight-semibold mb-0">DAİM</h5>
-											<h5 class="font-weight-semibold mb-0">XİDMƏTİNİZDƏ</h5>
-											<br>
-
-
-										</div>
-									</div>
-
-
-
-									<div class="col-4">
-										<div class="mb-3">
-
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- /numbers -->
-
-
-							<!-- Area chart -->
-							<div id="messages-stats"></div>
-							<!-- /area chart -->
-
-
-
-						</div>
 
 
 

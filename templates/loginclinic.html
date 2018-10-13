@@ -14,8 +14,12 @@
   <div class="col-xs-36 col-lg-16 col-lg-offset-10">
     <form ng-submit="vm.form.submit()" class="login-form__form ng-valid ng-dirty ng-valid-parse" method="post">
 {% csrf_token %}
-<div class="row login-form__tabs" ng-if="vm.platform.docPanelUrl || vm.platform.partnerPanelUrl"> <div class="pasientler"> <strong class="login-form__tabs-item font-large">Pasientlər Üçün</strong> </div> <div ng-if="vm.platform.docPanelUrl" class="hekimler"> <a href="{% url 'logindoc' %}" ng-href="https://doc.ondoc.me/" class="login-form__tabs-item"> <strong class="font-large">Həkimlər Üçün</strong> </a> </div>
-<div ng-if="vm.platform.partnerPanelUrl" class="klinikalar"> <a href="{% url 'loginclinic' %}" ng-href="https://partner.ondoc.me/" class="login-form__tabs-item"> <strong class="font-large">Klinikalar Üçün</strong> </a> </div> </div>
+<div class="row login-form__tabs" ng-if="vm.platform.docPanelUrl || vm.platform.partnerPanelUrl">
+
+   <div ng-if="vm.platform.docPanelUrl" class="hekimler"> <a href="{% url 'login' %}" ng-href="https://doc.ondoc.me/" class="login-form__tabs-item"> <strong class="font-large">Pasientlər Üçün</strong> </a> </div>
+<div ng-if="vm.platform.partnerPanelUrl" class="klinikalar"> <a href="{% url 'logindoc' %}" ng-href="{% url 'logindoc' %}" class="login-form__tabs-item"> <strong class="font-large">Həkimlər Üçün</strong> </a> </div>
+<div class="pasientler"> <strong class="login-form__tabs-item font-large">Klinikalar Üçün</strong> </div>
+</div>
 
       <div class="row login-form__icon"> <span class="login-form__icon-img icon-user-light"></span> </div>
       <div class="pos-rel">

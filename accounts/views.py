@@ -22,3 +22,15 @@ def account(request):
         "doctors": wishlist
     }
     return render(request, 'account.html', context)
+
+def accountdoctors(request):
+    return render(request, 'accountdoctors.html')
+
+def accountclinics(request):
+    return render(request, 'accountclinics.html')
+
+def accountdoctordetail(request):
+    return render(request, 'accountdoctordetail.html')
+
+def accountclinicdetail(request):
+    return render(request, 'accountclinicdetail.html')
