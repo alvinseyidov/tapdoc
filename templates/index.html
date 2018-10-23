@@ -844,6 +844,53 @@
      position: absolute;
 
 }
+
+.suggested-features-showcase__item{
+  text-align: center;
+}
+.suggested1{
+    width: 75px;
+    height: 75px;
+        margin: 0 30% 0 70%;
+    border-radius: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #F2256D;
+    background-image: url({% static 'img/stethoscope.png'%});
+        background-size: 45px 45px;
+
+}
+
+.suggested2{
+    width: 75px;
+    height: 75px;
+        margin: auto;
+    border-radius: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #F87937;
+    background-image: url({% static 'img/hospital.png'%});
+        background-size: 45px 45px;
+
+}
+
+.suggested3{
+    width: 75px;
+    height: 75px;
+        margin: 0 70% 0 10%;
+    border-radius: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #F96770;
+    background-image: url({% static 'img/shield.png'%});
+        background-size: 45px 45px;
+
+}
+
+.suggested-feature__description{
+  padding-top: 85px;
+  margin-top: 22px;
+}
     </style>
 </head>
 
@@ -1101,60 +1148,36 @@
 
           <div style="opacity: 0;" class="suggestions">
             <div class="suggestions__content" key="default">
-              <div class="recommended_today_title" style="color:white;">Bu gün tövsiyyə olunanlar</div>
+              <div class="recommended_today_title" style="color:white;"><img src="{% static 'img/watching-tv.png'%}"/></div>
               <ul class="suggested-features-showcase">
                 <li class="suggested-features-showcase__item">
-                  <a data-layer-event="click_doctor" data-layer-card-type="main popular" class="suggested-feature" href="{% url 'doctor'%}">
+                  <a href="{% url 'doctor'%}">
 							<header class="suggested-feature__header">
-								<h3 class="suggested-feature__title">Həkimlər</h3>
-								<div class="suggested-feature__icon">
-									<svg class="icon">
-										<use x="0" y="0" xlink:href="static/i/first-screen/svg.svg#star"></use>
-									</svg>
-								</div>
+								<div class="suggested1"><p class="suggested-feature__description">Bütün Həkimlər</p></div>
+
 							</header>
-							<p class="suggested-feature__description">Bütün <br>Həkimlər</p>
+
 						</a>
                 </li>
                 <li class="suggested-features-showcase__item">
-                  <a data-layer-event="click_mobapp" data-layer-card-type="main" href="{% url 'clinic'%}" class="suggested-feature highlighted">
+                  <a href="{% url 'clinic'%}">
 								<header class="suggested-feature__header">
-									<h3 class="suggested-feature__title">Diaqnostika</h3>
-									<div class="suggested-feature__icon">
-										<svg class="icon">
-											<use x="0" y="0" xlink:href="static/i/first-screen/svg.svg#smartphone"></use>
-										</svg>
-									</div>
+									<div class="suggested2"><p class="suggested-feature__description">Tibbi Mərkəzlər</p></div>
+
 								</header>
-								<p class="suggested-feature__description">Tibbi <br>Mərkəzlər</p>
+
 							</a>
                 </li>
                 <li class="suggested-features-showcase__item">
-                  <a data-layer-event="click_doctor" data-layer-card-type="main cheap" class="suggested-feature" href="doctor/lor_otolaringolog/order/price.html">
+                  <a href="doctor/lor_otolaringolog/order/price.html">
 							<header class="suggested-feature__header">
-								<h3 class="suggested-feature__title">Siğorta</h3>
-								<div class="suggested-feature__icon">
-									<svg class="icon">
-										<use x="0" y="0" xlink:href="static/i/first-screen/svg.svg#wallet"></use>
-									</svg>
-								</div>
+								<div class="suggested3"><p class="suggested-feature__description">Tibbi Siğorta</p></div>
+
 							</header>
-							<p class="suggested-feature__description">Tibbi <br>Siğorta</p>
+
 						</a>
                 </li>
-                <li class="suggested-features-showcase__item">
-                  <a data-layer-event="click_dms" data-layer-card-type="main" class="suggested-feature" href="dms.html">
-								<header class="suggested-feature__header">
-									<h3 class="suggested-feature__title">Rahatlıq</h3>
-									<div class="suggested-feature__icon">
-										<svg class="icon">
-											<use x="0" y="0" xlink:href="static/i/first-screen/svg.svg#page"></use>
-										</svg>
-									</div>
-								</header>
-								<p class="suggested-feature__description">Mobil Applikasiya</p>
-							</a>
-                </li>
+
               </ul>
             </div>
 

@@ -26,6 +26,9 @@ def account(request):
 def accountdoctors(request):
     return render(request, 'accountdoctors.html')
 
+def accountsettings(request):
+    return render(request, 'settings.html')
+
 def accountclinics(request):
     return render(request, 'accountclinics.html')
 

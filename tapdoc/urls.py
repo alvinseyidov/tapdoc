@@ -34,6 +34,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('account/',accounts_views.account , name='account'),
     path('account/doctors',accounts_views.accountdoctors , name='accountdoctors'),
+    path('account/settings',accounts_views.accountsettings , name='accountsettings'),
     path('account/clinics',accounts_views.accountclinics , name='accountcinics'),
     path('account/doctordetail',accounts_views.accountdoctordetail , name='accountdoctordetail'),
     path('account/clinicdetail',accounts_views.accountclinicdetail , name='accountclinicdetail'),
