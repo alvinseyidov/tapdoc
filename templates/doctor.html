@@ -1001,7 +1001,7 @@ span.headerdesktop_contact_phone {
     border: 1px solid #eef2f8;
     padding: 12px 0 23px 0;
     height: 23px;
-    margin: -51px 0 0 0; 
+    margin: -51px 0 0 0;
 }
 .doctab a {
     line-height: 3.45 !important;
@@ -1133,9 +1133,9 @@ span.headerdesktop_contact_phone {
 			<div class="doctab">
 			<div class="filters wrap" data-test-id="filters">
 				<sorting-filters v-cloak>
-					<a href="doctor.html" class="active">HEKIMLER</a>
-					<a href="doctor/order/rating.html" class="">KLINIKA</a>
-					<a href="doctor/order/experience.html" class="">DIAQNOSTIKA</a>
+					<a href="{% url 'doctor' %}" class="active">HEKIMLER</a>
+					<a href="{% url 'clinic' %}" class="">KLINIKA</a>
+					<a href="{% url 'diaqnostika' %}" class="">DIAQNOSTIKA</a>
 				</sorting-filters>
 
 			</div>

@@ -33,8 +33,12 @@ def doctor(request):
     return render(request, 'doctor.html', context)
 
 def clinic(request):
-
     return render(request, 'clinic.html')
+
+def diaqnostika(request):
+    return render(request, 'diaqnostika.html')
+def xidmetler(request):
+    return render(request, 'xidmetler.html')
 
 
 def doctordetail(request, id):

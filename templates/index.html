@@ -891,6 +891,50 @@
   padding-top: 85px;
   margin-top: 22px;
 }
+
+
+.downdil {
+  border: solid #fff;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+   }
+
+
+.dropdown-contentdil {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 50px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdowndil {
+    margin: 22px 0 0 -101px;
+}
+.dropdown-contentdil a {
+    float: none;
+    color: black;
+    padding: 2px 8px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dilahref {
+  color: #fff;
+}
+
+.dropdown-contentdil a:hover {
+    background-color: #ddd;
+}
+
+.dropdowndil:hover .dropdown-contentdil {
+    display: block;
+}
+
     </style>
 </head>
 
@@ -951,6 +995,14 @@
           <a href="{% url 'homepage' %}" class="header__logowhite"><img src="{% static 'img/tapdocwhite.png' %}" alt="Tapdoc"/></a>
           <a href="{% url 'homepage' %}" class="header__logo"><img src="{% static 'img/tapdoc.png' %}" alt="Tapdoc"/></a>
 
+                 <div class="dropdowndil">
+                   <a class="dilahref">Dil <i class="downdil"></i></a>
+                   <div class="dropdown-contentdil">
+                     <a href="#">az</a>
+                     <a href="#">ru</a>
+
+                   </div>
+                 </div>
 
 
           <aside class="header__right">
