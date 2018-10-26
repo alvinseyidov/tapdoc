@@ -359,13 +359,11 @@
 
 
                   <div class="sorting__items">
-                                                                                                      <a href="https://docdoc.ru/clinic/order/rating" class="sorting__item " rel="nofollow">
-                                  Həkimlər                            </a>
-                                                                                                                              <a href="https://docdoc.ru/clinic/order/reviews" class="sorting__item " rel="nofollow">
-                                  Klinikalar                            </a>
-                                                                                                                              <a href="https://docdoc.ru/clinic/order/price" class="sorting__item " rel="nofollow">
-                                  Diaqnostika                            </a>
-                                                                                                                                                      </div>
+                        <a href="{% url 'doctor' %}" class="sorting__item " rel="nofollow">Həkimlər</a>
+                        <a href="{% url 'clinic' %}" class="sorting__item " rel="nofollow">Klinikalar</a>
+                        <a href="{% url 'diaqnostika' %}" class="sorting__item " rel="nofollow">Diaqnostika</a>
+                        <a href="{% url 'xidmetler' %}" class="sorting__item " rel="nofollow">Xidmətlər</a>
+                  </div>
                   <div class="sorting__select">
                       <div class="select select_sorting" data-block="select">
                                                   <div class="select__head">Рейтингу</div>
