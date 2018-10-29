@@ -29,7 +29,7 @@
 
 
 
-<title>Tapdoc - Klinikalar</title>
+<title>Tapdoc - Həkimlər</title>
 
         <link rel="stylesheet" href="https://docdoc.ru/static/compile/fonts.css?2937290733">
 
@@ -92,33 +92,91 @@
 
 </script>
 <style>
-.sorting__item {
-    display: inline-block;
-    vertical-align: top;
-    padding-left: 7px;
-    padding-right: 14px;
-    min-width: 111px;
-    font-size: 18px;
-    line-height: 16px;
-    box-sizing: border-box;
-    padding-top: 15px;
-    margin-left: 8px;
-    height: 48px;
-    border-radius: 4px;
-    background: #f2f2f3;
-    color: #828288;
-    text-align: center;
-    -webkit-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
-    -moz-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
-    -o-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
-    transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
-    -webkit-backface-visibility: hidden;
+.sorting__item1 {
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 7px;
+  padding-right: 14px;
+  min-width: 111px;
+  font-size: 18px;
+  line-height: 16px;
+  box-sizing: border-box;
+  padding-top: 15px;
+  margin-left: 8px;
+  height: 48px;
+  border-radius: 4px;
+  background: #f2f2f3;
+  color: #828288;
+  text-align: center;
+  -webkit-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  -moz-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  -o-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  -webkit-backface-visibility: hidden;
+}
+
+.addfavor {
+    position: absolute;
+    margin: 48px 0 0 41px;
+    z-index: 2;
+}
+@media only screen and (max-width: 900px) {
+.addfavor {
+    position: absolute;
+    margin: 25px 0 0 9px;
+    z-index: 2;
+}
+}
+.addfavor img {
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 24px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 39px;
+}
+
+.qebultext {
+    line-height: 1.33;
+    font-size: .75rem;
+    margin-bottom: .5rem;
+    color: #848d9f;
+}
+
+.qebullast {
+    line-height: 1.33;
+    font-size: .75rem;
+    margin-bottom: .5rem;
+        margin-top: 7px;
+    color: #848d9f;
+}
+.qebulphone {
+    line-height: 1.5;
+    font-size: 1rem;
+}
+.avatar-round.\--big {
+    width: 112px;
+    height: 112px;
+}
+.avatar-round {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    max-width: 112px;
+    max-height: 112px;
+    border-radius: 50%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.clinic-card__face {
+
+    border: 0px solid #cdcdcd !important;
+
 }
 </style>
 
 </head>
 
 <body class="body  ">
+
 
 
     <!--[if lte IE 7]>
@@ -135,12 +193,12 @@
         <div class="leftmenu__inner">
             <ul class="leftmenu__list leftmenu__list_top">
                 <li>
-                    <a href="https://tapdoc.az/" class="js-hover"><i class="fa fa-home" aria-hidden="true"></i>Ana Səhifə</a>
+                    <a href="http://tapdoc.az/" class="js-hover"><i class="fa fa-home" aria-hidden="true"></i>Ana Səhifə</a>
                 </li>
                 <li>
                     <div class="leftmenu__city">
                         <div class="leftmenu-city">
-                            <form action="https://tapdoc.az/site/changeCity" name="cityselector" method="get">
+                            <form action="http://tapdoc.az/site/changeCity" name="cityselector" method="get">
                                 <select name="cityId"  class="leftmenu-city__select js-select js-city-selector js-hover"
                                         data-event-tracker="1" data-tracker-event="click"
                                         data-tracker-action="switch-city"
@@ -189,16 +247,9 @@
                                                             <span class="header_contact_phone ">
                                     (+994) 927-01-01                                </span>
                                                     </div>
-                                                    <div id="header-menu"></div>
+                                                    <div id="header-menu1"></div>
                             </aside>
-            <aside class="header__links">
-                                    <a href="javascript:void(0);" class="header__link header__link_settings">
-                        <i class="fa fa-sliders" aria-hidden="true"></i>
-                    </a>
-                                                    <a href="javascript:void(0);" class="header__link js-show-map-clincics">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    </a>
-                                            </aside>
+
                     </div>
     </div>
 </header>
@@ -220,42 +271,42 @@
 									{
 						"@type": "Offer",
 						"availability": "https://schema.org/InStock",
-						"url": "https://tapdoc.az/clinic/trastmed",
+						"url": "http://tapdoc.az/clinic/trastmed",
 						"price": "1300",
 						"priceCurrency": "RUB",
 						"name": "Медицинский центр Трастмед на Таганке"
 					},									{
 						"@type": "Offer",
 						"availability": "https://schema.org/InStock",
-						"url": "https://tapdoc.az/clinic/medtsentrservis_na_aviamotornoj",
+						"url": "http://tapdoc.az/clinic/medtsentrservis_na_aviamotornoj",
 						"price": "1200",
 						"priceCurrency": "RUB",
 						"name": "МедЦентрСервис на Авиамоторной"
 					},									{
 						"@type": "Offer",
 						"availability": "https://schema.org/InStock",
-						"url": "https://tapdoc.az/clinic/ist_klinik_east_klinik",
+						"url": "http://tapdoc.az/clinic/ist_klinik_east_klinik",
 						"price": "1200",
 						"priceCurrency": "RUB",
 						"name": "Ист клиник на Соколе"
 					},									{
 						"@type": "Offer",
 						"availability": "https://schema.org/InStock",
-						"url": "https://tapdoc.az/clinic/mezhdunarodnij_hirurgicheskij_tsentr",
+						"url": "http://tapdoc.az/clinic/mezhdunarodnij_hirurgicheskij_tsentr",
 						"price": "1500",
 						"priceCurrency": "RUB",
 						"name": "Открытая клиника Международный хирургический центр на Пресне"
 					},									{
 						"@type": "Offer",
 						"availability": "https://schema.org/InStock",
-						"url": "https://tapdoc.az/clinic/smklinika_na_vdnh",
+						"url": "http://tapdoc.az/clinic/smklinika_na_vdnh",
 						"price": "550",
 						"priceCurrency": "RUB",
 						"name": "СМ-Клиника ВДНХ"
 					},									{
 						"@type": "Offer",
 						"availability": "https://schema.org/InStock",
-						"url": "https://tapdoc.az/clinic/Poliklinika_ru",
+						"url": "http://tapdoc.az/clinic/Poliklinika_ru",
 						"price": "1500",
 						"priceCurrency": "RUB",
 						"name": "Поликлиника.ру Красные Ворота"
@@ -264,10 +315,34 @@
 	</script>
 
 <section class="clinics">
+
 	<div class="clinics__top">
+
 		<div class="wrapper">
+    <div class="wrap">
+      <img src="{% static 'img/conversio1.svg' %}" alt="" style="display: block; margin: auto;">
+    </div><br>
 			<div class="clinics__search">
 
+      <div class="clinics__left clinics__left_fullwidth">
+              <div class="sorting">
+
+
+                  <div class="sorting__items">
+                        <a href="{% url 'doctor' %}" class="sorting__item sorting__item1" rel="nofollow">Həkimlər</a>
+                        <a href="{% url 'clinic' %}" class="sorting__item sorting__item1" rel="nofollow">Klinikalar</a>
+                        <a href="{% url 'diaqnostika' %}" class="sorting__item sorting__item1" rel="nofollow">Diaqnostika</a>
+                        <a href="{% url 'xidmetler' %}" class="sorting__item sorting__item1" rel="nofollow">Xidmətlər</a>
+                  </div>
+                  <div class="sorting__select">
+                      <div class="select select_sorting" data-block="select">
+                                                  <div class="select__head">Рейтингу</div>
+                          <div class="select__list"><a class="select__item " rel="nofollow" data-ga-action="sort" data-ga-label="rating" href="http://tapdoc.az/clinic/order/rating">Рейтингу</a><a class="select__item " rel="nofollow" data-ga-action="sort" data-ga-label="reviews" href="http://tapdoc.az/clinic/order/reviews">Отзывам</a><a class="select__item " rel="nofollow" data-ga-action="sort" data-ga-label="price" href="http://tapdoc.az/clinic/order/price">Стоимости</a></div>
+                      </div>
+                  </div>
+              </div>
+      </div>
+<br><br>
 	<div class="search">
 		<div class="forms">
 			<form id="searchForm" class="forms__form search_form" method="post" action="http://tapdoc.az/site/searchRedirect">
@@ -329,19 +404,19 @@
 		</script>
 	</div>
 					<div class="search__checkboxes">
-							<a class="search__checkbox link-departure" href="https://tapdoc.az/clinic/direction/desc">
+							<a class="search__checkbox link-departure" href="http://tapdoc.az/clinic/direction/desc">
 		<div class="checkbox">
 			<input class="checkbox__input" type="checkbox" value="1" name="kidsReception" id="kidsReception" />			<label class="checkbox__label js-click-spinner"
-			       for="kidsReception"> Uşaq Klinikaları</label>
+			       for="kidsReception"> Uşaq Həkimi</label>
 		</div>
 	</a>
-	<a class="search__checkbox link-departure" href="https://tapdoc.az/clinic/direction/desc">
+	<a class="search__checkbox link-departure" href="http://tapdoc.az/clinic/direction/desc">
 		<div class="checkbox">
 			<input class="checkbox__input" type="checkbox" value="1" name="all-day" id="all-day" />			<label class="checkbox__label js-click-spinner"
 			       for="all-day">24 saat xidmət</label>
 		</div>
 	</a>
-														<a class="search__checkbox link-departure" href="https://tapdoc.az/clinic/direction/desc/dms-policy/1">
+														<a class="search__checkbox link-departure" href="http://tapdoc.az/clinic/direction/desc/dms-policy/1">
 		<div class="checkbox">
 			<input class="checkbox__input need-dms-auth" type="checkbox" value="1" name="dms-policy" id="dms-policy" />			<label class="checkbox__label js-click-spinner" for="dms-policy">Siğorta</label>
 		</div>
@@ -349,419 +424,12 @@
 	<span class="dms-logo "></span>
 											</div>
 			</div>
-			<div class="breadcrumbs-outer">
-
-			</div>
-
-      <div class="clinics__left clinics__left_fullwidth">
-              <div class="sorting">
-
-
-                  <div class="sorting__items">
-                        <a href="{% url 'doctor' %}" class="sorting__item " rel="nofollow">Həkimlər</a>
-                        <a href="{% url 'clinic' %}" class="sorting__item " rel="nofollow">Klinikalar</a>
-                        <a href="{% url 'diaqnostika' %}" class="sorting__item " rel="nofollow">Diaqnostika</a>
-                        <a href="{% url 'xidmetler' %}" class="sorting__item " rel="nofollow">Xidmətlər</a>
-                  </div>
-                  <div class="sorting__select">
-                      <div class="select select_sorting" data-block="select">
-                                                  <div class="select__head">Рейтингу</div>
-                          <div class="select__list"><a class="select__item " rel="nofollow" data-ga-action="sort" data-ga-label="rating" href="https://tapdoc.az/clinic/order/rating">Рейтингу</a><a class="select__item " rel="nofollow" data-ga-action="sort" data-ga-label="reviews" href="https://tapdoc.az/clinic/order/reviews">Отзывам</a><a class="select__item " rel="nofollow" data-ga-action="sort" data-ga-label="price" href="https://tapdoc.az/clinic/order/price">Стоимости</a></div>
-                      </div>
-                  </div>
-              </div>
-      </div>
 
 
 
-<div class="clinics__info">
 
-	<aside class="clinics__left clinics__left_fullwidth">
 
-		<h1 class="clinics__title">Bakıda yerləşən klinika və tibbi mərkəzlər</h1>
 
-		<div class="clinics__specs">
-			<div class="specs specs_clinics">
-				<div class="specs__items">
-					<div class="specs__cols" data-width="250">
-																																															<div>
-									<a href="#">
-										<span>288</span> <span>Gnikoloji</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>114</span> <span>Allerqoloq</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>152</span> <span>Andrologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>30</span> <span>Anasteziologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>17</span> <span>Artrologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>7</span> <span>Veterologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>166</span> <span>Venerologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>42</span> <span>Vertebrologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>171</span> <span>Qastrologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>26</span> <span>Gemotoloq</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>20</span> <span>Genetika</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>37</span> <span>Hepatoloq</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>331</span> <span>Ginokologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>56</span> <span>Huridoterapiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>17</span> <span>Hemopatiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>248</span> <span>Dermotologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>10</span> <span>Diabetologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>64</span> <span>Dietologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>107</span> <span>İmmunologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>25</span> <span>İnfeksion</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>201</span> <span>Kardiologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>30</span> <span>Kinezologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>63</span> <span>Koloktrologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>184</span> <span>Kosmetologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>54</span> <span>Fiziologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>41</span> <span>Logopedi</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>109</span> <span>Mammalogiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>140</span> <span>Manual Terapiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>125</span> <span>Masaj</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>35</span> <span>Mikologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>41</span> <span>Narkologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>272</span> <span>Nevrologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>21</span> <span>Neyrocərrahiyə</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>22</span> <span>Nevrologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>19</span> <span>Neoatalogiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>34</span> <span>Nefrologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>98</span> <span>Onkologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>171</span> <span>Ortopedia</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>66</span> <span>Ostopedia</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>185</span> <span>Otolaringologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>138</span> <span>Oftalmologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>1</span> <span>Parazitologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>131</span> <span>Pediatr</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>63</span> <span>Plastik Cərrahiyyə</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>12</span> <span>Podologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>89</span> <span>Proktologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>79</span> <span>Psixiatr</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>96</span> <span>Psixologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>110</span> <span>Psixoterapiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>56</span> <span>Pulmologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>31</span> <span>Reabilitasiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>71</span> <span>Revmotologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>73</span> <span>Rentgenologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>29</span> <span>Reproduktolog</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>116</span> <span>Refleksolog</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>14</span> <span>Seksologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>13</span> <span>Somnologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>18</span> <span>İdman Tibbi</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>228</span> <span>Stomotologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>14</span> <span>Surdologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>263</span> <span>Terapiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>139</span> <span>Travmotologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>80</span> <span>Trixologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>310</span> <span>UZİ</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>238</span> <span>Urologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>106</span> <span>Fizioterapiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>88</span> <span>Flobologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>3</span> <span>Foniatriya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>93</span> <span>Diaqnostika</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>2</span> <span>Kemoterapiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>214</span> <span>Cərrahiyyə</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>185</span> <span>Endokrinologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>88</span> <span>Endoskopiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>24</span> <span>Epileptologiya</span>
-									</a>
-								</div>
-																		</div>
-				</div>
-			</div>
-		</div>
-
-	</aside>
-
-</div>
 
 
 <div class="clinics__sorting">
@@ -773,7 +441,7 @@
 	<div class="sortmodal__overlay"></div>
 	<div class="sortmodal__content">
         <div class="sortmodal__close"></div>
-		<form method="post" action="https://tapdoc.az/site/searchRedirect">
+		<form method="post" action="http://tapdoc.az/site/searchRedirect">
 
 			<input type="hidden" name="serviceId" class="js-choose-input-service" value="" autocomplete="off"  />
 			<input type="hidden" name="dist" class="js-choose-input-dist" autocomplete="off" value="" />
@@ -833,20 +501,20 @@
 
 		<div class="clinics__left clinics__left_fullwidth">
             <div class="sorting">
-                                    <div class="sorting__clinics">Bütün Klinikalar</div>
+                                    <div class="sorting__clinics">Bütün Həkimlər</div>
                                 <div class="sorting__label">Sırala:</div>
                 <div class="sorting__items">
-                                                                                                    <a href="https://tapdoc.az/clinic/order/rating" class="sorting__item " rel="nofollow">
+                                                                                                    <a href="http://tapdoc.az/clinic/order/rating" class="sorting__item " rel="nofollow">
                                 Reyting                            </a>
-                                                                                                                            <a href="https://tapdoc.az/clinic/order/reviews" class="sorting__item " rel="nofollow">
+                                                                                                                            <a href="http://tapdoc.az/clinic/order/reviews" class="sorting__item " rel="nofollow">
                                 Rəylər                            </a>
-                                                                                                                            <a href="https://tapdoc.az/clinic/order/price" class="sorting__item " rel="nofollow">
+                                                                                                                            <a href="http://tapdoc.az/clinic/order/price" class="sorting__item " rel="nofollow">
                                 Baxış Sayı                            </a>
                                                                                                                                                     </div>
                 <div class="sorting__select">
                     <div class="select select_sorting" data-block="select">
                                                 <div class="select__head">Рейтингу</div>
-                        <div class="select__list"><a class="select__item " rel="nofollow" data-ga-action="sort" data-ga-label="rating" href="https://tapdoc.az/clinic/order/rating">Рейтингу</a><a class="select__item " rel="nofollow" data-ga-action="sort" data-ga-label="reviews" href="https://tapdoc.az/clinic/order/reviews">Отзывам</a><a class="select__item " rel="nofollow" data-ga-action="sort" data-ga-label="price" href="https://tapdoc.az/clinic/order/price">Стоимости</a></div>
+                        <div class="select__list"><a class="select__item " rel="nofollow" data-ga-action="sort" data-ga-label="rating" href="http://tapdoc.az/clinic/order/rating">Рейтингу</a><a class="select__item " rel="nofollow" data-ga-action="sort" data-ga-label="reviews" href="http://tapdoc.az/clinic/order/reviews">Отзывам</a><a class="select__item " rel="nofollow" data-ga-action="sort" data-ga-label="price" href="http://tapdoc.az/clinic/order/price">Стоимости</a></div>
                     </div>
                 </div>
             </div>
@@ -862,7 +530,13 @@
 		<div class="clinics-items">
 			<div class="wrapper">
 
+	{% for doctor in doctors %}
 
+  {% if user in doctor.wishlist.all %}
+  <a href="{% url 'doctorremovefavor' doctor.id %}" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
+  {% else %}
+  <a href="{% url 'doctoraddtofavor' doctor.id %}" class="addfavor"><img src="{% static 'img/like.png'%}"/></a>
+  {% endif %}
 
 <div class="clinics-item result-card">
 	<div class="clinic-card">
@@ -871,8 +545,8 @@
 
 				<div class="clinic-card__photo">
 					<!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
-                    <a href="https://tapdoc.az/clinic/trastmed" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
-                        <img src="https://cdn.docdoc.ru/clinic/logo/min_5719.gif?1534499283" alt="" />                    </a>
+                    <a href="http://tapdoc.az/clinic/trastmed" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
+                        <img src="{{doctor.image.url}}" alt="" class="avatar-round --big"/>                    </a>
 					<div class="clinic-card__rating">
 
 <div class="rate">
@@ -891,19 +565,21 @@
 			<i class="fa fa-star" aria-hidden="true"></i>
 		</div>
 	</div>						<div class="clinic-card__rating-value">
-							<a href="https://tapdoc.az/clinic/trastmed#reviews">
+							<a href="http://tapdoc.az/clinic/trastmed#reviews">
 																	5125 rəy															</a>
 						</div>
 					</div>
 				</div>
 				<div class="clinic-card__info">
-					<a href="https://tapdoc.az/clinic/trastmed" class="clinic-card__name">NewMed Tibb Mərkəzi</a>
-					<div class="clinic-card__type">diaqnostika mərkəzi</div>
+					<a href="{% url 'doctordetail' doctor.id %}" class="clinic-card__name">{{doctor.first_name}}  {{doctor.last_name}}</a>
+					<div class="clinic-card__type">Endokrinoloq Cərrah</div>
 					<div class="clinic-card__cost">
-													Ortalama xidmət qiymətləri - yüksək											</div>
+													Təcrübəsi - 12 il											</div>
 
 					<div class="clinic-card__clinictext">
-						«NewMed» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.						<a href="https://tapdoc.az/clinic/trastmed">→</a>
+								<div class="qebultext">Qəbula Yazılmaq Üçün:</div>
+                <div class="qebulphone">(+994) 519-31-04</div>
+                <div class="qebullast">Dünən bu mütəxəssisə 5 nəfər qəbula yazılıb</div>
 					</div>
 				</div>
 			</div>
@@ -916,7 +592,7 @@
 		Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
 
 
-	<a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i class="i-metro-sm i-metro--line_11"></i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i class="i-metro-sm i-metro--line_3"></i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+	<a class="clinic-card__metro" href="http://tapdoc.az/clinic/station/taganskaya"><i class="i-metro-sm i-metro--line_11"></i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="http://tapdoc.az/clinic/station/marksistskaya"><i class="i-metro-sm i-metro--line_3"></i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
 </div>
 					</div>
 
@@ -932,7 +608,7 @@
 							     data-ga-action="clickPhoneNumber">
 								 (+994) 519-31-04							</div>
 												<div class="clinic-address__button clinic-card__clinic-button js-book-clinic">
-							<form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
+							<form class="doctor_desc__request" method="post" action="http://tapdoc.az/request?clinicId=5719">
 								<input type="hidden" name="clinicId" value="5719"/>
 								<input type="hidden" name="requestBtnType" value="requestCardShortClinic"/>
 								<input type="submit" value="Müraciət"
@@ -948,173 +624,7 @@
 </div>
 
 
-
-<div class="clinics-item result-card">
-	<div class="clinic-card">
-		<div class="clinic-card__inner">
-			<div class="clinic-card__left">
-
-				<div class="clinic-card__photo">
-					<!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
-                    <a href="https://tapdoc.az/clinic/trastmed" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
-                        <img src="https://cdn.docdoc.ru/clinic/logo/min_5719.gif?1534499283" alt="" />                    </a>
-					<div class="clinic-card__rating">
-
-<div class="rate">
-	<div class="rate__default">
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-	</div>
-			<div class="rate__value" style="width:90%;">
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-		</div>
-	</div>						<div class="clinic-card__rating-value">
-							<a href="https://tapdoc.az/clinic/trastmed#reviews">
-																	5125 rəy															</a>
-						</div>
-					</div>
-				</div>
-				<div class="clinic-card__info">
-					<a href="https://tapdoc.az/clinic/trastmed" class="clinic-card__name">NewMed Tibb Mərkəzi</a>
-					<div class="clinic-card__type">diaqnostika mərkəzi</div>
-					<div class="clinic-card__cost">
-													Ortalama xidmət qiymətləri - yüksək											</div>
-
-					<div class="clinic-card__clinictext">
-						«NewMed» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.						<a href="https://tapdoc.az/clinic/trastmed">→</a>
-					</div>
-				</div>
-			</div>
-			<div class="clinic-card__right">
-				<div class="clinic-card__clinic">
-					<div class="clinic-card__clinic-address">
-						<div class="clinic-card__clinic-address">
-
-
-		Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
-
-
-	<a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i class="i-metro-sm i-metro--line_11"></i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i class="i-metro-sm i-metro--line_3"></i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
-</div>
-					</div>
-
-											<div class="clinic-card__clinic-time">
-															<div class="clinic-card__clinic-time-row">
-									<span>bz-cm:</span> 09:00 - 21:00								</div>
-															<div class="clinic-card__clinic-time-row">
-									<span>şn:</span> 10:00 - 18:00								</div>
-															<div class="clinic-card__clinic-time-row">
-									<span>bz:</span> 10:00 - 15:00								</div>
-													</div>
-																							<div class="clinic-card__clinic-phone" data-ga-label="doctor clinic form"
-							     data-ga-action="clickPhoneNumber">
-								 (+994) 519-31-04							</div>
-												<div class="clinic-address__button clinic-card__clinic-button js-book-clinic">
-							<form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
-								<input type="hidden" name="clinicId" value="5719"/>
-								<input type="hidden" name="requestBtnType" value="requestCardShortClinic"/>
-								<input type="submit" value="Müraciət"
-								       class="button ui-btn ui-btn_green request-button js-request-form-hook"
-									   data-ga-label="doctor clinic form"
-									 data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1"/>
-							</form>
-						</div>
-									</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-<div class="clinics-item result-card">
-	<div class="clinic-card">
-		<div class="clinic-card__inner">
-			<div class="clinic-card__left">
-
-				<div class="clinic-card__photo">
-					<!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
-                    <a href="https://tapdoc.az/clinic/trastmed" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
-                        <img src="https://cdn.docdoc.ru/clinic/logo/min_5719.gif?1534499283" alt="" />                    </a>
-					<div class="clinic-card__rating">
-
-<div class="rate">
-	<div class="rate__default">
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-	</div>
-			<div class="rate__value" style="width:90%;">
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-		</div>
-	</div>						<div class="clinic-card__rating-value">
-							<a href="https://tapdoc.az/clinic/trastmed#reviews">
-																	5125 rəy															</a>
-						</div>
-					</div>
-				</div>
-				<div class="clinic-card__info">
-					<a href="https://tapdoc.az/clinic/trastmed" class="clinic-card__name">NewMed Tibb Mərkəzi</a>
-					<div class="clinic-card__type">diaqnostika mərkəzi</div>
-					<div class="clinic-card__cost">
-													Ortalama xidmət qiymətləri - yüksək											</div>
-
-					<div class="clinic-card__clinictext">
-						«NewMed» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.						<a href="https://tapdoc.az/clinic/trastmed">→</a>
-					</div>
-				</div>
-			</div>
-			<div class="clinic-card__right">
-				<div class="clinic-card__clinic">
-					<div class="clinic-card__clinic-address">
-						<div class="clinic-card__clinic-address">
-
-
-		Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
-
-
-	<a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i class="i-metro-sm i-metro--line_11"></i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i class="i-metro-sm i-metro--line_3"></i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
-</div>
-					</div>
-
-											<div class="clinic-card__clinic-time">
-															<div class="clinic-card__clinic-time-row">
-									<span>bz-cm:</span> 09:00 - 21:00								</div>
-															<div class="clinic-card__clinic-time-row">
-									<span>şn:</span> 10:00 - 18:00								</div>
-															<div class="clinic-card__clinic-time-row">
-									<span>bz:</span> 10:00 - 15:00								</div>
-													</div>
-																							<div class="clinic-card__clinic-phone" data-ga-label="doctor clinic form"
-							     data-ga-action="clickPhoneNumber">
-								 (+994) 519-31-04							</div>
-												<div class="clinic-address__button clinic-card__clinic-button js-book-clinic">
-							<form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
-								<input type="hidden" name="clinicId" value="5719"/>
-								<input type="hidden" name="requestBtnType" value="requestCardShortClinic"/>
-								<input type="submit" value="Müraciət"
-								       class="button ui-btn ui-btn_green request-button js-request-form-hook"
-									   data-ga-label="doctor clinic form"
-									 data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1"/>
-							</form>
-						</div>
-									</div>
-			</div>
-		</div>
-	</div>
-</div>
+{% endfor %}
 
 
 
@@ -1128,28 +638,28 @@
 
 
 					<li>
-				<a href="https://tapdoc.az/clinic/page/1" class="paginate__item paginate__item_active">
+				<a href="http://tapdoc.az/clinic/page/1" class="paginate__item paginate__item_active">
 					1				</a>
 			</li>
 					<li>
-				<a href="https://tapdoc.az/clinic/page/2" class="paginate__item">
+				<a href="http://tapdoc.az/clinic/page/2" class="paginate__item">
 					2				</a>
 			</li>
 					<li>
-				<a href="https://tapdoc.az/clinic/page/3" class="paginate__item">
+				<a href="http://tapdoc.az/clinic/page/3" class="paginate__item">
 					3				</a>
 			</li>
 					<li>
-				<a href="https://tapdoc.az/clinic/page/4" class="paginate__item">
+				<a href="http://tapdoc.az/clinic/page/4" class="paginate__item">
 					4				</a>
 			</li>
 					<li>
-				<a href="https://tapdoc.az/clinic/page/5" class="paginate__item">
+				<a href="http://tapdoc.az/clinic/page/5" class="paginate__item">
 					5				</a>
 			</li>
 
 					<li>
-				<a href="https://tapdoc.az/clinic/page/2" class="paginate__item paginate__item_next">
+				<a href="http://tapdoc.az/clinic/page/2" class="paginate__item paginate__item_next">
 					<span>Növ.</span> <i class="fa fa-chevron-right" aria-hidden="true"></i>
 				</a>
 			</li>
@@ -1159,8 +669,400 @@
 		</div>
 
 	</div>
+
+
+
 					<div class="clinics__bottom">
 			<div class="wrapper">
+
+      <div class="clinics__info">
+
+      	<aside class="clinics__left clinics__left_fullwidth">
+
+      		<h1 class="clinics__title">Bakıda yerləşən klinika və tibbi mərkəzlər</h1>
+
+      		<div class="clinics__specs">
+      			<div class="specs specs_clinics">
+      				<div class="specs__items">
+      					<div class="specs__cols" data-width="250">
+      																																															<div>
+      									<a href="#">
+      										<span>288</span> <span>Gnikoloji</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>114</span> <span>Allerqoloq</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>152</span> <span>Andrologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>30</span> <span>Anasteziologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>17</span> <span>Artrologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>7</span> <span>Veterologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>166</span> <span>Venerologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>42</span> <span>Vertebrologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>171</span> <span>Qastrologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>26</span> <span>Gemotoloq</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>20</span> <span>Genetika</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>37</span> <span>Hepatoloq</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>331</span> <span>Ginokologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>56</span> <span>Huridoterapiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>17</span> <span>Hemopatiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>248</span> <span>Dermotologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>10</span> <span>Diabetologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>64</span> <span>Dietologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>107</span> <span>İmmunologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>25</span> <span>İnfeksion</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>201</span> <span>Kardiologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>30</span> <span>Kinezologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>63</span> <span>Koloktrologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>184</span> <span>Kosmetologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>54</span> <span>Fiziologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>41</span> <span>Logopedi</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>109</span> <span>Mammalogiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>140</span> <span>Manual Terapiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>125</span> <span>Masaj</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>35</span> <span>Mikologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>41</span> <span>Narkologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>272</span> <span>Nevrologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>21</span> <span>Neyrocərrahiyə</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>22</span> <span>Nevrologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>19</span> <span>Neoatalogiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>34</span> <span>Nefrologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>98</span> <span>Onkologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>171</span> <span>Ortopedia</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>66</span> <span>Ostopedia</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>185</span> <span>Otolaringologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>138</span> <span>Oftalmologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>1</span> <span>Parazitologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>131</span> <span>Pediatr</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>63</span> <span>Plastik Cərrahiyyə</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>12</span> <span>Podologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>89</span> <span>Proktologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>79</span> <span>Psixiatr</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>96</span> <span>Psixologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>110</span> <span>Psixoterapiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>56</span> <span>Pulmologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>31</span> <span>Reabilitasiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>71</span> <span>Revmotologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>73</span> <span>Rentgenologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>29</span> <span>Reproduktolog</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>116</span> <span>Refleksolog</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>14</span> <span>Seksologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>13</span> <span>Somnologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>18</span> <span>İdman Tibbi</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>228</span> <span>Stomotologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>14</span> <span>Surdologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>263</span> <span>Terapiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>139</span> <span>Travmotologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>80</span> <span>Trixologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>310</span> <span>UZİ</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>238</span> <span>Urologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>106</span> <span>Fizioterapiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>88</span> <span>Flobologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>3</span> <span>Foniatriya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>93</span> <span>Diaqnostika</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>2</span> <span>Kemoterapiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>214</span> <span>Cərrahiyyə</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>185</span> <span>Endokrinologiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>88</span> <span>Endoskopiya</span>
+      									</a>
+      								</div>
+      																												<div>
+      									<a href="#">
+      										<span>24</span> <span>Epileptologiya</span>
+      									</a>
+      								</div>
+      																		</div>
+      				</div>
+      			</div>
+      		</div>
+
+      	</aside>
+
+      </div>
 
 											<div class="bottom-content">
 							<h3>Bakıda ən yaxşı xüsusi klinikaların ünvanlarını harada tapa bilərsiniz?</h3>
@@ -1193,43 +1095,43 @@
                         <nav class="footer__nav">
                             <div class="footer__title">XIDMƏTLƏR</div>
                             <ul class="footer__list">
-                                <li><a href="https://tapdoc.az/about">Haqqımızda</a></li>
-                                <li><a href="http://vacancy.tapdoc.az/">Vakansiyalar</a></li>
-                                <li><a href="https://tapdoc.az/about/press">Press</a></li>
-                                <li><a href="https://tapdoc.az/about/team">Komandamız</a></li>
-                                <li><a href="https://tapdoc.az/about/contacts">Əlaqə</a></li>
-                                <li><a href="https://tapdoc.az/about/faq">FAQ</a></li>
-                                <li><a href="https://tapdoc.az/sitemap">Saytın Xəritəsi</a></li>
-                                <li><a href="https://tapdoc.az/offer">Razılaşmalar</a></li>
+                                <li><a href="http://tapdoc.az/about">Haqqımızda</a></li>
+                                <li><a href="http://tapdoc.az/">Vakansiyalar</a></li>
+                                <li><a href="http://tapdoc.az/about/press">Press</a></li>
+                                <li><a href="http://tapdoc.az/about/team">Komandamız</a></li>
+                                <li><a href="http://tapdoc.az/about/contacts">Əlaqə</a></li>
+                                <li><a href="http://tapdoc.az/about/faq">FAQ</a></li>
+                                <li><a href="http://tapdoc.az/sitemap">Saytın Xəritəsi</a></li>
+                                <li><a href="http://tapdoc.az/offer">Razılaşmalar</a></li>
                             </ul>
                         </nav>
                         <nav class="footer__nav">
                             <div class="footer__title">XƏSTƏLƏR ÜÇÜN</div>
                             <ul class="footer__list">
-                                <li><a href="https://tapdoc.az/doctor">Həkimlər</a></li>
-                                <li><a href="https://tapdoc.az/clinic">Klinakalar</a></li>
-                                                                    <li><a href="https://diagnostica.tapdoc.az/">Diaqnostika</a></li>
-                                                                <li><a href="https://tapdoc.az/service">Xidmətlər</a></li>
-                                <li><a href="https://tapdoc.az/library">Tibbi Kitabxanalar</a></li>
-                                <li><a href="https://illness.tapdoc.az/">Xəstəliklər</a></li>
-								                                	<li><a href="http://live.tapdoc.az/docsales">Endirim Aksiyalar</a></li>
-																<li><a href="https://tapdoc.az/confidentiality">Güvənirlik</a></li>
-								<li><a href="https://tapdoc.az/agreement">Şəxsi Məlumatların Qorunulması</a></li>
+                                <li><a href="http://tapdoc.az/doctor">Həkimlər</a></li>
+                                <li><a href="http://tapdoc.az/clinic">Klinakalar</a></li>
+                                                                    <li><a href="http://tapdoc.az/">Diaqnostika</a></li>
+                                                                <li><a href="http://tapdoc.az/">Xidmətlər</a></li>
+                                <li><a href="http://tapdoc.az/library">Tibbi Kitabxanalar</a></li>
+                                <li><a href="http://tapdoc.az/">Xəstəliklər</a></li>
+								                                	<li><a href="http://tapdoc.az/docsales">Endirim Aksiyalar</a></li>
+																<li><a href="http://tapdoc.az/confidentiality">Güvənirlik</a></li>
+								<li><a href="http://tapdoc.az/agreement">Şəxsi Məlumatların Qorunulması</a></li>
                             </ul>
                         </nav>
                         <nav class="footer__nav">
                             <div class="footer__nav-group">
                                 <div class="footer__title">HƏKIM VƏ KLINIKALAR</div>
                                 <ul class="footer__list">
-                                    <li><a href="https://tapdoc.az/lk" rel="nofollow">Şəxsi Kabinet</a></li>
-                                    <li><a href="https://tapdoc.az/register" rel="nofollow">Qeydiyyat</a></li>
+                                    <li><a href="http://tapdoc.az/" rel="nofollow">Şəxsi Kabinet</a></li>
+                                    <li><a href="http://tapdoc.az/" rel="nofollow">Qeydiyyat</a></li>
                                 </ul>
                             </div>
                             <div class="footer__nav-group">
                                 <div class="footer__title">PARTNYORLAR</div>
                                 <ul class="footer__list">
-                                    <li><a href="https://pk.tapdoc.az/" rel="nofollow">Şəxsi Kabinet</a></li>
-                                    <li><a href="https://pk.tapdoc.az/affiliate" rel="nofollow">Partnyorluq Programı</a></li>
+                                    <li><a href="http://tapdoc.az/" rel="nofollow">Şəxsi Kabinet</a></li>
+                                    <li><a href="http://tapdoc.az/" rel="nofollow">Partnyorluq Programı</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -1246,10 +1148,10 @@
                                                 <span class="footer__copyright">© tapdoc.az 2018</span>
                     </div>
                     <div class="footer__socials">
-                        <a href="https://vk.com/tapdoc.az" target="_blank" class="footer__social footer__social_vk"></a>
+                        <a href="https://vk.com/tapdoc" target="_blank" class="footer__social footer__social_vk"></a>
                         <a href="https://www.facebook.com/tapdoc.az/" target="_blank" class="footer__social footer__social_fb"></a>
 
-                        <a href="https://www.youtube.com/channel/UCzmp8WzYmly2Dskaf5HuIXg" target="_blank" class="footer__social footer__social_youtube"></a>
+                        <a href="https://www.youtube.com/channel/tapdoc" target="_blank" class="footer__social footer__social_youtube"></a>
                     </div>
                 </aside>
             </div>

@@ -32,6 +32,24 @@ def doctor(request):
     }
     return render(request, 'doctor.html', context)
 
+def doctors(request):
+    doctors_list = Doctor.objects.all()
+    query = request.GET.get('q')
+    querygeo = request.GET.get('geo')
+    if query:
+        doctors_list = doctors_list.filter(first_name__icontains=query)
+
+
+
+    paginator = Paginator(doctors_list, 4)
+    page = request.GET.get('page')
+    doctors = paginator.get_page(page)
+
+    context = {
+        "doctors": doctors
+    }
+    return render(request, 'doctors.html', context)
+
 def clinic(request):
     return render(request, 'clinic.html')
 
