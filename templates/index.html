@@ -847,10 +847,12 @@
 .suggested-features-showcase__item{
   text-align: center;
 }
+
+
 .suggested1{
     width: 75px;
     height: 75px;
-        margin: 0 30% 0 70%;
+        margin: auto;
     border-radius: 50%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -859,7 +861,6 @@
         background-size: 45px 45px;
 
 }
-
 .suggested2{
     width: 75px;
     height: 75px;
@@ -872,11 +873,10 @@
         background-size: 45px 45px;
 
 }
-
 .suggested3{
     width: 75px;
     height: 75px;
-        margin: 0 70% 0 10%;
+        margin: auto;
     border-radius: 50%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -885,6 +885,31 @@
         background-size: 45px 45px;
 
 }
+.suggested4{
+    width: 75px;
+    height: 75px;
+        margin: auto;
+    border-radius: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #DD71E3;
+    background-image: url({% static 'img/hospital.png'%});
+        background-size: 45px 45px;
+
+}
+.suggested5{
+    width: 75px;
+    height: 75px;
+        margin: auto;
+    border-radius: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #18D0C3;
+    background-image: url({% static 'img/hospital.png'%});
+        background-size: 45px 45px;
+
+}
+
 
 .suggested-feature__description{
   padding-top: 85px;
@@ -1216,7 +1241,7 @@ a.dil {
 
           <div style="opacity: 0;" class="suggestions">
             <div class="suggestions__content" key="default">
-              <div class="recommended_today_title" style="color:white;"><img src="{% static 'img/watching-tv.png'%}"/></div>
+
               <ul class="suggested-features-showcase">
                 <li class="suggested-features-showcase__item">
                   <a href="{% url 'doctor'%}">
@@ -1240,6 +1265,26 @@ a.dil {
                   <a href="doctor/lor_otolaringolog/order/price.html">
 							<header class="suggested-feature__header">
 								<div class="suggested3"><p class="suggested-feature__description">Tibbi Siğorta</p></div>
+
+							</header>
+
+						</a>
+                </li>
+
+                <li class="suggested-features-showcase__item">
+                  <a href="doctor/lor_otolaringolog/order/price.html">
+							<header class="suggested-feature__header">
+								<div class="suggested4"><p class="suggested-feature__description">Tibbi Xidmətlər</p></div>
+
+							</header>
+
+						</a>
+                </li>
+
+                <li class="suggested-features-showcase__item">
+                  <a href="doctor/lor_otolaringolog/order/price.html">
+							<header class="suggested-feature__header">
+								<div class="suggested5"><p class="suggested-feature__description">Tibbi Siğorta</p></div>
 
 							</header>
 
