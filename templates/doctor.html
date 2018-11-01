@@ -175,6 +175,37 @@
     background: #fe246c;
 
 }
+.breadcrump {
+    font-size: 13px;
+}
+
+#more {display: none;}
+button#myBtn {
+    /* width: 55px; */
+    /* background: none; */
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: #1593db;
+}
+
+article {
+
+        transition: height 0.4s linear;
+    }
+
+
+.sorting__item11 {
+  background: #fe246c;
+  color: #fff;
+  margin: -6px 0px 0 139px;
+height: 34px;
+padding: 9px 0 0 0;
+width: 159px;
+}
 </style>
 
 </head>
@@ -439,7 +470,7 @@
                         <a href="{% url 'diaqnostika' %}" class="sorting__item sorting__item1" rel="nofollow">Diaqnostika</a>
                         <a href="{% url 'xidmetler' %}" class="sorting__item sorting__item1" rel="nofollow">Xidmətlər</a>
                   </div>
-                  
+
               </div>
       </div>
 
@@ -514,15 +545,42 @@
 </div>
 
 		<div class="clinics__left clinics__left_fullwidth">
+    <div class="breadcrump"><a href="{% url 'homepage'%}">Ana səhifə </a>/ Həkimlər</div><br>
+    <div>
+<p>Yaxşı həkim - geniş profilli mütəxəssisdir, hansı ki sizin simptonlarınıza əsaslanır, dəqiq diaqnoz qoyur və effektiv müalicə təyin edir.<span id="dots">...</span><span id="more"></p><p>Bizim portalda siz Bakı ərazisində ən yaxşı həkimləri tapa bilərsiniz və endirimli qiymətlərlə qəbula yazıla bilərsiniz.</p>
+
+<p>Əgər sizə yaxşı həkim lazımdırsa, və sizin qiymətləri müqayisə etmək üçün klinikalara zəng etməyə vaxtınız yoxdursa, tapdoc.az bu problemləri həll etmək üçün xidmətinizdədir.</span></p>
+<button onclick="myFunction()" id="myBtn">Daha Çox</button>
+
+<script>
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Daha Çox";
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Daha Az";
+    moreText.style.display = "inline";
+  }
+}
+</script>
+</div><br>
             <div class="sorting">
+
                                     <div class="sorting__clinics">Həkimlər 1033</div>
-                                <div class="sorting__label">Sırala:</div>
+
                 <div class="sorting__items">
 <a href="http://tapdoc.az/clinic/order/rating" class="sorting__item " rel="nofollow">Populyarlıq</a>
 <a href="http://tapdoc.az/clinic/order/reviews" class="sorting__item " rel="nofollow">Reyting</a>
 <a href="http://tapdoc.az/clinic/order/price" class="sorting__item " rel="nofollow">Staj</a>
 <a href="http://tapdoc.az/clinic/order/price" class="sorting__item " rel="nofollow">Qiymət</a>
 <a href="http://tapdoc.az/clinic/order/price" class="sorting__item " rel="nofollow">Rəylər</a>
+<a href="http://tapdoc.az/clinic/order/price" class="sorting__item sorting__item11 " rel="nofollow">Tezliklə aktiv olacaq</a>
                                                                                                                                                     </div>
 
             </div>
