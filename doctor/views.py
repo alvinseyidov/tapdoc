@@ -4,6 +4,7 @@ from doctor.models import Doctor, Clinic
 from .forms import ReviewForm
 from django.db.models import Avg
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 @login_required

@@ -2,6 +2,7 @@ from django.contrib.auth import login as auth_login
 from django.shortcuts import render, redirect
 from doctor.models import Doctor, User
 from .forms import SignUpForm
+from django.contrib.auth.decorators import login_required
 
 @login_required
 def signup(request):
