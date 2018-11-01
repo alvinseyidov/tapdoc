@@ -7,7 +7,7 @@ from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-@login_required
+@login_required(login_url='/admin/')
 def homepage(request):
     return render(request, 'index.html')
 def logindoc(request):
@@ -15,7 +15,7 @@ def logindoc(request):
 def loginclinic(request):
     return render(request, 'loginclinic.html')
 
-@login_required
+@login_required(login_url='/admin/')
 def doctor(request):
     doctors_list = Doctor.objects.all()
     query = request.GET.get('q')
@@ -33,7 +33,8 @@ def doctor(request):
         "doctors": doctors
     }
     return render(request, 'doctor.html', context)
-@login_required
+
+@login_required(login_url='/admin/')
 def doctors(request):
     doctors_list = Doctor.objects.all()
     query = request.GET.get('q')
@@ -51,17 +52,21 @@ def doctors(request):
         "doctors": doctors
     }
     return render(request, 'doctors.html', context)
-@login_required
+
+@login_required(login_url='/admin/')
 def clinic(request):
     return render(request, 'clinic.html')
-@login_required
+
+@login_required(login_url='/admin/')
 def diaqnostika(request):
     return render(request, 'diaqnostika.html')
-@login_required
+
+@login_required(login_url='/admin/')
 def xidmetler(request):
     return render(request, 'xidmetler.html')
 
-@login_required
+
+@login_required(login_url='/admin/')
 def doctordetail(request, id):
     doctor = get_object_or_404(Doctor, id=id)
     wishlist = doctor.wishlist.all()

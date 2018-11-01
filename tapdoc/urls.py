@@ -22,7 +22,7 @@ from accounts import views as accounts_views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path('', views.homepage, name='homepage'),
     path('doctor/', views.doctor, name='doctor'),
     path('doctors/', views.doctors, name='doctors'),
