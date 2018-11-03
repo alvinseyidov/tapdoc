@@ -66,7 +66,7 @@
 
 .dropdown-contentmyp {
     display: none;
-    padding: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 10px;
     width: 100px;
     height: 78px;
     background: #fff;
@@ -127,6 +127,62 @@ color:#fe246c;
     border-radius: 39px;
 
 }
+
+.dropdownmyp {
+display: block;
+padding-left: 197px;
+position: absolute;
+margin-top: 40px;
+font-size: 13px;
+color:#0094e1;
+
+
+}
+
+.dropdown-contentmyp {
+display: none;
+padding: 0px 0px 0px 11px;
+width: 100px;
+height: 78px;
+background: #fff;
+border-radius: 7px;
+box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  z-index: 100;
+
+}
+
+.dropdownmyp:hover .dropdown-contentmyp {
+display: block;
+ position: absolute;
+
+}
+
+
+
+span.headerdesktop_contact_phone {
+float: right;
+}
+.headerdesktop_phone {
+float: right;
+}
+.headerdesktop {
+margin: 27px 20px 24px 25px;
+height: 67px;
+}
+.headerdesktoplogo{
+float: left;
+}
+
+.headerdesktoplogo img{
+width: 180px;
+}
+
+.headerdesktopright{
+float: right;
+}
+
+
+
 </style>
 
 
@@ -195,7 +251,9 @@ color:#fe246c;
     <section class="outer">
 
 
-
+    <div class="headerdesktop"><div class="headerdesktoplogo"><a href="/"><img src="/static/img/tapdoc.png"></a></div> <div class="headerdesktopright"><div class="headerdesktop_phone"><div class="headerdesktop_phone-note"><span style="color: rgb(255, 37, 108); font-weight: 600;">Zəng Edin!</span> Həkim Axtarışında Kömək Üçün
+    						</div> <span class="headerdesktop_contact_phone ">
+    													+994 (055) 555-55-55                                </span></div> <div class="dropdownmyp"><span>Şəxsi Kabinet</span> <div class="dropdown-contentmyp"><p><a href="/account/">Profilim</a></p> <p><a href="/logout/">Çıxış</a></p></div></div></div></div>
 
 
 
@@ -297,7 +355,7 @@ color:#fe246c;
 				<a itemprop="item" href="http://tapdoc.az/"><span itemprop="name">Ana Səhifə</span></a>				<meta itemprop="position" content="1" />
 			</span>
 					<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-				 / <a itemprop="item" href="http://tapdoc.az/search/order/reviews/direction/desc"><span itemprop="name">Həkimlər</span></a>				<meta itemprop="position" content="2" />
+				 / <a itemprop="item" href="http://tapdoc.az/doctor"><span itemprop="name">Həkimlər</span></a>				<meta itemprop="position" content="2" />
 			</span>
 					<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 				 / <span itemprop="name">{{doctor.first_name}} {{doctor.last_name}}</span>				<meta itemprop="position" content="3" />

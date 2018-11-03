@@ -33,7 +33,7 @@
 
         <link rel="stylesheet" href="https://docdoc.ru/static/compile/fonts.css?2937290733">
 
-	         <link rel="stylesheet" href="https://s.docdoc.ru/compile/style.css?2937290733">
+	         <link rel="stylesheet" href="{% static 'css/diaqnostikastyle.css'%}">
         <link rel="apple-touch-icon" sizes="180x180" href="https://s.docdoc.ru/new-doc-doc/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="https://s.docdoc.ru/new-doc-doc/favicon/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://s.docdoc.ru/new-doc-doc/favicon/favicon-16x16.png" sizes="16x16">
@@ -93,26 +93,102 @@
 </script>
 <style>
 .sorting__item {
-    display: inline-block;
-    vertical-align: top;
-    padding-left: 7px;
-    padding-right: 14px;
-    min-width: 111px;
-    font-size: 18px;
-    line-height: 16px;
-    box-sizing: border-box;
-    padding-top: 15px;
-    margin-left: 8px;
-    height: 48px;
-    border-radius: 4px;
-    background: #f2f2f3;
-    color: #828288;
-    text-align: center;
-    -webkit-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
-    -moz-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
-    -o-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
-    transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
-    -webkit-backface-visibility: hidden;
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 7px;
+  padding-right: 7px;
+  min-width: 70px;
+  font-size: 15px;
+  line-height: 16px;
+  box-sizing: border-box;
+  padding-top: 6px;
+  margin-left: 8px;
+  height: 28px;
+  border-radius: 4px;
+  background: #f2f2f3;
+  color: #828288;
+  text-align: center;
+  -webkit-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  -moz-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  -o-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  -webkit-backface-visibility: hidden;
+}
+
+.sorting__itemdiaq{
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 7px;
+  padding-right: 14px;
+  min-width: 111px;
+  font-size: 18px;
+  line-height: 16px;
+  box-sizing: border-box;
+  padding-top: 15px;
+  margin-left: 8px;
+  height: 48px;
+  border-radius: 4px;
+  background: #f2f2f3;
+  color: #828288;
+  text-align: center;
+  -webkit-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  -moz-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  -o-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  -webkit-backface-visibility: hidden;
+}
+
+.dropdownmyp {
+display: block;
+padding-left: 197px;
+position: absolute;
+margin-top: 40px;
+font-size: 13px;
+color:#0094e1;
+
+
+}
+
+.dropdown-contentmyp {
+display: none;
+padding: 0px 0px 0px 10px;
+width: 100px;
+height: 78px;
+background: #fff;
+border-radius: 7px;
+box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  z-index: 100;
+
+}
+
+.dropdownmyp:hover .dropdown-contentmyp {
+display: block;
+ position: absolute;
+
+}
+
+
+
+span.headerdesktop_contact_phone {
+float: right;
+}
+.headerdesktop_phone {
+float: right;
+}
+.headerdesktop {
+margin: 27px 20px 24px 25px;
+height: 67px;
+}
+.headerdesktoplogo{
+float: left;
+}
+
+.headerdesktoplogo img{
+width: 180px;
+}
+
+.headerdesktopright{
+float: right;
 }
 </style>
 </head>
@@ -172,35 +248,9 @@
     </aside>
 
     <section class="outer">
-        <header class="header ">
-    <div class="wrapper">
-        <div class="header__inner">
-			<a href="#" class="header__burger"><i class="fa fa-bars" aria-hidden="true"></i></a>
-
-            <a href="{% url 'homepage' %}" class="header__logo"><img src="{% static 'img/tapdoc.png'%}" alt=""/></a>
-
-
-            <aside class="header__right">
-                                        <div class="header__phone">
-                            <div class="header__phone-note">
-                                                                    <span>Zəng Edin!</span> Həkim Axtarışında Kömək Üçün
-                                                            </div>
-                                                            <span class="header_contact_phone ">
-                                    (+994) 927-01-01                                </span>
-                                                    </div>
-                                                    <div id="header-menu"></div>
-                            </aside>
-            <aside class="header__links">
-                                    <a href="javascript:void(0);" class="header__link header__link_settings">
-                        <i class="fa fa-sliders" aria-hidden="true"></i>
-                    </a>
-                                                    <a href="javascript:void(0);" class="header__link js-show-map-clincics">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    </a>
-                                            </aside>
-                    </div>
-    </div>
-</header>
+    <div class="headerdesktop"><div class="headerdesktoplogo"><a href="/"><img src="/static/img/tapdoc.png"></a></div> <div class="headerdesktopright"><div class="headerdesktop_phone"><div class="headerdesktop_phone-note"><span style="color: rgb(255, 37, 108); font-weight: 600;">Zəng Edin!</span> Həkim Axtarışında Kömək Üçün
+      </div> <span class="headerdesktop_contact_phone ">
+                    +994 (055) 555-55-55                                </span></div> <div class="dropdownmyp"><span>Şəxsi Kabinet</span> <div class="dropdown-contentmyp"><p><a href="/account/">Profilim</a></p> <p><a href="/logout/">Çıxış</a></p></div></div></div></div>
 
 
     	<script type="application/ld+json">
@@ -293,7 +343,7 @@
                                    class="forms__input search__input js-suggest-search-new"
                                    data-suggestclass="autocomplete-suggestion-withgroup"
                                    data-autocomplete-id="autocomplete-spec"
-                                   placeholder="Həkim, Xidmət"
+                                   placeholder="Diaqnostikalar"
                                    value="" />
 
                             <button class="search__button"><i class="fa fa-search"></i></button>
@@ -357,10 +407,10 @@
 
 
               <div class="sorting__items">
-                    <a href="{% url 'doctor' %}" class="sorting__item " rel="nofollow">Həkimlər</a>
-                    <a href="{% url 'clinic' %}" class="sorting__item " rel="nofollow">Klinikalar</a>
-                    <a href="{% url 'diaqnostika' %}" class="sorting__item " rel="nofollow">Diaqnostika</a>
-                    <a href="{% url 'xidmetler' %}" class="sorting__item " rel="nofollow">Xidmətlər</a>
+                    <a href="{% url 'doctor' %}" class="sorting__itemdiaq " rel="nofollow">Həkimlər</a>
+                    <a href="{% url 'clinic' %}" class="sorting__itemdiaq " rel="nofollow">Klinikalar</a>
+                    <a href="{% url 'diaqnostika' %}" class="sorting__itemdiaq " rel="nofollow">Diaqnostika</a>
+                    <a href="{% url 'xidmetler' %}" class="sorting__itemdiaq " rel="nofollow">Xidmətlər</a>
               </div>
                   <div class="sorting__select">
                       <div class="select select_sorting" data-block="select">
@@ -830,8 +880,8 @@
 
 		<div class="clinics__left clinics__left_fullwidth">
             <div class="sorting">
-                                    <div class="sorting__clinics">Bütün Klinikalar</div>
-                                <div class="sorting__label">Sırala:</div>
+                                    <div class="sorting__clinics">Bütün Diaqnostikalar</div>
+                                <div class="sorting__label"></div>
                 <div class="sorting__items">
                                                                                                     <a href="https://tapdoc.az/clinic/order/rating" class="sorting__item " rel="nofollow">
                                 Reyting                            </a>
@@ -1147,7 +1197,7 @@
 
 					<li>
 				<a href="https://tapdoc.az/clinic/page/2" class="paginate__item paginate__item_next">
-					<span>Növ.</span> <i class="fa fa-chevron-right" aria-hidden="true"></i>
+					<span></span> <i class="fa fa-chevron-right" aria-hidden="true"></i>
 				</a>
 			</li>
 
@@ -1156,30 +1206,7 @@
 		</div>
 
 	</div>
-					<div class="clinics__bottom">
-			<div class="wrapper">
 
-											<div class="bottom-content">
-							<h3>Bakıda ən yaxşı xüsusi klinikaların ünvanlarını harada tapa bilərsiniz?</h3>
-<p>Tapdoc.az professional onlayn xidməti Moskvada ən yaxşı klinikaların siyahısını tərtib edib, yalnız sağ tibb müəssisəsini seçməlisiniz və bir mütəxəssislə randevu ala bilərsiniz.</p>
-<h3>Bakıda ən yaxşı klinikanı necə tapmaq olar?</h3>
-<ul>
-<li> tibb sahəsində və ya sizə kömək edə biləcək bir mütəxəssis seçmək;</li>
-<li> ödənişli bir klinikada müayinə edilməsi rahat olacağı Moskva ərazisini müəyyənləşdirin;</li>
-<li> dəyəri, populyarlıq mərkəzi və ya təhlil əsasında məlumatları sıralayın.</li>
-</ul>
-<h3>Tapdoc.Az saytında tibbi klinika axtarış sisteminin rahatlığı aşağıdakı kimidir:</h3>
-<ul>
-<li> hər bir klinikada xüsusi klinikaların ünvanları və xidmətlərin tam siyahısı daxil olmaqla etibarlı və ətraflı məlumatları olan bir sorğu var;</li>
-<li> verildikdə, axtarış sistemi dərhal qiymət səviyyəsini göstərir (məsələn, qəbul qiyməti yüksək, orta);</li>
-<li> Dərhal sizin üçün münasib vaxtda randevu ala bilərsiniz.</li>
-</ul>
-						</div>
-
-
-
-			</div>
-		</div>
 
 
     <footer class="footer">

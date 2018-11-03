@@ -1763,7 +1763,7 @@ html.js .header_show {
 }
 
 
-@media (min-width: 767px) and (max-width: 933px) { 
+@media (min-width: 767px) and (max-width: 933px) {
   .search__field_zoom {
       width: 290px !important;
   }
@@ -2678,6 +2678,7 @@ a.header_main-fixed .header__phone {
   width: 100%;
   padding: 0 15px;
   box-sizing: border-box;
+  margin-bottom: 15px;
 }
 .insurance__right form select {
   padding: 0 0 0 12px;
@@ -2695,6 +2696,7 @@ a.header_main-fixed .header__phone {
   text-transform: none;
   padding: 2px 0 0;
   line-height: 40px;
+  margin: auto;
 }
 .insurance__right form[disabled] select,
 .insurance__right form[disabled] input {

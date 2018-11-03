@@ -33,7 +33,7 @@
 
         <link rel="stylesheet" href="https://docdoc.ru/static/compile/fonts.css?2937290733">
 
-	         <link rel="stylesheet" href="https://s.docdoc.ru/compile/style.css?2937290733">
+	         <link rel="stylesheet" href="{% static 'css/xidmetlerstyle.css'%}">
         <link rel="apple-touch-icon" sizes="180x180" href="https://s.docdoc.ru/new-doc-doc/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="https://s.docdoc.ru/new-doc-doc/favicon/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://s.docdoc.ru/new-doc-doc/favicon/favicon-16x16.png" sizes="16x16">
@@ -122,6 +122,59 @@
     top: -12px !important;
 
 }
+
+.dropdownmyp {
+display: block !important;
+padding-left: 197px !important;
+position: absolute !important;
+margin-top: 40px !important;
+font-size: 13px !important;
+color:#0094e1 !important;
+
+
+}
+
+.dropdown-contentmyp {
+display: none !important;
+padding: 12px 0px 0px 10px !important;
+width: 100px !important;
+height: 78px !important;
+background: #fff !important;
+border-radius: 7px !important;
+box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35) !important;
+  z-index: 100 !important;
+
+}
+
+.dropdownmyp:hover .dropdown-contentmyp {
+display: block !important;
+ position: absolute !important;
+
+}
+
+
+
+span.headerdesktop_contact_phone {
+float: right !important;
+}
+.headerdesktop_phone {
+float: right !important;
+}
+.headerdesktop {
+margin: 27px 20px 24px 25px !important;
+height: 67px !important;
+}
+.headerdesktoplogo{
+float: left !important;
+}
+
+.headerdesktoplogo img{
+width: 180px !important;
+}
+
+.headerdesktopright{
+float: right !important;
+}
 </style>
 </head>
 
@@ -180,35 +233,9 @@
     </aside>
 
     <section class="outer">
-        <header class="header ">
-    <div class="wrapper">
-        <div class="header__inner">
-			<a href="#" class="header__burger"><i class="fa fa-bars" aria-hidden="true"></i></a>
-
-            <a href="{% url 'homepage' %}" class="header__logo"><img src="{% static 'img/tapdoc.png'%}" alt=""/></a>
-
-
-            <aside class="header__right">
-                                        <div class="header__phone">
-                            <div class="header__phone-note">
-                                                                    <span>Zəng Edin!</span> Həkim Axtarışında Kömək Üçün
-                                                            </div>
-                                                            <span class="header_contact_phone ">
-                                    (+994) 927-01-01                                </span>
-                                                    </div>
-                                                    <div id="header-menu"></div>
-                            </aside>
-            <aside class="header__links">
-                                    <a href="javascript:void(0);" class="header__link header__link_settings">
-                        <i class="fa fa-sliders" aria-hidden="true"></i>
-                    </a>
-                                                    <a href="javascript:void(0);" class="header__link js-show-map-clincics">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    </a>
-                                            </aside>
-                    </div>
-    </div>
-</header>
+    <div class="headerdesktop"><div class="headerdesktoplogo"><a href="/"><img src="/static/img/tapdoc.png"></a></div> <div class="headerdesktopright"><div class="headerdesktop_phone"><div class="headerdesktop_phone-note"><span style="color: rgb(255, 37, 108); font-weight: 600;">Zəng Edin!</span> Həkim Axtarışında Kömək Üçün
+      </div> <span class="headerdesktop_contact_phone ">
+                    +994 (055) 555-55-55                                </span></div> <div class="dropdownmyp"><span>Şəxsi Kabinet</span> <div class="dropdown-contentmyp"><p><a href="/account/">Profilim</a></p> <p><a href="/logout/">Çıxış</a></p></div></div></div></div>
 
 
     	<script type="application/ld+json">
@@ -301,7 +328,7 @@
                                    class="forms__input search__input js-suggest-search-new"
                                    data-suggestclass="autocomplete-suggestion-withgroup"
                                    data-autocomplete-id="autocomplete-spec"
-                                   placeholder="Həkim, Xidmət"
+                                   placeholder="Xidmətlər"
                                    value="" />
 
                             <button class="search__button"><i class="fa fa-search"></i></button>
@@ -409,30 +436,7 @@
 
 
 	</div>
-					<div class="clinics__bottom">
-			<div class="wrapper">
 
-											<div class="bottom-content">
-							<h3>Bakıda ən yaxşı xüsusi klinikaların ünvanlarını harada tapa bilərsiniz?</h3>
-<p>Tapdoc.az professional onlayn xidməti Moskvada ən yaxşı klinikaların siyahısını tərtib edib, yalnız sağ tibb müəssisəsini seçməlisiniz və bir mütəxəssislə randevu ala bilərsiniz.</p>
-<h3>Bakıda ən yaxşı klinikanı necə tapmaq olar?</h3>
-<ul>
-<li> tibb sahəsində və ya sizə kömək edə biləcək bir mütəxəssis seçmək;</li>
-<li> ödənişli bir klinikada müayinə edilməsi rahat olacağı Moskva ərazisini müəyyənləşdirin;</li>
-<li> dəyəri, populyarlıq mərkəzi və ya təhlil əsasında məlumatları sıralayın.</li>
-</ul>
-<h3>Tapdoc.Az saytında tibbi klinika axtarış sisteminin rahatlığı aşağıdakı kimidir:</h3>
-<ul>
-<li> hər bir klinikada xüsusi klinikaların ünvanları və xidmətlərin tam siyahısı daxil olmaqla etibarlı və ətraflı məlumatları olan bir sorğu var;</li>
-<li> verildikdə, axtarış sistemi dərhal qiymət səviyyəsini göstərir (məsələn, qəbul qiyməti yüksək, orta);</li>
-<li> Dərhal sizin üçün münasib vaxtda randevu ala bilərsiniz.</li>
-</ul>
-						</div>
-
-
-
-			</div>
-		</div>
 
 
     <footer class="footer">

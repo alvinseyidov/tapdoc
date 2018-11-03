@@ -190,6 +190,7 @@ button#myBtn {
     overflow: hidden;
     outline: none;
     color: #1593db;
+    padding: 0 0 0 0;
 }
 
 article {
@@ -201,11 +202,71 @@ article {
 .sorting__item11 {
   background: #fe246c;
   color: #fff;
-  margin: -6px 0px 0 139px;
+  margin: -6px 0px 0 236px;
 height: 34px;
 padding: 9px 0 0 0;
 width: 159px;
 }
+
+.sorting__item12{
+  margin-left: 0px;
+}
+
+.dropdownmyp {
+display: block;
+padding-left: 197px;
+position: absolute;
+margin-top: 40px;
+font-size: 13px;
+color:#0094e1;
+
+
+}
+
+.dropdown-contentmyp {
+display: none;
+padding: 0px 0px 0px 10px;
+width: 100px;
+height: 78px;
+background: #fff;
+border-radius: 7px;
+box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  z-index: 100;
+
+}
+
+.dropdownmyp:hover .dropdown-contentmyp {
+display: block;
+ position: absolute;
+
+}
+
+
+
+span.headerdesktop_contact_phone {
+float: right;
+}
+.headerdesktop_phone {
+float: right;
+}
+.headerdesktop {
+margin: 27px 20px 24px 25px;
+height: 67px;
+}
+.headerdesktoplogo{
+float: left;
+}
+
+.headerdesktoplogo img{
+width: 180px;
+}
+
+.headerdesktopright{
+float: right;
+}
+
+
+
 </style>
 
 </head>
@@ -266,28 +327,10 @@ width: 159px;
     </aside>
 
     <section class="outer">
-        <header class="header ">
-    <div class="wrapper">
-        <div class="header__inner">
-			<a href="#" class="header__burger"><i class="fa fa-bars" aria-hidden="true"></i></a>
 
-            <a href="{% url 'homepage' %}" class="header__logo"><img src="{% static 'img/tapdoc.png'%}" alt=""/></a>
-
-
-            <aside class="header__right">
-                                        <div class="header__phone">
-                            <div class="header__phone-note">
-                                                                    <span>Zəng Edin!</span> Həkim Axtarışında Kömək Üçün
-                                                            </div>
-                                                            <span class="header_contact_phone ">
-                                    (+994) 927-01-01                                </span>
-                                                    </div>
-                                                    <div id="header-menu1"></div>
-                            </aside>
-
-                    </div>
-    </div>
-</header>
+    <div class="headerdesktop"><div class="headerdesktoplogo"><a href="/"><img src="/static/img/tapdoc.png"></a></div> <div class="headerdesktopright"><div class="headerdesktop_phone"><div class="headerdesktop_phone-note"><span style="color: rgb(255, 37, 108); font-weight: 600;">Zəng Edin!</span> Həkim Axtarışında Kömək Üçün
+        </div> <span class="headerdesktop_contact_phone ">
+                      +994 (055) 555-55-55                                </span></div> <div class="dropdownmyp"><span>Şəxsi Kabinet</span> <div class="dropdown-contentmyp"><p><a href="/account/">Profilim</a></p> <p><a href="/logout/">Çıxış</a></p></div></div></div></div>
 
 
     	<script type="application/ld+json">
@@ -387,7 +430,7 @@ width: 159px;
                                    class="forms__input search__input js-suggest-search-new"
                                    data-suggestclass="autocomplete-suggestion-withgroup"
                                    data-autocomplete-id="autocomplete-spec"
-                                   placeholder="Həkim, Xidmət"
+                                   placeholder="Həkimlər"
                                    value="" />
 
                             <button class="search__button"><i class="fa fa-search"></i></button>
@@ -543,8 +586,9 @@ width: 159px;
 		</form>
 	</div>
 </div>
-
+<div class="sorting__clinics">Həkimlər 1033</div>
 		<div class="clinics__left clinics__left_fullwidth">
+
     <div class="breadcrump"><a href="{% url 'homepage'%}">Ana səhifə </a>/ Həkimlər</div><br>
     <div>
 <article>Yaxşı həkim - geniş profilli mütəxəssisdir, hansı ki sizin simptonlarınıza əsaslanır, dəqiq diaqnoz qoyur və effektiv müalicə təyin edir.<span id="dots">...</span><span id="more"><p>Bizim portalda siz Bakı ərazisində ən yaxşı həkimləri tapa bilərsiniz və endirimli qiymətlərlə qəbula yazıla bilərsiniz.</p>
@@ -572,10 +616,10 @@ function myFunction() {
 </div><br>
             <div class="sorting">
 
-                                    <div class="sorting__clinics">Həkimlər 1033</div>
+
 
                 <div class="sorting__items">
-<a href="http://tapdoc.az/clinic/order/rating" class="sorting__item " rel="nofollow">Populyarlıq</a>
+<a href="http://tapdoc.az/clinic/order/rating" class="sorting__item sorting__item12" rel="nofollow">Populyarlıq</a>
 <a href="http://tapdoc.az/clinic/order/reviews" class="sorting__item " rel="nofollow">Reyting</a>
 <a href="http://tapdoc.az/clinic/order/price" class="sorting__item " rel="nofollow">Staj</a>
 <a href="http://tapdoc.az/clinic/order/price" class="sorting__item " rel="nofollow">Qiymət</a>
@@ -726,7 +770,7 @@ function myFunction() {
 
 					<li>
 				<a href="http://tapdoc.az/clinic/page/2" class="paginate__item paginate__item_next">
-					<span>Növ.</span> <i class="fa fa-chevron-right" aria-hidden="true"></i>
+					<span></span> <i class="fa fa-chevron-right" aria-hidden="true"></i>
 				</a>
 			</li>
 
@@ -1130,22 +1174,7 @@ function myFunction() {
 
       </div>
 
-											<div class="bottom-content">
-							<h3>Bakıda ən yaxşı xüsusi klinikaların ünvanlarını harada tapa bilərsiniz?</h3>
-<p>Tapdoc.az professional onlayn xidməti Moskvada ən yaxşı klinikaların siyahısını tərtib edib, yalnız sağ tibb müəssisəsini seçməlisiniz və bir mütəxəssislə randevu ala bilərsiniz.</p>
-<h3>Bakıda ən yaxşı klinikanı necə tapmaq olar?</h3>
-<ul>
-<li> tibb sahəsində və ya sizə kömək edə biləcək bir mütəxəssis seçmək;</li>
-<li> ödənişli bir klinikada müayinə edilməsi rahat olacağı Moskva ərazisini müəyyənləşdirin;</li>
-<li> dəyəri, populyarlıq mərkəzi və ya təhlil əsasında məlumatları sıralayın.</li>
-</ul>
-<h3>Tapdoc.Az saytında tibbi klinika axtarış sisteminin rahatlığı aşağıdakı kimidir:</h3>
-<ul>
-<li> hər bir klinikada xüsusi klinikaların ünvanları və xidmətlərin tam siyahısı daxil olmaqla etibarlı və ətraflı məlumatları olan bir sorğu var;</li>
-<li> verildikdə, axtarış sistemi dərhal qiymət səviyyəsini göstərir (məsələn, qəbul qiyməti yüksək, orta);</li>
-<li> Dərhal sizin üçün münasib vaxtda randevu ala bilərsiniz.</li>
-</ul>
-						</div>
+
 
 
 
