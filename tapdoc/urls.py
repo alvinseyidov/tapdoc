@@ -29,6 +29,7 @@ urlpatterns = [
     path('logindoc/', views.logindoc, name='logindoc'),
     path('loginclinic/', views.loginclinic, name='loginclinic'),
     path('clinic/', views.clinic, name='clinic'),
+    path('clinic/<int:id>/detail', views.clinicdetail, name='clinicdetail'),
     path('diaqnostika/', views.diaqnostika, name='diaqnostika'),
     path('xidmetler/', views.xidmetler, name='xidmetler'),
     path('doctor/<int:id>/detail', views.doctordetail, name='doctordetail'),

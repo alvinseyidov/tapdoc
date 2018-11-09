@@ -1863,7 +1863,7 @@ textarea.form-input {
 }
 .search__checkbox {
   display: inline-block;
-  margin-right: 19px;
+  margin-right: 8px;
   vertical-align: top;
 }
 .search__specs {
@@ -4351,7 +4351,7 @@ body {
   box-shadow: 0 3px 2px 0 rgba(1, 1, 1, 0.1);
   position: relative;
   background: #fff;
-  z-index: 4;
+  z-index: 2;
 }
 .clinics__toptitle {
   padding-top: 40px;
@@ -4869,7 +4869,7 @@ h3.links__title-small {
   line-height: 30px;
   padding-right: 25px;
   margin-right: 23px;
-  border-right: 1px solid #eaeaeb;
+
   font-family: 'Muller', sans-serif;
 }
 .carousel__inner {

@@ -94,6 +94,16 @@ def doctordetail(request, id):
         form = ReviewForm()
     return render(request, 'doctordetail.html', {'wishlist': wishlist,'doctor': doctor, 'form': form, 'reviewcount': reviewcount, 'reviewaverage':reviewaverage})
 
+
+@login_required(login_url='/admin/')
+def clinicdetail(request, id):
+
+    return render(request, 'clinicdetail.html')
+
+
+
+
+
 def addtofavor(request, id):
     doctor = get_object_or_404(Doctor, id=id)
     doctor.wishlist.add(request.user)
