@@ -127,7 +127,114 @@
 		}
 	]
 
-</script></head>
+</script>
+<style>
+   .dropdownmyp {
+   display: block;
+   padding-left: 96px;
+   position: absolute;
+   margin-top: -16px;
+   font-size: 13px;
+   color:#0094e1;
+   }
+   .dropdown-contentmyp {
+   display: none;
+   padding: 0px 0px 0px 10px;
+   width: 100px;
+   height: 78px;
+   background: #fff;
+   border-radius: 7px;
+   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+   }
+   .dropdownmyp:hover .dropdown-contentmyp {
+   display: block;
+   position: absolute;
+   }
+   .paginationn li{
+   padding: 47px;
+   }
+   .headertable{
+   width:1200px;
+   padding-top: 20px;
+   padding-bottom: 21px;
+   }
+   .headertableth{
+   float:right;
+   }
+   .header1{
+   font-size: 11px;
+   font-weight: 300;
+   }
+   .header2{
+   color:#fe246c;
+   }
+   .header3{
+   font-size: 24px;
+   margin-top: -8px;
+   font-weight: 400;
+   }
+   .addfavor {
+   position: absolute;
+   margin: -1px 0 1px -71px;
+   z-index: 2;
+   }
+   @media screen and (max-width: 767px){
+   .addfavor {
+   position: absolute;
+   margin: -1px 0 1px -40px;
+   z-index: 2;
+   }
+   }
+   .addfavor img {
+   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 24px 0 rgba(0, 0, 0, 0.19);
+   border-radius: 39px;
+   }
+   .dropdownmyp {
+   display: block;
+   padding-left: 197px;
+   position: absolute;
+   margin-top: 40px;
+   font-size: 13px;
+   color:#0094e1;
+   }
+   .dropdown-contentmyp {
+   display: none;
+   padding: 0px 0px 0px 11px;
+   width: 100px;
+   height: 78px;
+   background: #fff;
+   border-radius: 7px;
+   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+   z-index: 100;
+   }
+   .dropdownmyp:hover .dropdown-contentmyp {
+   display: block;
+   position: absolute;
+   }
+   span.headerdesktop_contact_phone {
+   float: right;
+   }
+   .headerdesktop_phone {
+   float: right;
+   }
+   .headerdesktop {
+   margin: 27px 20px 24px 25px;
+   height: 67px;
+   }
+   .headerdesktoplogo{
+   float: left;
+   }
+   .headerdesktoplogo img{
+   width: 180px;
+   }
+   .headerdesktopright{
+   float: right;
+   }
+   .loading1{
+   margin: 0px 0px 0px 40px;
+   }
+</style>
+</head>
 
 <body class="body  ">
 
@@ -187,190 +294,24 @@
 </aside>
 
     <section class="outer">
-        <header class="header  ">
-    <div class="wrapper">
-        <div class="header__inner">
-			<a href="#" class="header__burger">
-                                    <i class="fa fa-bars" aria-hidden="true"></i>
-                            </a>
-            <div class="logo__wrapper">
-                <a href="https://docdoc.ru/" class="header__logo"><img src="https://s.docdoc.ru/new-doc-doc/images/logo.png" alt=""/></a>
-            </div>
-			<div class="header-city js-header-open-city">
-                <div class="header-city__current">
-                    <span class="js-header-city-current" data-event-tracker="1" data-tracker-event="click"
-                          data-tracker-action="switch-city"
-                    >Москва</span>
+    <div class="headerdesktop">
+                   <div class="headerdesktoplogo"><a href="/"><img src="/static/img/tapdoc.png"></a></div>
+                   <div class="headerdesktopright">
+                      <div class="headerdesktop_phone">
+                         <div class="headerdesktop_phone-note"><span style="color: rgb(255, 37, 108); font-weight: 600;">Zəng Edin!</span> Həkim Axtarışında Kömək Üçün
+                         </div>
+                         <span class="headerdesktop_contact_phone ">
+                         +994 (055) 555-55-55                                </span>
+                      </div>
+                      <div class="dropdownmyp">
+                         <span>Şəxsi Kabinet</span>
+                         <div class="dropdown-contentmyp">
+                            <p><a href="/account/">Profilim</a></p>
+                            <p><a href="/logout/">Çıxış</a></p>
+                         </div>
+                      </div>
+                   </div>
                 </div>
-                <div class="header-city-popup js-popup-header-city">
-                                            <div class="header-city-popup__item js-header-city-item header-city-popup__item--current"
-                             data-cityid="1"
-                             data-event-tracker="1"
-                             data-tracker-event="click"
-                             data-tracker-action="choose-city"
-                             data-tracker-value="Москва"
-                        >
-	                        <i class="fa fa-check"></i>Москва                        </div>
-                                            <div class="header-city-popup__item js-header-city-item "
-                             data-cityid="2"
-                             data-event-tracker="1"
-                             data-tracker-event="click"
-                             data-tracker-action="choose-city"
-                             data-tracker-value="Санкт-Петербург"
-                        >
-	                        <i class="fa fa-check"></i>Санкт-Петербург                        </div>
-                                            <div class="header-city-popup__item js-header-city-item "
-                             data-cityid="28"
-                             data-event-tracker="1"
-                             data-tracker-event="click"
-                             data-tracker-action="choose-city"
-                             data-tracker-value="Волгоград"
-                        >
-	                        <i class="fa fa-check"></i>Волгоград                        </div>
-                                            <div class="header-city-popup__item js-header-city-item "
-                             data-cityid="21"
-                             data-event-tracker="1"
-                             data-tracker-event="click"
-                             data-tracker-action="choose-city"
-                             data-tracker-value="Воронеж"
-                        >
-	                        <i class="fa fa-check"></i>Воронеж                        </div>
-                                            <div class="header-city-popup__item js-header-city-item "
-                             data-cityid="4"
-                             data-event-tracker="1"
-                             data-tracker-event="click"
-                             data-tracker-action="choose-city"
-                             data-tracker-value="Екатеринбург"
-                        >
-	                        <i class="fa fa-check"></i>Екатеринбург                        </div>
-                                            <div class="header-city-popup__item js-header-city-item "
-                             data-cityid="23"
-                             data-event-tracker="1"
-                             data-tracker-event="click"
-                             data-tracker-action="choose-city"
-                             data-tracker-value="Ижевск"
-                        >
-	                        <i class="fa fa-check"></i>Ижевск                        </div>
-                                            <div class="header-city-popup__item js-header-city-item "
-                             data-cityid="8"
-                             data-event-tracker="1"
-                             data-tracker-event="click"
-                             data-tracker-action="choose-city"
-                             data-tracker-value="Казань"
-                        >
-	                        <i class="fa fa-check"></i>Казань                        </div>
-                                            <div class="header-city-popup__item js-header-city-item "
-                             data-cityid="15"
-                             data-event-tracker="1"
-                             data-tracker-event="click"
-                             data-tracker-action="choose-city"
-                             data-tracker-value="Краснодар"
-                        >
-	                        <i class="fa fa-check"></i>Краснодар                        </div>
-                                            <div class="header-city-popup__item js-header-city-item "
-                             data-cityid="24"
-                             data-event-tracker="1"
-                             data-tracker-event="click"
-                             data-tracker-action="choose-city"
-                             data-tracker-value="Красноярск"
-                        >
-	                        <i class="fa fa-check"></i>Красноярск                        </div>
-                                            <div class="header-city-popup__item js-header-city-item "
-                             data-cityid="7"
-                             data-event-tracker="1"
-                             data-tracker-event="click"
-                             data-tracker-action="choose-city"
-                             data-tracker-value="Нижний Новгород"
-                        >
-	                        <i class="fa fa-check"></i>Нижний Новгород                        </div>
-                                            <div class="header-city-popup__item js-header-city-item "
-                             data-cityid="5"
-                             data-event-tracker="1"
-                             data-tracker-event="click"
-                             data-tracker-action="choose-city"
-                             data-tracker-value="Новосибирск"
-                        >
-	                        <i class="fa fa-check"></i>Новосибирск                        </div>
-                                            <div class="header-city-popup__item js-header-city-item "
-                             data-cityid="6"
-                             data-event-tracker="1"
-                             data-tracker-event="click"
-                             data-tracker-action="choose-city"
-                             data-tracker-value="Пермь"
-                        >
-	                        <i class="fa fa-check"></i>Пермь                        </div>
-                                            <div class="header-city-popup__item js-header-city-item "
-                             data-cityid="17"
-                             data-event-tracker="1"
-                             data-tracker-event="click"
-                             data-tracker-action="choose-city"
-                             data-tracker-value="Ростов-на-Дону"
-                        >
-	                        <i class="fa fa-check"></i>Ростов-на-Дону                        </div>
-                                            <div class="header-city-popup__item js-header-city-item "
-                             data-cityid="9"
-                             data-event-tracker="1"
-                             data-tracker-event="click"
-                             data-tracker-action="choose-city"
-                             data-tracker-value="Самара"
-                        >
-	                        <i class="fa fa-check"></i>Самара                        </div>
-                                            <div class="header-city-popup__item js-header-city-item "
-                             data-cityid="26"
-                             data-event-tracker="1"
-                             data-tracker-event="click"
-                             data-tracker-action="choose-city"
-                             data-tracker-value="Сочи"
-                        >
-	                        <i class="fa fa-check"></i>Сочи                        </div>
-                                            <div class="header-city-popup__item js-header-city-item "
-                             data-cityid="30"
-                             data-event-tracker="1"
-                             data-tracker-event="click"
-                             data-tracker-action="choose-city"
-                             data-tracker-value="Тюмень"
-                        >
-	                        <i class="fa fa-check"></i>Тюмень                        </div>
-                                            <div class="header-city-popup__item js-header-city-item "
-                             data-cityid="13"
-                             data-event-tracker="1"
-                             data-tracker-event="click"
-                             data-tracker-action="choose-city"
-                             data-tracker-value="Уфа"
-                        >
-	                        <i class="fa fa-check"></i>Уфа                        </div>
-                                            <div class="header-city-popup__item js-header-city-item "
-                             data-cityid="19"
-                             data-event-tracker="1"
-                             data-tracker-event="click"
-                             data-tracker-action="choose-city"
-                             data-tracker-value="Челябинск"
-                        >
-	                        <i class="fa fa-check"></i>Челябинск                        </div>
-                                    </div>
-                <form class="header-city-form" name="cityselector" method="get" action="https://docdoc.ru/site/changeCity" >
-                    <input class="header-city-input" name="cityId" type="hidden" />
-                </form>
-            </div>
-
-            <aside class="header__right">
-                                        <div class="header__phone">
-                            <div class="header__phone-note">
-                                Нужна помощь? <span>Звоните!</span>
-                            </div>
-                                                            <span class="header_contact_phone ">
-                                    8 (499) 116-81-78                                </span>
-                                                    </div>
-                                                    <div id="header-menu"></div>
-                            </aside>
-            <aside class="header__links">
-                                                    <a href="javascript:void(0);" class="header__link js-show-map-clincics">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    </a>
-                                            </aside>
-                    </div>
-    </div>
-</header>
 
 
 <script src="https://s.docdoc.ru/compile/lazySlots.js?1943356933"></script>
