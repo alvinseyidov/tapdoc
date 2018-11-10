@@ -328,6 +328,11 @@ float: right;
 .popup-book-overlay-select{
       padding: 0 0 0px 50px;
 }
+
+.popup-book-step{
+  margin: 0 0 0 -52px;
+  width: 393px;
+}
 </style>
 
 </head>
@@ -801,10 +806,10 @@ function myFunction() {
 <div class="popup-book__pic" data-bind="style: { backgroundImage: 'url(\'' + clinic.logo + '\')' }" style="background-position: center center; background-size: contain; background-repeat: no-repeat; background-color: white; float: left; background-image: url({{doctor.image.url}});"></div>
 <div class="popup-book__float">
   <div class="popup-book__info-name" data-bind="text: clinicNameText">{{doctor.first_name}}  {{doctor.last_name}}</div>
-  <p data-bind="text: clinicAddressText">ул. Авиамоторная, д. 41Б</p>
+  <p data-bind="text: clinicAddressText">Cərrah - Terapevt</p>
 
   <!-- ko with: subtitle -->
-  <div data-bind="text: $data">Первичная стоимость приема —&nbsp;высокая</div>
+  <div data-bind="text: $data">Bakı ş. Nərimanov r.</div>
   <!-- /ko -->
 </div>
 </div>
@@ -919,7 +924,7 @@ function myFunction() {
           </div>
           <div class="form-input-withlabel" data-bind="css: { valided: patientPhoneValid }">
               <div class="form-input-ico "><i class="fa fa-phone"></i></div>
-              <input type="text" placeholder="+7 (___) ___-__-__" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
+              <input type="text" placeholder="+994 (___) ___-__-__" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
           phoneTextInput: patientPhoneInput,
           disable: disableInputs,
           valueUpdate: 'afterkeydown',
@@ -1680,7 +1685,7 @@ window.onclick = function(event) {
 
     	<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"780216d570","applicationID":"15308550","transactionName":"ZlMHNkcHWEtQB0QLC18ZJhdGEllVHh1ZC0tXRAoMQUlVVFgKWQFLWFgBB00=","queueTime":0,"applicationTime":1573,"atts":"ShQQQA8dSxQTBRJYH0xL","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
 
-      //Müraciət Popup
+
 
 
 </html>

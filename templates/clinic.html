@@ -947,7 +947,7 @@ float: right;
 					</div>
 				</div>
 				<div class="clinic-card__info">
-					<a href="https://tapdoc.az/clinic/trastmed" class="clinic-card__name">NewMed Tibb Mərkəzi</a>
+					<a href="{% url 'doctordetail'%}" class="clinic-card__name">NewMed Tibb Mərkəzi</a>
 					<div class="clinic-card__type">diaqnostika mərkəzi</div>
 					<div class="clinic-card__cost">
 													Ortalama xidmət qiymətləri - yüksək											</div>
@@ -1004,7 +1004,7 @@ float: right;
 				<div class="clinic-card__branch">
 	<div class="clinic-card__inner">
 		<div class="clinic-card__left">
-			<a href="/clinic/on_klinik_na_novom_arbate" class="clinic-card__branch-name">New Med  Nərimanov Filialı</a>
+			<a href="{% url 'doctordetail' doctorid %}" class="clinic-card__branch-name">New Med  Nərimanov Filialı</a>
 			<div class="clinic-card__rating clinic-card__rating_clinic">
 
 <div class="rate">
@@ -1029,33 +1029,43 @@ float: right;
 			</div>
 		</div>
 		<div class="clinic-card__right">
-			<div class="clinic-card__clinic">
-				<div class="clinic-card__clinic-address">
-					<div class="clinic-card__clinic-address">
+    <div class="clinic-card__clinic">
+        <div class="clinic-card__clinic-address">
+          <div class="clinic-card__clinic-address">
 
 
-		г. Москва, ул. Большая Молчановка, д. 32, стр. 1<br>
+  Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
 
 
-	<a class="clinic-card__metro" href="/clinic/station/smolenskaya"><i class="i-metro-sm i-metro--line_2"></i>Смоленская&nbsp;<span class="doctor-card-clinics__station-distance">(900 м)</span></a>, <a class="clinic-card__metro" href="/clinic/station/arbatskaya"><i class="i-metro-sm i-metro--line_2"></i>Арбатская&nbsp;<span class="doctor-card-clinics__station-distance">(1 км)</span></a>
+<a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i class="i-metro-sm i-metro--line_11"></i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i class="i-metro-sm i-metro--line_3"></i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
 </div>
-				</div>
-									<div class="clinic-card__clinic-time">
-													<div class="clinic-card__clinic-time-row">
-								<span>пн-пт:</span> 08:00 - 21:00							</div>
-													<div class="clinic-card__clinic-time-row">
-								<span>сб:</span> 08:00 - 21:00							</div>
-													<div class="clinic-card__clinic-time-row">
-								<span>вс:</span> 08:00 - 21:00							</div>
-											</div>
-							</div>
+        </div>
+
+                    <div class="clinic-card__clinic-time">
+                            <div class="clinic-card__clinic-time-row">
+                <span>bz-cm:</span> 09:00 - 21:00								</div>
+                            <div class="clinic-card__clinic-time-row">
+                <span>şn:</span> 10:00 - 18:00								</div>
+                            <div class="clinic-card__clinic-time-row">
+                <span>bz:</span> 10:00 - 15:00								</div>
+                        </div>
+                                            <div class="clinic-card__clinic-phone" data-ga-label="doctor clinic form" data-ga-action="clickPhoneNumber">
+               (+994) 519-31-04							</div>
+                      <div class="clinic-address__button clinic-card__clinic-button js-book-clinic">
+            <form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
+              <input type="hidden" name="clinicId" value="5719">
+              <input type="hidden" name="requestBtnType" value="requestCardShortClinic">
+              <input type="submit" value="Müraciət" class="button ui-btn ui-btn_green request-button js-request-form-hook" data-ga-label="doctor clinic form" data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1">
+            </form>
+          </div>
+                </div>
 		</div>
 	</div>
 </div>
 				<div class="clinic-card__branch">
 	<div class="clinic-card__inner">
 		<div class="clinic-card__left">
-			<a href="/clinic/on_klinik_na_ulitse_1905_goda" class="clinic-card__branch-name">New Med Nəsimi Rayon Filialı</a>
+			<a href="{% url 'doctordetail'%}" class="clinic-card__branch-name">New Med Nəsimi Rayon Filialı</a>
 			<div class="clinic-card__rating clinic-card__rating_clinic">
 
 <div class="rate">

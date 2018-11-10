@@ -97,8 +97,8 @@ def doctordetail(request, id):
 
 @login_required(login_url='/admin/')
 def clinicdetail(request, id):
-
-    return render(request, 'clinicdetail.html')
+    doctorid = 1
+    return render(request, 'clinicdetail.html',{'doctorid': doctorid})
 
 
 
