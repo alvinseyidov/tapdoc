@@ -7,7 +7,7 @@ from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-@login_required(login_url='/admin/')
+
 def homepage(request):
     return render(request, 'index.html')
 def logindoc(request):
