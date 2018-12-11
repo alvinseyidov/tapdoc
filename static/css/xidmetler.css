@@ -14530,7 +14530,7 @@ ul.specialty-info__list{
         position:absolute;
         top:78px;
         left:274px;
-        height:calc(100% - 78px);
+        height:calc(100% - 149px);
         width:1px;
         background:#e0e0e0
     }

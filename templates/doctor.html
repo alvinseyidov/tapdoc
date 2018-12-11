@@ -333,6 +333,7 @@ float: right;
   margin: 0 0 0 -52px;
   width: 393px;
 }
+
 </style>
 
 </head>
@@ -507,7 +508,7 @@ float: right;
                             <input type="text"
                                    class="forms__input search__input js-suggest-location"
                                    data-autocomplete-id="autocomplete-geo"
-                                   placeholder="Şəhər və metrolar"
+                                   placeholder="Metro, Rayon"
                                    data-is-district="0"
                                    value="" />
                         </div>
@@ -552,13 +553,13 @@ float: right;
 	</a>
 
   <a class="search__checkbox link-departure" href="https://tapdoc.az/clinic/direction/desc/dms-policy/1" style="margin-right: 8px;">
-<div class="checkbox">
+<div class="checkbox" style="padding-top: 1px;">
 <input class="checkbox__input need-dms-auth" type="checkbox" value="1" name="dms-policy" id="dms-policy" />			<label class="checkbox__label js-click-spinner" for="dms-policy"><i class="fa fa-male" style="font-size: 18px;color:#0199F4;"></i></label>
 </div>
 </a>
 
 <a class="search__checkbox link-departure" href="https://tapdoc.az/clinic/direction/desc/dms-policy/1">
-<div class="checkbox">
+<div class="checkbox" style="padding-top: 1px;">
 <input class="checkbox__input need-dms-auth" type="checkbox" value="1" name="dms-policy" id="dms-policy" />			<label class="checkbox__label js-click-spinner" for="dms-policy"><i class="fa fa-female" style="font-size: 18px;color:#DD71E3;"></i></label>
 </div>
 </a>
@@ -569,12 +570,13 @@ float: right;
 
 
 
-      <div class="clinics__left clinics__left_fullwidth" style="padding: 0px 0 25px 0;">
+      <div class="clinics__left clinics__left_fullwidth" style="padding: 0px 0 25px 0;margin-left: -8px;">
+<div class="breadcrump"><a href="{% url 'homepage'%}">Ana səhifə </a>/ Həkimlər</div><br>
               <div class="sorting">
 
 
                   <div class="sorting__items">
-                        <a href="{% url 'doctor' %}" class="sorting__item sorting__item1" rel="nofollow">Həkimlər</a>
+                        <a href="{% url 'doctor' %}" class="sorting__item sorting__item1" rel="nofollow" style="background:#35bfae;color:#fff;">Həkimlər</a>
                         <a href="{% url 'clinic' %}" class="sorting__item sorting__item1" rel="nofollow">Klinikalar</a>
                         <a href="{% url 'diaqnostika' %}" class="sorting__item sorting__item1" rel="nofollow">Diaqnostika</a>
                         <a href="{% url 'xidmetler' %}" class="sorting__item sorting__item1" rel="nofollow">Xidmətlər</a>
@@ -685,7 +687,7 @@ function myFunction() {
 
 
                 <div class="sorting__items">
-<a href="#" class="sorting__item sorting__item12" rel="nofollow">Populyarlıq</a>
+<a href="#" class="sorting__item sorting__item12" rel="nofollow" style="background:#d7d7d7;">Populyarlıq</a>
 <a href="#" class="sorting__item " rel="nofollow">Reyting</a>
 <a href="#" class="sorting__item " rel="nofollow">Staj</a>
 <a href="#" class="sorting__item " rel="nofollow">Qiymət</a>
@@ -759,19 +761,25 @@ function myFunction() {
 					</div>
 				</div>
 			</div>
-			<div class="clinic-card__right">
+
+
+
+
+
+      <div class="tabdoctab{{doctor.id}}">
+        <button style="margin: 16px 0 0 -19px;background-color: #fff;border-right: 0px solid red;border-bottom: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'London{{doctor.id}}')" id="defaultOpendoctab{{doctor.id}}">1</button><br>
+        <button style="margin: 0px 0 0 -19px;background-color: #fff;border-right: 0px solid red;border-bottom: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'Paris{{doctor.id}}')">2</button>
+
+      </div>
+
+       <div style="margin: -50px 0 0 0;" id="London{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
 				<div class="clinic-card__clinic">
 					<div class="clinic-card__clinic-address">
-						<div class="clinic-card__clinic-address">
-
-
-		Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
-
-
-	<a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i class="i-metro-sm i-metro--line_11"></i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i class="i-metro-sm i-metro--line_3"></i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
-</div>
+						        <div class="clinic-card__clinic-address">
+		              Bakı ş. Fətəli Xan Xoyski küç. 53 <br>
+	                 <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src={% static "img/metro2.png"%}/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src={% static "img/metro1.png"%}/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+                   </div>
 					</div>
-
 											<div class="clinic-card__clinic-time">
 															<div class="clinic-card__clinic-time-row">
 									<span>bz-cm:</span> 09:00 - 21:00								</div>
@@ -784,11 +792,49 @@ function myFunction() {
 							     data-ga-action="clickPhoneNumber">
 								 (+994) 519-31-04							</div>
 												<div class="clinic-address__button clinic-card__clinic-button js-book-clinic">
-							  <button class="myBtnmuraciet" id="myBtnmuraciet{{ doctor.id }}">Müraciət</button>
+							                 <button class="myBtnmuraciet" id="myBtnmuraciet{{ doctor.id }}">Müraciət</button>
 
-						</div>
+						            </div>
 									</div>
-			</div>
+			   </div>
+
+
+
+
+         <div style="margin: -50px 0 0 0;" id="Paris{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
+  				<div class="clinic-card__clinic">
+  					<div class="clinic-card__clinic-address">
+  						        <div class="clinic-card__clinic-address">
+  		              Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
+  	                 <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src={% static "img/metro2.png"%}/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src={% static "img/metro1.png"%}/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+                     </div>
+  					</div>
+  											<div class="clinic-card__clinic-time">
+  															<div class="clinic-card__clinic-time-row">
+  									<span>bz-cm:</span> 09:00 - 21:00								</div>
+  															<div class="clinic-card__clinic-time-row">
+  									<span>şn:</span> 10:00 - 18:00								</div>
+  															<div class="clinic-card__clinic-time-row">
+  									<span>bz:</span> 10:00 - 15:00								</div>
+  													</div>
+  																							<div class="clinic-card__clinic-phone" data-ga-label="doctor clinic form"
+  							     data-ga-action="clickPhoneNumber">
+  								 (+994) 519-31-04							</div>
+  												<div class="clinic-address__button clinic-card__clinic-button js-book-clinic">
+  							                 <button class="myBtnmuraciet" id="myBtnmuraciet{{ doctor.id }}">Müraciət</button>
+
+  						            </div>
+  									</div>
+  			   </div>
+
+
+
+
+
+
+
+
+
 		</div>
 	</div>
 </div>
@@ -1003,6 +1049,24 @@ function myFunction() {
   </div>
 
 </div>
+<script>
+function openCitydoctab{{doctor.id}}(evt, cityNamedoctab{{doctor.id}}) {
+  var idoctab{{doctor.id}}, tabcontentdoctab{{doctor.id}}, tablinksdoctab{{doctor.id}};
+  tabcontentdoctab{{doctor.id}} = document.getElementsByClassName("tabcontentdoctab{{doctor.id}}");
+  for (idoctab{{doctor.id}} = 0; idoctab{{doctor.id}} < tabcontentdoctab{{doctor.id}}.length; idoctab{{doctor.id}}++) {
+    tabcontentdoctab{{doctor.id}}[idoctab{{doctor.id}}].style.display = "none";
+  }
+  tablinksdoctab{{doctor.id}} = document.getElementsByClassName("tablinksdoctab{{doctor.id}}");
+  for (idoctab{{doctor.id}} = 0; idoctab{{doctor.id}} < tablinksdoctab{{doctor.id}}.length; idoctab{{doctor.id}}++) {
+    tablinksdoctab{{doctor.id}}[idoctab{{doctor.id}}].className = tablinksdoctab{{doctor.id}}[idoctab{{doctor.id}}].className.replace(" active", "");
+  }
+  document.getElementById(cityNamedoctab{{doctor.id}}).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpendoctab{{doctor.id}}").click();
+</script>
 
 <script>
 // Get the modal
@@ -1017,7 +1081,7 @@ var span = document.getElementsByClassName("closemuraciet{{doctor.id}}")[0];
 // When the user clicks the button, open the modal
 btn.onclick = function() {
     modal.style.display = "block";
-    document.getElementById('bodyy').style.overflow="hidden";
+    //document.getElementById('bodyy').style.overflow="hidden";
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -1031,6 +1095,7 @@ span.onclick = function() {
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
+        document.getElementById('bodyy').style.overflow="initial";
     }
 }
 </script>
@@ -1090,17 +1155,13 @@ window.onclick = function(event) {
 
       	<aside class="clinics__left clinics__left_fullwidth">
 
-      		<h1 class="clinics__title">Bakıda yerləşən klinika və tibbi mərkəzlər</h1>
+      		<h1 class="clinics__title">İxtisaslar</h1>
 
       		<div class="clinics__specs">
       			<div class="specs specs_clinics">
       				<div class="specs__items">
       					<div class="specs__cols" data-width="250">
-      																																															<div>
-      									<a href="#">
-      										<span>288</span> <span>Gnikoloji</span>
-      									</a>
-      								</div>
+
       																												<div>
       									<a href="#">
       										<span>114</span> <span>Allerqoloq</span>
@@ -1108,37 +1169,37 @@ window.onclick = function(event) {
       								</div>
       																												<div>
       									<a href="#">
-      										<span>152</span> <span>Andrologiya</span>
+      										<span>152</span> <span>Androloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>30</span> <span>Anasteziologiya</span>
+      										<span>30</span> <span>Anastezioloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>17</span> <span>Artrologiya</span>
+      										<span>17</span> <span>Artroloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>7</span> <span>Veterologiya</span>
+      										<span>7</span> <span>Veteroloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>166</span> <span>Venerologiya</span>
+      										<span>166</span> <span>Veneroloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>42</span> <span>Vertebrologiya</span>
+      										<span>42</span> <span>Vertebroloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>171</span> <span>Qastrologiya</span>
+      										<span>171</span> <span>Qastroloq</span>
       									</a>
       								</div>
       																												<div>
@@ -1158,152 +1219,152 @@ window.onclick = function(event) {
       								</div>
       																												<div>
       									<a href="#">
-      										<span>331</span> <span>Ginokologiya</span>
+      										<span>331</span> <span>Ginokoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>56</span> <span>Huridoterapiya</span>
+      										<span>56</span> <span>Huridoterapevt</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>17</span> <span>Hemopatiya</span>
+      										<span>17</span> <span>Hemopatoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>248</span> <span>Dermotologiya</span>
+      										<span>248</span> <span>Dermotoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>10</span> <span>Diabetologiya</span>
+      										<span>10</span> <span>Diabetoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>64</span> <span>Dietologiya</span>
+      										<span>64</span> <span>Dietoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>107</span> <span>İmmunologiya</span>
+      										<span>107</span> <span>İmmunoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>25</span> <span>İnfeksion</span>
+      										<span>25</span> <span>İnfeksionist</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>201</span> <span>Kardiologiya</span>
+      										<span>201</span> <span>Kardioloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>30</span> <span>Kinezologiya</span>
+      										<span>30</span> <span>Kinezoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>63</span> <span>Koloktrologiya</span>
+      										<span>63</span> <span>Koloktroloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>184</span> <span>Kosmetologiya</span>
+      										<span>184</span> <span>Kosmetoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>54</span> <span>Fiziologiya</span>
+      										<span>54</span> <span>Fizioloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>41</span> <span>Logopedi</span>
+      										<span>41</span> <span>Logoped</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>109</span> <span>Mammalogiya</span>
+      										<span>109</span> <span>Mammaloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>140</span> <span>Manual Terapiya</span>
+      										<span>140</span> <span>Manual Terapevt</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>125</span> <span>Masaj</span>
+      										<span>125</span> <span>Masajist</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>35</span> <span>Mikologiya</span>
+      										<span>35</span> <span>Mikoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>41</span> <span>Narkologiya</span>
+      										<span>41</span> <span>Narkoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>272</span> <span>Nevrologiya</span>
+      										<span>272</span> <span>Nevroloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>21</span> <span>Neyrocərrahiyə</span>
+      										<span>21</span> <span>Neyrocərrah</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>22</span> <span>Nevrologiya</span>
+      										<span>22</span> <span>Nevroloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>19</span> <span>Neoatalogiya</span>
+      										<span>19</span> <span>Neoataloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>34</span> <span>Nefrologiya</span>
+      										<span>34</span> <span>Nefroloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>98</span> <span>Onkologiya</span>
+      										<span>98</span> <span>Onkoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>171</span> <span>Ortopedia</span>
+      										<span>171</span> <span>Ortoped</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>66</span> <span>Ostopedia</span>
+      										<span>66</span> <span>Ostoped</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>185</span> <span>Otolaringologiya</span>
+      										<span>185</span> <span>Otolaringoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>138</span> <span>Oftalmologiya</span>
+      										<span>138</span> <span>Oftalmoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>1</span> <span>Parazitologiya</span>
+      										<span>1</span> <span>Parazitoloq</span>
       									</a>
       								</div>
       																												<div>
@@ -1313,17 +1374,17 @@ window.onclick = function(event) {
       								</div>
       																												<div>
       									<a href="#">
-      										<span>63</span> <span>Plastik Cərrahiyyə</span>
+      										<span>63</span> <span>Plastik Cərrah</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>12</span> <span>Podologiya</span>
+      										<span>12</span> <span>Podoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>89</span> <span>Proktologiya</span>
+      										<span>89</span> <span>Proktoloq</span>
       									</a>
       								</div>
       																												<div>
@@ -1333,52 +1394,52 @@ window.onclick = function(event) {
       								</div>
       																												<div>
       									<a href="#">
-      										<span>96</span> <span>Psixologiya</span>
+      										<span>96</span> <span>Psixoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>110</span> <span>Psixoterapiya</span>
+      										<span>110</span> <span>Psixoterapevt</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>56</span> <span>Pulmologiya</span>
+      										<span>56</span> <span>Pulmoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>31</span> <span>Reabilitasiya</span>
+      										<span>31</span> <span>Reabilitoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>71</span> <span>Revmotologiya</span>
+      										<span>71</span> <span>Revmotoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>73</span> <span>Rentgenologiya</span>
+      										<span>73</span> <span>Rentgenoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>29</span> <span>Reproduktolog</span>
+      										<span>29</span> <span>Reproduktoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>116</span> <span>Refleksolog</span>
+      										<span>116</span> <span>Refleksoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>14</span> <span>Seksologiya</span>
+      										<span>14</span> <span>Seksoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>13</span> <span>Somnologiya</span>
+      										<span>13</span> <span>Somnoloq</span>
       									</a>
       								</div>
       																												<div>
@@ -1388,27 +1449,27 @@ window.onclick = function(event) {
       								</div>
       																												<div>
       									<a href="#">
-      										<span>228</span> <span>Stomotologiya</span>
+      										<span>228</span> <span>Stomotoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>14</span> <span>Surdologiya</span>
+      										<span>14</span> <span>Surdoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>263</span> <span>Terapiya</span>
+      										<span>263</span> <span>Terapevt</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>139</span> <span>Travmotologiya</span>
+      										<span>139</span> <span>Travmotoloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>80</span> <span>Trixologiya</span>
+      										<span>80</span> <span>Trixoloq</span>
       									</a>
       								</div>
       																												<div>
@@ -1418,22 +1479,22 @@ window.onclick = function(event) {
       								</div>
       																												<div>
       									<a href="#">
-      										<span>238</span> <span>Urologiya</span>
+      										<span>238</span> <span>Uroloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>106</span> <span>Fizioterapiya</span>
+      										<span>106</span> <span>Fizioterapevt</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>88</span> <span>Flobologiya</span>
+      										<span>88</span> <span>Floboloq</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>3</span> <span>Foniatriya</span>
+      										<span>3</span> <span>Foniatroloq</span>
       									</a>
       								</div>
       																												<div>
@@ -1443,17 +1504,17 @@ window.onclick = function(event) {
       								</div>
       																												<div>
       									<a href="#">
-      										<span>2</span> <span>Kemoterapiya</span>
+      										<span>2</span> <span>Kemoterapevt</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>214</span> <span>Cərrahiyyə</span>
+      										<span>214</span> <span>Cərrah</span>
       									</a>
       								</div>
       																												<div>
       									<a href="#">
-      										<span>185</span> <span>Endokrinologiya</span>
+      										<span>185</span> <span>Endokrinoloq</span>
       									</a>
       								</div>
       																												<div>
@@ -1463,7 +1524,7 @@ window.onclick = function(event) {
       								</div>
       																												<div>
       									<a href="#">
-      										<span>24</span> <span>Epileptologiya</span>
+      										<span>24</span> <span>Epileptoloq</span>
       									</a>
       								</div>
       																		</div>
