@@ -334,6 +334,76 @@ float: right;
   width: 393px;
 }
 
+
+
+
+
+
+.listspec li {
+    position:relative;
+    overflow:hidden;
+    width:238px;
+}
+.listspec li:after {
+    font-size:93%;
+    content:"....................................";
+    text-indent:1px;
+    display:block;
+    letter-spacing:2px;
+    position:absolute;
+    left:1em;
+    bottom:0px;
+    z-index:1;
+    font-weight:bold;
+}
+.listspec li span {
+    display:inline;
+    max-width:100px;
+    background-color:#fff;
+    padding-right:12px;
+	position: relative;
+    z-index: 2;
+	font-size:13px;
+}
+.listspec li .numberspec {
+    float:right;
+    font-weight:bold;
+    padding-left:15px;
+    color: #6c6c6c;
+}
+.two-linesspec {
+    text-indent:-.9em;
+}
+.listspec .two-linesspec:after {
+    text-indent: 1px;
+}
+.two-linesspec .numberspec {
+    bottom:0px;
+    right:0px;
+    padding-right: 1.2em;
+}
+.columnspec {
+  float: left;
+  width: 25%;
+  padding: 0px;
+  height: 350px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columnspecs */
+.rowspec:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+* {
+  box-sizing: border-box;
+}
+
+.ixtisasspec {
+    color: #1593db;
+    font-size: 16px !important;
+}
+
 </style>
 
 </head>
@@ -777,7 +847,7 @@ function myFunction() {
 					<div class="clinic-card__clinic-address">
 						        <div class="clinic-card__clinic-address">
 		              Bakı ş. Fətəli Xan Xoyski küç. 53 <br>
-	                 <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+	                 <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
                    </div>
 					</div>
 											<div class="clinic-card__clinic-time">
@@ -806,7 +876,7 @@ function myFunction() {
   					<div class="clinic-card__clinic-address">
   						        <div class="clinic-card__clinic-address">
   		              Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
-  	                 <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+  	                 <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
                      </div>
   					</div>
   											<div class="clinic-card__clinic-time">
@@ -1157,380 +1227,145 @@ window.onclick = function(event) {
 
       		<h1 class="clinics__title">İxtisaslar</h1>
 
-      		<div class="clinics__specs">
-      			<div class="specs specs_clinics">
-      				<div class="specs__items">
-      					<div class="specs__cols" data-width="250">
+          <div class="rowspec">
+    <div class="columnspec">
+      <div style="width:100%">
+      <div style="margin:25px 0 200px 0">
+          <ul class="listspec" style="padding-left:10px;">
 
-      																												<div>
-      									<a href="#">
-      										<span>114</span> <span>Allerqoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>152</span> <span>Androloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>30</span> <span>Anastezioloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>17</span> <span>Artroloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>7</span> <span>Veteroloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>166</span> <span>Veneroloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>42</span> <span>Vertebroloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>171</span> <span>Qastroloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>26</span> <span>Gemotoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>20</span> <span>Genetika</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>37</span> <span>Hepatoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>331</span> <span>Ginokoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>56</span> <span>Huridoterapevt</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>17</span> <span>Hemopatoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>248</span> <span>Dermotoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>10</span> <span>Diabetoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>64</span> <span>Dietoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>107</span> <span>İmmunoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>25</span> <span>İnfeksionist</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>201</span> <span>Kardioloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>30</span> <span>Kinezoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>63</span> <span>Koloktroloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>184</span> <span>Kosmetoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>54</span> <span>Fizioloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>41</span> <span>Logoped</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>109</span> <span>Mammaloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>140</span> <span>Manual Terapevt</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>125</span> <span>Masajist</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>35</span> <span>Mikoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>41</span> <span>Narkoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>272</span> <span>Nevroloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>21</span> <span>Neyrocərrah</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>22</span> <span>Nevroloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>19</span> <span>Neoataloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>34</span> <span>Nefroloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>98</span> <span>Onkoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>171</span> <span>Ortoped</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>66</span> <span>Ostoped</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>185</span> <span>Otolaringoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>138</span> <span>Oftalmoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>1</span> <span>Parazitoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>131</span> <span>Pediatr</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>63</span> <span>Plastik Cərrah</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>12</span> <span>Podoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>89</span> <span>Proktoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>79</span> <span>Psixiatr</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>96</span> <span>Psixoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>110</span> <span>Psixoterapevt</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>56</span> <span>Pulmoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>31</span> <span>Reabilitoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>71</span> <span>Revmotoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>73</span> <span>Rentgenoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>29</span> <span>Reproduktoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>116</span> <span>Refleksoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>14</span> <span>Seksoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>13</span> <span>Somnoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>18</span> <span>İdman Tibbi</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>228</span> <span>Stomotoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>14</span> <span>Surdoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>263</span> <span>Terapevt</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>139</span> <span>Travmotoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>80</span> <span>Trixoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>310</span> <span>UZİ</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>238</span> <span>Uroloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>106</span> <span>Fizioterapevt</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>88</span> <span>Floboloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>3</span> <span>Foniatroloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>93</span> <span>Diaqnostika</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>2</span> <span>Kemoterapevt</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>214</span> <span>Cərrah</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>185</span> <span>Endokrinoloq</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>88</span> <span>Endoskopiya</span>
-      									</a>
-      								</div>
-      																												<div>
-      									<a href="#">
-      										<span>24</span> <span>Epileptoloq</span>
-      									</a>
-      								</div>
-      																		</div>
-      				</div>
-      			</div>
-      		</div>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Allerqoloq</span><span class="numberspec">72</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Androloq</span><span class="numberspec">68</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Artroloq</span><span class="numberspec">5</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Veteroloq</span><span class="numberspec">50</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Vertebroloq</span><span class="numberspec">41</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Qastroloq</span><span class="numberspec">36</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Gemotoloq</span><span class="numberspec">55</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Genetika</span><span class="numberspec">56</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Ginokoloq</span><span class="numberspec">67</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Huridoterapevt</span><span class="numberspec">82</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Rentgenoloq</span><span class="numberspec">42</span>
+              </li>
+              <li style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Hemopatoloq</span><span class="numberspec">71</span>
+              </li>
+
+      </ul>
+  </div>
+  </div>
+    </div>
+    <div class="columnspec">
+      <div style="width:100%">
+      <div style="margin:25px 0 200px 0">
+          <ul class="listspec" style="padding-left:10px;">
+
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Dermotoloq</span><span class="numberspec">10</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Diabetoloq</span><span class="numberspec">48</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Dietoloq</span><span class="numberspec">41</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">İmmunoloq</span><span class="numberspec">12</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">İnfeksionist</span><span class="numberspec">23</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Kardioloq</span><span class="numberspec">17</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Kinezoloq</span><span class="numberspec">9</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Koloktroloq</span><span class="numberspec">23</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Kosmetoloq</span><span class="numberspec">24</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Fizioloq</span><span class="numberspec">16</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Logoped</span><span class="numberspec">113</span>
+              </li>
+              <li style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Mammaloq</span><span class="numberspec">21</span>
+              </li>
+
+      </ul>
+  </div>
+  </div>
+    </div>
+    <div class="columnspec">
+      <div style="width:100%">
+      <div style="margin:25px 0 200px 0">
+          <ul class="listspec" style="padding-left:10px;">
+
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Manual Terapevt</span><span class="numberspec">34</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Masajist</span><span class="numberspec">88</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Mikoloq</span><span class="numberspec">9</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Narkoloq</span><span class="numberspec">22</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Nevroloq</span><span class="numberspec">114</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Neyrocərrah</span><span class="numberspec">97</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Neoataloq</span><span class="numberspec">68</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Nefroloq</span><span class="numberspec">87</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Onkoloq</span><span class="numberspec">84</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Ortoped</span><span class="numberspec">48</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Ostoped</span><span class="numberspec">55</span>
+              </li>
+              <li style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Otolaringoloq</span><span class="numberspec">17</span>
+              </li>
+
+      </ul>
+  </div>
+  </div>
+    </div>
+    <div class="columnspec">
+      <div style="width:100%">
+      <div style="margin:25px 0 200px 0">
+          <ul class="listspec" style="padding-left:10px;">
+
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Oftalmoloq</span><span class="numberspec">19</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Parazitoloq</span><span class="numberspec">12</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Pediatr</span><span class="numberspec">66</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Plastik Cərrah</span><span class="numberspec">25</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Podoloq</span><span class="numberspec">12</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Proktoloq</span><span class="numberspec">36</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Psixiatr</span><span class="numberspec">57</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Psixoloq</span><span class="numberspec">94</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Psixoterapevt</span><span class="numberspec">65</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Pulmoloq</span><span class="numberspec">94</span>
+              </li>
+              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Reabilitoloq</span><span class="numberspec">25</span>
+              </li>
+              <li style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Revmotoloq</span><span class="numberspec">20</span>
+              </li>
+
+      </ul>
+  </div>
+  </div>
+    </div>
+  </div>
+
 
       	</aside>
 
