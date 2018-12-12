@@ -1,4 +1,4 @@
-{{doctor.first_name}}  {{doctor.last_name}}{% load static %}
+{% load static %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>     <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie ie6" lang="ru"><![endif]-->
 <!--[if IE 7]>        <html class="no-js lt-ie9 lt-ie8 ie ie7" lang="ru"><![endif]-->
@@ -402,6 +402,92 @@ float: right;
 .ixtisasspec {
     color: #1593db;
     font-size: 16px !important;
+}
+
+.bozpanel1 {
+    margin: -18px 0 15px 0;
+    font-size: 13px;
+}
+.bozpanel2 {
+    margin: -6px 0 15px 0;
+    font-size: 13px;
+}
+
+.dropdownbozpanel {
+  display: inline-block;
+  position: relative;
+}
+
+.dd-buttonbozpanel {
+  display: inline-block;
+
+
+  border-radius: 4px;
+  padding: 6px 45px 6px 38px;
+  background-color: #e1e1e1;
+  cursor: pointer;
+  white-space: nowrap;
+  margin: -7px 0px 11px 0;
+}
+
+.dd-buttonbozpanel:after {
+  content: '';
+  position: absolute;
+  top: 30%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+}
+
+.dd-buttonbozpanel:hover {
+  background-color: #eeeeee;
+}
+
+
+.dd-inputbozpanel {
+  display: none;
+}
+
+.dd-menubozpanel {
+  position: absolute;
+      top: 100%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 0;
+      margin: -10px 0 0 0;
+      box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+      background-color: #ffffff;
+      list-style-type: none;
+      z-index: 1;
+      width: 182px;
+}
+
+.dd-inputbozpanel + .dd-menubozpanel {
+  display: none;
+}
+
+.dd-inputbozpanel:checked + .dd-menubozpanel {
+  display: block;
+}
+
+.dd-menubozpanel li {
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dd-menubozpanel li:hover {
+  background-color: #f6f6f6;
+}
+
+.dd-menubozpanel li a {
+  display: block;
+  margin: -10px -20px;
+  padding: 10px 20px;
 }
 
 </style>
@@ -833,7 +919,7 @@ function myFunction() {
 			</div>
 
 
-
+      {% if doctor.id == 4 %}
 
 
       <div class="tabdoctab{{doctor.id}}">
@@ -842,9 +928,26 @@ function myFunction() {
 
       </div>
 
-       <div style="margin: -50px 0 0 0;" id="London{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
+       <div style="margin: -50px -66px 0 0;" id="London{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
 				<div class="clinic-card__clinic">
+        <div class="bozpanel1">Həkim bir neçə klinikada fəaliyyət göstərir.</div>
+        <label class="dropdownbozpanel">
+
+  <div class="dd-buttonbozpanel">
+    Medical Plaza
+  </div>
+
+  <input type="checkbox" class="dd-inputbozpanel" id="test">
+
+  <ul class="dd-menubozpanel">
+    <li>New Med</li>
+    <li>Medical Plaza</li>
+
+  </ul>
+
+</label>
 					<div class="clinic-card__clinic-address">
+
 						        <div class="clinic-card__clinic-address">
 		              Bakı ş. Fətəli Xan Xoyski küç. 53 <br>
 	                 <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
@@ -871,7 +974,7 @@ function myFunction() {
 
 
 
-         <div style="margin: -50px 0 0 0;" id="Paris{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
+         <div style="margin: -50px -66px 0 0;" id="Paris{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
   				<div class="clinic-card__clinic">
   					<div class="clinic-card__clinic-address">
   						        <div class="clinic-card__clinic-address">
@@ -897,7 +1000,43 @@ function myFunction() {
   									</div>
   			   </div>
 
+{% else %}
 
+<div class="clinic-card__right">
+				<div class="clinic-card__clinic">
+        <div class="bozpanel2">Həkim Medical Plazada fəaliyyət göstərir.</div>
+					<div class="clinic-card__clinic-address">
+						<div class="clinic-card__clinic-address">
+
+
+		Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
+
+
+	<a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro1.png/">&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="/static/img/metro2.png/">&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+</div>
+					</div>
+
+											<div class="clinic-card__clinic-time">
+															<div class="clinic-card__clinic-time-row">
+									<span>bz-cm:</span> 09:00 - 21:00								</div>
+															<div class="clinic-card__clinic-time-row">
+									<span>şn:</span> 10:00 - 18:00								</div>
+															<div class="clinic-card__clinic-time-row">
+									<span>bz:</span> 10:00 - 15:00								</div>
+													</div>
+																							<div class="clinic-card__clinic-phone" data-ga-label="doctor clinic form" data-ga-action="clickPhoneNumber">
+								 (+994) 519-31-04							</div>
+												<div class="clinic-address__button clinic-card__clinic-button js-book-clinic">
+							<form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
+								<input type="hidden" name="clinicId" value="5719">
+								<input type="hidden" name="requestBtnType" value="requestCardShortClinic">
+								<input type="submit" value="Müraciət" class="button ui-btn ui-btn_green request-button js-request-form-hook" data-ga-label="doctor clinic form" data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1">
+							</form>
+						</div>
+									</div>
+			</div>
+
+{% endif %}
 
 
 
