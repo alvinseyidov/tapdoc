@@ -1517,6 +1517,8 @@ input.button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+      width: 174px;
+
 }
 .button_search {
   background: #ff256c;
@@ -6203,7 +6205,7 @@ h3.links__title-small {
   position: absolute;
   left: -27px;
   top: 2px;
-  content: "\F095";
+
   font-size: 20px;
   width: 15px;
   text-align: center;
@@ -6218,8 +6220,7 @@ h3.links__title-small {
 }
 .clinic-card__clinic-button {
   margin-top: 15px;
-  position: relative;
-  width: 160px;
+
 }
 .clinic-card__clinic-note {
   font-size: 14px;

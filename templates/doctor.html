@@ -149,6 +149,7 @@
 .qebulphone {
     line-height: 1.5;
     font-size: 1rem;
+    font-weight: 600;
 }
 .avatar-round.\--big {
     width: 112px;
@@ -696,12 +697,13 @@ width: 295px;
 			       for="kidsReception"> Uşaq Həkimi</label>
 		</div>
 	</a>
-	<a class="search__checkbox link-departure" href="https://tapdoc.az/clinic/direction/desc">
-		<div class="checkbox">
-			<input class="checkbox__input" type="checkbox" value="1" name="all-day" id="all-day" />			<label class="checkbox__label js-click-spinner"
-			       for="all-day">24 saat xidmət</label>
-		</div>
-	</a>
+  <a class="search__checkbox link-departure" href="https://tapdoc.az/clinic/direction/desc">
+<div class="checkbox">
+<input class="checkbox__input" type="checkbox" value="1" name="kidsReception" id="kidsReception" />			<label class="checkbox__label js-click-spinner"
+ for="kidsReception"> Evdə Müayinə</label>
+</div>
+</a>
+
 														<a class="search__checkbox link-departure" href="https://tapdoc.az/clinic/direction/desc/dms-policy/1">
 		<div class="checkbox">
 			<input class="checkbox__input need-dms-auth" type="checkbox" value="1" name="dms-policy" id="dms-policy" />			<label class="checkbox__label js-click-spinner" for="dms-policy">Siğorta</label>
@@ -909,11 +911,11 @@ function myFunction() {
 					<div class="clinic-card__type">Endokrinoloq Cərrah</div>
 					<div class="clinic-card__cost">
 													Təcrübəsi - 12 il											</div><br>
-                          <div style="margin: -17px 0 -7px 0;font-size: 12px;">Qəbula yazılma 30 AZN <img style="margin: 0px 0 -5px 0;" src="/static/img/tag.png"/></div>
+                          <div style="margin: -17px 0 -7px 0;font-size: 12px;">Qəbula yazılma<span style="text-decoration: line-through;"> &nbsp; 50AZN</span> - <span style="border-bottom: 1.5px dotted #000;">30 AZN</span> <img style="margin: 0px 0 -5px 0;" src="/static/img/tag.png"/></div>
 
 					<div class="clinic-card__clinictext">
 								<div class="qebultext">Qəbula Yazılmaq Üçün:</div>
-                <div class="qebulphone">(+994) 519-31-04</div>
+                <div class="qebulphone">(+994) 50 519-31-04</div>
                 <div class="qebullast">Dünən bu mütəxəssisə 5 nəfər qəbula yazılıb</div>
 					</div>
 				</div>
@@ -957,7 +959,9 @@ function myFunction() {
                         <div class="clinic-card__clinic-address">
 
               						        <div class="clinic-card__clinic-address">
-              		              Bakı ş. Fətəli Xan Xoyski küç. 53 <br>
+              		              <a href="{% url 'clinicdetail' %}">New Med Klinikası</a><br>
+                                <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
+
               	                 <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
                                  </div>
               					</div>
@@ -995,7 +999,9 @@ function myFunction() {
               <div class="clinic-card__clinic-address">
 
                         <div class="clinic-card__clinic-address">
-                      Bakı ş. Fətəli Xan Xoyski küç. 53 <br>
+                        <a href="{% url 'clinicdetail' %}">New Med Klinikası</a><br>
+                      <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
+
                        <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
                        </div>
               </div>
@@ -1017,7 +1023,9 @@ function myFunction() {
                     <div class="clinic-card__clinic-address">
 
                               <div class="clinic-card__clinic-address">
-                            Bakı ş. Fətəli Xan Xoyski küç. 53 <br>
+                              <a href="{% url 'clinicdetail' %}">New Med Klinikası</a><br>
+                            <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
+
                              <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
                              </div>
                     </div>
@@ -1493,7 +1501,7 @@ window.onclick = function(event) {
   </div>
     </div>
   </div>
-  <p class="del" style="    margin: 63px 0 -40px 0;  color: #000;      padding: 15px 27px 17px 64px!important;    background-position: 22px;      background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' viewBox='0 0…e='%23F93D56' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E);    border: 1px solid #ced1db;  border-radius: 5px;      font-size: .875rem!important;      background-repeat: no-repeat;      line-height: 1.25rem!important;"><span>Обратите внимание!</span> Информация на странице представлена для ознакомления. Для назначения лечения обратитесь к врачу.<br></p>
+  <p class="del" style="    margin: 63px 0 -40px 0;  color: #000;      padding: 15px 27px 17px 64px!important;    background-position: 22px;      background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' viewBox='0 0…e='%23F93D56' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E);    border: 1px solid #ced1db;  border-radius: 5px;      font-size: .875rem!important;      background-repeat: no-repeat;      line-height: 1.25rem!important;"><span>DİQQƏT!</span> Səhifədəki məlumatlar informativ xarakterlidir. Müalicə üçün həkimə müraciət edin.<br></p>
 
       	</aside>
 

@@ -1,4 +1,4 @@
- {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>     <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie ie6" lang="ru"><![endif]-->
 <!--[if IE 7]>        <html class="no-js lt-ie9 lt-ie8 ie ie7" lang="ru"><![endif]-->
@@ -11,7 +11,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UwQHUFJTGwIFV1FaAgQH"};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):w?w(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!w&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("https://tapdoc.az/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
 
     <meta name="description" content="Запись в клиники и центры. Все медицинские центры Москвы на одном сайте! Рейтинги, отзывы посетителей." />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<script>
@@ -26,23 +28,21 @@
 
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-<title>Tapdoc - Klinikalar</title>
+
+<title>Tapdoc - Diaqnostika</title>
 
         <link rel="stylesheet" href="https://docdoc.ru/static/compile/fonts.css?2937290733">
 
-	         <link rel="stylesheet" href="{% static 'css/clinicstyle.css'%}">
+	         <link rel="stylesheet" href="{% static 'css/diaqnostikastyle.css'%}">
         <link rel="apple-touch-icon" sizes="180x180" href="https://s.docdoc.ru/new-doc-doc/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="https://s.docdoc.ru/new-doc-doc/favicon/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://s.docdoc.ru/new-doc-doc/favicon/favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="https://s.docdoc.ru/new-doc-doc/favicon/manifest.json">
     <link rel="mask-icon" href="https://s.docdoc.ru/new-doc-doc/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
             <link rel="stylesheet" href="https://s.docdoc.ru/compile/chunks.css?2937290733">
         <script defer src="https://s.docdoc.ru/compile/chunks.js?2937290733"></script>
                     <script defer src="https://s.docdocc.ru/compile/new_site.js?2937290733"></script>
@@ -80,48 +80,48 @@
 <style>
 .sorting__item {
   display: inline-block;
-    vertical-align: top;
-    padding-left: 7px;
-    padding-right: 7px;
-    min-width: 70px;
-    font-size: 15px;
-    line-height: 16px;
-    box-sizing: border-box;
-    padding-top: 6px;
-    margin-left: 8px;
-    height: 28px;
-    border-radius: 4px;
-    background: #f2f2f3;
-    color: #828288;
-    text-align: center;
-    -webkit-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
-    -moz-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
-    -o-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
-    transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
-    -webkit-backface-visibility: hidden;
+  vertical-align: top;
+  padding-left: 7px;
+  padding-right: 7px;
+  min-width: 70px;
+  font-size: 15px;
+  line-height: 16px;
+  box-sizing: border-box;
+  padding-top: 6px;
+  margin-left: 8px;
+  height: 28px;
+  border-radius: 4px;
+  background: #f2f2f3;
+  color: #828288;
+  text-align: center;
+  -webkit-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  -moz-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  -o-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  -webkit-backface-visibility: hidden;
 }
 
-.sorting__itemblock{
+.sorting__itemdiaq{
   display: inline-block;
-vertical-align: top;
-padding-left: 7px;
-padding-right: 14px;
-min-width: 111px;
-font-size: 18px;
-line-height: 16px;
-box-sizing: border-box;
-padding-top: 15px;
-margin-left: 8px;
-height: 48px;
-border-radius: 4px;
-background: #f2f2f3;
-color: #828288;
-text-align: center;
--webkit-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
--moz-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
--o-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
--webkit-backface-visibility: hidden;
+  vertical-align: top;
+  padding-left: 7px;
+  padding-right: 14px;
+  min-width: 111px;
+  font-size: 18px;
+  line-height: 16px;
+  box-sizing: border-box;
+  padding-top: 15px;
+  margin-left: 8px;
+  height: 48px;
+  border-radius: 4px;
+  background: #f2f2f3;
+  color: #828288;
+  text-align: center;
+  -webkit-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  -moz-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  -o-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  transition: background-color 0.1s linear 0s, color 0.1s linear 0s;
+  -webkit-backface-visibility: hidden;
 }
 
 .dropdownmyp {
@@ -176,22 +176,46 @@ width: 180px;
 .headerdesktopright{
 float: right;
 }
-.breadcrump {
-    font-size: 13px;
-        margin: 0 0 0 11px;
+.spec_list1 {
+    background-color: #f7f7f7;
+
+    border-bottom-width: 3px;
+    position: relative;
+    z-index: -1;
+    padding: 30px 36px 0px 0;
+    font-size: 14px;
+    border-radius: 5px;
+    margin: 8px 0 0px 0;
+    color: #29aaac;
+    line-height: 21px;
+    height: 207px;
+    list-style: none;
 }
+.spec_list2 {
+    background-color: #f7f7f7;
+
+    border-bottom-width: 3px;
+    position: relative;
+    z-index: -1;
+    padding: 30px 30px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin: 0px 0 0px 0;
+    color: #29aaac;
+    line-height: 21px;
+    height: 207px;
+    list-style: none;
+}
+.columnd {
+    float: left;
+    width: 20%;
+}
+
 .addfavor img {
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 24px 0 rgba(0, 0, 0, 0.19);
     border-radius: 39px;
 }
-.dotted:before {
-    content: '\2022';
-    color: gray;
-    padding-right: 5px;
-font-weight: 900;
-}
 </style>
-
 </head>
 
 <body class="body  ">
@@ -344,7 +368,7 @@ font-weight: 900;
                                    class="forms__input search__input js-suggest-search-new"
                                    data-suggestclass="autocomplete-suggestion-withgroup"
                                    data-autocomplete-id="autocomplete-spec"
-                                   placeholder="Klinikalar"
+                                   placeholder="Diaqnostikalar"
                                    value="" />
 
                             <button class="search__button"><i class="fa fa-search"></i></button>
@@ -403,17 +427,17 @@ font-weight: 900;
 
 			</div>
 
-      <div class="clinics__left clinics__left_fullwidth" style="margin-left: -8px;">
-<div class="breadcrump"><a href="{% url 'homepage'%}">Ana səhifə </a>/ Həkimlər</div><br>
-            <div class="sorting">
+      <div class="clinics__left clinics__left_fullwidth">
+      <div class="breadcrump"><a href="{% url 'homepage'%}">Ana səhifə </a>/ Diaqnostika</div><br>
+              <div class="sorting">
 
 
-                  <div class="sorting__items">
-                        <a href="{% url 'doctor' %}" class="sorting__itemblock " rel="nofollow">Həkimlər</a>
-                        <a href="{% url 'clinic' %}" style="background:#35bfae;color:#fff;" class="sorting__itemblock " rel="nofollow">Klinikalar</a>
-                        <a href="{% url 'diaqnostika' %}" class="sorting__itemblock " rel="nofollow">Diaqnostika</a>
-                        <a href="{% url 'xidmetler' %}" class="sorting__itemblock " rel="nofollow">Xidmətlər</a>
-                  </div>
+              <div class="sorting__items" style="margin-left: -8px;">
+                    <a href="{% url 'doctor' %}" class="sorting__itemdiaq " rel="nofollow">Həkimlər</a>
+                    <a href="{% url 'clinic' %}" class="sorting__itemdiaq " rel="nofollow">Klinikalar</a>
+                    <a href="{% url 'diaqnostika' %}" style="background:#35bfae;color:#fff;" class="sorting__itemdiaq " rel="nofollow">Diaqnostika</a>
+                    <a href="{% url 'xidmetler' %}" class="sorting__itemdiaq " rel="nofollow">Xidmətlər</a>
+              </div>
                   <div class="sorting__select">
                       <div class="select select_sorting" data-block="select">
                                                   <div class="select__head">Рейтингу</div>
@@ -422,394 +446,111 @@ font-weight: 900;
                   </div>
               </div>
       </div>
+<div class="container"style="margin-bottom: 17px;padding-left: 0px;margin-left: 0;">
+    <div class="spec_list1">
+      <ul class="columns_5">
+      			<li class="columnd">
+      				<div class="spec_list_head"><a href="/uzi/">KT</a></div>
+      				<div>– <a href="/uzi-dlya-beremennih/">baş beyin</a></div>
+      				<div>– <a href="/uzi/uzi-brushnoi-polosti/">ürək</a></div>
+      				<div>– <a href="/uzi/uzi-malogo-taza/">qarın boşluğu</a></div>
+      				<div>– <a href="/uzi/uzi-pochek/">spinal (bel onurğası)</a></div>
+      				<div>– <a href="/ehokardiografiya/">döş qəfəsi</a></div>
+      				<div>– <a href="/3d-uzi/">böyrək</a></div>
+      			</li>
+      			<li class="columnd">
+      				<div class="spec_list_head"><a href="/komputernaya-tomografiya/">MRT</a></div>
+      				<div>– <a href="/komputernaya-tomografiya/kt-golovi/">baş beyin</a></div>
+      				<div>– <a href="/komputernaya-tomografiya/kt-leghih-i-serdca/">spinal (bel onurğası)</a></div>
+      				<div>– <a href="/komputernaya-tomografiya/kt-brushnoi-polosti/">diz birgəsi</a></div>
+      				<div>– <a href="/komputernaya-tomografiya/kt-pozvonochnika/">qarın boşluğu</a></div>
+      				<div>– <a href="/komputernaya-tomografiya/kt-grudnoi-kletki/">kiçik çanaq</a></div>
+      				<div>– <a href="/komputernaya-tomografiya/kt-pochek/">hipofiz</a></div>
+      			</li>
+      			<li class="columnd">
+      				<div class="spec_list_head"><a href="/mrt/">Rentgen</a></div>
+      				<div>– <a href="/mrt/mrt-golovnogo-mozga/">ağciyər</a></div>
+      				<div>– <a href="/mrt/mrt-otdelov-pozvonochnika/">spinal</a></div>
+      				<div>– <a href="/mrt/mrt-kolennogo-sustava/">döş qəfəsi</a></div>
+      				<div>– <a href="/mrt/mrt-brushnoi-polosti-zabrjushinnogo-prostranstva/">oynaqlar</a></div>
+      				<div>– <a href="/mrt/mrt-malogo-taza/">mamografiya</a></div>
+      				<div>– <a href="/mrt/mrt-gipofiza/">irriqoskpiya</a></div>
+      			</li>
+      			<li class="columnd">
+      				<div class="spec_list_head"><a href="/rentgen/">USM</a></div>
+      				<div>– <a href="/rentgen/rentgen-legkih/">hamiləlik zamanı</a></div>
+      				<div>– <a href="/rentgen/rentgen-pozvonochnika/">qarın boşluğu</a></div>
+      				<div>– <a href="/rentgen/rentgen-grudnoi-kletki/">kiçik çanaq</a></div>
+      				<div>– <a href="/rentgen/rentgen-sustavov/">böyrək</a></div>
+      				<div>– <a href="/rentgen/mammografia/">ürək</a></div>
+      				<div>– <a href="/rentgen/rentgen_tolstoj_kishki_irrigoskopia/">3D ultrasəs</a></div>
+      			</li>
+      			<li class="columnd">
+      				<div><a href="/fluorografiya/">Fluorografi</a></div>
+      				<div><a href="/func-diagnostika/sutochnoe-ekg/">Elektrokardioqrafiya (EKQ)</a></div>
+      				<div><a href="/endoskopicheskie-issledovaniya/kolonoskopiya/">Kolonoskopiya</a></div>
+      				<div><a href="/gastroskopiya/">Qastroskopiya</a></div>
+      				<div><a href="/bronhoskopiya/">Bronkoskopiya</a></div>
+      				<div><a href="/endoskopicheskie-issledovaniya/rektoromanoskopiya/">Rektoromanoskopiya</a></div>
+      				<div><a href="/densitometriia/">Densitometriya</a></div>
+      			</li>
 
+      		</ul>
+          </div>
+          <div id="demo" class="collapse out collp">
 
+            <ul class="columns_5 spec_list2">
+                  <li class="columnd">
+                    <div class="spec_list_head"><a href="/uzi/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/uzi-dlya-beremennih/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/uzi/uzi-brushnoi-polosti/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/uzi/uzi-malogo-taza/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/uzi/uzi-pochek/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/ehokardiografiya/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/3d-uzi/">&nbsp;</a></div>
+                  </li>
+                  <li class="columnd">
+                    <div class="spec_list_head"><a href="/komputernaya-tomografiya/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/komputernaya-tomografiya/kt-golovi/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/komputernaya-tomografiya/kt-leghih-i-serdca/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/komputernaya-tomografiya/kt-brushnoi-polosti/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/komputernaya-tomografiya/kt-pozvonochnika/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/komputernaya-tomografiya/kt-grudnoi-kletki/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/komputernaya-tomografiya/kt-pochek/">&nbsp;</a></div>
+                  </li>
+                  <li class="columnd">
+                    <div class="spec_list_head"><a href="/mrt/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/mrt/mrt-golovnogo-mozga/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/mrt/mrt-otdelov-pozvonochnika/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/mrt/mrt-kolennogo-sustava/"> &nbsp;</a></div>
+                    <div>&nbsp; <a href="/mrt/mrt-brushnoi-polosti-zabrjushinnogo-prostranstva/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/mrt/mrt-malogo-taza/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/mrt/mrt-gipofiza/">&nbsp;</a></div>
+                  </li>
+                  <li class="columnd">
+                    <div class="spec_list_head"><a href="/rentgen/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/rentgen/rentgen-legkih/">&nbsp; </a></div>
+                    <div>&nbsp; <a href="/rentgen/rentgen-pozvonochnika/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/rentgen/rentgen-grudnoi-kletki/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/rentgen/rentgen-sustavov/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/rentgen/mammografia/">&nbsp;</a></div>
+                    <div>&nbsp; <a href="/rentgen/rentgen_tolstoj_kishki_irrigoskopia/">&nbsp;</a></div>
+                  </li>
+                  <li class="columnd">
+                    <div><a href="/fluorografiya/">&nbsp;</a></div>
+                    <div><a href="/func-diagnostika/sutochnoe-ekg/"> &nbsp;</a></div>
+                    <div><a href="/endoskopicheskie-issledovaniya/kolonoskopiya/">&nbsp;</a></div>
+                    <div><a href="/gastroskopiya/">&nbsp;</a></div>
+                    <div><a href="/bronhoskopiya/">&nbsp;</a></div>
+                    <div><a href="/endoskopicheskie-issledovaniya/rektoromanoskopiya/">&nbsp;</a></div>
+                    <div><a href="/densitometriia/">&nbsp;</a></div>
+                  </li>
 
-<div class="clinics__info">
+                </ul>
 
-	<aside class="clinics__left clinics__left_fullwidth">
-
-		<h1 class="clinics__title">Bakıda yerləşən klinika və tibbi mərkəzlər</h1>
-
-		<div class="clinics__specs">
-			<div class="specs specs_clinics">
-				<div class="specs__items">
-					<div class="specs__cols" data-width="250">
-
-																												<div>
-									<a href="#">
-										<span>114</span> <span class="dotted">Allerqoloq</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>152</span> <span class="dotted">Andrologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>30</span> <span class="dotted">Anasteziologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>17</span> <span class="dotted">Artrologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>7</span> <span class="dotted">Veterologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>166</span> <span class="dotted">Venerologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>42</span> <span class="dotted">Vertebrologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>171</span> <span class="dotted">Qastrologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>26</span> <span class="dotted">Gemotoloq</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>20</span> <span class="dotted">Genetika</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>37</span> <span class="dotted">Hepatoloq</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>331</span> <span class="dotted">Ginokologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>56</span> <span class="dotted">Huridoterapiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>17</span> <span class="dotted">Hemopatiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>248</span> <span class="dotted">Dermotologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>10</span> <span class="dotted">Diabetologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>64</span> <span class="dotted">Dietologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>107</span> <span class="dotted">İmmunologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>25</span> <span class="dotted">İnfeksion</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>201</span> <span class="dotted">Kardiologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>30</span> <span class="dotted">Kinezologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>63</span> <span class="dotted">Koloktrologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>184</span> <span class="dotted">Kosmetologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>54</span> <span class="dotted">Fiziologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>41</span> <span class="dotted">Logopedi</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>109</span> <span class="dotted">Mammalogiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>140</span> <span class="dotted">Manual Terapiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>125</span> <span class="dotted">Masaj</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>35</span> <span class="dotted">Mikologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>41</span> <span class="dotted">Narkologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>272</span> <span class="dotted">Nevrologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>21</span> <span class="dotted">Neyrocərrahiyə</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>22</span> <span class="dotted">Nevrologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>19</span> <span class="dotted">Neoatalogiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>34</span> <span class="dotted">Nefrologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>98</span> <span class="dotted">Onkologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>171</span> <span class="dotted">Ortopedia</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>66</span> <span class="dotted">Ostopedia</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>185</span> <span class="dotted">Otolaringologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>138</span> <span class="dotted">Oftalmologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>1</span> <span class="dotted">Parazitologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>131</span> <span class="dotted">Pediatr</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>63</span> <span class="dotted">Plastik Cərrahiyyə</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>12</span> <span class="dotted">Podologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>89</span> <span class="dotted">Proktologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>79</span> <span class="dotted">Psixiatr</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>96</span> <span class="dotted">Psixologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>110</span> <span class="dotted">Psixoterapiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>56</span> <span class="dotted">Pulmologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>31</span> <span class="dotted">Reabilitasiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>71</span> <span class="dotted">Revmotologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>73</span> <span class="dotted">Rentgenologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>29</span> <span class="dotted">Reproduktolog</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>116</span> <span class="dotted">Refleksolog</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>14</span> <span class="dotted">Seksologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>13</span> <span class="dotted">Somnologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>18</span> <span class="dotted">İdman Tibbi</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>228</span> <span class="dotted">Stomotologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>14</span> <span class="dotted">Surdologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>263</span> <span class="dotted">Terapiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>139</span> <span class="dotted">Travmotologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>80</span> <span class="dotted">Trixologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>310</span> <span class="dotted">UZİ</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>238</span> <span class="dotted">Urologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>106</span> <span class="dotted">Fizioterapiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>88</span> <span class="dotted">Flobologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>3</span> <span class="dotted">Foniatriya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>93</span> <span class="dotted">Diaqnostika</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>2</span> <span class="dotted">Kemoterapiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>214</span> <span class="dotted">Cərrahiyyə</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>185</span> <span class="dotted">Endokrinologiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>88</span> <span class="dotted">Endoskopiya</span>
-									</a>
-								</div>
-																												<div>
-									<a href="#">
-										<span>24</span> <span class="dotted">Epileptologiya</span>
-									</a>
-								</div>
-																		</div>
-				</div>
-			</div>
-		</div>
-
-	</aside>
-
-</div>
-
+              </div>
+            <button style="display: block;margin: auto;margin-top: -11px;background-color: #35bfae;border: 0;height: 29px;" type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Ətraflı</button>
+          </div>
 
 <div class="clinics__sorting">
 	<div class="wrapper">
@@ -880,7 +621,7 @@ font-weight: 900;
 
 		<div class="clinics__left clinics__left_fullwidth">
             <div class="sorting">
-                                    <div class="sorting__clinics">Bütün Klinikalar - 115</div>
+                                    <div class="sorting__clinics">Bütün Diaqnostikalar 98</div>
                                 <div class="sorting__label"></div>
                 <div class="sorting__items">
                                                                                                     <a href="https://tapdoc.az/clinic/order/rating" class="sorting__item " rel="nofollow">
@@ -888,7 +629,7 @@ font-weight: 900;
                                                                                                                             <a href="https://tapdoc.az/clinic/order/reviews" class="sorting__item " rel="nofollow">
                                 Rəylər                            </a>
                                                                                                                             <a href="https://tapdoc.az/clinic/order/price" class="sorting__item " rel="nofollow">
-                                Qiymət                            </a>
+                                Qiymət                           </a>
                                                                                                                                                     </div>
                 <div class="sorting__select">
                     <div class="select select_sorting" data-block="select">
@@ -915,11 +656,12 @@ font-weight: 900;
 	<div class="clinic-card">
 		<div class="clinic-card__inner">
 			<div class="clinic-card__left">
-<a href="#" style="float:right;" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
+      <a href="#" style="float:right;" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
+
 				<div class="clinic-card__photo">
 					<!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
                     <a href="https://tapdoc.az/clinic/trastmed" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
-                        <img src="https://cdn.docdoc.ru/clinic/logo/min_5719.gif?1534499283" alt="" />                    </a>
+                        <img src="https://cdn.tapdoc.az/clinic/logo/min_5719.gif?1534499283" alt="" />                    </a>
 					<div class="clinic-card__rating">
 
 <div class="rate">
@@ -944,7 +686,7 @@ font-weight: 900;
 					</div>
 				</div>
 				<div class="clinic-card__info">
-					<a href="#nerimanov" class="clinic-card__name">NewMed Tibb Mərkəzi</a>
+					<a href="https://tapdoc.az/clinic/trastmed" class="clinic-card__name">NewMed Tibb Mərkəzi</a>
 					<div class="clinic-card__type">diaqnostika mərkəzi</div>
 					<div class="clinic-card__cost">
 													Ortalama xidmət qiymətləri - yüksək											</div>
@@ -952,263 +694,48 @@ font-weight: 900;
 					<div class="clinic-card__clinictext">
 						«NewMed» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.						<a href="https://tapdoc.az/clinic/trastmed">→</a>
 					</div>
-				</div>
-			</div>
-			<div class="clinic-card__right">
-				<div class="clinic-card__clinic">
+          <!-- Collapsible Begin -->
+          <script>
+              $(document).ready(function(){
+                  // Add minus icon for collapse element which is open by default
+                  $(".collapse.in").each(function(){
+                  	$(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
+                  });
 
-          <div style="    text-align: center;margin: 0 160px 0 0;">İstədiyiniz filiala <br>müraciət edə bilərsiniz</div>
+                  // Toggle plus minus icon on show hide of collapse element
+                  $(".collapse").on('show.bs.collapse', function(){
+                  	$(this).parent().find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus");
+                  }).on('hide.bs.collapse', function(){
+                  	$(this).parent().find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus");
+                  });
+              });
+          </script>
+          <div class="bs-example">
+              <div class="panel-group" id="accordion" style="margin-top: 8px;">
+                  <div class="panel panel-default" style="border: 0;box-shadow: 0 0 0px rgba(0,0,0,.05);border-bottom: 3px solid #35bfae;">
+<p style="margin-left: 15px;margin-bottom: -4px;">UZI .............................................. 30 AZN</p>
+                      <div id="collapseOne" class="panel-collapse collapse">
 
+                          <div class="panel-body">
+                              <p>USM  ............................................ 65 AZN</p>
+                              <p>EKQ  ............................................ 80 AZN</p>
+                              <p>MRT  ............................................ 60 AZN</p>
+                              <p>KT  ............................................... 30 AZN</p>
+                              <p>Analiz  .......................................... 60 AZN</p>
+                              <p>Sonor  .......................................... 42 AZN</p>
+                          </div>
+                      </div>
+          			<div class="panel-heading" style="background-color: #fff;">
+                          <h4 class="panel-title">
+                              <a style="background: #35bfae;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-plus" style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
+                          </h4>
+                      </div>
+                  </div>
 
-
-												<div class="clinic-address__button clinic-card__clinic-button js-book-clinic">
-							<form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
-								<input type="hidden" name="clinicId" value="5719"/>
-								<input type="hidden" name="requestBtnType" value="requestCardShortClinic"/>
-								<input type="submit" value="Müraciət"
-								       class="button ui-btn ui-btn_green request-button js-request-form-hook"
-									   data-ga-label="doctor clinic form"
-									 data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1"/>
-							</form>
-              <div style="    margin: 9px 0 0 0px;">və ya zəng edin</div>
-              <div style="    margin: 11px 0 0 14px;font-size: 18px;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form"
-data-ga-action="clickPhoneNumber">
-(+994) 519-31-04							</div>
-						</div>
-									</div>
-			</div>
-		</div>
-	</div>
-
-
-  <div class="clinic-card__branches" id="branch-list-13" style="background-color: #fff;">
-
-
-
-				<div style="    height: 189px;" class="clinic-card__branch">
-	<div class="clinic-card__inner">
-		<div id="nerimanov" class="clinic-card__left">
-			<a href="{% url 'clinicdetail' %}" class="clinic-card__branch-name">New Med Nərimanov Filialı</a>
-      <div class="clinic-card__clinic-address">
-                <div class="clinic-card__clinic-address">
-      <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro1.png/">&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="/static/img/metro2.png/">&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
-<br>
-      <span style="border-bottom: 1.5px dotted #000;line-height: 2;">  Bakı ş. Fətəli Xan Xoyski küç. 52 <span><br>
-
-
-
-      </div>
               </div>
-      <div class="clinic-card__rating clinic-card__rating_clinic">
 
-<div class="rate">
-	<div class="rate__default">
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-	</div>
-			<div class="rate__value" style="width:89%;">
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-		</div>
-	</div>				<div class="clinic-card__rating-value">
-					<a href="/clinic/on_klinik_na_novom_arbate#reviews">
-													1112 rəy											</a>
-				</div>
-			</div>
-
-
-
-
-		</div>
-
-
-
-		<div class="clinic-card__right">
-    <div style="    padding: 7px 25px 25px 57px;" class="clinic-card__clinic">
-
-
-                    <div style=" border: 1.5px dotted; width: 164px; padding: 5px 4px 4px 10px; " class="clinic-card__clinic-time">
-                            <div class="clinic-card__clinic-time-row">
-                <span>bz-cm:</span> 09:00 - 21:00								</div>
-                            <div class="clinic-card__clinic-time-row">
-                <span>şn:</span> 10:00 - 18:00								</div>
-                            <div class="clinic-card__clinic-time-row">
-                <span>bz:</span> 10:00 - 15:00								</div>
-                        </div>
-                                            <div class="clinic-card__clinic-phone" data-ga-label="doctor clinic form" data-ga-action="clickPhoneNumber">
-               (+994) 519-31-04							</div>
-                      <div class="clinic-address__button clinic-card__clinic-button js-book-clinic">
-            <form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
-              <input type="hidden" name="clinicId" value="5719">
-              <input type="hidden" name="requestBtnType" value="requestCardShortClinic">
-              <input type="submit" value="Müraciət" class="button ui-btn ui-btn_green request-button js-request-form-hook" data-ga-label="doctor clinic form" data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1">
-            </form>
           </div>
-                </div>
-		</div>
-	</div>
-</div>
-				<div class="clinic-card__branch">
-	<div class="clinic-card__inner">
-		<div class="clinic-card__left">
-			<a href="{% url 'clinicdetail' %}" class="clinic-card__branch-name">New Med Nəsimi Rayon Filialı</a>
-      <div class="clinic-card__clinic-address">
-                <div class="clinic-card__clinic-address">
-
-                <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro1.png/">&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="/static/img/metro2.png/">&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
-
-      <br> <span style="border-bottom: 1.5px dotted #000;line-height: 2;"> Bakı ş. Fətəli Xan Xoyski küç. 52</span> <br>
-
-
-      </div>
-              </div>
-    	<div class="clinic-card__rating clinic-card__rating_clinic">
-
-<div class="rate">
-	<div class="rate__default">
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-	</div>
-			<div class="rate__value" style="width:89.9%;">
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-		</div>
-	</div>				<div class="clinic-card__rating-value">
-					<a href="/clinic/on_klinik_na_ulitse_1905_goda#reviews">
-													818 rəy											</a>
-				</div>
-			</div>
-
-		</div>
-    <div class="clinic-card__right">
-    <div class="clinic-card__clinic">
-
-
-                    <div style=" border: 1.5px dotted; width: 164px; padding: 5px 4px 4px 10px; " class="clinic-card__clinic-time">
-                            <div class="clinic-card__clinic-time-row">
-                <span>bz-cm:</span> 09:00 - 21:00								</div>
-                            <div class="clinic-card__clinic-time-row">
-                <span>şn:</span> 10:00 - 18:00								</div>
-                            <div class="clinic-card__clinic-time-row">
-                <span>bz:</span> 10:00 - 15:00								</div>
-                        </div>
-                                            <div class="clinic-card__clinic-phone" data-ga-label="doctor clinic form" data-ga-action="clickPhoneNumber">
-               (+994) 519-31-04							</div>
-                      <div class="clinic-address__button clinic-card__clinic-button js-book-clinic">
-            <form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
-              <input type="hidden" name="clinicId" value="5719">
-              <input type="hidden" name="requestBtnType" value="requestCardShortClinic">
-              <input type="submit" value="Müraciət" class="button ui-btn ui-btn_green request-button js-request-form-hook" data-ga-label="doctor clinic form" data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1">
-            </form>
-          </div>
-                </div>
-		</div>
-	</div>
-</div>												<div class="clinic-card__branches-hidden js-clinic-card-hidden hidden">
-
-				<div class="clinic-card__branch">
-	<div class="clinic-card__inner">
-		<div class="clinic-card__left">
-			<a href="/clinic/on_klinik_ljuks_na_taganke" class="clinic-card__branch-name">Медицинский центр ОН КЛИНИК на Таганке</a>
-			<div class="clinic-card__rating clinic-card__rating_clinic">
-
-<div class="rate">
-	<div class="rate__default">
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-	</div>
-			<div class="rate__value" style="width:88.6%;">
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-		</div>
-	</div>				<div class="clinic-card__rating-value">
-					<a href="/clinic/on_klinik_ljuks_na_taganke#reviews">
-													1882 отзыва											</a>
-				</div>
-			</div>
-		</div>
-		<div class="clinic-card__right">
-			<div class="clinic-card__clinic">
-
-									<div style=" border: 1.5px dotted; width: 164px; padding: 5px 4px 4px 10px; " class="clinic-card__clinic-time">
-													<div class="clinic-card__clinic-time-row">
-								<span>пн-пт:</span> 08:00 - 21:00							</div>
-													<div class="clinic-card__clinic-time-row">
-								<span>сб:</span> 08:00 - 21:00							</div>
-													<div class="clinic-card__clinic-time-row">
-								<span>вс:</span> 08:00 - 21:00							</div>
-											</div>
-							</div>
-		</div>
-	</div>
-</div>
-
-									</div>
-
-			</div>
-</div>
-<button style="    border: 0px;    background-color: #fff;height: 24px;    width: 157px;    color: #00aec7;">Bütün Filiallar (10)</button>
-
-
-<div class="clinics-item result-card">
-	<div class="clinic-card">
-		<div class="clinic-card__inner">
-			<div class="clinic-card__left">
-<a href="#" style="float:right;" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
-				<div class="clinic-card__photo">
-					<!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
-                    <a href="https://tapdoc.az/clinic/trastmed" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
-                        <img src="https://cdn.docdoc.ru/clinic/logo/min_5719.gif?1534499283" alt="" />                    </a>
-					<div class="clinic-card__rating">
-
-<div class="rate">
-	<div class="rate__default">
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-	</div>
-			<div class="rate__value" style="width:90%;">
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-		</div>
-	</div>						<div class="clinic-card__rating-value">
-							<a href="https://tapdoc.az/clinic/trastmed#reviews">
-																	5125 rəy															</a>
-						</div>
-					</div>
-				</div>
-				<div class="clinic-card__info">
-					<a href="{% url 'clinicdetail' %}" class="clinic-card__name">NewMed Tibb Mərkəzi</a>
-					<div class="clinic-card__type">diaqnostika mərkəzi</div>
-					<div class="clinic-card__cost">
-													Ortalama xidmət qiymətləri - yüksək											</div>
-
-					<div class="clinic-card__clinictext">
-						«NewMed» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.						<a href="https://tapdoc.az/clinic/trastmed">→</a>
-					</div>
+          <!-- Collapsible Ends -->
 				</div>
 			</div>
 			<div class="clinic-card__right">
@@ -1224,7 +751,134 @@ data-ga-action="clickPhoneNumber">
 </div>
 					</div>
 
-											<div style=" border: 1.5px dotted; width: 164px; padding: 5px 4px 4px 10px; " class="clinic-card__clinic-time">
+											<div class="clinic-card__clinic-time">
+															<div class="clinic-card__clinic-time-row">
+									<span>bz-cm:</span> 09:00 - 21:00								</div>
+															<div class="clinic-card__clinic-time-row">
+									<span>şn:</span> 10:00 - 18:00								</div>
+															<div class="clinic-card__clinic-time-row">
+									<span>bz:</span> 10:00 - 15:00								</div>
+													</div>
+																							<div class="clinic-card__clinic-phone" data-ga-label="doctor clinic form"
+							     data-ga-action="clickPhoneNumber">
+								 (+994) 519-31-04							</div>
+												<div class="clinic-address__button clinic-card__clinic-button js-book-clinic">
+							<form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
+								<input type="hidden" name="clinicId" value="5719"/>
+								<input type="hidden" name="requestBtnType" value="requestCardShortClinic"/>
+								<input type="submit" value="Müraciət"
+								       class="button ui-btn ui-btn_green request-button js-request-form-hook"
+									   data-ga-label="doctor clinic form"
+									 data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1"/>
+							</form>
+						</div>
+									</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="clinics-item result-card">
+	<div class="clinic-card">
+		<div class="clinic-card__inner">
+			<div class="clinic-card__left">
+<a href="#" style="float:right;" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
+				<div class="clinic-card__photo">
+					<!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
+                    <a href="https://tapdoc.az/clinic/trastmed" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
+                        <img src="https://cdn.tapdoc.az/clinic/logo/min_5719.gif?1534499283" alt="" />                    </a>
+					<div class="clinic-card__rating">
+
+<div class="rate">
+	<div class="rate__default">
+		<i class="fa fa-star" aria-hidden="true"></i>
+		<i class="fa fa-star" aria-hidden="true"></i>
+		<i class="fa fa-star" aria-hidden="true"></i>
+		<i class="fa fa-star" aria-hidden="true"></i>
+		<i class="fa fa-star" aria-hidden="true"></i>
+	</div>
+			<div class="rate__value" style="width:90%;">
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+		</div>
+	</div>						<div class="clinic-card__rating-value">
+							<a href="https://tapdoc.az/clinic/trastmed#reviews">
+																	5125 rəy															</a>
+						</div>
+					</div>
+				</div>
+				<div class="clinic-card__info">
+					<a href="https://tapdoc.az/clinic/trastmed" class="clinic-card__name">NewMed Tibb Mərkəzi</a>
+					<div class="clinic-card__type">diaqnostika mərkəzi</div>
+					<div class="clinic-card__cost">
+													Ortalama xidmət qiymətləri - yüksək											</div>
+
+					<div class="clinic-card__clinictext">
+						«NewMed» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.						<a href="https://tapdoc.az/clinic/trastmed">→</a>
+					</div>
+          <!-- Collapsible Begin -->
+          <script>
+              $(document).ready(function(){
+                  // Add minus icon for collapse element which is open by default
+                  $(".collapse.in").each(function(){
+                  	$(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
+                  });
+
+                  // Toggle plus minus icon on show hide of collapse element
+                  $(".collapse").on('show.bs.collapse', function(){
+                  	$(this).parent().find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus");
+                  }).on('hide.bs.collapse', function(){
+                  	$(this).parent().find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus");
+                  });
+              });
+          </script>
+          <div class="bs-example">
+              <div class="panel-group" id="accordion" style="margin-top: 8px;">
+                  <div class="panel panel-default" style="border: 0;box-shadow: 0 0 0px rgba(0,0,0,.05);border-bottom: 3px solid #35bfae;">
+<p style="margin-left: 15px;margin-bottom: -4px;">UZI .............................................. 30 AZN</p>
+                      <div id="collapseTwo" class="panel-collapse collapse">
+
+                          <div class="panel-body">
+                              <p>USM  ............................................ 65 AZN</p>
+                              <p>EKQ  ............................................ 80 AZN</p>
+                              <p>MRT  ............................................ 60 AZN</p>
+                              <p>KT  ............................................... 30 AZN</p>
+                              <p>Analiz  .......................................... 60 AZN</p>
+                              <p>Sonor  .......................................... 42 AZN</p>
+                          </div>
+                      </div>
+          			<div class="panel-heading" style="background-color: #fff;">
+                          <h4 class="panel-title">
+                              <a style="background: #35bfae;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-plus" style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
+                          </h4>
+                      </div>
+                  </div>
+
+              </div>
+
+          </div>
+          <!-- Collapsible Ends -->
+				</div>
+			</div>
+			<div class="clinic-card__right">
+				<div class="clinic-card__clinic">
+					<div class="clinic-card__clinic-address">
+						<div class="clinic-card__clinic-address">
+
+
+		Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
+
+
+	<a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src={% static "img/metro1.png"%}/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src={% static "img/metro2.png"%}/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+</div>
+					</div>
+
+											<div class="clinic-card__clinic-time">
 															<div class="clinic-card__clinic-time-row">
 									<span>bz-cm:</span> 09:00 - 21:00								</div>
 															<div class="clinic-card__clinic-time-row">
@@ -1260,7 +914,7 @@ data-ga-action="clickPhoneNumber">
 				<div class="clinic-card__photo">
 					<!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
                     <a href="https://tapdoc.az/clinic/trastmed" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
-                        <img src="https://cdn.docdoc.ru/clinic/logo/min_5719.gif?1534499283" alt="" />                    </a>
+                        <img src="https://cdn.tapdoc.az/clinic/logo/min_5719.gif?1534499283" alt="" />                    </a>
 					<div class="clinic-card__rating">
 
 <div class="rate">
@@ -1285,7 +939,7 @@ data-ga-action="clickPhoneNumber">
 					</div>
 				</div>
 				<div class="clinic-card__info">
-					<a href="{% url 'clinicdetail' %}" class="clinic-card__name">NewMed Tibb Mərkəzi</a>
+					<a href="https://tapdoc.az/clinic/trastmed" class="clinic-card__name">NewMed Tibb Mərkəzi</a>
 					<div class="clinic-card__type">diaqnostika mərkəzi</div>
 					<div class="clinic-card__cost">
 													Ortalama xidmət qiymətləri - yüksək											</div>
@@ -1293,6 +947,48 @@ data-ga-action="clickPhoneNumber">
 					<div class="clinic-card__clinictext">
 						«NewMed» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.						<a href="https://tapdoc.az/clinic/trastmed">→</a>
 					</div>
+          <!-- Collapsible Begin -->
+          <script>
+              $(document).ready(function(){
+                  // Add minus icon for collapse element which is open by default
+                  $(".collapse.in").each(function(){
+                  	$(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
+                  });
+
+                  // Toggle plus minus icon on show hide of collapse element
+                  $(".collapse").on('show.bs.collapse', function(){
+                  	$(this).parent().find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus");
+                  }).on('hide.bs.collapse', function(){
+                  	$(this).parent().find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus");
+                  });
+              });
+          </script>
+          <div class="bs-example">
+              <div class="panel-group" id="accordion" style="margin-top: 8px;">
+                  <div class="panel panel-default" style="border: 0;box-shadow: 0 0 0px rgba(0,0,0,.05);border-bottom: 3px solid #35bfae;">
+<p style="margin-left: 15px;margin-bottom: -4px;">UZI .............................................. 30 AZN</p>
+                      <div id="collapseThree" class="panel-collapse collapse">
+
+                          <div class="panel-body">
+                              <p>USM  ............................................ 65 AZN</p>
+                              <p>EKQ  ............................................ 80 AZN</p>
+                              <p>MRT  ............................................ 60 AZN</p>
+                              <p>KT  ............................................... 30 AZN</p>
+                              <p>Analiz  .......................................... 60 AZN</p>
+                              <p>Sonor  .......................................... 42 AZN</p>
+                          </div>
+                      </div>
+          			<div class="panel-heading" style="background-color: #fff;">
+                          <h4 class="panel-title">
+                              <a style="background: #35bfae;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-plus" style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
+                          </h4>
+                      </div>
+                  </div>
+
+              </div>
+
+          </div>
+          <!-- Collapsible Ends -->
 				</div>
 			</div>
 			<div class="clinic-card__right">
@@ -1308,7 +1004,7 @@ data-ga-action="clickPhoneNumber">
 </div>
 					</div>
 
-											<div style=" border: 1.5px dotted; width: 164px; padding: 5px 4px 4px 10px; " class="clinic-card__clinic-time">
+											<div class="clinic-card__clinic-time">
 															<div class="clinic-card__clinic-time-row">
 									<span>bz-cm:</span> 09:00 - 21:00								</div>
 															<div class="clinic-card__clinic-time-row">
@@ -1378,30 +1074,7 @@ data-ga-action="clickPhoneNumber">
 		</div>
 
 	</div>
-					<div class="clinics__bottom">
-			<div class="wrapper">
 
-											<div class="bottom-content">
-							<h3>Bakıda ən yaxşı xüsusi klinikaların ünvanlarını harada tapa bilərsiniz?</h3>
-<p>Tapdoc.az professional onlayn xidməti Moskvada ən yaxşı klinikaların siyahısını tərtib edib, yalnız sağ tibb müəssisəsini seçməlisiniz və bir mütəxəssislə randevu ala bilərsiniz.</p>
-<h3>Bakıda ən yaxşı klinikanı necə tapmaq olar?</h3>
-<ul>
-<li> tibb sahəsində və ya sizə kömək edə biləcək bir mütəxəssis seçmək;</li>
-<li> ödənişli bir klinikada müayinə edilməsi rahat olacağı Moskva ərazisini müəyyənləşdirin;</li>
-<li> dəyəri, populyarlıq mərkəzi və ya təhlil əsasında məlumatları sıralayın.</li>
-</ul>
-<h3>Tapdoc.Az saytında tibbi klinika axtarış sisteminin rahatlığı aşağıdakı kimidir:</h3>
-<ul>
-<li> hər bir klinikada xüsusi klinikaların ünvanları və xidmətlərin tam siyahısı daxil olmaqla etibarlı və ətraflı məlumatları olan bir sorğu var;</li>
-<li> verildikdə, axtarış sistemi dərhal qiymət səviyyəsini göstərir (məsələn, qəbul qiyməti yüksək, orta);</li>
-<li> Dərhal sizin üçün münasib vaxtda randevu ala bilərsiniz.</li>
-</ul>
-						</div>
-
-
-
-			</div>
-		</div>
 
 
     <footer class="footer">
@@ -1465,7 +1138,7 @@ data-ga-action="clickPhoneNumber">
                                                 <span class="footer__copyright">© tapdoc.az 2018</span>
                     </div>
                     <div class="footer__socials">
-                        <a href="https://vk.com/tapdoc.az" target="_blank" class="footer__social footer__social_vk"></a>
+                        <a href="https://vk.com/tapdoc" target="_blank" class="footer__social footer__social_vk"></a>
                         <a href="https://www.facebook.com/tapdoc.az/" target="_blank" class="footer__social footer__social_fb"></a>
 
                         <a href="https://www.youtube.com/channel/UCzmp8WzYmly2Dskaf5HuIXg" target="_blank" class="footer__social footer__social_youtube"></a>
