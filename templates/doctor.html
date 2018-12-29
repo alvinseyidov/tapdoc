@@ -421,14 +421,14 @@ float: right;
 
 .dd-buttonbozpanel {
   display: inline-block;
-
-width: 295px;
-  border-radius: 4px;
-  padding: 6px 45px 6px 38px;
-  background-color: #e1e1e1;
-  cursor: pointer;
-  white-space: nowrap;
-  margin: -7px 0px 11px 0;
+    width: 295px;
+    border-radius: 4px;
+    padding: 6px 48px 6px 62px;
+    background-color: #e1e1e1;
+    cursor: pointer;
+    white-space: nowrap;
+    margin: -7px 0px 11px 0;
+    font-weight: 600;
 }
 
 .dd-buttonbozpanel:after {
@@ -464,7 +464,7 @@ width: 295px;
       background-color: #ffffff;
       list-style-type: none;
       z-index: 1;
-      width: 182px;
+      width: 295px;
 }
 
 .dd-inputbozpanel + .dd-menubozpanel {
@@ -489,6 +489,10 @@ width: 295px;
   display: block;
   margin: -10px -20px;
   padding: 10px 20px;
+}
+
+.clinichover:hover {
+  color: #0067c0;
 }
 
 </style>
@@ -911,7 +915,7 @@ function myFunction() {
 					<div class="clinic-card__type">Endokrinoloq Cərrah</div>
 					<div class="clinic-card__cost">
 													Təcrübəsi - 12 il											</div><br>
-                          <div style="margin: -17px 0 -7px 0;font-size: 12px;">Qəbula yazılma<span style="text-decoration: line-through;"> &nbsp; 50AZN</span> - <span style="border-bottom: 1.5px dotted #000;">30 AZN</span> <img style="margin: 0px 0 -5px 0;" src="/static/img/tag.png"/></div>
+                          <div style="margin: -17px 0 -7px 0;font-size: 12px;">Qəbula yazılma<span class="clinichover" style="text-decoration: line-through;"> &nbsp; 50AZN</span> - <span style="border-bottom: 1.5px dotted #000;">30 AZN</span> <img style="margin: 0px 0 -5px 0;" src="/static/img/tag.png"/></div>
 
 					<div class="clinic-card__clinictext">
 								<div class="qebultext">Qəbula Yazılmaq Üçün:</div>
@@ -933,7 +937,7 @@ function myFunction() {
 
        <div style="margin: -67px -66px 0 0;" id="London{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
 				<div class="clinic-card__clinic">
-        <div class="bozpanel1">Həkim bir neçə klinikada fəaliyyət göstərir.</div>
+        <div class="bozpanel1" style="font-size:15px;">Həkim bir neçə klinikada fəaliyyət göstərir.</div>
         <label class="dropdownbozpanel">
 
   <div class="dd-buttonbozpanel">
@@ -959,7 +963,7 @@ function myFunction() {
                         <div class="clinic-card__clinic-address">
 
               						        <div class="clinic-card__clinic-address">
-              		              <a href="{% url 'clinicdetail' %}">New Med Klinikası</a><br>
+              		              <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">New Med </span> Klinikası</a><br>
                                 <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
 
               	                 <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
@@ -974,7 +978,7 @@ function myFunction() {
          <div style="margin: -67px -66px 0 0;" id="Paris{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
   				<div class="clinic-card__clinic">
 
-          <div class="bozpanel1">Həkim bir neçə klinikada fəaliyyət göstərir.</div>
+          <div class="bozpanel1"  style="font-size:15px;">Həkim bir neçə klinikada fəaliyyət göstərir.</div>
           <label class="dropdownbozpanel">
 
     <div class="dd-buttonbozpanel">
@@ -999,7 +1003,7 @@ function myFunction() {
               <div class="clinic-card__clinic-address">
 
                         <div class="clinic-card__clinic-address">
-                        <a href="{% url 'clinicdetail' %}">New Med Klinikası</a><br>
+                        <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">New Med </span>Klinikası</a><br>
                       <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
 
                        <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
@@ -1012,7 +1016,7 @@ function myFunction() {
 
 <div class="clinic-card__right">
 				<div class="clinic-card__clinic">
-        <div class="bozpanel2">Həkim Medical Plazada fəaliyyət göstərir.</div>
+        <div class="bozpanel2"  style="font-size:15px;">Həkim <span>New Med Klinikasında</span> fəaliyyət göstərir.</div>
 
         <div><p style="font-size: 13px;text-align: center; margin: 0 32px 8px 0;">Bu klinikada hal-hazırda onlayn qeydiyyat yoxdur. Qəbula yazılmaq üçün müraciət edin, sizinlə 10 dəq ərzində əlaqə saxlanılacaq.</p></div>
 
@@ -1023,7 +1027,7 @@ function myFunction() {
                     <div class="clinic-card__clinic-address">
 
                               <div class="clinic-card__clinic-address">
-                              <a href="{% url 'clinicdetail' %}">New Med Klinikası</a><br>
+                              <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">New Med</span> Klinikası</a><br>
                             <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
 
                              <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
@@ -1501,7 +1505,7 @@ window.onclick = function(event) {
   </div>
     </div>
   </div>
-  <p class="del" style="    margin: 63px 0 -40px 0;  color: #000;      padding: 15px 27px 17px 64px!important;    background-position: 22px;      background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' viewBox='0 0…e='%23F93D56' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E);    border: 1px solid #ced1db;  border-radius: 5px;      font-size: .875rem!important;      background-repeat: no-repeat;      line-height: 1.25rem!important;"><span>DİQQƏT!</span> Səhifədəki məlumatlar informativ xarakterlidir. Müalicə üçün həkimə müraciət edin.<br></p>
+  <p class="del" style="margin: 62px 8px -41px 0;color: #000;padding: 15px 13px 16px 52px!important;background-position: 22px;border: 1px solid #ced1db;border-radius: 5px;font-size: .875rem!important;background-repeat: no-repeat;line-height: 1.25rem!important;width: 658px;margin-left: 156px;"><span>DİQQƏT!</span> Səhifədəki məlumatlar informativ xarakterlidir. Müalicə üçün həkimə müraciət edin.<br></p>
 
       	</aside>
 

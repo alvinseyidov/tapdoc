@@ -5979,7 +5979,7 @@ h3.links__title-small {
 .clinic-card__right {
   display: table-cell;
   vertical-align: top;
-  width: 410px;
+  width: 376px;
   border-left: 2px solid #eaeaeb;
   height: 100%;
   position: relative;
@@ -6163,7 +6163,7 @@ h3.links__title-small {
   color: #333;
 }
 .clinic-card__clinic {
-  padding: 28px 25px 25px 57px;
+  padding: 28px 0px 25px 0px;
   color: #828288;
 }
 .clinic-card__clinic-address {
@@ -6188,7 +6188,7 @@ h3.links__title-small {
   position: absolute;
   left: -27px;
   top: 0px;
-  
+
   font-size: 20px;
   width: 15px;
   text-align: center;
@@ -6220,7 +6220,7 @@ h3.links__title-small {
 }
 .clinic-card__clinic-button {
   margin-top: 15px;
-
+text-align: center;
 }
 .clinic-card__clinic-note {
   font-size: 14px;

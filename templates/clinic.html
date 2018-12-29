@@ -190,6 +190,10 @@ float: right;
     padding-right: 5px;
 font-weight: 900;
 }
+
+.clinic-card__clinic-time{
+      margin: 0 0 0 5px;
+}
 </style>
 
 </head>
@@ -944,7 +948,7 @@ font-weight: 900;
 					</div>
 				</div>
 				<div class="clinic-card__info">
-					<a href="#nerimanov" class="clinic-card__name">NewMed Tibb Mərkəzi</a>
+					<a href="{% url 'clinicdetail' %}" class="clinic-card__name">NewMed Tibb Mərkəzi</a>
 					<div class="clinic-card__type">diaqnostika mərkəzi</div>
 					<div class="clinic-card__cost">
 													Ortalama xidmət qiymətləri - yüksək											</div>
@@ -957,7 +961,7 @@ font-weight: 900;
 			<div class="clinic-card__right">
 				<div class="clinic-card__clinic">
 
-          <div style="    text-align: center;margin: 0 160px 0 0;">İstədiyiniz filiala <br>müraciət edə bilərsiniz</div>
+          <div style="    text-align: center;">İstədiyiniz filiala <br>müraciət edə bilərsiniz</div>
 
 
 
@@ -965,15 +969,15 @@ font-weight: 900;
 							<form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
 								<input type="hidden" name="clinicId" value="5719"/>
 								<input type="hidden" name="requestBtnType" value="requestCardShortClinic"/>
-								<input type="submit" value="Müraciət"
+								<input style="    margin: auto;" type="submit" value="Müraciət"
 								       class="button ui-btn ui-btn_green request-button js-request-form-hook"
 									   data-ga-label="doctor clinic form"
 									 data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1"/>
 							</form>
-              <div style="    margin: 9px 0 0 0px;">və ya zəng edin</div>
-              <div style="    margin: 11px 0 0 14px;font-size: 18px;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form"
+              <div style="margin: 9px 0 0 0;">və ya zəng edin</div>
+              <div style="    margin: 11px 0 0 4px;font-size: 18px;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form"
 data-ga-action="clickPhoneNumber">
-(+994) 519-31-04							</div>
+(+994) 50 519-31-04							</div>
 						</div>
 									</div>
 			</div>
@@ -1046,12 +1050,12 @@ data-ga-action="clickPhoneNumber">
             <form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
               <input type="hidden" name="clinicId" value="5719">
               <input type="hidden" name="requestBtnType" value="requestCardShortClinic">
-              <input type="submit" value="Müraciət" class="button ui-btn ui-btn_green request-button js-request-form-hook" data-ga-label="doctor clinic form" data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1">
+              <input  style="    margin: auto;" type="submit" value="Müraciət" class="button ui-btn ui-btn_green request-button js-request-form-hook" data-ga-label="doctor clinic form" data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1">
             </form>
           </div>
           <div style="    margin: 4px 0 4px 28px;">və ya zəng edin</div>
-          <div style="    margin: 0 0 0 26px;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form" data-ga-action="clickPhoneNumber">
-(+994) 519-31-04							</div>
+          <div style="    margin: 0 0 0 12px;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form" data-ga-action="clickPhoneNumber">
+(+994) 50 519-31-04							</div>
                 </div>
 		</div>
 	</div>
@@ -1059,7 +1063,7 @@ data-ga-action="clickPhoneNumber">
 				<div class="clinic-card__branch">
 	<div class="clinic-card__inner">
 		<div class="clinic-card__left">
-			<a href="{% url 'clinicdetail' %}" class="clinic-card__branch-name">New Med Nəsimi Rayon Filialı</a>
+			<a href="{% url 'clinicdetail' %}" class="clinic-card__branch-name">New Med Nəsimi Filialı</a>
       <div class="clinic-card__clinic-address">
                 <div class="clinic-card__clinic-address">
 
@@ -1111,12 +1115,12 @@ data-ga-action="clickPhoneNumber">
             <form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
               <input type="hidden" name="clinicId" value="5719">
               <input type="hidden" name="requestBtnType" value="requestCardShortClinic">
-              <input type="submit" value="Müraciət" class="button ui-btn ui-btn_green request-button js-request-form-hook" data-ga-label="doctor clinic form" data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1">
+              <input  style="    margin: auto;" type="submit" value="Müraciət" class="button ui-btn ui-btn_green request-button js-request-form-hook" data-ga-label="doctor clinic form" data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1">
             </form>
           </div>
           <div style="    margin: 4px 0 4px 28px;">və ya zəng edin</div>
-          <div style="    margin: 0 0 0 26px;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form" data-ga-action="clickPhoneNumber">
-(+994) 519-31-04							</div>
+          <div style="    margin: 0 0 0 12px;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form" data-ga-action="clickPhoneNumber">
+(+994) 50 519-31-04							</div>
                 </div>
 		</div>
 	</div>
@@ -1241,15 +1245,15 @@ data-ga-action="clickPhoneNumber">
 							<form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
 								<input type="hidden" name="clinicId" value="5719"/>
 								<input type="hidden" name="requestBtnType" value="requestCardShortClinic"/>
-								<input type="submit" value="Müraciət"
+								<input  style="    margin: auto;" type="submit" value="Müraciət"
 								       class="button ui-btn ui-btn_green request-button js-request-form-hook"
 									   data-ga-label="doctor clinic form"
 									 data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1"/>
 							</form>
 						</div>
             <div style="    margin: 4px 0 4px 28px;">və ya zəng edin</div>
-            <div style="    margin: 0 0 0 26px;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form" data-ga-action="clickPhoneNumber">
-  (+994) 519-31-04							</div>
+            <div style="    margin: 0 0 0 12px;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form" data-ga-action="clickPhoneNumber">
+  (+994) 50 519-31-04							</div>
 									</div>
 			</div>
 		</div>
@@ -1326,15 +1330,15 @@ data-ga-action="clickPhoneNumber">
 							<form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
 								<input type="hidden" name="clinicId" value="5719"/>
 								<input type="hidden" name="requestBtnType" value="requestCardShortClinic"/>
-								<input type="submit" value="Müraciət"
+								<input  style="    margin: auto;" type="submit" value="Müraciət"
 								       class="button ui-btn ui-btn_green request-button js-request-form-hook"
 									   data-ga-label="doctor clinic form"
 									 data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1"/>
 							</form>
 						</div>
             <div style="    margin: 4px 0 4px 28px;">və ya zəng edin</div>
-            <div style="    margin: 0 0 0 26px;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form" data-ga-action="clickPhoneNumber">
-  (+994) 519-31-04							</div>
+            <div style="    margin: 0 0 0 12px;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form" data-ga-action="clickPhoneNumber">
+  (+994) 50 519-31-04							</div>
 									</div>
 			</div>
 		</div>
