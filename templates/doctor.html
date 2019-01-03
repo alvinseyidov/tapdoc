@@ -39,6 +39,7 @@
     <link rel="icon" type="image/png" href="https://s.docdoc.ru/new-doc-doc/favicon/favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="https://s.docdoc.ru/new-doc-doc/favicon/manifest.json">
     <link rel="mask-icon" href="https://s.docdoc.ru/new-doc-doc/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <meta name="theme-color" content="#ffffff">
 
             <link rel="stylesheet" href="https://s.docdoc.ru/compile/chunks.css?2937290733">
@@ -495,6 +496,20 @@ float: right;
   color: #0067c0;
 }
 
+.multiclinicdoc .active {
+    border-right: 0px solid #eaeaea !important;
+    margin-left:-18px !important;
+}
+
+.ixtisasspecli:hover > .ixtisasspec{
+  color: blue;
+}
+.ixtisasspecli:hover{
+  color: orange;
+}
+.ixtisasspecli:hover > .numberspec{
+  color: blue;
+}
 </style>
 
 </head>
@@ -929,9 +944,10 @@ function myFunction() {
       {% if doctor.id == 4 %}
 
 
-      <div class="tabdoctab{{doctor.id}}" style="margin: 10px 0 0 0;">
-        <button style="margin: 16px 0 0 -19px;background-color: #fff;border-right: 0px solid red;border-bottom: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'London{{doctor.id}}')" id="defaultOpendoctab{{doctor.id}}">1</button><br>
-        <button style="margin: 0px 0 0 -19px;background-color: #fff;border-right: 0px solid red;border-bottom: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'Paris{{doctor.id}}')">2</button>
+      <div class="tabdoctab{{doctor.id}} multiclinicdoc" style="margin: 10px 0 0 0;">
+        <button style="margin: 16px 0 0 -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'London{{doctor.id}}')" id="defaultOpendoctab{{doctor.id}}">1</button><br>
+        <button style="margin: 0px 0 0 -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'Paris{{doctor.id}}')" id="defaultOpendoctab2{{doctor.id}}">2</button><br>
+                <button style="margin: 0px 0 0 -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'Paris{{doctor.id}}')" id="defaultOpendoctab2{{doctor.id}}">3</button>
 
       </div>
 
@@ -939,6 +955,7 @@ function myFunction() {
 				<div class="clinic-card__clinic">
         <div class="bozpanel1" style="font-size:15px;">Həkim bir neçə klinikada fəaliyyət göstərir.</div>
         <label class="dropdownbozpanel">
+
 
   <div class="dd-buttonbozpanel">
     Medical Plaza Klinika
@@ -1373,63 +1390,29 @@ window.onclick = function(event) {
       <div style="margin:25px 0 200px 0">
           <ul class="listspec" style="padding-left:10px;">
 
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Allerqoloq</span><span class="numberspec">72</span>
+              <li class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Allerqoloq</span><span class="numberspec">72</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Androloq</span><span class="numberspec">68</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Androloq</span><span class="numberspec">68</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Artroloq</span><span class="numberspec">5</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Artroloq</span><span class="numberspec">5</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Veteroloq</span><span class="numberspec">50</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Veteroloq</span><span class="numberspec">50</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Vertebroloq</span><span class="numberspec">41</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Vertebroloq</span><span class="numberspec">41</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Qastroloq</span><span class="numberspec">36</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Qastroloq</span><span class="numberspec">36</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Gemotoloq</span><span class="numberspec">55</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Gemotoloq</span><span class="numberspec">55</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Genetika</span><span class="numberspec">56</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Genetika</span><span class="numberspec">56</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Ginokoloq</span><span class="numberspec">67</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Ginokoloq</span><span class="numberspec">67</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Huridoterapevt</span><span class="numberspec">82</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Huridoterapevt</span><span class="numberspec">82</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Rentgenoloq</span><span class="numberspec">42</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Rentgenoloq</span><span class="numberspec">42</span>
               </li>
-              <li style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Hemopatoloq</span><span class="numberspec">71</span>
-              </li>
-
-      </ul>
-  </div>
-  </div>
-    </div>
-    <div class="columnspec">
-      <div style="width:100%">
-      <div style="margin:25px 0 200px 0">
-          <ul class="listspec" style="padding-left:10px;">
-
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Dermotoloq</span><span class="numberspec">10</span>
-              </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Diabetoloq</span><span class="numberspec">48</span>
-              </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Dietoloq</span><span class="numberspec">41</span>
-              </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">İmmunoloq</span><span class="numberspec">12</span>
-              </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">İnfeksionist</span><span class="numberspec">23</span>
-              </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Kardioloq</span><span class="numberspec">17</span>
-              </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Kinezoloq</span><span class="numberspec">9</span>
-              </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Koloktroloq</span><span class="numberspec">23</span>
-              </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Kosmetoloq</span><span class="numberspec">24</span>
-              </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Fizioloq</span><span class="numberspec">16</span>
-              </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Logoped</span><span class="numberspec">113</span>
-              </li>
-              <li style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Mammaloq</span><span class="numberspec">21</span>
+              <li class="ixtisasspecli"  style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Hemopatoloq</span><span class="numberspec">71</span>
               </li>
 
       </ul>
@@ -1441,29 +1424,29 @@ window.onclick = function(event) {
       <div style="margin:25px 0 200px 0">
           <ul class="listspec" style="padding-left:10px;">
 
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Manual Terapevt</span><span class="numberspec">34</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Dermotoloq</span><span class="numberspec">10</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Masajist</span><span class="numberspec">88</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Diabetoloq</span><span class="numberspec">48</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Mikoloq</span><span class="numberspec">9</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Dietoloq</span><span class="numberspec">41</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Narkoloq</span><span class="numberspec">22</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">İmmunoloq</span><span class="numberspec">12</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Nevroloq</span><span class="numberspec">114</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">İnfeksionist</span><span class="numberspec">23</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Neyrocərrah</span><span class="numberspec">97</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Kardioloq</span><span class="numberspec">17</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Neoataloq</span><span class="numberspec">68</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Kinezoloq</span><span class="numberspec">9</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Nefroloq</span><span class="numberspec">87</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Koloktroloq</span><span class="numberspec">23</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Onkoloq</span><span class="numberspec">84</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Kosmetoloq</span><span class="numberspec">24</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Ortoped</span><span class="numberspec">48</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Fizioloq</span><span class="numberspec">16</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Ostoped</span><span class="numberspec">55</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Logoped</span><span class="numberspec">113</span>
               </li>
-              <li style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Otolaringoloq</span><span class="numberspec">17</span>
+              <li  class="ixtisasspecli" style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Mammaloq</span><span class="numberspec">21</span>
               </li>
 
       </ul>
@@ -1475,29 +1458,63 @@ window.onclick = function(event) {
       <div style="margin:25px 0 200px 0">
           <ul class="listspec" style="padding-left:10px;">
 
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Oftalmoloq</span><span class="numberspec">19</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Manual Terapevt</span><span class="numberspec">34</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Parazitoloq</span><span class="numberspec">12</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Masajist</span><span class="numberspec">88</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Pediatr</span><span class="numberspec">66</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Mikoloq</span><span class="numberspec">9</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Plastik Cərrah</span><span class="numberspec">25</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Narkoloq</span><span class="numberspec">22</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Podoloq</span><span class="numberspec">12</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Nevroloq</span><span class="numberspec">114</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Proktoloq</span><span class="numberspec">36</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Neyrocərrah</span><span class="numberspec">97</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Psixiatr</span><span class="numberspec">57</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Neoataloq</span><span class="numberspec">68</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Psixoloq</span><span class="numberspec">94</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Nefroloq</span><span class="numberspec">87</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Psixoterapevt</span><span class="numberspec">65</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Onkoloq</span><span class="numberspec">84</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Pulmoloq</span><span class="numberspec">94</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Ortoped</span><span class="numberspec">48</span>
               </li>
-              <li style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Reabilitoloq</span><span class="numberspec">25</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Ostoped</span><span class="numberspec">55</span>
               </li>
-              <li style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Revmotoloq</span><span class="numberspec">20</span>
+              <li  class="ixtisasspecli" style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Otolaringoloq</span><span class="numberspec">17</span>
+              </li>
+
+      </ul>
+  </div>
+  </div>
+    </div>
+    <div class="columnspec">
+      <div style="width:100%">
+      <div style="margin:25px 0 200px 0">
+          <ul class="listspec" style="padding-left:10px;">
+
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Oftalmoloq</span><span class="numberspec">19</span>
+              </li>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Parazitoloq</span><span class="numberspec">12</span>
+              </li>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Pediatr</span><span class="numberspec">66</span>
+              </li>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Plastik Cərrah</span><span class="numberspec">25</span>
+              </li>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Podoloq</span><span class="numberspec">12</span>
+              </li>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Proktoloq</span><span class="numberspec">36</span>
+              </li>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Psixiatr</span><span class="numberspec">57</span>
+              </li>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Psixoloq</span><span class="numberspec">94</span>
+              </li>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Psixoterapevt</span><span class="numberspec">65</span>
+              </li>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Pulmoloq</span><span class="numberspec">94</span>
+              </li>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Reabilitoloq</span><span class="numberspec">25</span>
+              </li>
+              <li  class="ixtisasspecli" style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Revmotoloq</span><span class="numberspec">20</span>
               </li>
 
       </ul>

@@ -5979,7 +5979,7 @@ h3.links__title-small {
   display: table-cell;
   vertical-align: top;
   width: 410px;
-  border-left: 2px solid #eaeaeb;
+  border-left: 3px solid #eaeaeb;
   height: 100%;
   position: relative;
 }

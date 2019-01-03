@@ -767,21 +767,7 @@ float: right;
         <div class="col-sm-8">
 
         <!-- Collapsible Begin -->
-        <script>
-            $(document).ready(function(){
-                // Add minus icon for collapse element which is open by default
-                $(".collapse.in").each(function(){
-                  $(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
-                });
 
-                // Toggle plus minus icon on show hide of collapse element
-                $(".collapse").on('show.bs.collapse', function(){
-                  $(this).parent().find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus");
-                }).on('hide.bs.collapse', function(){
-                  $(this).parent().find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus");
-                });
-            });
-        </script>
         <div class="bs-example">
             <div class="panel-group" id="accordion" style="margin-top: 8px;">
                 <div class="panel panel-default" style="border: 0;box-shadow: 0 0 0px rgba(0,0,0,.05);border-bottom: 3px solid #00aec7;">
@@ -800,7 +786,7 @@ float: right;
                     </div>
               <div class="panel-heading" style="background-color: #fff;">
                         <h4 class="panel-title">
-                            <a style="background: #00aec7;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-plus" style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
+                            <a style="background: #00aec7;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;    text-align: center;" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
                         </h4>
                     </div>
                 </div>
@@ -840,17 +826,17 @@ float: right;
                                   <div class="clinic-card__clinic-time-row">
                       <span>bz:</span> 10:00 - 15:00								</div>
                               </div>
-
+                              <div style="   margin: 11px 0 0 0;font-size: 18px;text-align: center;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form"
+                              data-ga-action="clickPhoneNumber">
+                              (+994) 50 519-31-04							</div>
                             <div class="clinic-address__button clinic-card__clinic-button js-book-clinic" style="     margin: 10px auto auto auto; ">
                   <form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
                     <input type="hidden" name="clinicId" value="5719">
                     <input type="hidden" name="requestBtnType" value="requestCardShortClinic">
                     <input type="submit" value="Müraciət" class="button ui-btn ui-btn_green request-button js-request-form-hook" data-ga-label="doctor clinic form" data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1">
                   </form>
-                </div><div style="   margin: 9px 0 0 0;text-align: center;">və ya zəng edin</div>
-                <div style="   margin: 11px 0 0 0;font-size: 18px;text-align: center;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form"
-  data-ga-action="clickPhoneNumber">
-  (+994) 50 519-31-04							</div>
+                </div>
+
                       </div>
       		</div>
       	</div>
@@ -887,21 +873,7 @@ float: right;
         <div class="col-sm-8">
 
         <!-- Collapsible Begin -->
-        <script>
-            $(document).ready(function(){
-                // Add minus icon for collapse element which is open by default
-                $(".collapse.in").each(function(){
-                  $(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
-                });
 
-                // Toggle plus minus icon on show hide of collapse element
-                $(".collapse").on('show.bs.collapse', function(){
-                  $(this).parent().find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus");
-                }).on('hide.bs.collapse', function(){
-                  $(this).parent().find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus");
-                });
-            });
-        </script>
         <div class="bs-example">
             <div class="panel-group" id="accordion" style="margin-top: 8px;">
                 <div class="panel panel-default" style="border: 0;box-shadow: 0 0 0px rgba(0,0,0,.05);border-bottom: 3px solid #00aec7;">
@@ -921,7 +893,7 @@ float: right;
                     </div>
               <div class="panel-heading" style="background-color: #fff;">
                         <h4 class="panel-title">
-                            <a style="background: #00aec7;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-plus" style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
+                            <a style="background: #00aec7;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;    text-align: center;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span  style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
                         </h4>
                     </div>
                 </div>
@@ -957,7 +929,9 @@ float: right;
                                   <div class="clinic-card__clinic-time-row">
                       <span>bz:</span> 10:00 - 15:00								</div>
                               </div>
-
+                              <div style="    margin: 11px 0 0 0;font-size: 18px;text-align: center;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form"
+                              data-ga-action="clickPhoneNumber">
+                              (+994) 50 519-31-04							</div>
                             <div class="clinic-address__button clinic-card__clinic-button js-book-clinic" style="     margin: 10px auto auto auto; ">
                   <form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
                     <input type="hidden" name="clinicId" value="5719">
@@ -965,72 +939,128 @@ float: right;
                     <input type="submit" value="Müraciət" class="button ui-btn ui-btn_green request-button js-request-form-hook" data-ga-label="doctor clinic form" data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1">
                   </form>
                 </div>
-                <div style="    margin: 9px 0 0 0;text-align: center;">və ya zəng edin</div>
-                <div style="    margin: 11px 0 0 0;font-size: 18px;text-align: center;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form"
-  data-ga-action="clickPhoneNumber">
-  (+994) 50 519-31-04							</div>
+
+
                       </div>
       		</div>
       	</div>
-      </div>												<div class="clinic-card__branches-hidden js-clinic-card-hidden hidden">
+      </div>
 
-      				<div class="clinic-card__branch">
-      	<div class="clinic-card__inner">
-      		<div class="clinic-card__left">
-      			<a href="/clinic/on_klinik_ljuks_na_taganke" class="clinic-card__branch-name">Медицинский центр ОН КЛИНИК на Таганке</a>
-      			<div class="clinic-card__rating clinic-card__rating_clinic">
 
-      <div class="rate">
-      	<div class="rate__default">
-      		<i class="fa fa-star" aria-hidden="true"></i>
-      		<i class="fa fa-star" aria-hidden="true"></i>
-      		<i class="fa fa-star" aria-hidden="true"></i>
-      		<i class="fa fa-star" aria-hidden="true"></i>
-      		<i class="fa fa-star" aria-hidden="true"></i>
-      	</div>
-      			<div class="rate__value" style="width:88.6%;">
-      			<i class="fa fa-star" aria-hidden="true"></i>
-      			<i class="fa fa-star" aria-hidden="true"></i>
-      			<i class="fa fa-star" aria-hidden="true"></i>
-      			<i class="fa fa-star" aria-hidden="true"></i>
-      			<i class="fa fa-star" aria-hidden="true"></i>
-      		</div>
-      	</div>				<div class="clinic-card__rating-value">
-      					<a href="/clinic/on_klinik_ljuks_na_taganke#reviews">
-      													1882 отзыва											</a>
-      				</div>
+                        <div id="demofilial" class="collapse">
+                        <div class="clinic-card__branch">
+                        <div class="clinic-card__inner">
+                        <div class="clinic-card__left">
+                        <a href="{% url 'clinicdetail' %}" class="clinic-card__branch-name">New Med Nəsimi Rayon Filialı</a>
+                        <div class="clinic-card__rating clinic-card__rating_clinic">
+
+                        <div class="rate" style="margin: 0 0 0 10px;">
+                        <div class="rate__default">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                        <div class="rate__value" style="width:89.9%;">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                        </div>				<br><div style="  margin: 0 0px 0 16px;" class="clinic-card__rating-value">
+                          <a href="/clinic/on_klinik_na_ulitse_1905_goda#reviews">
+                                          818 rəy											</a>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-4"><a style=" width: 110px; height: 110px; margin: 3px 0 0 0; " href="https://tapdoc.az/clinic/trastmed" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
+                                    <img src="https://cdn.docdoc.ru/clinic/logo/min_5719.gif?1534499283" alt="">                    </a></div>
+                        <div class="col-sm-8">
+
+                        <!-- Collapsible Begin -->
+
+                        <div class="bs-example">
+                        <div class="panel-group" id="accordion" style="margin-top: 8px;">
+                          <div class="panel panel-default" style="border: 0;box-shadow: 0 0 0px rgba(0,0,0,.05);border-bottom: 3px solid #00aec7;">
+                          <p style="margin-left: 15px;margin-bottom: 5px;">UZI .............................................. 30 AZN</p>
+                          <p style="margin-left: 15px;margin-bottom: 8px;">USM  ............................................ 65 AZN</p>
+                          <p style="margin-left: 15px;margin-bottom: -5px;">EKQ  ............................................ 80 AZN</p>
+                              <div id="collapseThreee" class="panel-collapse collapse">
+
+                                  <div class="panel-body">
+                                      <p>USM  ............................................ 65 AZN</p>
+                                      <p>EKQ  ............................................ 80 AZN</p>
+                                      <p>MRT  ............................................ 60 AZN</p>
+                                      <p>KT  ............................................... 30 AZN</p>
+                                      <p>Analiz  .......................................... 60 AZN</p>
+                                      <p>Sonor  .......................................... 42 AZN</p>
+                                  </div>
+                              </div>
+                        <div class="panel-heading" style="background-color: #fff;">
+                                  <h4 class="panel-title">
+                                      <a style="background: #00aec7;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;    text-align: center;" data-toggle="collapse" data-parent="#accordion" href="#collapseThreee"><span  style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
+                                  </h4>
+                              </div>
+                          </div>
+
+                        </div>
+
+                        </div>
+                        <!-- Collapsible Ends -->
+
+
+                        </div>
+
+                        </div>
+                        </div>
+                        <div class="clinic-card__right">
+                        <div class="clinic-card__clinic">
+                        <div class="clinic-card__clinic-address" style=" text-align: center; margin: 0 0 10px 0;">
+                          <div class="clinic-card__clinic-address">
+
+
+                        Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
+
+
+                        <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="https://tapdoc.az/static/img/metro1.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="https://tapdoc.az/static/img/metro2.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+                        </div>
+                        </div>
+
+                                    <div style=" border: 1.5px dotted; width: 164px; padding: 5px 4px 4px 10px;     margin: auto;" class="clinic-card__clinic-time">
+                                            <div class="clinic-card__clinic-time-row">
+                                <span>bz-cm:</span> 09:00 - 21:00								</div>
+                                            <div class="clinic-card__clinic-time-row">
+                                <span>şn:</span> 10:00 - 18:00								</div>
+                                            <div class="clinic-card__clinic-time-row">
+                                <span>bz:</span> 10:00 - 15:00								</div>
+                                        </div>
+                                        <div style="    margin: 11px 0 0 0;font-size: 18px;text-align: center;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form"
+                                        data-ga-action="clickPhoneNumber">
+                                        (+994) 50 519-31-04							</div>
+                                      <div class="clinic-address__button clinic-card__clinic-button js-book-clinic" style="     margin: 10px auto auto auto; ">
+                            <form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
+                              <input type="hidden" name="clinicId" value="5719">
+                              <input type="hidden" name="requestBtnType" value="requestCardShortClinic">
+                              <input type="submit" value="Müraciət" class="button ui-btn ui-btn_green request-button js-request-form-hook" data-ga-label="doctor clinic form" data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1">
+                            </form>
+                          </div>
+
+
+                                </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+
+
+
+
+
       			</div>
-      		</div>
-      		<div class="clinic-card__right">
-      			<div class="clinic-card__clinic">
-      				<div class="clinic-card__clinic-address" style=" text-align: center;margin: 0 0 10px 0; ">
-      					<div class="clinic-card__clinic-address">
-
-
-      		г. Москва, ул. Воронцовская, д. 8, стр. 6<br>
-
-
-      	<a class="clinic-card__metro" href="/clinic/station/marksistskaya"><i class="i-metro-sm i-metro--line_3"></i>Марксистская&nbsp;<span class="doctor-card-clinics__station-distance">(300 м)</span></a>, <a class="clinic-card__metro" href="/clinic/station/taganskaya"><i class="i-metro-sm i-metro--line_11"></i>Таганская&nbsp;<span class="doctor-card-clinics__station-distance">(490 м)</span></a>
       </div>
-      				</div>
-      									<div style=" border: 1.5px dotted; width: 164px; padding: 5px 4px 4px 10px; " class="clinic-card__clinic-time">
-      													<div class="clinic-card__clinic-time-row">
-      								<span>пн-пт:</span> 08:00 - 21:00							</div>
-      													<div class="clinic-card__clinic-time-row">
-      								<span>сб:</span> 08:00 - 21:00							</div>
-      													<div class="clinic-card__clinic-time-row">
-      								<span>вс:</span> 08:00 - 21:00							</div>
-      											</div>
-      							</div>
-      		</div>
-      	</div>
-      </div>
-
-      									</div>
-
-      			</div>
-      </div>
-      <button style="    border: 0px;    background-color: #fff;height: 24px;    width: 157px;    color: #00aec7;">Bütün Filiallar (10)</button>
+      <button type="button"  data-toggle="collapse" data-target="#demofilial" style="    border: 0px;    background-color: #fff;height: 24px;    width: 157px;    color: #00aec7;">Bütün Filiallar (10)</button>
 
 
       <div class="clinics-item result-card">
@@ -1097,7 +1127,9 @@ float: right;
       															<div class="clinic-card__clinic-time-row">
       									<span>bz:</span> 10:00 - 15:00								</div>
       													</div>
-
+                                <div style="   margin: 11px 0 0 0;font-size: 18px;text-align: center;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form"
+                                data-ga-action="clickPhoneNumber">
+                                (+994) 50 519-31-04							</div>
       												<div class="clinic-address__button clinic-card__clinic-button js-book-clinic" style="     margin: 10px auto auto auto; ">
       							<form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
       								<input type="hidden" name="clinicId" value="5719"/>
@@ -1108,10 +1140,8 @@ float: right;
       									 data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1"/>
       							</form>
       						</div>
-                  <div style="   margin: 9px 0 0 0;text-align: center;">və ya zəng edin</div>
-                  <div style="   margin: 11px 0 0 0;font-size: 18px;text-align: center;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form"
-    data-ga-action="clickPhoneNumber">
-    (+994) 50 519-31-04							</div>
+
+
       									</div>
       			</div>
       		</div>
@@ -1183,7 +1213,9 @@ float: right;
       															<div class="clinic-card__clinic-time-row">
       									<span>bz:</span> 10:00 - 15:00								</div>
       													</div>
-
+                                <div style="    margin: 11px 0 0 0;font-size: 18px;text-align: center;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form"
+                                data-ga-action="clickPhoneNumber">
+                                (+994) 50 519-31-04							</div>
       												<div class="clinic-address__button clinic-card__clinic-button js-book-clinic" style="     margin: 10px auto auto auto; ">
       							<form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
       								<input type="hidden" name="clinicId" value="5719"/>
@@ -1194,10 +1226,8 @@ float: right;
       									 data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1"/>
       							</form>
       						</div>
-                  <div style="    margin: 9px 0 0 0;text-align: center;">və ya zəng edin</div>
-                  <div style="    margin: 11px 0 0 0;font-size: 18px;text-align: center;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form"
-    data-ga-action="clickPhoneNumber">
-    (+994) 50 519-31-04							</div>
+
+
       									</div>
       			</div>
       		</div>

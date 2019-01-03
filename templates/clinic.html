@@ -1124,56 +1124,90 @@ data-ga-action="clickPhoneNumber">
                 </div>
 		</div>
 	</div>
-</div>												<div class="clinic-card__branches-hidden js-clinic-card-hidden hidden">
+</div>
 
-				<div class="clinic-card__branch">
-	<div class="clinic-card__inner">
-		<div class="clinic-card__left">
-			<a href="/clinic/on_klinik_ljuks_na_taganke" class="clinic-card__branch-name">Медицинский центр ОН КЛИНИК на Таганке</a>
-			<div class="clinic-card__rating clinic-card__rating_clinic">
+
+
+
+
+
+
+
+<div id="demofilial" class="collapse">
+<div class="clinic-card__branch">
+<div class="clinic-card__inner">
+<div class="clinic-card__left">
+<a href="{% url 'clinicdetail' %}" class="clinic-card__branch-name">New Med Nəsimi Filialı</a>
+<div class="clinic-card__clinic-address">
+        <div class="clinic-card__clinic-address">
+
+        <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="https://tapdoc.az/static/img/metro1.png">&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="https://tapdoc.az/static/img/metro2.png">&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+
+<br> <span style="border-bottom: 1.5px dotted #000;line-height: 2;"> Bakı ş. Fətəli Xan Xoyski küç. 52</span> <br>
+
+
+</div>
+      </div>
+<div class="clinic-card__rating clinic-card__rating_clinic">
 
 <div class="rate">
-	<div class="rate__default">
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-	</div>
-			<div class="rate__value" style="width:88.6%;">
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-		</div>
-	</div>				<div class="clinic-card__rating-value">
-					<a href="/clinic/on_klinik_ljuks_na_taganke#reviews">
-													1882 отзыва											</a>
-				</div>
-			</div>
-		</div>
-		<div class="clinic-card__right">
-			<div class="clinic-card__clinic">
-
-									<div style=" border: 1.5px dotted; width: 164px; padding: 5px 4px 4px 10px; " class="clinic-card__clinic-time">
-													<div class="clinic-card__clinic-time-row">
-								<span>пн-пт:</span> 08:00 - 21:00							</div>
-													<div class="clinic-card__clinic-time-row">
-								<span>сб:</span> 08:00 - 21:00							</div>
-													<div class="clinic-card__clinic-time-row">
-								<span>вс:</span> 08:00 - 21:00							</div>
-											</div>
-							</div>
-		</div>
-	</div>
+<div class="rate__default">
+<i class="fa fa-star" aria-hidden="true"></i>
+<i class="fa fa-star" aria-hidden="true"></i>
+<i class="fa fa-star" aria-hidden="true"></i>
+<i class="fa fa-star" aria-hidden="true"></i>
+<i class="fa fa-star" aria-hidden="true"></i>
+</div>
+<div class="rate__value" style="width:89.9%;">
+<i class="fa fa-star" aria-hidden="true"></i>
+<i class="fa fa-star" aria-hidden="true"></i>
+<i class="fa fa-star" aria-hidden="true"></i>
+<i class="fa fa-star" aria-hidden="true"></i>
+<i class="fa fa-star" aria-hidden="true"></i>
+</div>
+</div>			<br>	<div class="clinic-card__rating-value">
+  <a href="/clinic/on_klinik_na_ulitse_1905_goda#reviews">
+                  818 rəy											</a>
+</div>
 </div>
 
-									</div>
+</div>
+<div class="clinic-card__right">
+<div class="clinic-card__clinic">
+
+
+            <div style=" border: 1.5px dotted; width: 164px; padding: 5px 4px 4px 10px; margin:auto;" class="clinic-card__clinic-time">
+                    <div class="clinic-card__clinic-time-row">
+        <span>bz-cm:</span> 09:00 - 21:00								</div>
+                    <div class="clinic-card__clinic-time-row">
+        <span>şn:</span> 10:00 - 18:00								</div>
+                    <div class="clinic-card__clinic-time-row">
+        <span>bz:</span> 10:00 - 15:00								</div>
+                </div>
+
+              <div class="clinic-address__button clinic-card__clinic-button js-book-clinic">
+    <form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
+      <input type="hidden" name="clinicId" value="5719">
+      <input type="hidden" name="requestBtnType" value="requestCardShortClinic">
+      <input  style="    margin: auto;" type="submit" value="Müraciət" class="button ui-btn ui-btn_green request-button js-request-form-hook" data-ga-label="doctor clinic form" data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1">
+    </form>
+  </div>
+  <div style="    text-align:center;    margin: 7px 0 -5px 0;">və ya zəng edin</div>
+  <div style="    text-align:center;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form" data-ga-action="clickPhoneNumber">
+(+994) 50 519-31-04							</div>
+        </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
 
 			</div>
 </div>
-<button style="    border: 0px;    background-color: #fff;height: 24px;    width: 157px;    color: #00aec7;">Bütün Filiallar (10)</button>
+<button type="button"  data-toggle="collapse" data-target="#demofilial" style="    border: 0px;    background-color: #fff;height: 24px;    width: 157px;    color: #00aec7;">Bütün Filiallar (10)</button>
 
 
 <div class="clinics-item result-card">
