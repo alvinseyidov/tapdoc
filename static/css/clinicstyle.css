@@ -5907,13 +5907,9 @@ h3.links__title-small {
   box-shadow: 0px 1px 3px 0px rgba(1, 1, 1, 0.13);
   border-radius: 4px;
   position: relative;
+  z-index: -1;
 }
-.clinic-card:hover {
-  box-shadow: 0px 2px 4px 0px rgba(1, 1, 1, 0.35);
-}
-.clinic-card:hover + a.all-clinic {
-  box-shadow: 0px 2px 4px 0px rgba(1, 1, 1, 0.35);
-}
+
 .clinic-card__top {
   padding: 14px 0 10px 20px;
   border-bottom: 2px solid #eaeaeb;

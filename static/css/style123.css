@@ -4233,7 +4233,7 @@ p.del span {
 
 .clinic__select {
 	padding-right: 22px;
-	float: right
+	
 }
 
 .clinic__price {
@@ -5067,7 +5067,8 @@ h3.links__title-small {
 	width: 15px;
 	height: 15px;
 	box-sizing: border-box;
-	border: 1px solid #e1e1e5;
+	border: 1px solid #adadad;
+background-color: #f9f9f9;
 	border-radius: 2px;
 	content: ""
 }

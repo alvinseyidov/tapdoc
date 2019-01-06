@@ -5905,6 +5905,7 @@ h3.links__title-small {
   box-shadow: 0px 1px 3px 0px rgba(1, 1, 1, 0.13);
   border-radius: 4px;
   position: relative;
+  z-index: -1;
 }
 .clinic-card:hover {
   box-shadow: 0px 2px 4px 0px rgba(1, 1, 1, 0.35);
@@ -6161,7 +6162,7 @@ h3.links__title-small {
   color: #333;
 }
 .clinic-card__clinic {
-  padding: 28px 0px 25px 0px;
+  padding: 47px 0px 25px 0px;
   color: #828288;
 }
 .clinic-card__clinic-address {

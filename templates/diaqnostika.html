@@ -220,6 +220,26 @@ float: right;
 .container {
     width: 1010px !important;
 }}
+
+.clinics-item.result-card:hover > .clinic-card {
+    box-shadow: 0px 4px 5px 2px rgba(1, 1, 1, 0.13);
+}
+.clinics-item.result-card:hover > .clinic-card__branches {
+    box-shadow: 0px 4px 5px 2px rgba(1, 1, 1, 0.13);
+}
+.clinics-item.result-card:hover + .butunfiliallar {
+    box-shadow: 0px 4px 5px 2px rgba(1, 1, 1, 0.13);
+}
+.butunfiliallar:hover{
+  color:#7ac9ff !important
+}
+
+.butunfiliallar:hover ~ .clinic-card {
+    box-shadow: 0px 4px 5px 2px rgba(1, 1, 1, 0.13);
+}
+.butunfiliallar:hover ~ .clinic-card__branches {
+    box-shadow: 0px 4px 5px 2px rgba(1, 1, 1, 0.13);
+}
 </style>
 </head>
 
@@ -698,7 +718,7 @@ float: right;
       													Ortalama xidmət qiymətləri - yüksək											</div>
 
       					<div class="clinic-card__clinictext">
-      						«NewMed» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.						<a href="https://tapdoc.az/clinic/trastmed">Ətraflı</a>
+      						«NewMed» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir. Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.	Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.					<a href="https://tapdoc.az/clinic/trastmed">Ətraflı</a>
       					</div>
       				</div>
       			</div>
@@ -736,6 +756,7 @@ float: right;
       				<div class="clinic-card__branch">
       	<div class="clinic-card__inner">
       		<div id="nerimanov" class="clinic-card__left">
+          <a href="#" style="float:right;" class="addfavor"><img src="/static/img/liked.png"></a>
       			<a href="{% url 'clinicdetail' %}" class="clinic-card__branch-name">New Med Nərimanov Filialı</a>
       			<div class="clinic-card__rating clinic-card__rating_clinic">
 
@@ -770,7 +791,7 @@ float: right;
 
         <div class="bs-example">
             <div class="panel-group" id="accordion" style="margin-top: 8px;">
-                <div class="panel panel-default" style="border: 0;box-shadow: 0 0 0px rgba(0,0,0,.05);border-bottom: 3px solid #00aec7;">
+                <div class="panel panel-default" style="width: 326px;border: 0;box-shadow: 0 0 0px rgba(0,0,0,.05);border-bottom: 3px solid #00aec7;">
       <p style="margin-left: 15px;margin-bottom: 5px;">UZI .............................................. 30 AZN</p>
       <p style="margin-left: 15px;margin-bottom: 8px;">USM  ............................................ 65 AZN</p>
       <p style="margin-left: 15px;margin-bottom: -5px;">EKQ  ............................................ 80 AZN</p>
@@ -844,6 +865,7 @@ float: right;
       				<div class="clinic-card__branch">
       	<div class="clinic-card__inner">
       		<div class="clinic-card__left">
+          <a href="#" style="float:right;" class="addfavor"><img src="/static/img/liked.png"></a>
       			<a href="{% url 'clinicdetail' %}" class="clinic-card__branch-name">New Med Nəsimi Rayon Filialı</a>
       			<div class="clinic-card__rating clinic-card__rating_clinic">
 
@@ -876,7 +898,7 @@ float: right;
 
         <div class="bs-example">
             <div class="panel-group" id="accordion" style="margin-top: 8px;">
-                <div class="panel panel-default" style="border: 0;box-shadow: 0 0 0px rgba(0,0,0,.05);border-bottom: 3px solid #00aec7;">
+                <div class="panel panel-default" style="width: 326px;border: 0;box-shadow: 0 0 0px rgba(0,0,0,.05);border-bottom: 3px solid #00aec7;">
                 <p style="margin-left: 15px;margin-bottom: 5px;">UZI .............................................. 30 AZN</p>
                 <p style="margin-left: 15px;margin-bottom: 8px;">USM  ............................................ 65 AZN</p>
                 <p style="margin-left: 15px;margin-bottom: -5px;">EKQ  ............................................ 80 AZN</p>
@@ -983,7 +1005,7 @@ float: right;
 
                         <div class="bs-example">
                         <div class="panel-group" id="accordion" style="margin-top: 8px;">
-                          <div class="panel panel-default" style="border: 0;box-shadow: 0 0 0px rgba(0,0,0,.05);border-bottom: 3px solid #00aec7;">
+                          <div class="panel panel-default" style="width: 326px;border: 0;box-shadow: 0 0 0px rgba(0,0,0,.05);border-bottom: 3px solid #00aec7;">
                           <p style="margin-left: 15px;margin-bottom: 5px;">UZI .............................................. 30 AZN</p>
                           <p style="margin-left: 15px;margin-bottom: 8px;">USM  ............................................ 65 AZN</p>
                           <p style="margin-left: 15px;margin-bottom: -5px;">EKQ  ............................................ 80 AZN</p>
@@ -1060,7 +1082,7 @@ float: right;
 
       			</div>
       </div>
-      <button type="button"  data-toggle="collapse" data-target="#demofilial" style="    border: 0px;    background-color: #fff;height: 24px;    width: 157px;    color: #00aec7;">Bütün Filiallar (10)</button>
+      <button type="button" class="butunfiliallar" data-toggle="collapse" data-target="#demofilial" style="    border: 0px;    background-color: #fff;height: 24px;    width: 157px;    color: #00aec7;">Bütün Filiallar (10)</button>
 
 
       <div class="clinics-item result-card">
@@ -1104,6 +1126,34 @@ float: right;
       					<div class="clinic-card__clinictext">
       						«NewMed» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.						<a href="https://tapdoc.az/clinic/trastmed">Ətraflı</a>
       					</div>
+
+                <!-- Collapsible Begin -->
+
+                <div class="bs-example">
+                    <div class="panel-group" id="accordion" style="margin-top: 8px;">
+                        <div class="panel panel-default" style="width: 326px;border: 0;box-shadow: 0 0 0px rgba(0,0,0,.05);border-bottom: 3px solid #00aec7;">
+              <p style="margin-left: 15px;margin-bottom: 5px;">UZI .............................................. 30 AZN</p>
+                            <div id="collapseFour" class="panel-collapse collapse">
+
+                                <div class="panel-body">
+
+                                    <p>MRT  ............................................ 60 AZN</p>
+                                    <p>KT  ............................................... 30 AZN</p>
+                                    <p>Analiz  .......................................... 60 AZN</p>
+                                    <p>Sonor  .......................................... 42 AZN</p>
+                                </div>
+                            </div>
+                      <div class="panel-heading" style="background-color: #fff;">
+                                <h4 class="panel-title">
+                                    <a style="background: #00aec7;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;    text-align: center;" data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
+                                </h4>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- Collapsible Ends -->
       				</div>
       			</div>
       			<div class="clinic-card__right">
@@ -1190,6 +1240,35 @@ float: right;
       					<div class="clinic-card__clinictext">
       						«NewMed» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.						<a href="https://tapdoc.az/clinic/trastmed">Ətraflı</a>
       					</div>
+
+                <!-- Collapsible Begin -->
+
+                <div class="bs-example">
+                    <div class="panel-group" id="accordion" style="margin-top: 8px;">
+                        <div class="panel panel-default" style="width: 326px;border: 0;box-shadow: 0 0 0px rgba(0,0,0,.05);border-bottom: 3px solid #00aec7;">
+              <p style="margin-left: 15px;margin-bottom: 5px;">UZI .............................................. 30 AZN</p>
+
+                            <div id="collapseFive" class="panel-collapse collapse">
+
+                                <div class="panel-body">
+
+                                    <p>MRT  ............................................ 60 AZN</p>
+                                    <p>KT  ............................................... 30 AZN</p>
+                                    <p>Analiz  .......................................... 60 AZN</p>
+                                    <p>Sonor  .......................................... 42 AZN</p>
+                                </div>
+                            </div>
+                      <div class="panel-heading" style="background-color: #fff;">
+                                <h4 class="panel-title">
+                                    <a style="background: #00aec7;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;    text-align: center;" data-toggle="collapse" data-parent="#accordion" href="#collapseFive"><span style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
+                                </h4>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- Collapsible Ends -->
       				</div>
       			</div>
       			<div class="clinic-card__right">

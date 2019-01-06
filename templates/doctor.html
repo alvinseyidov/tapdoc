@@ -497,8 +497,10 @@ float: right;
 }
 
 .multiclinicdoc .active {
-    border-right: 0px solid #eaeaea !important;
-    margin-left:-18px !important;
+  border-right: 0px solid #eaeaea !important;
+    margin-left: -25px !important;
+    width: 28px;
+    height: 28px;
 }
 
 .ixtisasspecli:hover > .ixtisasspec{
@@ -719,7 +721,7 @@ float: right;
   <a class="search__checkbox link-departure" href="https://tapdoc.az/clinic/direction/desc">
 <div class="checkbox">
 <input class="checkbox__input" type="checkbox" value="1" name="kidsReception" id="kidsReception" />			<label class="checkbox__label js-click-spinner"
- for="kidsReception"> Evdə Müayinə</label>
+ for="kidsReception"> Evə Çağırış</label>
 </div>
 </a>
 
@@ -944,15 +946,15 @@ function myFunction() {
       {% if doctor.id == 4 %}
 
 
-      <div class="tabdoctab{{doctor.id}} multiclinicdoc" style="margin: 10px 0 0 0;">
-        <button style="margin: 16px 0 0 -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'London{{doctor.id}}')" id="defaultOpendoctab{{doctor.id}}">1</button><br>
-        <button style="margin: 0px 0 0 -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'Paris{{doctor.id}}')" id="defaultOpendoctab2{{doctor.id}}">2</button><br>
-                <button style="margin: 0px 0 0 -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'Paris{{doctor.id}}')" id="defaultOpendoctab2{{doctor.id}}">3</button>
+      <div class="tabdoctab{{doctor.id}} multiclinicdoc" style="margin: 10px 0 0 0;padding: 18px 0 0 0;">
+        <button style="margin: 4px 0 2px -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'London{{doctor.id}}')" id="defaultOpendoctab{{doctor.id}}">1</button><br>
+        <button style="margin: 1px 0 0 -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'Paris{{doctor.id}}')" id="defaultOpendoctab2{{doctor.id}}">2</button><br>
+
 
       </div>
 
-       <div style="margin: -67px -66px 0 0;" id="London{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
-				<div class="clinic-card__clinic">
+       <div style="margin: -85px -66px 0 0;padding: 4px 0 0 0;" id="London{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
+				<div class="clinic-card__clinic" style="padding: 40px 25px 25px 57px;">
         <div class="bozpanel1" style="font-size:15px;">Həkim bir neçə klinikada fəaliyyət göstərir.</div>
         <label class="dropdownbozpanel">
 
@@ -980,7 +982,7 @@ function myFunction() {
                         <div class="clinic-card__clinic-address">
 
               						        <div class="clinic-card__clinic-address">
-              		              <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">New Med </span> Klinikası</a><br>
+              		              <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Medical Plaza </span></a><br>
                                 <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
 
               	                 <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
@@ -992,8 +994,8 @@ function myFunction() {
 
 
 
-         <div style="margin: -67px -66px 0 0;" id="Paris{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
-  				<div class="clinic-card__clinic">
+         <div style="margin: -85px -66px 0 0;padding: 4px 0 0 0;" id="Paris{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
+  				<div class="clinic-card__clinic" style="padding: 40px 25px 25px 57px;">
 
           <div class="bozpanel1"  style="font-size:15px;">Həkim bir neçə klinikada fəaliyyət göstərir.</div>
           <label class="dropdownbozpanel">
@@ -1228,6 +1230,7 @@ function myFunction() {
           click: sendRequestClick
         ">
               <div class="button__cont" data-bind="text: uiSendRequestButtonNew().text">Göndər</div>
+              <button class="button__cont" >Göndər</button>
           </button>
       </div>
       <!-- /ko -->
