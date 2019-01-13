@@ -1183,162 +1183,34 @@
                <div ui-view="profile">
                   <a href="" class="sidebar-profile__open-link sidebar-collapse__link" ng-click="vm.toggleSidebar()"> Настройки </a>
                   <div class="row">
-                     <aside class="col-xs-36 col-sm-10 col-md-9 col-lg-8">
-                        <div class="sidebar-profile sidebar-collapse" ng-class="{'sidebar-collapsed': vm.isShowSidebar}">
-                           <div class="sidebar-profile__menu sidebar-collapse__menu" ng-class="{'show': vm.isShowSidebar}">
-                              <ul class="sidebar-profile__menu-list">
-                                 <li class="sidebar-profile__menu-item visible-xs"> <a class="sidebar-profile__menu-link sidebar-profile__menu-link--tohome" ui-sref="health.feed" ng-click="vm.menuItemClick()" href="/health">На главную </a> </li>
-                                 <li class="sidebar-profile__menu-item"> <a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--profile sidebar-profile__menu-link--active" href="{% url 'accountsettings'%}" ui-sref="profile.edit" ng-click="vm.menuItemClick()">Məlumatları Yenilə</a> </li>
-                                 <li class="sidebar-profile__menu-item"> <a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--security" href="{% url 'accountsettingssecurity'%}" ui-sref="profile.security" ng-click="vm.menuItemClick()">Təhlükəsizlik</a> </li>
-                                 <li class="sidebar-profile__menu-item"> <a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--notifications" href="{% url 'accountsettingsnotifications'%}" ui-sref="profile.notifications" ng-click="vm.menuItemClick()">Bildirimlər</a> </li>
-                                 <!---->
-                                 <li class="sidebar-profile__menu-item" ng-if="vm.platform.isDoctorSharingEnabled"> <a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--privacy-doctor" href="{% url 'accountsettingsdocpermissions'%}" ui-sref="profile.privacy_doctor" ng-click="vm.menuItemClick()">Həkimlərə İcazə</a> </li>
-                                 <!----> <!----> <!---->
-                                 <li class="sidebar-profile__menu-item" ng-if="vm.platform.isClinicSharingEnabled &amp;&amp; !vm.platform.isUseOldPatientActivation"> <a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--privacy-clinic" href="{% url 'accountsettingsclinicpermissions'%}" ui-sref="profile.privacy_clinic" ng-click="vm.menuItemClick()">Klinkalara İcazə</a> </li>
-                                 <!---->
-                                 <li class="sidebar-profile__menu-item"> <a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--family" href="{% url 'accountsettingsfamily'%}" ui-sref="profile.family" ng-click="vm.menuItemClick()">Ailə Üzvləri</a> </li>
-                                 <li class="sidebar-profile__menu-item">
-                                    <!----><a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--history" href="{% url 'accountsettingshistory'%}" ui-sref="profile.payments" ng-click="vm.menuItemClick()" ng-if="$ctrl.platform.isShowPaymentsHistory">Tarixçə </a><!---->
-                                 </li>
-                                 <li class="sidebar-profile__menu-item">
-                                    <!----><a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--promocode" href="{% url 'accountsettingspromotions'%}" ui-sref="profile.promocode" ng-click="vm.menuItemClick()" ng-if="$ctrl.platform.isShowOndoced">Promo Kod</a><!----> 
-                                 </li>
-                                 <li class="sidebar-profile__menu-item visible-xs"> <a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--exit" href="" ng-click="vm.logout()">Выход</a> </li>
-                              </ul>
-                           </div>
-                        </div>
-                        <div class="sidebar__hover show ng-hide" ng-show="vm.isShowSidebar&amp;&amp;vm.isMobile" ng-click="vm.toggleSidebar()"></div>
-                     </aside>
+                    <aside class="col-xs-36 col-sm-10 col-md-9 col-lg-8">
+                       <div class="sidebar-profile sidebar-collapse" ng-class="{'sidebar-collapsed': vm.isShowSidebar}">
+                          <div class="sidebar-profile__menu sidebar-collapse__menu" ng-class="{'show': vm.isShowSidebar}">
+                             <ul class="sidebar-profile__menu-list">
+                                <li class="sidebar-profile__menu-item visible-xs"> <a class="sidebar-profile__menu-link sidebar-profile__menu-link--tohome" ui-sref="health.feed" ng-click="vm.menuItemClick()" href="/health">На главную </a> </li>
+                                <li class="sidebar-profile__menu-item"> <a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--profile" href="{% url 'accountsettings'%}" ui-sref="profile.edit" ng-click="vm.menuItemClick()">Məlumatları Yenilə</a> </li>
+                                <li class="sidebar-profile__menu-item"> <a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--security" href="{% url 'accountsettingssecurity'%}" ui-sref="profile.security" ng-click="vm.menuItemClick()">Təhlükəsizlik</a> </li>
+                                <li class="sidebar-profile__menu-item"> <a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--notifications" href="{% url 'accountsettingsnotifications'%}" ui-sref="profile.notifications" ng-click="vm.menuItemClick()">Bildirimlər</a> </li>
+                                <!---->
+                                <li class="sidebar-profile__menu-item" ng-if="vm.platform.isDoctorSharingEnabled"> <a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--privacy-doctor" href="{% url 'accountsettingsdocpermissions'%}" ui-sref="profile.privacy_doctor" ng-click="vm.menuItemClick()">Həkimlərə İcazə</a> </li>
+                                <!----> <!----> <!---->
+                                <li class="sidebar-profile__menu-item" ng-if="vm.platform.isClinicSharingEnabled &amp;&amp; !vm.platform.isUseOldPatientActivation"> <a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--privacy-clinic" href="{% url 'accountsettingsclinicpermissions'%}" ui-sref="profile.privacy_clinic" ng-click="vm.menuItemClick()">Klinkalara İcazə</a> </li>
+                                <!---->
+                                <li class="sidebar-profile__menu-item"> <a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--family" href="{% url 'accountsettingsfamily'%}" ui-sref="profile.family" ng-click="vm.menuItemClick()">Ailə Üzvləri</a> </li>
+                                <li class="sidebar-profile__menu-item">
+                                   <!----><a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--history" href="{% url 'accountsettingshistory'%}" ui-sref="profile.payments" ng-click="vm.menuItemClick()" ng-if="$ctrl.platform.isShowPaymentsHistory">Tarixçə </a><!---->
+                                </li>
+                                <li class="sidebar-profile__menu-item">
+                                   <!----><a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--promocode  sidebar-profile__menu-link--active" href="{% url 'accountsettingspromotions'%}" ui-sref="profile.promocode" ng-click="vm.menuItemClick()" ng-if="$ctrl.platform.isShowOndoced">Promo Kod</a><!---->
+                                </li>
+                                <li class="sidebar-profile__menu-item visible-xs"> <a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--exit" href="" ng-click="vm.logout()">Выход</a> </li>
+                             </ul>
+                          </div>
+                       </div>
+                       <div class="sidebar__hover show ng-hide" ng-show="vm.isShowSidebar&amp;&amp;vm.isMobile" ng-click="vm.toggleSidebar()"></div>
+                    </aside>
                      <!---->
-                     <section class="col-xs-36 col-sm-26 col-md-27 col-lg-28 content-in" ui-view="">
-                        <!----> <!---->
-                        <div class="widget" ng-if="vm.profile.isOwn || vm.profile.isOwner">
-                           <form ng-submit="vm.form.submit()" class="ng-pristine ng-valid ng-valid-pattern ng-valid-maxlength">
-                              <div class="profile-widget__block">
-                                 <div class="row">
-                                    <div class="col-xs-24 col-xs-offset-6 col-sm-14 col-sm-offset-0 col-md-10 col-md-offset-0 profile-img text-center">
-                                       <div class="profile-img__logo">
-                                          <!----> <img ng-src="https://cdn.ondoc.me/img/c88b0d8b253a0fc6abad472107baa3fa.jpg" alt="" class="img-circle image-crop-center" src="https://cdn.ondoc.me/img/c88b0d8b253a0fc6abad472107baa3fa.jpg">
-                                          <div class="pos-rel"> <input accept="image/*" type="file" nv-file-select="" uploader="vm.uploader" class="profile-img__logo-choose-file"> <a href="" class="profile-img__logo-choose inline-block"> <strong>Şəkil Yüklə</strong> </a> </div>
-                                       </div>
-                                       <span class="error-hint"></span>
-                                    </div>
-                                    <div class="col-xs-36 col-sm-22 col-md-24 col-md-offset-2">
-                                       <!---->
-                                       <p class="text-right small-center" ng-if="vm.platform.isShowOndoced"> </p>
-                                       <!---->
-                                       <div class="form-group"> <strong> <input type="text" placeholder="Ad" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.form.model.name" ng-class="{'form-control--error': vm.form.errors.surname}"> </strong> <span class="error-hint"></span> </div>
-                                       <div class="form-group"> <strong> <input type="text" placeholder="Ata Adı" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.form.model.patronymic"> </strong> </div>
-                                       <div class="form-group"> <strong> <input type="text" placeholder="Soyad" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.form.model.surname" ng-class="{'form-control--error': vm.form.errors.surname}"> </strong> <span class="error-hint"></span> </div>
-                                       <div class="form-group">
-                                          <strong>
-                                             <angucomplete-alt id="cities" minlength="2" pause="50" search-fields="name" max-total-results-count="100" placeholder="Şəhər" selected-object="vm.onCitySelect" remote-url="https://ondoc.me/api/v2/cities?query=" title-field="name" text-searching="Поиск..." text-no-results="Нет результатов" input-class="form-control">
-                                                <div class="angucomplete-holder" ng-class="{'angucomplete-dropdown-visible': showDropdown}">
-                                                   <input id="cities_value" name="" tabindex="" ng-class="{'angucomplete-input-not-empty': notEmpty}" ng-model="searchStr" ng-disabled="disableInput" type="text" placeholder="Şəhər" maxlength="524288" ng-focus="onFocusHandler()" class="form-control ng-empty ng-valid-maxlength" ng-blur="hideResults($event)" autocapitalize="off" autocorrect="off" autocomplete="off" ng-change="inputChangeHandler(searchStr)">
-                                                   <div id="cities_dropdown" class="angucomplete-dropdown ng-hide" ng-show="showDropdown">
-                                                      <div class="angucomplete-searching ng-hide" ng-show="searching" ng-bind="textSearching">Поиск...</div>
-                                                      <div class="angucomplete-searching" ng-show="!searching &amp;&amp; (!results || results.length == 0)" ng-bind="textNoResults">Нет результатов</div>
-                                                      <!---->
-                                                   </div>
-                                                </div>
-                                             </angucomplete-alt>
-                                          </strong>
-                                       </div>
-                                       <div class="user-data small-center">
-                                          <div class="row">
-                                             <div class="col-md-19 col-lg-16"> <a href="" class="nav-btn nav-btn--male" ng-class="{'nav-btn--active': vm.form.model.sex === 1}" ng-click="vm.selectSex(1)"> <strong>Kişi</strong> </a> <a href="" class="nav-btn nav-btn--female" ng-class="{'nav-btn--active': vm.form.model.sex === 0}" ng-click="vm.selectSex(0)"> <strong>Qadın</strong> </a> </div>
-                                             <div class="col-md-17 col-lg-10">
-                                                <calendar date="vm.form.model.birthday" placeholder="Doğum Tarixi" class="flex-1" input-container-class="'full-width'">
-                                                   <div class="inline-block visible-xs text-center full-width" ng-class="[$ctrl.inputContainerClass]"> <button class="visible-xs r-button r-button--blue-border center-block" ng-click="$ctrl.toggle()">Doğum Tarixi</button> </div>
-                                                   <div class="pos-rel inline-block hidden-xs full-width" ng-class="[$ctrl.inputContainerClass]">
-                                                      <input type="text" class="form-control inline-block ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern" placeholder="Doğum Tarixi" ng-model="$ctrl.enteredDate" ng-click="$ctrl.onInputClick($event)" ng-keypress="$ctrl.onKeyPress($event)" ng-keyup="$ctrl.onKeyUp()" wmask="" pattern="\d{1,2}.\d{1,2}.\d{4}" ng-class="[$ctrl.inputClass, {'input-error': $ctrl.inputDayError}]"> <!----> <!----><span class="datepicker__calendar-icon" ng-if="!($ctrl.enteredDate &amp;&amp; !$ctrl.required)"></span><!---->
-                                                   </div>
-                                                   <section class="datepicker ng-hide" ng-show="$ctrl.isShow" ng-class="{'datepicker--right': $ctrl.position == 'right', 'datepicker--left': $ctrl.position == 'left', 'datepicker--bottom-left': $ctrl.position == 'bottom-left'}">
-                                                      <div class="datepicker__month"> <a href="" class="datepicker__arrow pull-left" ng-click="$ctrl.decMonth()"></a> <span class="datepicker__month-item">Октябрь, 2018</span> <a href="" class="datepicker__arrow datepicker__arrow--right pull-right" ng-click="$ctrl.incMonth()"></a> </div>
-                                                      <table border="0" class="datepicker__table">
-                                                         <tbody>
-                                                            <tr class="datepicker__table-head">
-                                                               <td>пн</td>
-                                                               <td>вт</td>
-                                                               <td>ср</td>
-                                                               <td>чт</td>
-                                                               <td>пт</td>
-                                                               <td>сб</td>
-                                                               <td>вс</td>
-                                                            </tr>
-                                                         </tbody>
-                                                      </table>
-                                                      <table border="0" class="datepicker__table">
-                                                         <tbody>
-                                                            <tr class="datepicker__table-head"> </tr>
-                                                            <!---->
-                                                         </tbody>
-                                                      </table>
-                                                      <!---->
-                                                   </section>
-                                                </calendar>
-                                             </div>
-                                             <div class="col-md-36 col-lg-10">
-                                                <blood-type blood-type="vm.form.model.bloodType" rh-factor="vm.form.model.rhFactor" on-change="vm.onBloodChange(rhFactor, bloodType)">
-                                                   <a class="user-data__blood arrow-down" ng-class="{'drugs__link--error': error, 'arrow-up': isShow}" href="" ng-click="toggle()">Qan Qrupu</a>
-                                                   <div class="drugs__dosage-popup drugs__dosage-popup--blood ng-hide" ng-show="isShow">
-                                                      <!---->
-                                                      <p class="drugs__dosage-popup-item" ng-click="selectStatus(status)" ng-repeat="status in statuses">О(1) Rh-</p>
-                                                      <!---->
-                                                      <p class="drugs__dosage-popup-item" ng-click="selectStatus(status)" ng-repeat="status in statuses">О(1) Rh+</p>
-                                                      <!---->
-                                                      <p class="drugs__dosage-popup-item" ng-click="selectStatus(status)" ng-repeat="status in statuses">A(2) Rh-</p>
-                                                      <!---->
-                                                      <p class="drugs__dosage-popup-item" ng-click="selectStatus(status)" ng-repeat="status in statuses">A(2) Rh+</p>
-                                                      <!---->
-                                                      <p class="drugs__dosage-popup-item" ng-click="selectStatus(status)" ng-repeat="status in statuses">B(3) Rh-</p>
-                                                      <!---->
-                                                      <p class="drugs__dosage-popup-item" ng-click="selectStatus(status)" ng-repeat="status in statuses">B(3) Rh+</p>
-                                                      <!---->
-                                                      <p class="drugs__dosage-popup-item" ng-click="selectStatus(status)" ng-repeat="status in statuses">AB(4) Rh-</p>
-                                                      <!---->
-                                                      <p class="drugs__dosage-popup-item" ng-click="selectStatus(status)" ng-repeat="status in statuses">AB(4) Rh+</p>
-                                                      <!---->
-                                                   </div>
-                                                </blood-type>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!---->
-                                 </div>
-                              </div>
-                              <!---->
-                              <div class="text-center widget-consultation__line" ng-if="vm.platform.isShowDmsField || vm.platform.isShowOmsField"> <span class="widget-consultation__title">Siğorta Məlumatlarıх</span> </div>
-                              <!---->
-                              <div class="profile-widget__block">
-                                 <!---->
-                                 <div class="row" ng-if="vm.platform.isShowDmsField">
-                                    <div class="col-xs-36 col-sm-6 col-md-2"> <span class="policy__title">ДМС</span> </div>
-                                    <div class="col-xs-36 col-sm-15 col-md-17">
-                                       <div class="form-group"> <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" placeholder="Компания ДМС" ng-model="vm.form.model.dmsName"> </div>
-                                    </div>
-                                    <div class="col-xs-36 col-sm-15 col-md-17">
-                                       <div class="form-group"> <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Номер полиса" ng-model="vm.form.model.dmsNumber"> </div>
-                                    </div>
-                                 </div>
-                                 <!----> <!---->
-                                 <div class="row policy" ng-if="vm.platform.isShowOmsField">
-                                    <div class="col-xs-36 col-sm-6 col-md-2"> <span class="policy__title">ОМС</span> </div>
-                                    <div class="col-xs-36 col-sm-15 col-md-17">
-                                       <div class="form-group"> <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Компания ОМС" ng-model="vm.form.model.omsName"> </div>
-                                    </div>
-                                    <div class="col-xs-36 col-sm-15 col-md-17">
-                                       <div class="form-group"> <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Номер полиса" ng-model="vm.form.model.omsNumber"> </div>
-                                    </div>
-                                 </div>
-                                 <!---->
-                                 <div class="text-right small-center"> <input type="submit" value="Yadda Saxla" class="r-button r-button--blue-border"> </div>
-                              </div>
-                           </form>
-                        </div>
-                        <!---->
-                     </section>
+                  <section class="col-xs-36 col-sm-26 col-md-27 col-lg-28 content-in" ui-view=""><clinics-promo><div class="widget margin-bottom-base"> <div class="padding-lr-base padding-bottom-medium padding-top-medium clinics-promo-header"> <div class="font-large white-text margin-bottom-base"> <strong>Подключите клинику к личному кабинету ONDOC</strong> </div> <div class="margin-bottom-base clinics-promo-header__subtext">25 сервисов для заботы о пациентах</div> <div> <span class="font-medium white-text margin-right-medium"> <strong>ONDOC241350</strong> </span> <span class="clinics-promo-header__subtext">Cкидка 10%</span> </div> </div> <div class="padding-medium"> <div class="margin-bottom-base text-center">Поделитесь своим промо-кодом с клиникой. Отправьте его на email, в группу в социальной сети или просто передайте администратору на ресепшен.</div> <div class="row"> <div class="col-xs-36 col-md-16 col-md-offset-10 flex"> <input type="text" class="form-control margin-right-small" ng-value="$ctrl.codeText" readonly="readonly" value="https://ondoc.me/medicine?code=ONDOC241350"> <button class="r-semantic-button" ng-click="$ctrl.copyLink()"> <img src="https://cdn.ondoc.me/img/3a12cc3193fd5d9d3a36665fd1d7c7b1.svg"> </button> </div> </div> </div> </div> <div class="widget margin-bottom-base padding-top-medium padding-bottom-medium flex flex-column flex-vertical-center"> <span class="activity-icon activity-icon--blue margin-bottom-base"> <strong class="activity-icon__text white-text">1</strong> </span> <div class="text-center"> <div class="font-medium margin-bottom-small"> <strong>Расскажите клинике про ONDOC</strong> </div> <div class="font-small gray-text">Если ваша клиника еще не подключена к ONDOC — рекомендуйте ей <br> подключиться, чтобы повысить уровень сервиса.</div> </div> </div> <div class="widget margin-bottom-base padding-top-medium padding-bottom-medium flex flex-column flex-vertical-center"> <span class="activity-icon activity-icon--blue margin-bottom-base"> <strong class="activity-icon__text white-text">2</strong> </span> <div class="text-center"> <div class="font-medium margin-bottom-small"> <strong>Получите 10 000 ₽</strong> </div> <div class="font-small gray-text">После подключения клиники по вашему промо-коду вы получите 10 000 ₽ на лечение в ней. <br> Вознаграждение будет начислено на карту Visa, которой вы сможете оплатить услуги в клинике.</div> </div> </div> <div class="widget padding-top-medium padding-bottom-medium flex flex-column flex-vertical-center"> <span class="activity-icon activity-icon--blue margin-bottom-base"> <strong class="activity-icon__text white-text">3</strong> </span> <div class="text-center"> <div class="font-medium margin-bottom-small"> <strong>Теперь ваша клиника и врач всегда рядом</strong> </div> <div class="font-small gray-text">Вы сможете получать заключения врачей, анализы и обследования в личный кабинет. <br> Консультироваться со своими врачами онлайн и записываться на прием в один клик.</div> </div> </div> </clinics-promo></section>
                   </div>
                </div>
             </div>

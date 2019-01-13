@@ -35,6 +35,35 @@ def accountsettings(request):
     return render(request, 'settings.html')
 
 @login_required(login_url='/admin/')
+def accountsettingssecurity(request):
+    return render(request, 'settingssecurity.html')
+
+@login_required(login_url='/admin/')
+def accountsettingsnotifications(request):
+    return render(request, 'settingsnotifications.html')
+
+@login_required(login_url='/admin/')
+def accountsettingsdocpermissions(request):
+    return render(request, 'settingsdocpermissions.html')
+
+@login_required(login_url='/admin/')
+def accountsettingsclinicpermissions(request):
+    return render(request, 'settingsclinicpermissions.html')
+
+@login_required(login_url='/admin/')
+def accountsettingsfamily(request):
+    return render(request, 'settingsfamily.html')
+
+@login_required(login_url='/admin/')
+def accountsettingshistory(request):
+    return render(request, 'settingshistory.html')
+
+@login_required(login_url='/admin/')
+def accountsettingspromotions(request):
+    return render(request, 'settingspromotions.html')
+
+
+@login_required(login_url='/admin/')
 def accountclinics(request):
     return render(request, 'accountclinics.html')
 

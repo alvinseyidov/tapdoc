@@ -282,12 +282,15 @@ float: right;
 }
 
 /* Modal Content */
+.body-noscroll-modal {
+    overflow: hidden;
+}
 .modal-contentmuraciet {
     background-color: #fefefe;
     margin: -74px auto 0 auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 37%;
+    max-width:500px;
 }
 
 /* The Close Button */
@@ -512,12 +515,25 @@ float: right;
 .ixtisasspecli:hover > .numberspec{
   color: blue;
 }
+
+.modal-contentmuraciet::-webkit-scrollbar {
+  width: 7px;
+background: #eeeff3;
+}
+
+.modal-contentmuraciet::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+.modal-contentmuraciet::-webkit-scrollbar-thumb {
+  background: #00b1c1;
+}
 </style>
 
 </head>
 
 <body class="body" id="bodyy">
-
 
 
     <!--[if lte IE 7]>
@@ -527,6 +543,7 @@ float: right;
         <a href="https://www.google.com/chromeframe/?redirect=true">добавьте в него Google Chrome Frame</a>
         чтобы улучшить его возможности.
     </p>
+
     <![endif]-->
 
 
@@ -575,7 +592,7 @@ float: right;
 
     <div class="headerdesktop"><div class="headerdesktoplogo"><a href="/"><img src="/static/img/tapdoc.png"></a></div> <div class="headerdesktopright"><div class="headerdesktop_phone"><div class="headerdesktop_phone-note"><span style="color: rgb(255, 37, 108); font-weight: 600;">Zəng Edin!</span> Həkim Axtarışında Kömək Üçün
         </div> <span class="headerdesktop_contact_phone ">
-                      +994 (055) 555-55-55                                </span></div> <div class="dropdownmyp"><span>Şəxsi Kabinet</span> <div class="dropdown-contentmyp"><p><a href="/account/">Profilim</a></p> <p><a href="/logout/">Çıxış</a></p></div></div></div></div>
+                      +994 (051) 623-66-51                                </span></div> <div class="dropdownmyp"><span>Şəxsi Kabinet</span> <div class="dropdown-contentmyp"><p><a href="/account/">Profilim</a></p> <p><a href="/logout/">Çıxış</a></p></div></div></div></div>
 
 
     	<script type="application/ld+json">
@@ -651,21 +668,20 @@ float: right;
 <br><br>
 	<div class="search">
 		<div class="forms">
-			<form id="searchForm" class="forms__form search_form" method="post" action="https://tapdoc.az/site/searchRedirect">
-
+			<form id="searchForm" class="forms__form search_form" method="post" action="{% url 'doctor'%}">
+      {% csrf_token %}
 				<input type="hidden" name="spec" class="js-choose-input-spec" id="spec" autocomplete="off" value="" />
 				<input type="hidden" name="serviceId" class="js-choose-input-service" value="" autocomplete="off"  />
 				<input type="hidden" name="diag" class="js-choose-input-diag" id="diag" value="" autocomplete="off"  />
 				<input type="hidden" name="stations" class="js-choose-input-geo" id="stations" autocomplete="off" value="" />
 				<input type="hidden" name="dist" class="js-choose-input-dist" autocomplete="off" value="" />
 				<input type="hidden" name="regcity" class="js-choose-input-regcity" autocomplete="off" value="" />
-				<input type="hidden" name="kidsReception" class="js-choose-input-kidsReception" autocomplete="off" value="" />
 				<input type="hidden" name="departure" class="js-choose-input-departure" autocomplete="off" value="" />
 				<input type="hidden" name="booking" class="js-choose-input-booking" autocomplete="off" value="" />
 				<input type="hidden" name="all-day" class="js-choose-input-all-day" autocomplete="off" value="" />
 				<input type="hidden" name="area" class="js-choose-input-area" autocomplete="off" value="" />
 				<input type="hidden" name="street" class="js-choose-input-area" autocomplete="off" value="" />
-									<input autocomplete="off" class="js-choose-input-dms-policy" id="dms-policy-input" type="hidden" value="0" name="dms-policy" />													<input type="hidden" name="isClinicList" autocomplete="off" value="1" />
+        										<input type="hidden" name="isClinicList" autocomplete="off" value="1" />
 
 
                     <input type="hidden" name="date" autocomplete="off" class="js-date-param-input">
@@ -712,36 +728,44 @@ float: right;
 		</script>
 	</div>
 					<div class="search__checkboxes">
-							<a class="search__checkbox link-departure" href="https://tapdoc.az/clinic/direction/desc">
+							<div class="search__checkbox link-departure">
 		<div class="checkbox">
-			<input class="checkbox__input" type="checkbox" value="1" name="kidsReception" id="kidsReception" />			<label class="checkbox__label js-click-spinner"
-			       for="kidsReception"> Uşaq Həkimi</label>
+			<input class="checkbox__input" type="checkbox" value="1" name="kidsReceptions" id="kidsReceptions" />			<label class="checkbox__label js-click-spinner"
+			       for="kidsReceptions"> Uşaq Həkimi</label>
 		</div>
-	</a>
-  <a class="search__checkbox link-departure" href="https://tapdoc.az/clinic/direction/desc">
+	</div>
+  <div class="search__checkbox link-departure" >
 <div class="checkbox">
-<input class="checkbox__input" type="checkbox" value="1" name="kidsReception" id="kidsReception" />			<label class="checkbox__label js-click-spinner"
- for="kidsReception"> Evə Çağırış</label>
+<input class="checkbox__input" type="checkbox" value="2" name="kidsReceptionss" id="kidsReceptionss" />			<label class="checkbox__label js-click-spinner"
+ for="kidsReceptionss"> Evə Çağırış</label>
 </div>
-</a>
-
-														<a class="search__checkbox link-departure" href="https://tapdoc.az/clinic/direction/desc/dms-policy/1">
-		<div class="checkbox">
-			<input class="checkbox__input need-dms-auth" type="checkbox" value="1" name="dms-policy" id="dms-policy" />			<label class="checkbox__label js-click-spinner" for="dms-policy">Siğorta</label>
-		</div>
-	</a>
-
-  <a class="search__checkbox link-departure" href="https://tapdoc.az/clinic/direction/desc/dms-policy/1" style="margin-right: 8px;">
-<div class="checkbox" style="padding-top: 1px;">
-<input class="checkbox__input need-dms-auth" type="checkbox" value="1" name="dms-policy" id="dms-policy" />			<label class="checkbox__label js-click-spinner" for="dms-policy"><i class="fa fa-male" style="font-size: 18px;color:#0199F4;"></i></label>
 </div>
-</a>
 
-<a class="search__checkbox link-departure" href="https://tapdoc.az/clinic/direction/desc/dms-policy/1">
-<div class="checkbox" style="padding-top: 1px;">
-<input class="checkbox__input need-dms-auth" type="checkbox" value="1" name="dms-policy" id="dms-policy" />			<label class="checkbox__label js-click-spinner" for="dms-policy"><i class="fa fa-female" style="font-size: 18px;color:#DD71E3;"></i></label>
+<div class="search__checkbox link-departure" >
+<div class="checkbox">
+<input class="checkbox__input" type="checkbox" value="3" name="kidsReception3" id="kidsReception3" />			<label class="checkbox__label js-click-spinner"
+for="kidsReception3"> Siğorta</label>
 </div>
-</a>
+</div>
+
+<div class="search__checkbox link-departure" >
+<div class="checkbox"  style="padding-top: 1px;">
+<input class="checkbox__input" type="checkbox" value="3" name="kidsReception4" id="kidsReception4"/>			<label class="checkbox__label js-click-spinner"  style=" top: 0.5px; "
+for="kidsReception4"> <i class="fa fa-male" style="font-size: 18px;color:#0199F4;"></i></label>
+</div>
+</div>
+
+<div class="search__checkbox link-departure" >
+<div class="checkbox"  style="padding-top: 1px;">
+<input class="checkbox__input" type="checkbox" value="3" name="kidsReception5" id="kidsReception5" />			<label class="checkbox__label js-click-spinner"  style=" top: 0.5px; "
+for="kidsReception5"> <i class="fa fa-female" style="font-size: 18px;color:#DD71E3;"></i></label>
+</div>
+</div>
+
+
+
+
+
 	<span class="dms-logo "></span>
 											</div>
 
@@ -936,7 +960,7 @@ function myFunction() {
 
 					<div class="clinic-card__clinictext">
 								<div class="qebultext">Qəbula Yazılmaq Üçün:</div>
-                <div class="qebulphone">(+994) 50 519-31-04</div>
+                <div class="qebulphone">(+994) 51 623-66-51</div>
                 <div class="qebullast">Dünən bu mütəxəssisə 5 nəfər qəbula yazılıb</div>
 					</div>
 				</div>
@@ -985,7 +1009,7 @@ function myFunction() {
               		              <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Medical Plaza </span></a><br>
                                 <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
 
-              	                 <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+              	                 <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
                                  </div>
               					</div>
 									</div>
@@ -1025,7 +1049,7 @@ function myFunction() {
                         <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">New Med </span>Klinikası</a><br>
                       <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
 
-                       <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+                       <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
                        </div>
               </div>
   									</div>
@@ -1049,7 +1073,7 @@ function myFunction() {
                               <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">New Med</span> Klinikası</a><br>
                             <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
 
-                             <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+                             <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
                              </div>
                     </div>
 
@@ -1070,215 +1094,279 @@ function myFunction() {
 <div id="myModalmuraciet{{ doctor.id }}" class="modalmuraciet">
 
   <!-- Modal content -->
-  <div class="modal-contentmuraciet modal-contentmuraciet">
+  <div class="modal-contentmuraciet modal-contentmuraciet" style=" overflow-y: scroll; max-height: 500px; ">
   <span class="closemuraciet closemuraciet{{doctor.id}}">&times;</span>
-  <div data-bind="component: {name: 'dd-request-form'}" class="popup-book" style="position: relative;height: 610px;"><div class="popup-book__head"><span data-bind="text: headingText">Müraciət Edin</span></div>
+  <!-- Müraciət Form Popup Content Start -->
 
-<!-- ko ifnot: WINDOW_HAS_PARENT --><!-- /ko -->
-
-<!-- ko with: infoboxComponent -->
-<div class="popup-book__infobox" data-bind="component: $data"><div class="popup-book__info clearfix">
-<div class="popup-book__pic" data-bind="style: { backgroundImage: 'url(\'' + clinic.logo + '\')' }" style="background-position: center center; background-size: contain; background-repeat: no-repeat; background-color: white; float: left; background-image: url({{doctor.image.url}});"></div>
-<div class="popup-book__float">
-  <div class="popup-book__info-name" data-bind="text: clinicNameText">{{doctor.first_name}}  {{doctor.last_name}}</div>
-  <p data-bind="text: clinicAddressText">Cərrah - Terapevt</p>
-
-  <!-- ko with: subtitle -->
-  <div data-bind="text: $data">Bakı ş. Nərimanov r.</div>
-  <!-- /ko -->
-</div>
-</div>
-</div>
-<!-- /ko -->
-
-<div class="popup-book__content">
-  <!-- ko if: step() == STEP_SLOTS --><!-- /ko -->
-
-  <!-- ko if: step() == STEP_PATIENT_NAME -->
-  <div class="popup-book-step">
-
-      <div class="popup-book__item" data-bind="visible: specialitySelectorVisible" style="display: none;">
-          <div class="popup-book__label"><span>Специальность</span></div>
-          <div class="form-input-withlabel valided">
-              <select class="popup-book-overlay-select" data-bind="
-          value: speciality,
-          options: specialities,
-          optionsText: 'name',
-          disable: disableInputs,
-          event:{ change: specialityChanged }
-        "></select>
-              <div class="form-input-ico "><i class="fa fa-stethoscope"></i></div>
-              <div class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="css: {'form-input--disabled': disableInputs}">&nbsp;</div>
-          </div>
-      </div>
-
-      <div class="popup-book__item" data-bind="visible: clinicSelectorVisible">
-          <div class="popup-book__label"><span>Klinika</span></div>
-          <div class="form-input-withlabel valided">
-              <select class="popup-book-overlay-select" data-bind="
-          value: clinic,
-          options: clinics,
-          optionsText: function(item) {
-                          return item.isPrivateDoctor ? item.address : item.name
-                      },
-          disable: disableInputs
-        "><option value="">New Med Klinika</option><option value="">МедЦентрСервис на Аэропорте</option><option value="">МедЦентрСервис на Белорусской</option><option value="">МедЦентрСервис на Беляево</option><option value="">МедЦентрСервис на Курской</option><option value="">Медицинский центр МедЦентрСервис в Марьино</option><option value="">МедЦентрСервис в Медведково</option><option value="">МедЦентрСервис на Пр. Вернадского</option><option value="">МедЦентрСервис на Янгеля</option><option value="">МедЦентрСервис на Сухаревской</option><option value="">МедЦентрСервис на Таганской</option><option value="">МедЦентрСервис на Улице 1905 года</option><option value="">МедЦентрСервис на Нов. Черемушках</option><option value="">МедЦентрСервис в Солнцево</option><option value="">Медицинский центр МедЦентрСервис в Отрадном</option><option value="">МедЦентрСервис в Митино</option><option value="">МедЦентрСервис в Люберцах</option></select>
-              <div class="form-input-ico "><i class="fa fa-map-marker"></i></div>
-              <div class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="css: {'form-input--disabled': disableInputs}">&nbsp;</div>
-          </div>
-      </div>
-
-      <!-- ko if: dateSelectorVisible() && interval() == null --><!-- /ko -->
-
-      <!-- ko if: interval() != null --><!-- /ko -->
-
-      <div class="popup-book__item popup-book__fio" data-bind="css: {'popup-book__item--error': patientNameField.showError()}">
-          <div class="popup-book__label"><span data-bind="text: patientNameFieldLabel">Ad Soyad</span>
-          </div>
-          <div class="form-input-withlabel" data-bind="css: { valided: patientNameValid }">
-              <div class="form-input-ico "><i class="fa fa-user"></i></div>
-              <input type="text" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
-          attr: {placeholder: patientNameFieldPlaceHolder},
-          textInput: patientNameInput,
-          disable: disableInputs,
-          valueUpdate: 'afterkeydown',
-          event: {keyup: patientNameKeypress, blur: patientNameBlur},
-          css: {'form-input--disabled': disableInputs}
-        " placeholder="Ad Soyad">
-          </div>
-      </div>
-
-      <div class="popup-book__item popup-book__lastname" data-bind="css: {'popup-book__item--error': patientLastNameField.showError()}, visible: showLastName" style="display: none;">
-          <div class="popup-book__label"><span>Фамилия</span></div>
-          <div class="form-input-withlabel" data-bind="css: { valided: patientLastNameValid }">
-              <div class="form-input-ico "><i class="fa fa-user"></i></div>
-              <input type="text" placeholder="Фамилия" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
-          textInput: patientLastNameInput,
-          disable: disableInputs,
-          valueUpdate: 'afterkeydown',
-          event: {keyup: patientLastNameKeypress, blur: patientLastNameBlur},
-          css: {'form-input--disabled': disableInputs}
-        ">
-          </div>
-      </div>
-
-      <div class="popup-book__item popup-book__age" data-bind="css: {'popup-book__item--error': patientAgeField.showError()}, visible: showAgeForm">
-          <div class="popup-book__label">
-              <span>Yaşınız</span>
-          </div>
-          <div class="form-input-withlabel" data-bind="css: { valided: patientAgeInput }">
-              <div class="form-input-ico "><i class="fa fa-edit"></i></div>
-              <input type="text" placeholder="Xəstənin Yaşı" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
-          textInput: patientAgeInput,
-          disable: disableInputs,
-          valueUpdate: 'afterkeydown',
-          event: {keyup: patientAgeKeypress, blur: patientAgeBlur},
-          hasFocus: patientAgeHasFocus,
-          css: {'form-input--disabled': disableInputs}
-        ">
-          </div>
-      </div>
-      <div class="popup-book__item popup-book__birthdate" data-bind="css: {'popup-book__item--error': patientBirthDateField.showError()}, visible: showBirthDateForm" style="display: none;">
-          <div class="popup-book__label">
-              <span>Введите дату рождения пациента</span>
-          </div>
-          <div class="form-input-withlabel" data-bind="css: { valided: patientBirthDateInput }">
-              <div class="form-input-ico"><i class="fa fa-edit"></i></div>
-              <input type="text" placeholder="дд-мм-гггг" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
-          birthDateTextInput: patientBirthDateInput,
-          disable: disableInputs,
-          event: { keyup: patientBirthDateKeypress, blur: patientBirthDateBlur },
-          hasFocus: patientBirthDateHasFocus,
-          css: {'form-input--disabled': disableInputs}
-        ">
-          </div>
-      </div>
-      <div class="popup-book__item popup-book__phone" data-bind="css: {'popup-book__item--error': patientPhoneField.showError()}">
-          <div class="popup-book__label">
-              <span>Əlaqə Telefonu</span>
-          </div>
-          <div class="form-input-withlabel" data-bind="css: { valided: patientPhoneValid }">
-              <div class="form-input-ico "><i class="fa fa-phone"></i></div>
-              <input type="text" placeholder="+994 (___) ___-__-__" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
-          phoneTextInput: patientPhoneInput,
-          disable: disableInputs,
-          valueUpdate: 'afterkeydown',
-          event: {keyup: patientPhoneKeypress, blur: patientPhoneBlur},
-          hasFocus: patientPhoneHasFocus,
-          css: {'form-input--disabled': disableInputs}
-        " maxlength="18">
-          </div>
-          <!-- ko if: showPhoneNotText -->
-          <div class="popup-book__label valided-info">
-              <span><i class="fa fa-info-circle"></i></span>
-          </div>
-          <div class="popup-book__note" data-bind="text: phoneNoteText">Sizinlə əlaqə saxlanılacaq</div>
-          <!-- /ko -->
-          <!-- ko if: showSmsSentText --><!-- /ko -->
-      </div>
-
-      <!-- ko if: showConfirmCall > 0--><!-- /ko -->
-
-      <!-- ko if: isSpam --><!-- /ko -->
-
-      <!-- ko ifnot: showSMSVerificationForm -->
-      <div class="popup-book__request clearfix">
-          <button class="popup-book__send button button--color_green" data-bind="
-                      visible: !isSpam(),
-          enable: uiSendRequestButtonNew().enable,
-          css: uiSendRequestButtonNew().css,
-          click: sendRequestClick
-        ">
-              <div class="button__cont" data-bind="text: uiSendRequestButtonNew().text">Göndər</div>
-              <button class="button__cont" >Göndər</button>
-          </button>
-      </div>
-      <!-- /ko -->
-      <!-- ko if: showSMSVerificationForm --><!-- /ko -->
-    <!-- ko if: insuranceState() == 1 --><!-- /ko -->
-      <div class="popup-book__legal-links">
-
-      </div>
-  </div>
-  <!-- /ko -->
-
-  <!-- ko if: step() == STEP_THANKYOU --><!-- /ko -->
-</div>
-
-<!-- ko if: step() == STEP_THANKYOU --><!-- /ko -->
-
-<div class="popup-book-close" data-bind="visible: isClosing" style="display: none;">
-  <!-- ko ifnot: WINDOW_HAS_PARENT --><!-- /ko -->
-
-  <div class="popup-book-close__content">
-      <div class="popup-book-close__head">
-          Вы действительно хотите<br>прервать запись?
-      </div>
-
-      <div style="clear:both"></div>
-
-      <!-- ko if: helpPhone -->
-        <!-- ko with: helpPhone -->
-        <div class="popup-book-close__note">Если у вас возникли вопросы, <br>позвоните нам по телефону:</div>
-        <div class="popup-book-close__phone">
-            <a data-bind="attr: {href: href}, text: text" href="tel:+74991168178">+7 (499) 116-81-78</a>
+  <div data-bind="component: {name: 'dd-request-form'}" class="popup-book">
+     <div class="popup-book__head"><span data-bind="text: headingText">Запись на приём</span></div>
+     <!-- ko ifnot: WINDOW_HAS_PARENT -->
+     <div class="dd-online-overlay-close" data-bind="click: closePopupClick"></div>
+     <!-- /ko -->
+     <!-- ko with: infoboxComponent -->
+     <div class="popup-book__infobox" data-bind="component: $data">
+        <div class="popup-book__info clearfix">
+           <div class="popup-book__doc">
+              <div class="popup-book__pic">
+                 <img data-bind="attr: {src: doctor.image}" src="https://cdn.docdoc.ru/doctor/3152.81x81.jpg?1547227204">
+              </div>
+              <div class="doc__rating">
+                 <div class="rate">
+                    <!-- ko if: isNewDoctor --><!-- /ko -->
+                    <!-- ko if: inRatingTest && !isNewDoctor --><!-- /ko -->
+                    <!-- ko ifnot: inRatingTest -->
+                    <div class="rate__default">
+                       <i class="fa fa-star" aria-hidden="true"></i>
+                       <i class="fa fa-star" aria-hidden="true"></i>
+                       <i class="fa fa-star" aria-hidden="true"></i>
+                       <i class="fa fa-star" aria-hidden="true"></i>
+                       <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                    <div class="rate__value" data-bind="style: { width: doctor.ratingPercent}" style="width: 92%;">
+                       <i class="fa fa-star" aria-hidden="true"></i>
+                       <i class="fa fa-star" aria-hidden="true"></i>
+                       <i class="fa fa-star" aria-hidden="true"></i>
+                       <i class="fa fa-star" aria-hidden="true"></i>
+                       <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                    <!-- /ko -->
+                 </div>
+              </div>
+           </div>
+           <div class="popup-book__float">
+              <div class="popup-book__info-name" data-bind="text: doctor.name">Анисимова Наталья Юрьевна</div>
+              <span data-bind="text: specialityName">Стоматолог</span> <span data-bind="text: clinicSubtitle"> в клинике ОН КЛИНИК на Цветном бульваре</span><br>
+              <!-- ko if: priceSelectorVisible -->
+              <span class="popup-book__info-price">Стоимость</span> <span data-bind="text: price.actualPriceText">бесплатно</span><br>
+              <!-- /ko -->
+              <!-- ko if: clinicAddressText -->
+              <span class="popup-book__info-address">Адрес</span> <span data-bind="text: clinicAddressText">Цветной б-р, д. 30, корп. 2</span><br>
+              <!-- /ko -->
+              <!-- ko if: closestStation -->
+              Метро
+              <span class="popup-book__info-stations">
+              <span data-bind="text: closestStation">Цветной бульвар (390 м)</span>
+              </span>
+              <!-- /ko -->
+           </div>
+        </div>
+        <style>
+           .doc__rating .new_doctor {
+           margin-top: 0;
+           font-size: 12px;
+           color: #222;
+           background: #f9e784;
+           padding: 2px 6px;
+           display: inline-block;
+           border-radius: 4px;
+           text-align: center;
+           }
+        </style>
+     </div>
+     <!-- /ko -->
+     <div class="popup-book__content">
+        <!-- ko if: step() == STEP_SLOTS --><!-- /ko -->
+        <!-- ko if: step() == STEP_PATIENT_NAME -->
+        <div class="popup-book-step">
+           <div class="popup-book__item" data-bind="visible: specialitySelectorVisible">
+              <div class="popup-book__label"><span>Специальность</span></div>
+              <div class="form-input-withlabel valided">
+                 <select class="popup-book-overlay-select" data-bind="
+                    value: speciality,
+                    options: specialities,
+                    optionsText: 'name',
+                    disable: disableInputs,
+                    event:{ change: specialityChanged }
+                    ">
+                    <option value="">Стоматолог</option>
+                    <option value="">Стоматолог-терапевт</option>
+                    <option value="">Стоматолог-ортопед</option>
+                    <option value="">Стоматолог-пародонтолог</option>
+                 </select>
+                 <div class="form-input-ico "><i class="fa fa-stethoscope"></i></div>
+                 <div class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="css: {'form-input--disabled': disableInputs}">&nbsp;</div>
+              </div>
+           </div>
+           <div class="popup-book__item" data-bind="visible: clinicSelectorVisible" style="display: none;">
+              <div class="popup-book__label"><span>Клиника</span></div>
+              <div class="form-input-withlabel valided">
+                 <select class="popup-book-overlay-select" data-bind="
+                    value: clinic,
+                    options: clinics,
+                    optionsText: function(item) {
+                    return item.isPrivateDoctor ? item.address : item.name
+                    },
+                    disable: disableInputs
+                    ">
+                    <option value="">ОН КЛИНИК на Цветном бульваре</option>
+                 </select>
+                 <div class="form-input-ico "><i class="fa fa-map-marker"></i></div>
+                 <div class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="css: {'form-input--disabled': disableInputs}">&nbsp;</div>
+              </div>
+           </div>
+           <!-- ko if: dateSelectorVisible() && interval() == null -->
+           <div class="popup-book__item" data-bind="css: {'popup-book__item--error': slotField.showError()}">
+              <div class="popup-book__label">
+                 <span data-bind="text: slotLabelText, css: {'mark-label-exclusive': isExclusiveLabel}">Дата и время приёма</span>
+              </div>
+              <div class="form-input-withlabel js-popup-date-back" data-bind="
+                 css: {'form-input--disabled': dateSelectorInputCss(), 'valided': dateSelectorInputValid()},
+                 click: changeSlotClick" style="cursor: pointer">
+                 <div class="form-input-ico "><i class="fa fa-clock-o fa-flip-horizontal"></i></div>
+                 <div class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="text: dateAdmissionText, css: dateSelectorInputTextCss">(выберите время приема)</div>
+              </div>
+              <div class="form-input--busy" data-bind="visible: slotField.isSlotBusy()" style="display: none;">Ой! Просим прощения, кто-то вас опередил. Пожалуйста, выберите другое время приема.</div>
+              <div class="clearfix"></div>
+           </div>
+           <!-- /ko -->
+           <!-- ko if: interval() != null --><!-- /ko -->
+           <div class="popup-book__item popup-book__fio" data-bind="css: {'popup-book__item--error': patientNameField.showError()}">
+              <div class="popup-book__label"><span data-bind="text: patientNameFieldLabel">Ваше имя</span>
+              </div>
+              <div class="form-input-withlabel" data-bind="css: { valided: patientNameValid }">
+                 <div class="form-input-ico "><i class="fa fa-user"></i></div>
+                 <input type="text" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
+                    attr: {placeholder: patientNameFieldPlaceHolder},
+                    textInput: patientNameInput,
+                    disable: disableInputs,
+                    valueUpdate: 'afterkeydown',
+                    event: {keyup: patientNameKeypress, blur: patientNameBlur},
+                    css: {'form-input--disabled': disableInputs}
+                    " placeholder="Контактное лицо">
+              </div>
+           </div>
+           <div class="popup-book__item popup-book__lastname" data-bind="css: {'popup-book__item--error': patientLastNameField.showError()}, visible: showLastName">
+              <div class="popup-book__label"><span>Фамилия</span></div>
+              <div class="form-input-withlabel" data-bind="css: { valided: patientLastNameValid }">
+                 <div class="form-input-ico "><i class="fa fa-user"></i></div>
+                 <input type="text" placeholder="Фамилия" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
+                    textInput: patientLastNameInput,
+                    disable: disableInputs,
+                    valueUpdate: 'afterkeydown',
+                    event: {keyup: patientLastNameKeypress, blur: patientLastNameBlur},
+                    css: {'form-input--disabled': disableInputs}
+                    ">
+              </div>
+           </div>
+           <div class="popup-book__item popup-book__age" data-bind="css: {'popup-book__item--error': patientAgeField.showError()}, visible: showAgeForm" style="display: none;">
+              <div class="popup-book__label">
+                 <span>Ваш возраст</span>
+              </div>
+              <div class="form-input-withlabel" data-bind="css: { valided: patientAgeInput }">
+                 <div class="form-input-ico "><i class="fa fa-edit"></i></div>
+                 <input type="text" placeholder="Возраст пациента" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
+                    textInput: patientAgeInput,
+                    disable: disableInputs,
+                    valueUpdate: 'afterkeydown',
+                    event: {keyup: patientAgeKeypress, blur: patientAgeBlur},
+                    hasFocus: patientAgeHasFocus,
+                    css: {'form-input--disabled': disableInputs}
+                    ">
+              </div>
+           </div>
+           <div class="popup-book__item popup-book__birthdate" data-bind="css: {'popup-book__item--error': patientBirthDateField.showError()}, visible: showBirthDateForm">
+              <div class="popup-book__label">
+                 <span>Введите дату рождения пациента</span>
+              </div>
+              <div class="form-input-withlabel" data-bind="css: { valided: patientBirthDateInput }">
+                 <div class="form-input-ico"><i class="fa fa-edit"></i></div>
+                 <input type="text" placeholder="дд-мм-гггг" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
+                    birthDateTextInput: patientBirthDateInput,
+                    disable: disableInputs,
+                    event: { keyup: patientBirthDateKeypress, blur: patientBirthDateBlur },
+                    hasFocus: patientBirthDateHasFocus,
+                    css: {'form-input--disabled': disableInputs}
+                    ">
+              </div>
+           </div>
+           <div class="popup-book__item popup-book__phone" data-bind="css: {'popup-book__item--error': patientPhoneField.showError()}">
+              <div class="popup-book__label">
+                 <span>Телефон для подтверждения записи</span>
+              </div>
+              <div class="form-input-withlabel" data-bind="css: { valided: patientPhoneValid }">
+                 <div class="form-input-ico "><i class="fa fa-phone"></i></div>
+                 <input type="text" placeholder="+7 (___) ___-__-__" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
+                    phoneTextInput: patientPhoneInput,
+                    disable: disableInputs,
+                    valueUpdate: 'afterkeydown',
+                    event: {keyup: patientPhoneKeypress, blur: patientPhoneBlur},
+                    hasFocus: patientPhoneHasFocus,
+                    css: {'form-input--disabled': disableInputs}
+                    " maxlength="18">
+              </div>
+              <!-- ko if: showPhoneNotText -->
+              <div class="popup-book__label valided-info">
+                 <span><i class="fa fa-info-circle"></i></span>
+              </div>
+              <div class="popup-book__note" data-bind="text: phoneNoteText">На этот номер вы получите SMS с&nbsp;кодом подтверждения и информацию о записи</div>
+              <!-- /ko -->
+              <!-- ko if: showSmsSentText --><!-- /ko -->
+           </div>
+           <!-- ko if: showConfirmCall > 0--><!-- /ko -->
+           <!-- ko if: isSpam --><!-- /ko -->
+           <!-- ko ifnot: showSMSVerificationForm -->
+           <div class="popup-book__request clearfix">
+              <button class="popup-book__send button button--color_green" data-bind="
+                 visible: !isSpam(),
+                 enable: uiSendRequestButtonNew().enable,
+                 css: uiSendRequestButtonNew().css,
+                 click: sendRequestClick
+                 ">
+                 <div class="button__cont" data-bind="text: uiSendRequestButtonNew().text">Записаться</div>
+              </button>
+           </div>
+           <!-- /ko -->
+           <!-- ko if: showSMSVerificationForm --><!-- /ko -->
+           <!-- ko if: insuranceState() == 1 --><!-- /ko -->
+           <div class="popup-book__legal-links">
+              Нажимая «Записаться», я принимаю
+              <a data-bind="click: function () { getBaseUrl('/offer') }">условия пользовательского соглашения</a>,
+              <a data-bind="click: function () { getBaseUrl('/confidentiality') }">положения о защите персональных данных</a>
+              и даю свое
+              <a data-bind="click: function () { getBaseUrl('/agreement') }">согласие на обработку персональных данных</a>.
+           </div>
         </div>
         <!-- /ko -->
-      <!-- /ko -->
-      <!-- ko ifnot: helpPhone --><!-- /ko -->
-
-      <div class="popup-book-close__button button button--color_grey" data-bind="click: acceptClosingClick">
-          <div class="button__cont">Прервать</div>
-      </div>
-      <div class="popup-book-close__button button button--color_green" data-bind="click: cancelClosingClick">
-          <div class="button__cont">Продолжить</div>
-      </div>
+        <!-- ko if: step() == STEP_THANKYOU --><!-- /ko -->
+     </div>
+     <!-- ko if: step() == STEP_THANKYOU --><!-- /ko -->
+     <div class="popup-book-close" data-bind="visible: isClosing" style="display: none;">
+        <!-- ko ifnot: WINDOW_HAS_PARENT -->
+        <div class="dd-online-overlay-close" data-bind="click: closePopupClick"></div>
+        <!-- /ko -->
+        <div class="popup-book-close__content">
+           <div class="popup-book-close__head">
+              Вы действительно хотите<br>прервать запись?
+           </div>
+           <div style="clear:both"></div>
+           <!-- ko if: helpPhone -->
+           <!-- ko with: helpPhone -->
+           <div class="popup-book-close__note">Если у вас возникли вопросы, <br>позвоните нам по телефону:</div>
+           <div class="popup-book-close__phone">
+              <a data-bind="attr: {href: href}, text: text" href="tel:+74991168178">+994 (499) 116-81-78</a>
+           </div>
+           <!-- /ko -->
+           <!-- /ko -->
+           <!-- ko ifnot: helpPhone --><!-- /ko -->
+           <div class="popup-book-close__button button button--color_grey" data-bind="click: acceptClosingClick">
+              <div class="button__cont">Прервать</div>
+           </div>
+           <div class="popup-book-close__button button button--color_green" data-bind="click: cancelClosingClick">
+              <div class="button__cont">Продолжить</div>
+           </div>
+        </div>
+     </div>
   </div>
-</div>
-<div class="resize-triggers"><div class="expand-trigger"><div style="width: 505px; height: 658px;"></div></div><div class="contract-trigger"></div></div></div>
+
+<!-- Müraciət Form Popup Content End -->
+
   </div>
 
 </div>
+<script>
+
+
+</script>
 <script>
 function openCitydoctab{{doctor.id}}(evt, cityNamedoctab{{doctor.id}}) {
   var idoctab{{doctor.id}}, tabcontentdoctab{{doctor.id}}, tablinksdoctab{{doctor.id}};
@@ -1296,6 +1384,7 @@ function openCitydoctab{{doctor.id}}(evt, cityNamedoctab{{doctor.id}}) {
 
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpendoctab{{doctor.id}}").click();
+
 </script>
 
 <script>
@@ -1318,7 +1407,6 @@ btn.onclick = function() {
 span.onclick = function() {
     modal.style.display = "none";
     document.getElementById('bodyy').style.overflow="initial";
-
 }
 
 // When the user clicks anywhere outside of the modal, close it
@@ -1393,63 +1481,29 @@ window.onclick = function(event) {
       <div style="margin:25px 0 200px 0">
           <ul class="listspec" style="padding-left:10px;">
 
-              <li class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Allerqoloq</span><span class="numberspec">72</span>
+              <li class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Allerqoloq</a></a></span><span class="numberspec">72</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Androloq</span><span class="numberspec">68</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Androloq</a></span><span class="numberspec">68</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Artroloq</span><span class="numberspec">5</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Artroloq</a></span><span class="numberspec">5</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Veteroloq</span><span class="numberspec">50</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Veteroloq</a></span><span class="numberspec">50</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Vertebroloq</span><span class="numberspec">41</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Vertebroloq</a></span><span class="numberspec">41</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Qastroloq</span><span class="numberspec">36</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Qastroloq</a></span><span class="numberspec">36</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Gemotoloq</span><span class="numberspec">55</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Gemotoloq</a></span><span class="numberspec">55</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Genetika</span><span class="numberspec">56</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Genetika</a></span><span class="numberspec">56</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Ginokoloq</span><span class="numberspec">67</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Ginokoloq</a></span><span class="numberspec">67</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Huridoterapevt</span><span class="numberspec">82</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Huridoterapevt</a></span><span class="numberspec">82</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Rentgenoloq</span><span class="numberspec">42</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Rentgenoloq</a></span><span class="numberspec">42</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Hemopatoloq</span><span class="numberspec">71</span>
-              </li>
-
-      </ul>
-  </div>
-  </div>
-    </div>
-    <div class="columnspec">
-      <div style="width:100%">
-      <div style="margin:25px 0 200px 0">
-          <ul class="listspec" style="padding-left:10px;">
-
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Dermotoloq</span><span class="numberspec">10</span>
-              </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Diabetoloq</span><span class="numberspec">48</span>
-              </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Dietoloq</span><span class="numberspec">41</span>
-              </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">İmmunoloq</span><span class="numberspec">12</span>
-              </li>
-              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">İnfeksionist</span><span class="numberspec">23</span>
-              </li>
-              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Kardioloq</span><span class="numberspec">17</span>
-              </li>
-              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Kinezoloq</span><span class="numberspec">9</span>
-              </li>
-              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Koloktroloq</span><span class="numberspec">23</span>
-              </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Kosmetoloq</span><span class="numberspec">24</span>
-              </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Fizioloq</span><span class="numberspec">16</span>
-              </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Logoped</span><span class="numberspec">113</span>
-              </li>
-              <li  class="ixtisasspecli" style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Mammaloq</span><span class="numberspec">21</span>
+              <li class="ixtisasspecli"  style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Hemopatoloq</a></span><span class="numberspec">71</span>
               </li>
 
       </ul>
@@ -1461,29 +1515,29 @@ window.onclick = function(event) {
       <div style="margin:25px 0 200px 0">
           <ul class="listspec" style="padding-left:10px;">
 
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Manual Terapevt</span><span class="numberspec">34</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Dermotoloq</a></span><span class="numberspec">10</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Masajist</span><span class="numberspec">88</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Diabetoloq</a></span><span class="numberspec">48</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Mikoloq</span><span class="numberspec">9</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Dietoloq</a></span><span class="numberspec">41</span>
               </li>
-              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Narkoloq</span><span class="numberspec">22</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">İmmunoloq</a></span><span class="numberspec">12</span>
               </li>
-              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Nevroloq</span><span class="numberspec">114</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">İnfeksionist</a></span><span class="numberspec">23</span>
               </li>
-              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Neyrocərrah</span><span class="numberspec">97</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Kardioloq</a></span><span class="numberspec">17</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Neoataloq</span><span class="numberspec">68</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Kinezoloq</a></span><span class="numberspec">9</span>
               </li>
-              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Nefroloq</span><span class="numberspec">87</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Koloktroloq</a></span><span class="numberspec">23</span>
               </li>
-              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Onkoloq</span><span class="numberspec">84</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Kosmetoloq</a></span><span class="numberspec">24</span>
               </li>
-              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Ortoped</span><span class="numberspec">48</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Fizioloq</a></span><span class="numberspec">16</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Ostoped</span><span class="numberspec">55</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Logoped</a></span><span class="numberspec">113</span>
               </li>
-              <li  class="ixtisasspecli" style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Otolaringoloq</span><span class="numberspec">17</span>
+              <li  class="ixtisasspecli" style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Mammaloq</a></span><span class="numberspec">21</span>
               </li>
 
       </ul>
@@ -1495,29 +1549,63 @@ window.onclick = function(event) {
       <div style="margin:25px 0 200px 0">
           <ul class="listspec" style="padding-left:10px;">
 
-              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Oftalmoloq</span><span class="numberspec">19</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Manual Terapevt</a></span><span class="numberspec">34</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Parazitoloq</span><span class="numberspec">12</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Masajist</a></span><span class="numberspec">88</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Pediatr</span><span class="numberspec">66</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Mikoloq</a></span><span class="numberspec">9</span>
               </li>
-              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Plastik Cərrah</span><span class="numberspec">25</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Narkoloq</a></span><span class="numberspec">22</span>
               </li>
-              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Podoloq</span><span class="numberspec">12</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Nevroloq</a></span><span class="numberspec">114</span>
               </li>
-              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Proktoloq</span><span class="numberspec">36</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Neyrocərrah</a></span><span class="numberspec">97</span>
               </li>
-              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Psixiatr</span><span class="numberspec">57</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Neoataloq</a></span><span class="numberspec">68</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Psixoloq</span><span class="numberspec">94</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Nefroloq</a></span><span class="numberspec">87</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Psixoterapevt</span><span class="numberspec">65</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Onkoloq</a></span><span class="numberspec">84</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Pulmoloq</span><span class="numberspec">94</span>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Ortoped</a></span><span class="numberspec">48</span>
               </li>
-              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Reabilitoloq</span><span class="numberspec">25</span>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Ostoped</a></span><span class="numberspec">55</span>
               </li>
-              <li  class="ixtisasspecli" style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">Revmotoloq</span><span class="numberspec">20</span>
+              <li  class="ixtisasspecli" style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Otolaringoloq</span><span class="numberspec">17</span>
+              </li>
+
+      </ul>
+  </div>
+  </div>
+    </div>
+    <div class="columnspec">
+      <div style="width:100%">
+      <div style="margin:25px 0 200px 0">
+          <ul class="listspec" style="padding-left:10px;">
+
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Oftalmoloq</a></span><span class="numberspec">19</span>
+              </li>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Parazitoloq</a></span><span class="numberspec">12</span>
+              </li>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Pediatr</a></span><span class="numberspec">66</span>
+              </li>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Plastik Cərrah</a></span><span class="numberspec">25</span>
+              </li>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Podoloq</a></span><span class="numberspec">12</span>
+              </li>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Proktoloq</a></span><span class="numberspec">36</span>
+              </li>
+              <li  class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Psixiatr</a></span><span class="numberspec">57</span>
+              </li>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Psixoloq</a></span><span class="numberspec">94</span>
+              </li>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Psixoterapevt</a></span><span class="numberspec">65</span>
+              </li>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Pulmoloq</a></span><span class="numberspec">94</span>
+              </li>
+              <li class="ixtisasspecli"  style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Reabilitoloq</a></span><span class="numberspec">25</span>
+              </li>
+              <li  class="ixtisasspecli" style="margin:0 0 1.5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"><a href="{% url 'doctor'%}">Revmotoloq</a></span><span class="numberspec">20</span>
               </li>
 
       </ul>
@@ -1600,10 +1688,10 @@ window.onclick = function(event) {
                                                 <span class="footer__copyright">© tapdoc.az 2018</span>
                     </div>
                     <div class="footer__socials">
-                        <a href="https://vk.com/tapdoc" target="_blank" class="footer__social footer__social_vk"></a>
-                        <a href="https://www.facebook.com/tapdoc.az/" target="_blank" class="footer__social footer__social_fb"></a>
-
-                        <a href="https://www.youtube.com/channel/tapdoc" target="_blank" class="footer__social footer__social_youtube"></a>
+                      <a href="#" target="_blank" class="footer__social footer__social_vk"></a>
+                      <a href="#" target="_blank" class="footer__social footer__social_fb"></a>
+                      <a href="#" target="_blank" class="footer__social footer__social_linkedin"></a>
+                      <a href="#" target="_blank" class="footer__social footer__social_youtube"></a>
                     </div>
                 </aside>
             </div>

@@ -10,6 +10,11 @@ from django.contrib.auth.decorators import login_required
 
 def homepage(request):
     return render(request, 'index.html')
+def muracietform(request):
+    return render(request, 'muracietiframe.html')
+def muracietform2(request):
+    return render(request, 'muracietiframe2.html')
+
 def logindoc(request):
     return render(request, 'logindoc.html')
 def loginclinic(request):

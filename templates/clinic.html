@@ -196,13 +196,90 @@ font-weight: 900;
 }
 
 .clinics-item.result-card:hover > .clinic-card {
-    box-shadow: 0px 4px 5px 2px rgba(1, 1, 1, 0.13);
+    box-shadow: 0px 0px 5px 2px rgba(1, 1, 1, 0.13);
 }
 .clinics-item.result-card:hover > .clinic-card__branches {
     box-shadow: 0px 4px 5px 2px rgba(1, 1, 1, 0.13);
 }
 .clinics-item.result-card:hover + .butunfiliallar {
     box-shadow: 0px 4px 5px 2px rgba(1, 1, 1, 0.13);
+}
+
+
+
+
+
+.modalmuraciet {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 5; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+     /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.body-noscroll-modal {
+    overflow: hidden;
+}
+.modal-contentmuraciet {
+    background-color: #fefefe;
+    margin: -74px auto 0 auto;
+    padding: 20px;
+    border: 1px solid #888;
+    max-width:500px;
+}
+
+/* The Close Button */
+.closemuraciet {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closemuraciet:hover,
+.closemuraciet:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.myBtnmuraciet{
+  width: 200px;
+  margin:auto;
+    box-sizing: border-box;
+    display: block;
+    color: #fff;
+    background: #00aec7;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 18px;
+    line-height: 18px;
+    height: 43px;
+    text-transform: uppercase;
+    padding: 15px 18px;
+    border: 0;
+    cursor: pointer;
+    letter-spacing: 0.18px;
+    font-family: 'Muller', sans-serif;
+    -webkit-transition: background-color 0.1s linear 0s;
+    -moz-transition: background-color 0.1s linear 0s;
+    -o-transition: background-color 0.1s linear 0s;
+    transition: background-color 0.1s linear 0s;
+    -webkit-backface-visibility: hidden;
+}
+.popup-book-overlay-select{
+      padding: 0 0 0px 50px;
+}
+
+.popup-book-step{
+  margin: 0 0 0 -52px;
+  width: 393px;
 }
 </style>
 
@@ -265,7 +342,7 @@ font-weight: 900;
     <section class="outer">
     <div class="headerdesktop"><div class="headerdesktoplogo"><a href="/"><img src="/static/img/tapdoc.png"></a></div> <div class="headerdesktopright"><div class="headerdesktop_phone"><div class="headerdesktop_phone-note"><span style="color: rgb(255, 37, 108); font-weight: 600;">Zəng Edin!</span> Həkim Axtarışında Kömək Üçün
       </div> <span class="headerdesktop_contact_phone ">
-                    +994 (055) 555-55-55                                </span></div> <div class="dropdownmyp"><span>Şəxsi Kabinet</span> <div class="dropdown-contentmyp"><p><a href="/account/">Profilim</a></p> <p><a href="/logout/">Çıxış</a></p></div></div></div></div>
+                    +994 (051) 623-66-51                                </span></div> <div class="dropdownmyp"><span>Şəxsi Kabinet</span> <div class="dropdown-contentmyp"><p><a href="/account/">Profilim</a></p> <p><a href="/logout/">Çıxış</a></p></div></div></div></div>
 
 
     	<script type="application/ld+json">
@@ -334,8 +411,8 @@ font-weight: 900;
 
 	<div class="search">
 		<div class="forms">
-			<form id="searchForm" class="forms__form search_form" method="post" action="https://tapdoc.az/site/searchRedirect">
-
+			<form id="searchForm" class="forms__form search_form" method="post" action="{% url 'clinic' %}">
+{% csrf_token %}
 				<input type="hidden" name="spec" class="js-choose-input-spec" id="spec" autocomplete="off" value="" />
 				<input type="hidden" name="serviceId" class="js-choose-input-service" value="" autocomplete="off"  />
 				<input type="hidden" name="diag" class="js-choose-input-diag" id="diag" value="" autocomplete="off"  />
@@ -418,15 +495,15 @@ font-weight: 900;
 			</div>
 
       <div class="clinics__left clinics__left_fullwidth" style="margin-left: -8px;">
-<div class="breadcrump"><a href="{% url 'homepage'%}">Ana səhifə </a>/ Həkimlər</div><br>
+<div class="breadcrump"><a href="{% url 'homepage'%}">Ana səhifə </a>/ Klinikalar</div><br>
             <div class="sorting">
 
 
                   <div class="sorting__items">
-                        <a href="{% url 'doctor' %}" class="sorting__itemblock " rel="nofollow">Həkimlər</a>
-                        <a href="{% url 'clinic' %}" style="background:#00aec7;color:#fff;" class="sorting__itemblock " rel="nofollow">Klinikalar</a>
-                        <a href="{% url 'diaqnostika' %}" class="sorting__itemblock " rel="nofollow">Diaqnostika</a>
-                        <a href="{% url 'xidmetler' %}" class="sorting__itemblock " rel="nofollow">Xidmətlər</a>
+                        <a href="{% url 'doctor' %}" class="sorting__itemblock " rel="nofollow" style=" text-decoration: none !important; ">Həkimlər</a>
+                        <a href="{% url 'clinic' %}" style="background:#00aec7;color:#fff;text-decoration: none !important; " class="sorting__itemblock " rel="nofollow">Klinikalar</a>
+                        <a href="{% url 'diaqnostika' %}" class="sorting__itemblock " rel="nofollow" style=" text-decoration: none !important; ">Diaqnostika</a>
+                        <a href="{% url 'xidmetler' %}" class="sorting__itemblock " rel="nofollow" style=" text-decoration: none !important; ">Xidmətlər</a>
                   </div>
                   <div class="sorting__select">
                       <div class="select select_sorting" data-block="select">
@@ -452,7 +529,7 @@ font-weight: 900;
 
 																												<div>
 									<a href="#">
-										<span>114</span> <span class="dotted">Allerqoloq</span>
+										<span>114</span> <span class="dotted">Allerqologiya</span>
 									</a>
 								</div>
 																												<div>
@@ -897,11 +974,11 @@ font-weight: 900;
                                     <div class="sorting__clinics">Bütün Klinikalar - 115</div>
                                 <div class="sorting__label"></div>
                 <div class="sorting__items">
-                                                                                                    <a href="https://tapdoc.az/clinic/order/rating" class="sorting__item " rel="nofollow">
+                                                                                                    <a href="#" class="sorting__item " rel="nofollow" style=" text-decoration: none !important;">
                                 Reyting                            </a>
-                                                                                                                            <a href="https://tapdoc.az/clinic/order/reviews" class="sorting__item " rel="nofollow">
+                                                                                                                            <a href="#" class="sorting__item " rel="nofollow" style=" text-decoration: none !important;">
                                 Rəylər                            </a>
-                                                                                                                            <a href="https://tapdoc.az/clinic/order/price" class="sorting__item " rel="nofollow">
+                                                                                                                            <a href="#" class="sorting__item " rel="nofollow" style=" text-decoration: none !important;">
                                 Qiymət                            </a>
                                                                                                                                                     </div>
                 <div class="sorting__select">
@@ -925,7 +1002,7 @@ font-weight: 900;
 
 
 
-<div class="clinics-item result-card">
+<div class="clinics-item result-card" style=" position: relative; z-index: 10; ">
 	<div class="clinic-card" style="    border-bottom-left-radius: 0px;    border-bottom-right-radius: 0px;    border-top-right-radius: 4px;    border-top-left-radius: 4px;">
 		<div class="clinic-card__inner">
 			<div class="clinic-card__left">
@@ -976,14 +1053,7 @@ font-weight: 900;
 
 
 												<div class="clinic-address__button clinic-card__clinic-button js-book-clinic">
-							<form class="doctor_desc__request" method="post" action="https://tapdoc.az/request?clinicId=5719">
-								<input type="hidden" name="clinicId" value="5719"/>
-								<input type="hidden" name="requestBtnType" value="requestCardShortClinic"/>
-								<input style="    margin: auto;" type="submit" value="Müraciət"
-								       class="button ui-btn ui-btn_green request-button js-request-form-hook"
-									   data-ga-label="doctor clinic form"
-									 data-stat="btnCardShortClinic" data-clinic-id="5719" data-clinic-name="Медицинский центр Трастмед на Таганке" data-clinic-area="Таганский" data-clinic-address="ул. Александра Солженицына, д. 5, стр.1" data-clinic-metro="Таганская, Марксистская" data-pid="30" data-popup-id="js-popup-request-clinic" data-popup-width="440" data-request-type="clinic" data-is-pink="1"/>
-							</form>
+							<button class="myBtnmuraciet" id="myBtnmuraciet1">Müraciət</button>
               <div style=" text-align:center;    margin: 7px 0 -5px 0;">və ya zəng edin</div>
               <div style="    margin: 11px 0 0 4px;font-size: 18px;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form"
 data-ga-action="clickPhoneNumber">
@@ -993,6 +1063,335 @@ data-ga-action="clickPhoneNumber">
 			</div>
 		</div>
 	</div>
+
+
+  <div id="myModalmuraciet1" class="modalmuraciet">
+
+    <!-- Modal content -->
+    <div class="modal-contentmuraciet modal-contentmuraciet" style=" overflow-y: scroll; max-height: 500px; ">
+    <span class="closemuraciet closemuraciet1">&times;</span>
+
+    <!-- Müraciət Form Popup Content Start -->
+
+    <div data-bind="component: {name: 'dd-request-form'}" class="popup-book">
+       <div class="popup-book__head"><span data-bind="text: headingText">Запись на приём</span></div>
+       <!-- ko ifnot: WINDOW_HAS_PARENT -->
+       <div class="dd-online-overlay-close" data-bind="click: closePopupClick"></div>
+       <!-- /ko -->
+       <!-- ko with: infoboxComponent -->
+       <div class="popup-book__infobox" data-bind="component: $data">
+          <div class="popup-book__info clearfix">
+             <div class="popup-book__doc">
+                <div class="popup-book__pic">
+                   <img data-bind="attr: {src: doctor.image}" src="https://cdn.docdoc.ru/doctor/3152.81x81.jpg?1547227204">
+                </div>
+                <div class="doc__rating">
+                   <div class="rate">
+                      <!-- ko if: isNewDoctor --><!-- /ko -->
+                      <!-- ko if: inRatingTest && !isNewDoctor --><!-- /ko -->
+                      <!-- ko ifnot: inRatingTest -->
+                      <div class="rate__default">
+                         <i class="fa fa-star" aria-hidden="true"></i>
+                         <i class="fa fa-star" aria-hidden="true"></i>
+                         <i class="fa fa-star" aria-hidden="true"></i>
+                         <i class="fa fa-star" aria-hidden="true"></i>
+                         <i class="fa fa-star" aria-hidden="true"></i>
+                      </div>
+                      <div class="rate__value" data-bind="style: { width: doctor.ratingPercent}" style="width: 92%;">
+                         <i class="fa fa-star" aria-hidden="true"></i>
+                         <i class="fa fa-star" aria-hidden="true"></i>
+                         <i class="fa fa-star" aria-hidden="true"></i>
+                         <i class="fa fa-star" aria-hidden="true"></i>
+                         <i class="fa fa-star" aria-hidden="true"></i>
+                      </div>
+                      <!-- /ko -->
+                   </div>
+                </div>
+             </div>
+             <div class="popup-book__float">
+                <div class="popup-book__info-name" data-bind="text: doctor.name">Анисимова Наталья Юрьевна</div>
+                <span data-bind="text: specialityName">Стоматолог</span> <span data-bind="text: clinicSubtitle"> в клинике ОН КЛИНИК на Цветном бульваре</span><br>
+                <!-- ko if: priceSelectorVisible -->
+                <span class="popup-book__info-price">Стоимость</span> <span data-bind="text: price.actualPriceText">бесплатно</span><br>
+                <!-- /ko -->
+                <!-- ko if: clinicAddressText -->
+                <span class="popup-book__info-address">Адрес</span> <span data-bind="text: clinicAddressText">Цветной б-р, д. 30, корп. 2</span><br>
+                <!-- /ko -->
+                <!-- ko if: closestStation -->
+                Метро
+                <span class="popup-book__info-stations">
+                <span data-bind="text: closestStation">Цветной бульвар (390 м)</span>
+                </span>
+                <!-- /ko -->
+             </div>
+          </div>
+          <style>
+             .doc__rating .new_doctor {
+             margin-top: 0;
+             font-size: 12px;
+             color: #222;
+             background: #f9e784;
+             padding: 2px 6px;
+             display: inline-block;
+             border-radius: 4px;
+             text-align: center;
+             }
+          </style>
+       </div>
+       <!-- /ko -->
+       <div class="popup-book__content">
+          <!-- ko if: step() == STEP_SLOTS --><!-- /ko -->
+          <!-- ko if: step() == STEP_PATIENT_NAME -->
+          <div class="popup-book-step">
+             <div class="popup-book__item" data-bind="visible: specialitySelectorVisible">
+                <div class="popup-book__label"><span>Специальность</span></div>
+                <div class="form-input-withlabel valided">
+                   <select class="popup-book-overlay-select" data-bind="
+                      value: speciality,
+                      options: specialities,
+                      optionsText: 'name',
+                      disable: disableInputs,
+                      event:{ change: specialityChanged }
+                      ">
+                      <option value="">Стоматолог</option>
+                      <option value="">Стоматолог-терапевт</option>
+                      <option value="">Стоматолог-ортопед</option>
+                      <option value="">Стоматолог-пародонтолог</option>
+                   </select>
+                   <div class="form-input-ico "><i class="fa fa-stethoscope"></i></div>
+                   <div class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="css: {'form-input--disabled': disableInputs}">&nbsp;</div>
+                </div>
+             </div>
+             <div class="popup-book__item" data-bind="visible: clinicSelectorVisible" style="display: none;">
+                <div class="popup-book__label"><span>Клиника</span></div>
+                <div class="form-input-withlabel valided">
+                   <select class="popup-book-overlay-select" data-bind="
+                      value: clinic,
+                      options: clinics,
+                      optionsText: function(item) {
+                      return item.isPrivateDoctor ? item.address : item.name
+                      },
+                      disable: disableInputs
+                      ">
+                      <option value="">ОН КЛИНИК на Цветном бульваре</option>
+                   </select>
+                   <div class="form-input-ico "><i class="fa fa-map-marker"></i></div>
+                   <div class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="css: {'form-input--disabled': disableInputs}">&nbsp;</div>
+                </div>
+             </div>
+             <!-- ko if: dateSelectorVisible() && interval() == null -->
+             <div class="popup-book__item" data-bind="css: {'popup-book__item--error': slotField.showError()}">
+                <div class="popup-book__label">
+                   <span data-bind="text: slotLabelText, css: {'mark-label-exclusive': isExclusiveLabel}">Дата и время приёма</span>
+                </div>
+                <div class="form-input-withlabel js-popup-date-back" data-bind="
+                   css: {'form-input--disabled': dateSelectorInputCss(), 'valided': dateSelectorInputValid()},
+                   click: changeSlotClick" style="cursor: pointer">
+                   <div class="form-input-ico "><i class="fa fa-clock-o fa-flip-horizontal"></i></div>
+                   <div class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="text: dateAdmissionText, css: dateSelectorInputTextCss">(выберите время приема)</div>
+                </div>
+                <div class="form-input--busy" data-bind="visible: slotField.isSlotBusy()" style="display: none;">Ой! Просим прощения, кто-то вас опередил. Пожалуйста, выберите другое время приема.</div>
+                <div class="clearfix"></div>
+             </div>
+             <!-- /ko -->
+             <!-- ko if: interval() != null --><!-- /ko -->
+             <div class="popup-book__item popup-book__fio" data-bind="css: {'popup-book__item--error': patientNameField.showError()}">
+                <div class="popup-book__label"><span data-bind="text: patientNameFieldLabel">Ваше имя</span>
+                </div>
+                <div class="form-input-withlabel" data-bind="css: { valided: patientNameValid }">
+                   <div class="form-input-ico "><i class="fa fa-user"></i></div>
+                   <input type="text" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
+                      attr: {placeholder: patientNameFieldPlaceHolder},
+                      textInput: patientNameInput,
+                      disable: disableInputs,
+                      valueUpdate: 'afterkeydown',
+                      event: {keyup: patientNameKeypress, blur: patientNameBlur},
+                      css: {'form-input--disabled': disableInputs}
+                      " placeholder="Контактное лицо">
+                </div>
+             </div>
+             <div class="popup-book__item popup-book__lastname" data-bind="css: {'popup-book__item--error': patientLastNameField.showError()}, visible: showLastName">
+                <div class="popup-book__label"><span>Фамилия</span></div>
+                <div class="form-input-withlabel" data-bind="css: { valided: patientLastNameValid }">
+                   <div class="form-input-ico "><i class="fa fa-user"></i></div>
+                   <input type="text" placeholder="Фамилия" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
+                      textInput: patientLastNameInput,
+                      disable: disableInputs,
+                      valueUpdate: 'afterkeydown',
+                      event: {keyup: patientLastNameKeypress, blur: patientLastNameBlur},
+                      css: {'form-input--disabled': disableInputs}
+                      ">
+                </div>
+             </div>
+             <div class="popup-book__item popup-book__age" data-bind="css: {'popup-book__item--error': patientAgeField.showError()}, visible: showAgeForm" style="display: none;">
+                <div class="popup-book__label">
+                   <span>Ваш возраст</span>
+                </div>
+                <div class="form-input-withlabel" data-bind="css: { valided: patientAgeInput }">
+                   <div class="form-input-ico "><i class="fa fa-edit"></i></div>
+                   <input type="text" placeholder="Возраст пациента" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
+                      textInput: patientAgeInput,
+                      disable: disableInputs,
+                      valueUpdate: 'afterkeydown',
+                      event: {keyup: patientAgeKeypress, blur: patientAgeBlur},
+                      hasFocus: patientAgeHasFocus,
+                      css: {'form-input--disabled': disableInputs}
+                      ">
+                </div>
+             </div>
+             <div class="popup-book__item popup-book__birthdate" data-bind="css: {'popup-book__item--error': patientBirthDateField.showError()}, visible: showBirthDateForm">
+                <div class="popup-book__label">
+                   <span>Введите дату рождения пациента</span>
+                </div>
+                <div class="form-input-withlabel" data-bind="css: { valided: patientBirthDateInput }">
+                   <div class="form-input-ico"><i class="fa fa-edit"></i></div>
+                   <input type="text" placeholder="дд-мм-гггг" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
+                      birthDateTextInput: patientBirthDateInput,
+                      disable: disableInputs,
+                      event: { keyup: patientBirthDateKeypress, blur: patientBirthDateBlur },
+                      hasFocus: patientBirthDateHasFocus,
+                      css: {'form-input--disabled': disableInputs}
+                      ">
+                </div>
+             </div>
+             <div class="popup-book__item popup-book__phone" data-bind="css: {'popup-book__item--error': patientPhoneField.showError()}">
+                <div class="popup-book__label">
+                   <span>Телефон для подтверждения записи</span>
+                </div>
+                <div class="form-input-withlabel" data-bind="css: { valided: patientPhoneValid }">
+                   <div class="form-input-ico "><i class="fa fa-phone"></i></div>
+                   <input type="text" placeholder="+7 (___) ___-__-__" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
+                      phoneTextInput: patientPhoneInput,
+                      disable: disableInputs,
+                      valueUpdate: 'afterkeydown',
+                      event: {keyup: patientPhoneKeypress, blur: patientPhoneBlur},
+                      hasFocus: patientPhoneHasFocus,
+                      css: {'form-input--disabled': disableInputs}
+                      " maxlength="18">
+                </div>
+                <!-- ko if: showPhoneNotText -->
+                <div class="popup-book__label valided-info">
+                   <span><i class="fa fa-info-circle"></i></span>
+                </div>
+                <div class="popup-book__note" data-bind="text: phoneNoteText">На этот номер вы получите SMS с&nbsp;кодом подтверждения и информацию о записи</div>
+                <!-- /ko -->
+                <!-- ko if: showSmsSentText --><!-- /ko -->
+             </div>
+             <!-- ko if: showConfirmCall > 0--><!-- /ko -->
+             <!-- ko if: isSpam --><!-- /ko -->
+             <!-- ko ifnot: showSMSVerificationForm -->
+             <div class="popup-book__request clearfix">
+                <button class="popup-book__send button button--color_green" data-bind="
+                   visible: !isSpam(),
+                   enable: uiSendRequestButtonNew().enable,
+                   css: uiSendRequestButtonNew().css,
+                   click: sendRequestClick
+                   ">
+                   <div class="button__cont" data-bind="text: uiSendRequestButtonNew().text">Записаться</div>
+                </button>
+             </div>
+             <!-- /ko -->
+             <!-- ko if: showSMSVerificationForm --><!-- /ko -->
+             <!-- ko if: insuranceState() == 1 --><!-- /ko -->
+             <div class="popup-book__legal-links">
+                Нажимая «Записаться», я принимаю
+                <a data-bind="click: function () { getBaseUrl('/offer') }">условия пользовательского соглашения</a>,
+                <a data-bind="click: function () { getBaseUrl('/confidentiality') }">положения о защите персональных данных</a>
+                и даю свое
+                <a data-bind="click: function () { getBaseUrl('/agreement') }">согласие на обработку персональных данных</a>.
+             </div>
+          </div>
+          <!-- /ko -->
+          <!-- ko if: step() == STEP_THANKYOU --><!-- /ko -->
+       </div>
+       <!-- ko if: step() == STEP_THANKYOU --><!-- /ko -->
+       <div class="popup-book-close" data-bind="visible: isClosing" style="display: none;">
+          <!-- ko ifnot: WINDOW_HAS_PARENT -->
+          <div class="dd-online-overlay-close" data-bind="click: closePopupClick"></div>
+          <!-- /ko -->
+          <div class="popup-book-close__content">
+             <div class="popup-book-close__head">
+                Вы действительно хотите<br>прервать запись?
+             </div>
+             <div style="clear:both"></div>
+             <!-- ko if: helpPhone -->
+             <!-- ko with: helpPhone -->
+             <div class="popup-book-close__note">Если у вас возникли вопросы, <br>позвоните нам по телефону:</div>
+             <div class="popup-book-close__phone">
+                <a data-bind="attr: {href: href}, text: text" href="tel:+74991168178">+994 (499) 116-81-78</a>
+             </div>
+             <!-- /ko -->
+             <!-- /ko -->
+             <!-- ko ifnot: helpPhone --><!-- /ko -->
+             <div class="popup-book-close__button button button--color_grey" data-bind="click: acceptClosingClick">
+                <div class="button__cont">Прервать</div>
+             </div>
+             <div class="popup-book-close__button button button--color_green" data-bind="click: cancelClosingClick">
+                <div class="button__cont">Продолжить</div>
+             </div>
+          </div>
+       </div>
+    </div>
+
+    <!-- Müraciət Form Popup Content End -->    </div>
+
+  </div>
+  <script>
+
+
+  </script>
+  <script>
+  function openCitydoctab1(evt, cityNamedoctab1) {
+    var idoctab1, tabcontentdoctab1, tablinksdoctab1;
+    tabcontentdoctab1 = document.getElementsByClassName("tabcontentdoctab1");
+    for (idoctab1 = 0; idoctab1 < tabcontentdoctab1.length; idoctab1++) {
+      tabcontentdoctab1[idoctab1].style.display = "none";
+    }
+    tablinksdoctab1 = document.getElementsByClassName("tablinksdoctab1");
+    for (idoctab1 = 0; idoctab1 < tablinksdoctab1.length; idoctab1++) {
+      tablinksdoctab1[idoctab1].className = tablinksdoctab1[idoctab1].className.replace(" active", "");
+    }
+    document.getElementById(cityNamedoctab1).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
+  // Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpendoctab1").click();
+
+  </script>
+
+  <script>
+  // Get the modal
+  var modal = document.getElementById('myModalmuraciet1');
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtnmuraciet1");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("closemuraciet1")[0];
+
+  // When the user clicks the button, open the modal
+  btn.onclick = function() {
+      modal.style.display = "block";
+      //document.getElementById('bodyy').style.overflow="hidden";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+      modal.style.display = "none";
+      document.getElementById('bodyy').style.overflow="initial";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+          document.getElementById('bodyy').style.overflow="initial";
+      }
+  }
+  </script>
+
+
 
 
   <div class="clinic-card__branches" id="branch-list-13" style="background-color: #fff;border-bottom-right-radius: 4px;">
@@ -1219,7 +1618,7 @@ data-ga-action="clickPhoneNumber">
 
 			</div>
 </div>
-<button type="button"  class="butunfiliallar" data-toggle="collapse" data-target="#demofilial" style="    border: 0px;    background-color: #fff;height: 24px;    width: 157px;    color: #00aec7;border-bottom-right-radius: 4px;border-bottom-left-radius: 4px;">Bütün Filiallar (10)</button>
+<button type="button"  class="butunfiliallar" data-toggle="collapse" data-target="#demofilial" style="    border: 0px;    background-color: #fff;height: 24px;    width: 157px;    color: #00aec7;border-bottom-right-radius: 4px;border-bottom-left-radius: 4px; z-index:100;position:relative;">Bütün Filiallar (10)</button>
 
 
 <div class="clinics-item result-card">
@@ -1521,10 +1920,10 @@ data-ga-action="clickPhoneNumber">
                                                 <span class="footer__copyright">© tapdoc.az 2018</span>
                     </div>
                     <div class="footer__socials">
-                        <a href="https://vk.com/tapdoc.az" target="_blank" class="footer__social footer__social_vk"></a>
-                        <a href="https://www.facebook.com/tapdoc.az/" target="_blank" class="footer__social footer__social_fb"></a>
-
-                        <a href="https://www.youtube.com/channel/UCzmp8WzYmly2Dskaf5HuIXg" target="_blank" class="footer__social footer__social_youtube"></a>
+                      <a href="#" target="_blank" class="footer__social footer__social_vk"></a>
+                      <a href="#" target="_blank" class="footer__social footer__social_fb"></a>
+                      <a href="#" target="_blank" class="footer__social footer__social_linkedin"></a>
+                      <a href="#" target="_blank" class="footer__social footer__social_youtube"></a>
                     </div>
                 </aside>
             </div>

@@ -222,7 +222,7 @@ float: right;
 }}
 
 .clinics-item.result-card:hover > .clinic-card {
-    box-shadow: 0px 4px 5px 2px rgba(1, 1, 1, 0.13);
+    box-shadow: 0px 0px 0px 2px rgba(1, 1, 1, 0.13);
 }
 .clinics-item.result-card:hover > .clinic-card__branches {
     box-shadow: 0px 4px 5px 2px rgba(1, 1, 1, 0.13);
@@ -458,10 +458,10 @@ float: right;
 
 
               <div class="sorting__items" style="margin-left: -8px;">
-                    <a href="{% url 'doctor' %}" class="sorting__itemdiaq " rel="nofollow">Həkimlər</a>
-                    <a href="{% url 'clinic' %}" class="sorting__itemdiaq " rel="nofollow">Klinikalar</a>
-                    <a href="{% url 'diaqnostika' %}" style="background:#00aec7;color:#fff;" class="sorting__itemdiaq " rel="nofollow">Diaqnostika</a>
-                    <a href="{% url 'xidmetler' %}" class="sorting__itemdiaq " rel="nofollow">Xidmətlər</a>
+                    <a href="{% url 'doctor' %}" class="sorting__itemdiaq " rel="nofollow" style=" text-decoration: none; ">Həkimlər</a>
+                    <a href="{% url 'clinic' %}" class="sorting__itemdiaq " rel="nofollow" style=" text-decoration: none; ">Klinikalar</a>
+                    <a href="{% url 'diaqnostika' %}" style="background:#00aec7;color:#fff;text-decoration: none; " class="sorting__itemdiaq " rel="nofollow">Diaqnostika</a>
+                    <a href="{% url 'xidmetler' %}" class="sorting__itemdiaq " rel="nofollow" style=" text-decoration: none; ">Xidmətlər</a>
               </div>
                   <div class="sorting__select">
                       <div class="select select_sorting" data-block="select">
@@ -680,7 +680,7 @@ float: right;
 
 
       <div class="clinics-item result-card">
-      	<div class="clinic-card">
+      	<div class="clinic-card" style="    border-bottom-left-radius: 0px;    border-bottom-right-radius: 0px;    border-top-right-radius: 4px;    border-top-left-radius: 4px;">
       		<div class="clinic-card__inner">
       			<div class="clinic-card__left">
       <a href="#" style="float:right;" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
@@ -749,7 +749,7 @@ float: right;
       	</div>
 
 
-        <div class="clinic-card__branches" id="branch-list-13" style="background-color: #fff;">
+        <div class="clinic-card__branches" id="branch-list-13" style="background-color: #fff;border-bottom-right-radius: 4px;">
 
 
 
@@ -1082,7 +1082,7 @@ float: right;
 
       			</div>
       </div>
-      <button type="button" class="butunfiliallar" data-toggle="collapse" data-target="#demofilial" style="    border: 0px;    background-color: #fff;height: 24px;    width: 157px;    color: #00aec7;">Bütün Filiallar (10)</button>
+      <button type="button" class="butunfiliallar" data-toggle="collapse" data-target="#demofilial" style="    border: 0px;    background-color: #fff;height: 24px;    width: 157px;    color: #00aec7;border-bottom-right-radius: 4px;    border-bottom-left-radius: 4px;">Bütün Filiallar (10)</button>
 
 
       <div class="clinics-item result-card">
@@ -1420,10 +1420,10 @@ float: right;
                                                 <span class="footer__copyright">© tapdoc.az 2018</span>
                     </div>
                     <div class="footer__socials">
-                        <a href="https://vk.com/tapdoc" target="_blank" class="footer__social footer__social_vk"></a>
-                        <a href="https://www.facebook.com/tapdoc.az/" target="_blank" class="footer__social footer__social_fb"></a>
-
-                        <a href="https://www.youtube.com/channel/UCzmp8WzYmly2Dskaf5HuIXg" target="_blank" class="footer__social footer__social_youtube"></a>
+                      <a href="#" target="_blank" class="footer__social footer__social_vk"></a>
+                      <a href="#" target="_blank" class="footer__social footer__social_fb"></a>
+                      <a href="#" target="_blank" class="footer__social footer__social_linkedin"></a>
+                      <a href="#" target="_blank" class="footer__social footer__social_youtube"></a>
                     </div>
                 </aside>
             </div>

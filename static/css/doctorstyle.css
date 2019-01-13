@@ -1195,13 +1195,16 @@ body {
   font-size: 20px;
 }
 .footer__social_vk:before {
-  content: '\F189';
+  content: '\f09a';
 }
 .footer__social_fb:before {
-  content: '\F09A';
+  content: '\f16d';
 }
 .footer__social_ok:before {
-  content: '\F263';
+  content: '\f0e1';
+}
+.footer__social_linkedin:before {
+  content: '\f0e1';
 }
 .footer__social_youtube:before {
   content: '\F16A';
@@ -13755,7 +13758,7 @@ hr {
   .dd-online-popup.dd-online-popup-v2 {
     width: 510px !important;
     height: 680px !important;
-    margin-top: -42vh !important;
+
   }
 }
 /* Medium Devices, Desktops */
@@ -13763,7 +13766,7 @@ hr {
   .dd-online-popup.dd-online-popup-v2 {
     width: 510px !important;
     height: 680px !important;
-    margin-top: -42vh !important;
+
   }
 }
 /* Large Devices, Wide Screens */
@@ -13771,7 +13774,7 @@ hr {
   .dd-online-popup.dd-online-popup-v2 {
     width: 510px !important;
     height: 680px !important;
-    margin-top: -42vh !important;
+
   }
 }
 /*==========  Non-Mobile First Method  ==========*/
@@ -13780,7 +13783,7 @@ hr {
   .dd-online-popup.dd-online-popup-v2 {
     width: 510px !important;
     height: 680px !important;
-    margin-top: -42vh !important;
+
   }
 }
 /* Medium Devices, Desktops */
@@ -13788,7 +13791,7 @@ hr {
   .dd-online-popup.dd-online-popup-v2 {
     width: 510px !important;
     height: 680px !important;
-    margin-top: -42vh !important;
+
   }
 }
 /* Small Devices, Tablets */
@@ -13796,7 +13799,7 @@ hr {
   .dd-online-popup.dd-online-popup-v2 {
     width: 510px !important;
     height: 680px !important;
-    margin-top: -42vh !important;
+
   }
 }
 /*Extra Small Devices, Phones
