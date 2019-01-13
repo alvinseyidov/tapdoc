@@ -26,7 +26,7 @@ SECRET_KEY = '!dg%sqr8tf_l9-qzqcc+t1%#xt25%t%wizs!k&ec7cquad6&v@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tapdoc.az']
 # 'alvinsayidzade.pythonanywhere.comm'
 
 # Application definition
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'tapdoc.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR, ], 
+        'DIRS': [TEMPLATE_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
