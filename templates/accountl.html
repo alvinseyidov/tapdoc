@@ -16,6 +16,7 @@
 	<link href="{% static 'adminassets/css/components.min.css'%}" rel="stylesheet" type="text/css">
 	<link href="{% static 'adminassets/css/colors.min.css'%}" rel="stylesheet" type="text/css">
 	<link href="{% static 'adminassets/css/style.css'%}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	<!-- /global stylesheets -->
 
 	<!-- Core JS files -->
@@ -313,95 +314,7 @@
 
 
 			<!-- Sidebar content -->
-			<div class="sidebar-content">
-				<div class="card card-sidebar-mobile">
-
-					<!-- Header -->
-
-
-					<!-- User menu -->
-					<div class="sidebar-user">
-						<div class="card-body">
-							<div class="media">
-								<div class="mr-3">
-									<a href="#"><img src="{% static 'adminglobal_assets/images/placeholders/placeholder.jpg'%}" width="38" height="38" class="rounded-circle" alt=""></a>
-								</div>
-
-								<div class="media-body">
-									<div class="media-title font-weight-semibold">Elvin Seyidzade</div>
-									<div class="font-size-xs opacity-50">
-										<i class="icon-pin font-size-sm"></i> &nbsp;Qəbələ rayonu
-									</div>
-								</div>
-
-								<div class="ml-3 align-self-center">
-									<a href="#" class="text-white"><i class="icon-cog3"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- /user menu -->
-
-
-					<!-- Main navigation -->
-					<div class="card-body p-0">
-						<ul class="nav nav-sidebar" data-nav-type="accordion">
-
-							<!-- Main -->
-							<li class="nav-item nav-item-expanded nav-item-open">
-								<a href="index.html" class="nav-link">
-									<i class="icon-home4"></i>
-									<span>
-										Dashboard
-
-									</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link"><i class="icon-copy"></i> <span>Layouts</span></a>
-
-
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link"><i class="icon-color-sampler"></i> <span>Themes</span></a>
-
-
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link"><i class="icon-stack"></i> <span>Starter kit</span></a>
-
-
-							</li>
-							<li class="nav-item"><a href="../../../RTL/default/full/index.html" class="nav-link"><i class="icon-width"></i> <span>RTL version</span></a></li>
-							<!-- /main -->
-
-							<!-- Layout -->
-							<li class="nav-item">
-								<a href="#" class="nav-link"><i class="icon-stack2"></i> <span>Page layouts</span></a>
-
-
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link"><i class="icon-page-break2"></i> <span>Headers &amp; footers</span></a>
-
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link"><i class="icon-indent-decrease2"></i> <span>Sidebars</span></a>
-
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link"><i class="icon-menu3"></i> <span>Navbars</span></a>
-
-							</li>
-
-							<!-- /layout -->
-
-						</ul>
-					</div>
-					<!-- /main navigation -->
-
-				</div>
-			</div>
+				{% include 'accountsidebar.html' %}
 			<!-- /sidebar content -->
 
 		</div>

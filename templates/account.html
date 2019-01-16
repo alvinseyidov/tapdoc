@@ -44,57 +44,7 @@
 <body>
 
 	<!-- Main navbar -->
-	<div class="navbar navbar-expand-md navbar-dark">
-		<div class="navbar-brand wmin-200">
-			<a href="index.html" class="d-inline-block">
-				<img src="{% static 'adminglobal_assets/images/logo_dark.png'%}" alt="">
-			</a>
-		</div>
-
-		<div class="d-md-none">
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mobile">
-				<i class="icon-tree5"></i>
-			</button>
-			<button class="navbar-toggler sidebar-mobile-main-toggle" type="button">
-				<i class="icon-paragraph-justify3"></i>
-			</button>
-		</div>
-
-		<div class="collapse navbar-collapse" id="navbar-mobile">
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a href="#" class="navbar-nav-link sidebar-control sidebar-main-toggle d-none d-md-block">
-						<i class="icon-paragraph-justify3"></i>
-					</a>
-				</li>
-
-
-			</ul>
-
-			<span class="navbar-text ml-md-auto mr-md-3">
-			</span>
-
-			<ul class="navbar-nav">
-
-
-				<li class="nav-item dropdown dropdown-user">
-					<a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
-						<img src="{% static 'adminglobal_assets/images/placeholders/placeholder.jpg'%}" class="rounded-circle" alt="">
-						<span>Elvin</span>
-					</a>
-
-					<div class="dropdown-menu dropdown-menu-right">
-						<a href="#" class="dropdown-item"><i class="icon-user-plus"></i> My profile</a>
-						<a href="#" class="dropdown-item"><i class="icon-coins"></i> My balance</a>
-						<a href="#" class="dropdown-item"><i class="icon-comment-discussion"></i> Messages <span class="badge badge-pill bg-blue ml-auto">58</span></a>
-						<div class="dropdown-divider"></div>
-						<a href="{% url 'accountsettings'%}" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>
-						<a href="#" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
+	{% include 'accountheading.html' %}
 	<!-- /main navbar -->
 
 
@@ -121,98 +71,7 @@
 
 
 			<!-- Sidebar content -->
-			<div class="sidebar-content">
-				<div class="card card-sidebar-mobile">
-
-					<!-- Header -->
-
-
-					<!-- User menu -->
-					<div class="sidebar-user">
-						<div class="card-body">
-							<div class="media">
-								<div class="mr-3">
-									<a href="#"><img src="{% static 'adminglobal_assets/images/placeholders/placeholder.jpg'%}" width="70" height="70" class="rounded-circle" alt=""></a>
-								</div>
-
-								<div class="media-body" style=" margin: 15px 0 0 0; ">
-									<div class="media-title font-weight-semibold">Elvin Seyidzade</div>
-									<div class="font-size-lg opacity-100">
-										<i class="fas fa-tint" style=" color: #ec407a; "></i> &nbsp;O(l) RH+
-									</div>
-								</div>
-
-								<div class="ml-3 align-self-center">
-									<a href="{% url 'accountsettings'%}" class="text-white"><i class="icon-cog3"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- /user menu -->
-
-					<!-- Main navigation -->
-					<div class="card-body p-0">
-						<ul class="nav nav-sidebar" data-nav-type="accordion">
-
-							<!-- Main -->
-							<li class="nav-item nav-item-expanded nav-item-open">
-								<a href="{% url 'account'%}" class="nav-link">
-									<i class="icon-home4"></i>
-									<span>
-										Ümumi Məlumat
-
-									</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link"><i class="icon-copy"></i> <span>Tibbi Kitabça</span></a>
-
-
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link"><i class="icon-color-sampler"></i> <span>Sağlamlıq Monitoring</span></a>
-
-
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link"><i class="icon-stack"></i> <span>Dərmanlar</span></a>
-
-
-							</li>
-							<li class="nav-item"><a href="#" class="nav-link"><i class="icon-width"></i> <span>İstiqamətlər</span></a></li>
-							<!-- /main -->
-
-							<!-- Layout -->
-							<li class="nav-item">
-								<a href="#" class="nav-link"><i class="icon-stack2"></i> <span>Taricçə</span></a>
-
-
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link"><i class="icon-page-break2"></i> <span>Mesajlar</span></a>
-
-							</li>
-							<li class="nav-item">
-								<a href="{% url 'accountdoctors'%}" class="nav-link"><i class="icon-indent-decrease2"></i> <span>Həkimlər</span></a>
-
-							</li>
-							<li class="nav-item">
-								<a href="{% url 'accountcinics'%}" class="nav-link"><i class="icon-menu3"></i> <span>Klinikalar</span></a>
-
-							</li>
-							<li class="nav-item">
-								<a href="{% url 'accountcinics'%}" class="nav-link"><i class="icon-menu3"></i> <span>Apteklər</span></a>
-
-							</li>
-
-							<!-- /layout -->
-
-						</ul>
-					</div>
-					<!-- /main navigation -->
-
-				</div>
-			</div>
+		{% include 'accountsidebar.html' %}
 			<!-- /sidebar content -->
 
 		</div>

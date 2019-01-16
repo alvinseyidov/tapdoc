@@ -198,14 +198,14 @@ textarea {
 	margin-top: 5px
 }
 
-.rate {
+.ratee {
 	display: inline-block;
 	position: relative;
 	height: 19px;
 	width: 73px
 }
 
-.rate__default,
+.rate__defaulte,
 .rate__valuee {
 	position: absolute;
 	display: block;
@@ -220,13 +220,13 @@ textarea {
 	text-align: left
 }
 
-.rate__valu {
+.rate__valuee {
 	color: #ff256c;
 	z-index: 2;
 	width: 0
 }
 
-.rate__valuee.tag__rate__valuee {
+.rate__valuee.tag__rate__value {
 	font-family: Open Sans, sans-serif;
 	font-style: normal;
 	font-weight: 600;
@@ -237,7 +237,7 @@ textarea {
 	text-align: center
 }
 
-.rate__default {
+.rate__defaulte {
 	z-index: 1
 }
 
@@ -370,7 +370,7 @@ textarea {
 	position: absolute;
 	right: 0;
 	bottom: 0;
-	width: 155px
+	width: 100%
 }
 
 .popup-book__sms {
@@ -481,7 +481,7 @@ textarea {
 	max-width: 150px
 }
 
-.button {
+.button1 {
 	color: #fff;
 	height: 38px;
 	-webkit-user-select: none;
@@ -504,7 +504,7 @@ textarea {
 	outline: none
 }
 
-.button:hover {
+.button1:hover {
 	background: #ff256c
 }
 
@@ -1045,7 +1045,7 @@ textarea {
 		border-width: 1px;
 		margin-right: 13px
 	}
-	.rate__default,
+	.rate__defaulte,
 	.rate__valuee {
 		font-size: 7px
 	}

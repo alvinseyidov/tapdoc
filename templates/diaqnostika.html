@@ -240,6 +240,18 @@ float: right;
 .butunfiliallar:hover ~ .clinic-card__branches {
     box-shadow: 0px 4px 5px 2px rgba(1, 1, 1, 0.13);
 }
+
+
+.forms__button:hover {
+    background: #fb76a2 !important;
+}
+.sorting__itemdiaq:hover {
+    background: #e1e1e5 !important;
+}
+
+.myBtnmuraciet:hover {
+    background: #0298ad !important;
+}
 </style>
 </head>
 
@@ -574,7 +586,14 @@ float: right;
                 </ul>
 
               </div>
-            <button style="display: block;margin: auto;margin-top: -11px;background-color: #00aec7;border: 0;height: 29px;" type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Ətraflı</button>
+            <button id="diaqnostikaixtisaslar" style="display: block;margin: auto;margin-top: -11px;background-color: #00aec7;border: 0;height: 29px;" type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Ətraflı</button>
+
+            <script>
+            $('#diaqnostikaixtisaslar').click(function(){
+                $(this).text(function(i,old){
+                    return old=='Ətraflı' ?  'Bağla' : 'Ətraflı';
+                });
+            });</script>
           </div>
 
 <div class="clinics__sorting">
@@ -807,7 +826,14 @@ float: right;
                     </div>
               <div class="panel-heading" style="background-color: #fff;">
                         <h4 class="panel-title">
-                            <a style="background: #00aec7;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;    text-align: center;" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
+                            <a id="diaqnostika1x1" style="background: #00aec7;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;    text-align: center;" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
+                            <script>
+                            $('#diaqnostika1x1').click(function(){
+                                $(this).text(function(i,old){
+                                    return old=='Ətraflı' ?  'Bağla' : 'Ətraflı';
+                                });
+                            });</script>
+
                         </h4>
                     </div>
                 </div>
@@ -915,7 +941,13 @@ float: right;
                     </div>
               <div class="panel-heading" style="background-color: #fff;">
                         <h4 class="panel-title">
-                            <a style="background: #00aec7;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;    text-align: center;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span  style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
+                            <a id="diaqnostika1x2" style="background: #00aec7;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;    text-align: center;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span  style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
+                            <script>
+                            $('#diaqnostika1x2').click(function(){
+                                $(this).text(function(i,old){
+                                    return old=='Ətraflı' ?  'Bağla' : 'Ətraflı';
+                                });
+                            });</script>
                         </h4>
                     </div>
                 </div>
@@ -1022,7 +1054,13 @@ float: right;
                               </div>
                         <div class="panel-heading" style="background-color: #fff;">
                                   <h4 class="panel-title">
-                                      <a style="background: #00aec7;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;    text-align: center;" data-toggle="collapse" data-parent="#accordion" href="#collapseThreee"><span  style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
+                                      <a id="diaqnostika1x3" style="background: #00aec7;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;    text-align: center;" data-toggle="collapse" data-parent="#accordion" href="#collapseThreee"><span  style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
+                                      <script>
+                                      $('#diaqnostika1x3').click(function(){
+                                          $(this).text(function(i,old){
+                                              return old=='Ətraflı' ?  'Bağla' : 'Ətraflı';
+                                          });
+                                      });</script>
                                   </h4>
                               </div>
                           </div>
@@ -1082,8 +1120,13 @@ float: right;
 
       			</div>
       </div>
-      <button type="button" class="butunfiliallar" data-toggle="collapse" data-target="#demofilial" style="    border: 0px;    background-color: #fff;height: 24px;    width: 157px;    color: #00aec7;border-bottom-right-radius: 4px;    border-bottom-left-radius: 4px;">Bütün Filiallar (10)</button>
-
+      <button id="butunfiliallar" type="button" class="butunfiliallar" data-toggle="collapse" data-target="#demofilial" style="    border: 0px;    background-color: #fff;height: 24px;    width: 157px;    color: #00aec7;border-bottom-right-radius: 4px;    border-bottom-left-radius: 4px;">Bütün Filiallar (3)</button>
+      <script>
+      $('#butunfiliallar').click(function(){
+          $(this).text(function(i,old){
+              return old=='Bütün Filiallar (3)' ?  'Bağla' : 'Bütün Filiallar (3)';
+          });
+      });</script>
 
       <div class="clinics-item result-card">
       	<div class="clinic-card">
@@ -1145,7 +1188,13 @@ float: right;
                             </div>
                       <div class="panel-heading" style="background-color: #fff;">
                                 <h4 class="panel-title">
-                                    <a style="background: #00aec7;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;    text-align: center;" data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
+                                    <a id="diaqnostika2x" style="background: #00aec7;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;    text-align: center;" data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
+                                    <script>
+                                    $('#diaqnostika2x').click(function(){
+                                        $(this).text(function(i,old){
+                                            return old=='Ətraflı' ?  'Bağla' : 'Ətraflı';
+                                        });
+                                    });</script>
                                 </h4>
                             </div>
                         </div>
@@ -1260,7 +1309,13 @@ float: right;
                             </div>
                       <div class="panel-heading" style="background-color: #fff;">
                                 <h4 class="panel-title">
-                                    <a style="background: #00aec7;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;    text-align: center;" data-toggle="collapse" data-parent="#accordion" href="#collapseFive"><span style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
+                                    <a id="diaqnostika3x" style="background: #00aec7;color: #fff;padding: 4px 4px 4px 4px;border-radius: 4px;text-decoration: none;margin: auto;display: block;width: 72px;margin-bottom: -36px;margin-top: 10px;    text-align: center;" data-toggle="collapse" data-parent="#accordion" href="#collapseFive"><span style="font-size:11px;top:-1px;padding: 0px 3px 0 0;"></span>Ətraflı</a>
+                                    <script>
+                                    $('#diaqnostika3x').click(function(){
+                                        $(this).text(function(i,old){
+                                            return old=='Ətraflı' ?  'Bağla' : 'Ətraflı';
+                                        });
+                                    });</script>
                                 </h4>
                             </div>
                         </div>
@@ -1358,99 +1413,9 @@ float: right;
 	</div>
 
 
-
-    <footer class="footer">
-	<div class="wrapper">
-            <div class="footer__inner">
-                <aside class="footer__left">
-                    <div class="footer__navs">
-                        <nav class="footer__nav">
-                            <div class="footer__title">XIDMƏTLƏR</div>
-                            <ul class="footer__list">
-                                <li><a href="https://tapdoc.az/about">Haqqımızda</a></li>
-                                <li><a href="https://vacancy.tapdoc.az/">Vakansiyalar</a></li>
-                                <li><a href="https://tapdoc.az/about/press">Press</a></li>
-                                <li><a href="https://tapdoc.az/about/team">Komandamız</a></li>
-                                <li><a href="https://tapdoc.az/about/contacts">Əlaqə</a></li>
-                                <li><a href="https://tapdoc.az/about/faq">FAQ</a></li>
-                                <li><a href="https://tapdoc.az/sitemap">Saytın Xəritəsi</a></li>
-                                <li><a href="https://tapdoc.az/offer">Razılaşmalar</a></li>
-                            </ul>
-                        </nav>
-                        <nav class="footer__nav">
-                            <div class="footer__title">XƏSTƏLƏR ÜÇÜN</div>
-                            <ul class="footer__list">
-                                <li><a href="https://tapdoc.az/doctor">Həkimlər</a></li>
-                                <li><a href="https://tapdoc.az/clinic">Klinakalar</a></li>
-                                                                    <li><a href="https://diagnostica.tapdoc.az/">Diaqnostika</a></li>
-                                                                <li><a href="https://tapdoc.az/service">Xidmətlər</a></li>
-                                <li><a href="https://tapdoc.az/library">Tibbi Kitabxanalar</a></li>
-                                <li><a href="https://illness.tapdoc.az/">Xəstəliklər</a></li>
-								                                	<li><a href="https://live.tapdoc.az/docsales">Endirim Aksiyalar</a></li>
-																<li><a href="https://tapdoc.az/confidentiality">Güvənirlik</a></li>
-								<li><a href="https://tapdoc.az/agreement">Şəxsi Məlumatların Qorunulması</a></li>
-                            </ul>
-                        </nav>
-                        <nav class="footer__nav">
-                            <div class="footer__nav-group">
-                                <div class="footer__title">HƏKIM VƏ KLINIKALAR</div>
-                                <ul class="footer__list">
-                                    <li><a href="https://tapdoc.az/lk" rel="nofollow">Şəxsi Kabinet</a></li>
-                                    <li><a href="https://tapdoc.az/register" rel="nofollow">Qeydiyyat</a></li>
-                                </ul>
-                            </div>
-                            <div class="footer__nav-group">
-                                <div class="footer__title">PARTNYORLAR</div>
-                                <ul class="footer__list">
-                                    <li><a href="https://pk.tapdoc.az/" rel="nofollow">Şəxsi Kabinet</a></li>
-                                    <li><a href="https://pk.tapdoc.az/affiliate" rel="nofollow">Partnyorluq Programı</a></li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                </aside>
-                <aside class="footer__right">
-                    <div class="footer__logo"></div>
-                    <div class="footer__contacts">
-                        Bizə Yazın: <b><a href="mailto:info@tapdoc.az">info@tapdoc.az</a></b><br />
-                                                    Bizə zəng:
-                                                            <span class="header_contact_phone ">
-							 (+994) 927-01-01						</span>
-                                                        <br />
-                                                <span class="footer__copyright">© tapdoc.az 2018</span>
-                    </div>
-                    <div class="footer__socials">
-                      <a href="#" target="_blank" class="footer__social footer__social_vk"></a>
-                      <a href="#" target="_blank" class="footer__social footer__social_fb"></a>
-                      <a href="#" target="_blank" class="footer__social footer__social_linkedin"></a>
-                      <a href="#" target="_blank" class="footer__social footer__social_youtube"></a>
-                    </div>
-                </aside>
-            </div>
-	</div>
-	        <div class="callback-block">
-		    <a href="tel:+74959270101" class="callback" data-page="clinic" data-action="index">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>записаться по телефону</span>
-            </a>
-        </div>
-	</footer>
-
-    <div class="page-overlay js-overlay-page"></div>
-    <div class="popup js-popup">
-        <div class="popup-modal-margin">
-            <div class="popup-modal js-popup-modal popup-modal__loading">
-                <div class="popup__close fa fa-times js-popup-close"></div>
-                <div class="popup__cont js-popup-content"></div>
-            </div>
-        </div>
-        <div class="popup__click js-popup-overlay"></div>
-    </div>
-
-
+    {% include 'footer-main.html' %}
 
     <script src="https://docdoc.ru/widget/js?2937290733" type="text/javascript" id="docdoc-platform2"></script>
-
     <script src="https://s.docdoc.ru/compile/common.js?2937290733"></script>
     <script src="https://s.docdoc.ru/compile/vendor.js?2937290733"></script>
     <script src="https://s.docdoc.ru/compile/new-docdoc.js?2937290733"></script>

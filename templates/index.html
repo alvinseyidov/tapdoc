@@ -741,6 +741,8 @@
   <link rel="stylesheet" href="static/compile/font_awesome.css">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
+<script src="https://www.jqueryscript.net/demo/Easy-jQuery-Input-Mask-Plugin-inputmask/dist/jquery.inputmask.bundle.min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="{% static 'css/new-first-screen-main318d.css' %}" />
   <script type="text/javascript" src="{% static 'js/new-first-screen-main318d.js' %}"></script>
   <script type="text/javascript" src="../s.docdoc.ru/js/eventTracker59fa.js?2937290733" id="event-tracker-script" data-category="site-index" defer="defer"></script>
@@ -875,8 +877,8 @@
 
 }
 .suggested3{
-    width: 75px;
-    height: 75px;
+    width: 92px;
+    height: 92px;
         margin: auto;
     border-radius: 50%;
     background-position: center center;
@@ -975,6 +977,31 @@ body .main__section_new_screen {
 }
 a.dil {
     color: white;
+}
+
+input[type="text"]#prefix {
+  -webkit-appearance: none!important;
+      text-decoration: none;
+      text-align: right;
+      width: 75px;
+      border: 2px solid #e1e1e5;
+      border-right: 0px;
+      margin: 0 0 0 -7px;
+      background: white;
+      height: 43px;
+      font-size: 20px;
+      color: #828288;
+}
+
+input[type="text"]#phoneInput {
+  -webkit-appearance: none!important;
+    margin-left: -4px;
+    border: 2px solid #e1e1e5;
+    border-left: 0px;
+    outline: none;
+    height: 43px;
+    font-size: 20px;
+    color: #828288;
 }
 
     </style>
@@ -1256,7 +1283,7 @@ a.dil {
                 <li class="suggested-features-showcase__item">
                   <a href="{% url 'clinic'%}">
 								<header class="suggested-feature__header">
-									<div class="suggested2"><p class="suggested-feature__description">Tibbi Mərkəzlər</p></div>
+									<div class="suggested2"><p class="suggested-feature__description">Bütün Klinikalar</p></div>
 
 								</header>
 
@@ -1265,7 +1292,7 @@ a.dil {
                 <li class="suggested-features-showcase__item">
                   <a href="#insurance">
 							<header class="suggested-feature__header">
-								<div class="suggested3"><p class="suggested-feature__description">Tibbi Siğorta</p></div>
+								<div class="suggested3"><p class="suggested-feature__description" style="margin: 10px 0px 0px;padding: 74px 0 0 0;"><br>Tibbi Siğorta</p></div>
 
 							</header>
 
@@ -1454,7 +1481,7 @@ a.dil {
                     <div class="specs__inner">
                       <div class="specs__items">
                         <div class="specs__cols">
-                          <div><a href="{% url 'doctor' %}"><span>591</span> <span>Gnikoloq</span></a></div>
+
                           <div><a href="{% url 'doctor' %}"><span>121</span> <span>Allerqoloq</span></a></div>
                           <div><a href="{% url 'doctor' %}"><span>197</span> <span>Androloq</span></a></div>
                           <div><a href="{% url 'doctor' %}"><span>54</span> <span>Anestizioloq</span></a></div>
@@ -1536,7 +1563,8 @@ a.dil {
                           </div>
                           <div class="help__field">
                             <div class="forms__field">
-                                <input class="forms__input" type="text" value="(___) ___-____" data-mask="(___) ___-____"/>
+                                <input type="text" id="prefix" value="+994" disabled/>
+                                <input  type="text" id="phoneInput" placeholder="(___) ___-____" />
                             </div>
                               <div class="error hidden">Введите ваш номер телефона!</div>
                             </div>
@@ -1552,102 +1580,9 @@ a.dil {
     <div class="footer-push"></div>
   </section>
 
-  <section class="allianz-popup js-allianz-popup" style="display: none;">
-    <div class="allianz-popup__bg"></div>
-    <div class="allianz-popup__content js-allianz-popup__content"></div>
-  </section>
-
-  <footer class="footer">
-    <div class="wrapper">
-      <div class="footer__inner">
-        <aside class="footer__left">
-          <div class="footer__navs">
-            <nav class="footer__nav">
-              <div class="footer__title">Xidmətlər</div>
-              <ul class="footer__list">
-                <li><a href="#">Haqqımızda</a></li>
-                <li><a href="#">Vakansiyalar</a></li>
-                <li><a href="#">Press</a></li>
-                <li><a href="#">Komandamız</a></li>
-                <li><a href="#">Əlaqə</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Saytın Xəritəsi</a></li>
-                <li><a href="#">Razılaşmalar</a></li>
-              </ul>
-            </nav>
-            <nav class="footer__nav">
-              <div class="footer__title">Xəstələr Üçün</div>
-              <ul class="footer__list">
-                <li><a href="#">Həkimlər</a></li>
-                <li><a href="#">Klinakalar</a></li>
-                <li><a href="#">Diaqnostika</a></li>
-                <li><a href="#">Xidmətlər</a></li>
-                <li><a href="#">Tibbi Kitabxanalar</a></li>
-                <li><a href="#">Xəstəliklər</a></li>
-                <li><a href="#">Endirim Aksiyalar</a></li>
-                <li><a href="#">Güvənirlik</a></li>
-                <li><a href="#">Şəxsi Məlumatların Qorunulması</a></li>
-              </ul>
-            </nav>
-            <nav class="footer__nav">
-              <div class="footer__nav-group">
-                <div class="footer__title">Həkim və Klinikalar</div>
-                <ul class="footer__list">
-                  <li><a href="#" rel="nofollow">Şəxsi Kabinet</a></li>
-                  <li><a href="#" rel="nofollow">Qeydiyyat</a></li>
-                </ul>
-              </div>
-              <div class="footer__nav-group">
-                <div class="footer__title">Partnyorlar</div>
-                <ul class="footer__list">
-                  <li><a href="#" rel="nofollow">Şəxsi Kabinet</a></li>
-                  <li><a href="#" rel="nofollow">Partnyorluq Programı</a></li>
-                </ul>
-              </div>
-            </nav>
-          </div>
-        </aside>
-        <aside class="footer__right">
-          <div class="footer__logo"><img src="../s.docdoc.ru/new-doc-doc/images/logo.png" alt="" width="140" /></div>
-            <div class="footer__contacts">
-              Bizə Yazın: <b><a href="mailto:info@tapdoc.az">info@tapdoc.az</a></b><br />
-                                                    Bizə Zəng:
-              <span class="header_contact_phone ">
-							+994 55 6236651 						</span>
-              <br />
-              <span class="footer__copyright">© tapdoc.az 2018</span>
-            </div>
-            <div class="footer__socials">
-              <a href="#" target="_blank" class="footer__social footer__social_vk"></a>
-              <a href="#" target="_blank" class="footer__social footer__social_fb"></a>
-              <a href="#" target="_blank" class="footer__social footer__social_linkedin"></a>
-              <a href="#" target="_blank" class="footer__social footer__social_youtube"></a>
-            </div>
-        </aside>
-      </div>
-    </div>
-    <div class="callback-block">
-      <a href="tel:+994516236651" class="callback" data-page="site" data-action="index">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>Bizə Zəng Edin</span>
-            </a>
-    </div>
-  </footer>
-
-  <div class="page-overlay js-overlay-page"></div>
-  <div class="popup js-popup">
-    <div class="popup-modal-margin">
-      <div class="popup-modal js-popup-modal popup-modal__loading">
-        <div class="popup__close fa fa-times js-popup-close"></div>
-        <div class="popup__cont js-popup-content"></div>
-      </div>
-    </div>
-    <div class="popup__click js-popup-overlay"></div>
-  </div>
-
+  {% include 'footer-main.html' %}
 
   <script src="widget/js59fa?2937290733" type="text/javascript" id="docdoc-platform2"></script>
-
   <script src="../s.docdoc.ru/compile/common59fa.js?2937290733"></script>
   <script src="../s.docdoc.ru/compile/vendor59fa.js?2937290733"></script>
   <script src="{% static 'js/new-docdoc59fa.js' %}"></script>
@@ -1664,6 +1599,23 @@ a.dil {
   <div id="popup-container"></div>
 
   <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+
+
+  <!-- Phone Number Input Mask Start -->
+  <script>
+
+		let phoneInputs = $("#phoneInput");
+phoneInputs.inputmask(" (99) 999 99 99", {
+
+  "onincomplete": function() {
+    $(this).addClass("incomplete");
+  },
+  "oncomplete": function() {
+    $(this).removeClass("incomplete");
+  }
+});</script>
+
+  <!-- Phone Number Input Mask End -->
 
   <script>
     // Позиции докторов
@@ -1786,47 +1738,7 @@ a.dil {
       "agent": ""
     }
   </script>
-  <script>
-Array.prototype.forEach.call(document.body.querySelectorAll("*[data-mask]"), applyDataMask);
 
-function applyDataMask(field) {
-    var mask = field.dataset.mask.split('');
-
-    // For now, this just strips everything that's not a number
-    function stripMask(maskedData) {
-        function isDigit(char) {
-            return /\d/.test(char);
-        }
-        return maskedData.split('').filter(isDigit);
-    }
-
-    // Replace `_` characters with characters from `data`
-    function applyMask(data) {
-        return mask.map(function(char) {
-            if (char != '_') return char;
-            if (data.length == 0) return char;
-            return data.shift();
-        }).join('')
-    }
-
-    function reapplyMask(data) {
-        return applyMask(stripMask(data));
-    }
-
-    function changed() {
-        var oldStart = field.selectionStart;
-        var oldEnd = field.selectionEnd;
-
-        field.value = reapplyMask(field.value);
-
-        field.selectionStart = oldStart;
-        field.selectionEnd = oldEnd;
-    }
-
-    field.addEventListener('click', changed)
-    field.addEventListener('keyup', changed)
-}
-</script>
 </body>
 
 </html>
