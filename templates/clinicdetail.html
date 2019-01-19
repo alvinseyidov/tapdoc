@@ -19,7 +19,7 @@
 <title>Klinika Profil</title>
 
         <link rel="stylesheet" href="https://docdoc.ru/static/compile/fonts.css?1943356933">
-
+         <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -223,6 +223,21 @@
 .clinic-card__face {
     border: 0px solid #cdcdcd !important;
 }
+.sertifikat{
+  box-shadow: 0 1px 4px 0 rgba(1,1,1,.13);
+  border-radius: 4px;
+}
+.sertifikat:hover{
+  box-shadow: 0 1px 4px 0 rgba(1,1,1,.35);
+}
+.aksiya{
+  box-shadow: 0 1px 4px 0 rgba(1,1,1,.13);
+  border-radius: 4px;
+}
+.aksiya:hover{
+  box-shadow: 0 1px 4px 0 rgba(1,1,1,.35);
+
+}
 </style>
 </head>
 
@@ -324,7 +339,7 @@
 								<div class="clinic__caption">
 									<div class="clinic__caption-left">
 										<div class="clinic__logo ">
-											<img src="https://cdn.docdoc.ru/clinic/logo/min_35333.png?1541732838" alt=""/>
+											<img src="{% static 'img/avrasiya.png'%}" alt=""/>
 										</div>
 
 										<div class="clinic__rating">
@@ -366,12 +381,11 @@
 			</span>
 			</div>
 										</div>
-                                        										<h1 class="clinic__name">New Med Klinikası</h1>
+                                        										<h1 class="clinic__name">Avrasiya  Klinikası</h1>
 									</div>
 								</div>
 								<div class="clinic__slider-container">
-																			<img src="https://s.docdoc.ru/new-doc-doc/images/nophoto.png"
-										     itemprop="image" style="display:none;"/>
+																			<img src="{% static 'img/avrasiyabg.jpg'%}"/>
 																	</div>
 							</div>
 						</div>
@@ -469,9 +483,21 @@
 
 
 
+<div class="clinic__content" style=" margin: -26px 0 0 0; ">
+<div class="wrapper">
+  <div style="margin: 26px 0 22px 0;"> <h3>Sertifikatlar</h3></div>
+  <div style="margin: 26px 0 22px 0;">
+    <div class="row">
+      <div class="col-4 col-sm-4"><img class="aksiya" src="{% static 'img/aksiya1.png'%}"/></div>
+      <div class="col-4 col-sm-4"><img class="aksiya" src="{% static 'img/aksiya2.png'%}"/></div>
+      <div class="col-4 col-sm-4"><img class="aksiya" src="{% static 'img/aksiya1.png'%}"/></div>
+
+    </div>
+  </div>
+  </div>
+  </div>
 
 
-<iframe src="https://meduza.az/1/docdoc.ru/clinic/meditsina2.html" frameborder="0" style="overflow:hidden;height:311px;width:100%" height="100%" width="100%"></iframe>
 
 
 
@@ -494,7 +520,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
                      <h4 class="panel-titleaccordion">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
                 <b>  Andrologiya</b>
                 </a>
               </h4>
@@ -1001,17 +1027,14 @@
 									</div>
 									<div class="clinic__select">
 										<div class="select select_sorting" data-block="select" style="float: right;margin: 56px -18px 0 0;">
-																						<div class="select__head">İxtisaslar</div>
-											<div class="select__list">
-																									<a href="https://tapdoc.az/clinic/eko-sodeystvie/doctor-androlog"
-													   class="select__item">Androloq</a>
-																									<a href="https://tapdoc.az/clinic/eko-sodeystvie/doctor-urolog"
-													   class="select__item">Uroloq</a>
-																									<a href="https://tapdoc.az/clinic/eko-sodeystvie/doctor-reproduktolog_eko"
-													   class="select__item">Gnikoloq (ЭКО)</a>
-																									<a href="https://tapdoc.az/clinic/eko-sodeystvie/doctor-vrach_uzi"
-													   class="select__item">Terapevt</a>
-																							</div>
+
+                      <select style=" background: #fff; font-size: 16px; display: inline-block; color: #828288; line-height: 30px; border: 1px solid #e1e1e5; border-radius: 4px; box-sizing: border-box; padding: 0 10px; width: 155px; overflow: hidden; text-overflow: ellipsis; vertical-align: top; height: 34px; ">
+                       <option value="1">İxtisaslar</option>
+                       <option value="2">Kardioloq</option>
+                       <option value="3">Terapevt</option>
+                       <option value="4">Oftolmoloq</option>
+                       <option value="5">Cərrah</option>
+                      </select>
 										</div>
 									</div>
 								</div>
@@ -1194,9 +1217,40 @@
 	</div>
 </div>
 																					</div>
+                        <div style="margin: 26px 0 22px 0;"> <h3>Sertifikatlar</h3></div>
+                        <div style="margin: 26px 0 22px 0;">
+                          <div class="row">
+                            <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
+                            <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
+                            <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
+                            <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
+                            <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
+                            <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
+                          </div>
+                        </div>
 
 
-                                          <iframe src="https://meduza.az/1/docdoc.ru/clinic/meditsina.html" frameborder="0" style="overflow:hidden;height:311px;width:100%" height="100%" width="100%"></iframe>
+                          <div class="collapse" id="collapseExample">
+                            <div style="margin: 0px 0 22px 0;">
+                              <div class="row">
+                                <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
+                                <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
+                                <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
+                                <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
+                                <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
+                                <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
+                              </div>
+
+                            </div>
+                          </div>
+                          <a id="butunfiliallar" class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style=" width: 100px; box-sizing: border-box; display: block; color: #fff; background: #00aec7; text-align: center; border-radius: 4px; font-size: 12px; line-height: 7px; height: 32px; text-transform: uppercase; padding: 15px 18px; border: 0; cursor: pointer; letter-spacing: 0.18px; font-family: 'Muller', sans-serif; -webkit-transition: background-color 0.1s linear 0s; -moz-transition: background-color 0.1s linear 0s; -o-transition: background-color 0.1s linear 0s; transition: background-color 0.1s linear 0s; -webkit-backface-visibility: hidden; ">Daha Çox</a>
+                          <script>
+                          $('#butunfiliallar').click(function(){
+                              $(this).text(function(i,old){
+                                  return old=='Daha Çox' ?  'Bağla' : 'Daha Çox';
+                              });
+                          });</script>
+
 					</div>
 				</div>
 
@@ -1591,6 +1645,7 @@
 
 
 <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"780216d570","applicationID":"15308550","transactionName":"ZlMHNkcHWEtQB0QLC18ZJhdGEllVHh1ZC0tXRAoMQUlVVFgKWQFLQl4KFQ==","queueTime":0,"applicationTime":483,"atts":"ShQQQA8dSxQTBRJYH0xL","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+
 
 <!-- Mirrored from docdoc.ru/clinic/eko-sodeystvie by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 09 Nov 2018 08:12:24 GMT -->
 </html>

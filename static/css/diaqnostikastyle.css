@@ -4353,7 +4353,7 @@ body {
   box-shadow: 0 3px 2px 0 rgba(1, 1, 1, 0.1);
   position: relative;
   background: #fff;
-  z-index: 4;
+  z-index: 3;
 }
 .clinics__toptitle {
   padding-top: 40px;

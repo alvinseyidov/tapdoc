@@ -1104,7 +1104,7 @@
                <div class="container-responsive">
                   <div class="navbar-header">
                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="icon-bar icon-bar__top"></span> <span class="icon-bar icon-bar__mid"></span> <span class="icon-bar icon-bar__bot"></span> </button>
-                     <div class="header-logo-block"> <a class="header-external-responsive__link" href="/health" title="" ui-sref="health.feed"> <img ng-src="{% static 'adminglobal_assets/images/logo_dark.png'%}" class="logo-2x" alt="" src="{% static 'adminglobal_assets/images/logo_dark.png'%}"> </a> </div>
+                     <div class="header-logo-block"> <a class="header-external-responsive__link" href="/health" title="" ui-sref="health.feed"> <img ng-src="{% static 'img/tapdoc.png'%}" class="logo-2x" alt="" src="{% static 'img/tapdoc.png'%}"> </a> </div>
                   </div>
                   <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
                      <div class="nav navbar-nav">
@@ -1141,7 +1141,7 @@
             <div class="container-responsive" ng-show="!vm.isMedicine">
                <div class="navbar-header">
                   <button type="button" class="navbar-toggle collapsed" ng-class="{'collapsed': !vm.isShowNavBar}" aria-expanded="false" ng-click="vm.toggleNavBar()"> <span class="icon-bar icon-bar__top"></span> <span class="icon-bar icon-bar__mid"></span> <span class="icon-bar icon-bar__bot"></span> </button>
-                  <div class="header-logo-block"> <a class="header-external-responsive__link" href="/" ui-sref="main" title=" - Персональное здравоохранение"> <img ng-src="{% static 'adminglobal_assets/images/logo_dark.png'%}" class="logo-2x" alt=" - Персональное здравоохранение" src="{% static 'adminglobal_assets/images/logo_dark.png'%}"> </a> </div>
+                  <div class="header-logo-block"> <a class="header-external-responsive__link" href="/" ui-sref="main" title=" - Персональное здравоохранение"> <img ng-src="{% static 'img/tapdoc.png'%}" class="logo-2x" alt=" - Персональное здравоохранение" src="{% static 'img/tapdoc.png'%}"> </a> </div>
                </div>
                <div class="text-left" ng-class="{'navbar collapse': vm.isMobile, 'navbar-collapse in': vm.isShowNavBar}" ng-hide="">
                   <a href="/medicine" class="r-button r-button--blue-border top-space" ui-sref="medicine_main">Врачам и клиникам</a>
@@ -1155,7 +1155,7 @@
             <div class="container-responsive ng-hide" ng-show="vm.isMedicine">
                <div class="navbar-header">
                   <button type="button" class="navbar-toggle collapsed" ng-class="{'collapsed': !vm.isShowNavBar}" aria-expanded="false" ng-click="vm.toggleNavBar()"> <span class="icon-bar icon-bar__top"></span> <span class="icon-bar icon-bar__mid"></span> <span class="icon-bar icon-bar__bot"></span> </button>
-                  <div class="header-logo-block"> <a class="header-external-responsive__link" href="/" ui-sref="main" title=" - Персональное здравоохранение"> <img ng-src="{% static 'adminglobal_assets/images/logo_dark.png'%}" class="logo-2x" alt=" - Персональное здравоохранение" src="{% static 'adminglobal_assets/images/logo_dark.png'%}"> </a> </div>
+                  <div class="header-logo-block"> <a class="header-external-responsive__link" href="/" ui-sref="main" title=" - Персональное здравоохранение"> <img ng-src="{% static 'img/tapdoc.png'%}" class="logo-2x" alt=" - Персональное здравоохранение" src="{% static 'img/tapdoc.png'%}"> </a> </div>
                </div>
                <div class="navbar-collapse" ng-class="{ 'collapse': vm.isMobile, 'in': vm.isShowNavBar} ">
                   <ul class="list-inline navbar-left header-external-responsive__links">
@@ -1197,12 +1197,7 @@
                                 <li class="sidebar-profile__menu-item" ng-if="vm.platform.isClinicSharingEnabled &amp;&amp; !vm.platform.isUseOldPatientActivation"> <a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--privacy-clinic" href="{% url 'accountsettingsclinicpermissions'%}" ui-sref="profile.privacy_clinic" ng-click="vm.menuItemClick()">Klinkalara İcazə</a> </li>
                                 <!---->
                                 <li class="sidebar-profile__menu-item"> <a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--family" href="{% url 'accountsettingsfamily'%}" ui-sref="profile.family" ng-click="vm.menuItemClick()">Ailə Üzvləri</a> </li>
-                                <li class="sidebar-profile__menu-item">
-                                   <!----><a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--history" href="{% url 'accountsettingshistory'%}" ui-sref="profile.payments" ng-click="vm.menuItemClick()" ng-if="$ctrl.platform.isShowPaymentsHistory">Tarixçə </a><!---->
-                                </li>
-                                <li class="sidebar-profile__menu-item">
-                                   <!----><a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--promocode" href="{% url 'accountsettingspromotions'%}" ui-sref="profile.promocode" ng-click="vm.menuItemClick()" ng-if="$ctrl.platform.isShowOndoced">Promo Kod</a><!---->
-                                </li>
+                                
                                 <li class="sidebar-profile__menu-item visible-xs"> <a ui-sref-active="sidebar-profile__menu-link--active" class="sidebar-profile__menu-link sidebar-profile__menu-link--exit" href="" ng-click="vm.logout()">Выход</a> </li>
                              </ul>
                           </div>

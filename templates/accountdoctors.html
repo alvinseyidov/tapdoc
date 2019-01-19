@@ -68,7 +68,99 @@
 
 
 			<!-- Sidebar content -->
-				{% include 'accountsidebar.html' %}
+			<div class="sidebar-content">
+				<div class="card card-sidebar-mobile">
+
+					<!-- Header -->
+
+
+					<!-- User menu -->
+					<div class="sidebar-user">
+						<div class="card-body">
+							<div class="media">
+								<div class="mr-3">
+									<a href="#"><img src="{% static 'adminglobal_assets/images/placeholders/placeholder.jpg'%}" width="70" height="70" class="rounded-circle" alt=""></a>
+								</div>
+
+								<div class="media-body" style=" margin: 15px 0 0 0; ">
+									<div class="media-title font-weight-semibold">Elvin Seyidzade</div>
+									<div class="font-size-lg opacity-100">
+										<i class="fas fa-tint" style=" color: #ff83ad; "></i> &nbsp;O(l) RH+
+									</div>
+								</div>
+
+								<div class="ml-3 align-self-center">
+									<a href="{% url 'accountsettings'%}" class="text-white"><i class="icon-cog3"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /user menu -->
+
+					<!-- Main navigation -->
+					<div class="card-body p-0">
+						<ul class="nav nav-sidebar" data-nav-type="accordion">
+
+							<!-- Main -->
+							<li class="nav-item">
+								<a href="{% url 'account'%}" class="nav-link">
+									<i class="icon-home4"></i>
+									<span>
+										Ümumi Məlumat
+
+									</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="#" class="nav-link"><i class="icon-copy"></i> <span>Tibbi Kitabça</span></a>
+
+
+							</li>
+							<li class="nav-item">
+								<a href="#" class="nav-link"><i class="icon-color-sampler"></i> <span>Sağlamlıq Monitoring</span></a>
+
+
+							</li>
+							<li class="nav-item">
+								<a href="#" class="nav-link"><i class="icon-stack"></i> <span>Dərmanlar</span></a>
+
+
+							</li>
+							<li class="nav-item"><a href="#" class="nav-link"><i class="icon-width"></i> <span>İstiqamətlər</span></a></li>
+							<!-- /main -->
+
+							<!-- Layout -->
+							<li class="nav-item">
+								<a href="#" class="nav-link"><i class="icon-stack2"></i> <span>Bildirişlər</span></a>
+
+
+							</li>
+							<li class="nav-item">
+								<a href="#" class="nav-link"><i class="icon-page-break2"></i> <span>Mesajlar</span></a>
+
+							</li>
+							<li class="nav-item nav-item-expanded nav-item-open">
+								<a href="{% url 'accountdoctors'%}" class="nav-link"><i class="icon-indent-decrease2"></i> <span>Həkimlər</span></a>
+
+							</li>
+							<li class="nav-item">
+								<a href="{% url 'accountcinics'%}" class="nav-link"><i class="icon-menu3"></i> <span>Klinikalar</span></a>
+
+							</li>
+							<li class="nav-item">
+								<a href="{% url 'accountcinics'%}" class="nav-link"><i class="icon-menu3"></i> <span>Apteklər</span></a>
+
+							</li>
+
+							<!-- /layout -->
+
+						</ul>
+					</div>
+					<!-- /main navigation -->
+
+				</div>
+			</div>
+
 			<!-- /sidebar content -->
 
 		</div>
@@ -285,9 +377,9 @@
 			</span>
 
 			<ul class="navbar-nav ml-lg-auto">
-				<li class="nav-item"><a href="https://kopyov.ticksy.com/" class="navbar-nav-link" target="_blank"><i class="icon-lifebuoy mr-2"></i> Dəstək</a></li>
-				<li class="nav-item"><a href="http://demo.interface.club/limitless/docs/" class="navbar-nav-link" target="_blank"><i class="icon-file-text2 mr-2"></i> Ətraflı Məlumat</a></li>
-				<li class="nav-item"><a href="https://themeforest.net/item/limitless-responsive-web-application-kit/13080328?ref=kopyov" class="navbar-nav-link font-weight-semibold"><span class="text-pink-400"><i class="icon-phone mr-2"></i> Əlaqə</span></a></li>
+				<li class="nav-item"><a href="#" class="navbar-nav-link" target="_blank"><i class="icon-lifebuoy mr-2"></i> Dəstək</a></li>
+				<li class="nav-item"><a href="#" class="navbar-nav-link" target="_blank"><i class="icon-file-text2 mr-2"></i> Ətraflı Məlumat</a></li>
+				<li class="nav-item"><a href="#" class="navbar-nav-link font-weight-semibold"><span class="text-pink-400"><i class="icon-phone mr-2"></i> Əlaqə</span></a></li>
 			</ul>
 		</div>
 	</div>
