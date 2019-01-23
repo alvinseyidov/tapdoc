@@ -7600,15 +7600,13 @@ background-color: #f9f9f9;
 	color: #1593db;
 	line-height: 16px;
 	display: inline-block;
-	border-bottom: 1px dashed #1593db;
+
 	cursor: pointer;
 	vertical-align: top;
 	margin-top: 5px
 }
 
-.reviews__more:hover {
-	border-bottom: 0
-}
+
 
 .reviews__button {
 	float: right;

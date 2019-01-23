@@ -33,6 +33,7 @@
 
         <link rel="stylesheet" href="https://docdoc.ru/static/compile/fonts.css?2937290733">
 <link rel="stylesheet" type="text/css" href="{% static 'css/rf.css'%}">
+<link rel="stylesheet" href="{% static 'css/styleselect.css'%}">
 	         <link rel="stylesheet" href="{% static 'css/doctorstyle.css'%}">
         <link rel="apple-touch-icon" sizes="180x180" href="https://s.docdoc.ru/new-doc-doc/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="https://s.docdoc.ru/new-doc-doc/favicon/favicon-32x32.png" sizes="32x32">
@@ -988,8 +989,8 @@ function myFunction() {
 
 
       <div class="tabdoctab{{doctor.id}} multiclinicdoc" style="margin: 10px 0 0 0;padding: 18px 0 0 0;">
-        <button style="margin: 4px 0 2px -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'London{{doctor.id}}')" id="defaultOpendoctab{{doctor.id}}">1</button><br>
-        <button style="margin: 1px 0 0 -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'Paris{{doctor.id}}')" id="defaultOpendoctab2{{doctor.id}}">2</button><br>
+        <button style="margin: 4px 0 2px -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'London{{doctor.id}}')" id="defaultOpendoctabone">1</button><br>
+        <button style="margin: 1px 0 0 -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'Paris{{doctor.id}}')" id="defaultOpendoctabone2">2</button><br>
 
 
       </div>
@@ -997,25 +998,40 @@ function myFunction() {
        <div style="margin: -85px -66px 0 0;padding: 4px 0 0 0;" id="London{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
 				<div class="clinic-card__clinic" style="padding: 40px 25px 25px 57px;">
         <div class="bozpanel1" style="font-size:15px;">Həkim bir neçə klinikada fəaliyyət göstərir.</div>
-        <label class="dropdownbozpanel">
+        <div style="    padding: 0 0 0 60px;">
+        <select style="    width: 192px;" id="doctabselectdrop1" onchange="doctabselectdrop1()">
+   <option value="1">Medical Plaza&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+   <option value="2">New Med Klinikası</option>
+ </select></div>
+ <script type="text/javascript">
+
+   function doctabselectdrop1() {
+     var selectBox = document.getElementById("doctabselectdrop1");
+     var selectedValue = selectBox.options[selectBox.selectedIndex].value;
 
 
-  <div class="dd-buttonbozpanel">
-    Medical Plaza Klinika
-  </div>
+     if(selectedValue==1){document.getElementById("London4").style.display = "block";
+       document.getElementById("Paris4").style.display = "none";
+     var drop = document.getElementById("defaultOpendoctabone");
+     drop.className += " active";
+     var dropremove = document.getElementById("defaultOpendoctabone2");
+     dropremove.classList.remove("active");
+   }
+     else if(selectedValue==2){
+     document.getElementById("London4").style.display = "none";
+       document.getElementById("Paris4").style.display = "block";
+     var drop2 = document.getElementById("defaultOpendoctabone2");
+     drop2.className += " active";
+     var drop2remove = document.getElementById("defaultOpendoctabone");
+     drop2remove.classList.remove("active");
+     document.getElementById('doctabselectdrop2').value='1';
 
-  <input type="checkbox" class="dd-inputbozpanel" id="test">
+    }
+ }
 
-  <ul class="dd-menubozpanel">
-<li>Medical Plaza Klinika</li>
-    <li>New Med</li>
+  </script>
 
-
-  </ul>
-
-</label>
-
-            <div><p style="font-size: 13px; text-align: center; margin: 0 32px 8px 0;">Bu klinikada hal-hazırda onlayn qeydiyyat yoxdur. Qəbula yazılmaq üçün müraciət edin, sizinlə 10 dəq ərzində əlaqə saxlanılacaq.</p></div>
+            <div><p style="font-size: 13px; text-align: center; margin: 66px 32px 8px 0;">Bu klinikada hal-hazırda onlayn qeydiyyat yoxdur. Qəbula yazılmaq üçün müraciət edin, sizinlə 10 dəq ərzində əlaqə saxlanılacaq.</p></div>
 
 												<div style="    margin: 0 0px 0 62px;" class="clinic-address__button clinic-card__clinic-button js-book-clinic">
 							                 <button class="myBtnmuraciet myBtnmuraciet{{ doctor.id }}" id="myBtnmuraciet{{ doctor.id }}">Müraciət</button>
@@ -1040,7 +1056,7 @@ function myFunction() {
   				<div class="clinic-card__clinic" style="padding: 40px 25px 25px 57px;">
 
           <div class="bozpanel1"  style="font-size:15px;">Həkim bir neçə klinikada fəaliyyət göstərir.</div>
-          <label class="dropdownbozpanel">
+          <label class="dropdownbozpanel" style="display:none;">
 
     <div class="dd-buttonbozpanel">
       New Med Klinikası
@@ -1049,13 +1065,47 @@ function myFunction() {
     <input type="checkbox" class="dd-inputbozpanel" id="test">
 
     <ul class="dd-menubozpanel">
-      <li>New Med</li>
-      <li>Medical Plaza</li>
+    <a onclick="openCitydoctabdrop11(event, 'London{{doctor.id}}')" id="defaultOpendoctab{{doctor.id}}"><li>New Med</li></a>
 
     </ul>
 
   </label>
-  <div><p style="font-size: 13px;text-align: center;margin: 0 32px 8px 0;">Bu klinikada hal-hazırda onlayn qeydiyyat yoxdur. Qəbula yazılmaq üçün müraciət edin, sizinlə 10 dəq ərzində əlaqə saxlanılacaq.</p></div>
+  <div style="    padding: 0 0 0 60px;">
+  <select style="  width: 192px;" id="doctabselectdrop2" onchange="doctabselectdrop2()">
+     <option value="1">New Med Klinikası</option>
+     <option value="2">Medical Plaza&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+   </select></div>
+   <script type="text/javascript">
+
+     function doctabselectdrop2() {
+       var selectBox2 = document.getElementById("doctabselectdrop2");
+       var selectedValue2 = selectBox2.options[selectBox2.selectedIndex].value;
+
+
+       if(selectedValue2==2){
+         document.getElementById("London4").style.display = "block";
+           document.getElementById("Paris4").style.display = "none";
+         var drop11 = document.getElementById("defaultOpendoctabone");
+         drop11.className += " active";
+         var drop11remove = document.getElementById("defaultOpendoctabone2");
+         drop11remove.classList.remove("active");
+     }
+       else if(selectedValue2==1){
+         document.getElementById("London4").style.display = "none";
+           document.getElementById("Paris4").style.display = "block";
+         var drop22 = document.getElementById("defaultOpendoctabone2");
+         drop22.className += " active";
+         var drop22remove = document.getElementById("defaultOpendoctabone");
+         drop22remove.classList.remove("active");
+
+     }
+
+
+
+   }
+
+    </script>
+  <div><p style="font-size: 13px;text-align: center;margin: 66px 32px 8px 0;">Bu klinikada hal-hazırda onlayn qeydiyyat yoxdur. Qəbula yazılmaq üçün müraciət edin, sizinlə 10 dəq ərzində əlaqə saxlanılacaq.</p></div>
 
               <div style="margin: 0 0px 0 62px;" class="clinic-address__button clinic-card__clinic-button js-book-clinic">
                      <button class="myBtnmuraciet" id="myBtnmuraciet{{ doctor.id }}">Müraciət</button>
@@ -1439,6 +1489,19 @@ function openCitydoctab{{doctor.id}}(evt, cityNamedoctab{{doctor.id}}) {
   evt.currentTarget.className += " active";
 }
 
+
+
+function openCitydoctabdrop11() {
+  document.getElementById("London4").style.display = "block";
+    document.getElementById("Paris4").style.display = "none";
+  var drop11 = document.getElementById("defaultOpendoctabone");
+  drop11.className += " active";
+  var drop11remove = document.getElementById("defaultOpendoctabone2");
+  drop11remove.classList.remove("active");
+}
+
+
+
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpendoctab{{doctor.id}}").click();
 
@@ -1503,28 +1566,28 @@ window.onclick = function(event) {
 
 
 					<li>
-				<a href="https://tapdoc.az/clinic/page/1" class="paginate__item paginate__item_active">
+				<a href="{% url 'doctor'%}" class="paginate__item paginate__item_active">
 					1				</a>
 			</li>
 					<li>
-				<a href="https://tapdoc.az/clinic/page/2" class="paginate__item">
+				<a href="{% url 'doctorpage2'%}" class="paginate__item">
 					2				</a>
 			</li>
 					<li>
-				<a href="https://tapdoc.az/clinic/page/3" class="paginate__item">
+				<a href="{% url 'doctorpage3'%}" class="paginate__item">
 					3				</a>
 			</li>
 					<li>
-				<a href="https://tapdoc.az/clinic/page/4" class="paginate__item">
+				<a href="{% url 'doctorpage4'%}" class="paginate__item">
 					4				</a>
 			</li>
 					<li>
-				<a href="https://tapdoc.az/clinic/page/5" class="paginate__item">
+				<a href="{% url 'doctorpage5'%}" class="paginate__item">
 					5				</a>
 			</li>
 
 					<li>
-				<a href="https://tapdoc.az/clinic/page/2" class="paginate__item paginate__item_next">
+				<a href="{% url 'doctorpage2'%}" class="paginate__item paginate__item_next">
 					<span></span> <i class="fa fa-chevron-right" aria-hidden="true"></i>
 				</a>
 			</li>
@@ -1718,6 +1781,14 @@ window.onclick = function(event) {
 
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 
+
+ <script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
+    <script>
+        $(document).ready(function() {
+          $('select:not(.ignore)').niceSelect();
+          FastClick.attach(document.body);
+        });
+      </script>
 
             <script>
 	// Позиции докторов

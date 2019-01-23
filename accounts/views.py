@@ -68,9 +68,17 @@ def accountclinics(request):
     return render(request, 'accountclinics.html')
 
 @login_required(login_url='/admin/')
+def accountaptek(request):
+    return render(request, 'accountaptek.html')
+
+@login_required(login_url='/admin/')
 def accountdoctordetail(request):
     return render(request, 'accountdoctordetail.html')
 
 @login_required(login_url='/admin/')
 def accountclinicdetail(request):
     return render(request, 'accountclinicdetail.html')
+
+@login_required(login_url='/admin/')
+def accountaptekdetail(request):
+    return render(request, 'accountaptekdetail.html')

@@ -13,6 +13,7 @@
 
 
 
+        <link rel="stylesheet" href="{% static 'css/viewbox.css'%}">
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -20,6 +21,9 @@
 
         <link rel="stylesheet" href="https://docdoc.ru/static/compile/fonts.css?1943356933">
          <link rel="stylesheet" href="{% static 'css/style.css' %}">
+          <link rel="stylesheet" href="{% static 'css/styleselect.css' %}">
+          <link rel="stylesheet" href="{% static 'css/aksiyapopup.css' %}">
+          <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -238,6 +242,166 @@
   box-shadow: 0 1px 4px 0 rgba(1,1,1,.35);
 
 }
+
+.reyler{
+text-decoration: none !important;
+color: #1593db;
+}
+
+.reyler:hover{
+text-decoration: none !important;
+color:#91cced !important;
+}
+
+.modal1 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  padding-top: 18px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content1 {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  border-radius: 7px;
+}
+
+/* The Close Button */
+.close1 {
+
+}
+
+.close1:hover,
+.close1:focus {
+
+}
+
+
+
+.modal2 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  padding-top: 18px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content2 {
+  background-color: #fefefe;
+margin: auto;
+padding: 20px;
+border: 1px solid #888;
+width: 50%;
+border-radius: 7px;
+}
+
+/* The Close Button */
+.close2 {
+
+}
+
+.close2:hover,
+.close2:focus {
+
+}
+
+
+
+
+
+.modal3 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  padding-top: 18px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content3 {
+  background-color: #fefefe;
+margin: auto;
+padding: 20px;
+border: 1px solid #888;
+width: 50%;
+border-radius: 7px;
+}
+
+/* The Close Button */
+.close3 {
+
+}
+
+.close3:hover,
+.close3:focus {
+
+}
+
+
+
+
+.modal4 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content4 {
+  background-color: #fefefe;
+margin: auto;
+padding: 20px;
+border: 1px solid #888;
+width: 50%;
+border-radius: 7px;
+}
+
+/* The Close Button */
+.close4 {
+  color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close4:hover,
+.close4:focus {
+  color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 </style>
 </head>
 
@@ -377,16 +541,55 @@
 					<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 				  <a itemprop="item" href="https://tapdoc.az/clinic"><span itemprop="name">Klinikalar</span></a>	></span>
 					<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-				  <span itemprop="name">New Med Klinikası</span>				<meta itemprop="position" content="3" />
+				  <span itemprop="name">Avrasiya Klinikası</span>				<meta itemprop="position" content="3" />
 			</span>
 			</div>
 										</div>
                                         										<h1 class="clinic__name">Avrasiya  Klinikası</h1>
 									</div>
 								</div>
-								<div class="clinic__slider-container">
-																			<img src="{% static 'img/avrasiyabg.jpg'%}"/>
+								<div class="clinic__slider-container w3-content w3-display-container">
+																			<img class="mySlides" src="{% static 'img/avrasiyabg.jpg'%}"/>
+                                      <img class="mySlides" src="{% static 'img/avrasiyabg1.jpg'%}"/>
+                                      <img class="mySlides" src="{% static 'img/avrasiyabg2.jpg'%}"/>
+
+                                      <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%;    z-index: 100;">
+    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+  </div>
 																	</div>
+
+                                  <script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  x[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " w3-white";
+}
+</script>
 							</div>
 						</div>
 					</div>
@@ -457,6 +660,67 @@
 				<a href="https://tapdoc.az/clinic/station/vdnh" class="notlink">
 					Gənclik (1 км)
 				</a>
+<br>
+        <a id="myBtn4" style="color: #1593db !important;">
+					Bütün Filiallar
+				</a>
+        <div id="myModal4" class="modal4">
+<span class="close4">&times;</span>
+          <!-- Modal content -->
+          <div class="modal-content4">
+            <div class="popup-filials-list">
+													<div class="popup-filials-list__item js-popup-filial" data-id="clinic-13">
+						<div class="popup-filials-list__num">1</div>
+						<div class="popup-filials-list__name">Avrasiya Klinikası Nərimanov Filialı</div>
+						İnqilab küç. 17				</div>
+									<div class="popup-filials-list__item js-popup-filial" data-id="clinic-230">
+						<div class="popup-filials-list__num">2</div>
+						<div class="popup-filials-list__name">Avrasiya Klinikası Yasamal Filialı</div>
+						Səməd Vurğun küç. 55				</div>
+									<div class="popup-filials-list__item js-popup-filial" data-id="clinic-231">
+						<div class="popup-filials-list__num">3</div>
+						<div class="popup-filials-list__name">Avrasiya Klinikası Nəsimi Filialı</div>
+						Azadlıq pros. 54					</div>
+									<div class="popup-filials-list__item js-popup-filial" data-id="clinic-232">
+						<div class="popup-filials-list__num">4</div>
+						<div class="popup-filials-list__name">Avrasiya Klinikası Xəzər Filialı</div>
+						Atatürk pros.43					</div>
+
+
+							</div>
+          </div>
+
+        </div>
+
+        <script>
+        // Get the modal
+        var modal4 = document.getElementById('myModal4');
+
+        // Get the button that opens the modal
+        var btn4 = document.getElementById("myBtn4");
+
+        // Get the <span> element that closes the modal
+        var span4 = document.getElementsByClassName("close4")[0];
+
+        // When the user clicks the button, open the modal
+        btn4.onclick = function() {
+          modal4.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span4.onclick = function() {
+          modal4.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+
+        </script>
+
+
+
+
+
+
 			</div>
 
 	</div>
@@ -488,18 +752,248 @@
   <div style="margin: 26px 0 22px 0;"> <h3>Sertifikatlar</h3></div>
   <div style="margin: 26px 0 22px 0;">
     <div class="row">
-      <div class="col-4 col-sm-4"><img class="aksiya" src="{% static 'img/aksiya1.png'%}"/></div>
-      <div class="col-4 col-sm-4"><img class="aksiya" src="{% static 'img/aksiya2.png'%}"/></div>
-      <div class="col-4 col-sm-4"><img class="aksiya" src="{% static 'img/aksiya1.png'%}"/></div>
+      <a id="myBtn1"><div class="col-4 col-sm-4"><img class="aksiya" src="{% static 'img/aksiya1.png'%}"/></div></a>
+      <a id="myBtn2"><div class="col-4 col-sm-4"><img class="aksiya" src="{% static 'img/aksiya2.png'%}"/></div></a>
+      <a id="myBtn3"><div class="col-4 col-sm-4"><img class="aksiya" src="{% static 'img/aksiya1.png'%}"/></div></a>
 
     </div>
   </div>
   </div>
   </div>
+  <!-- Trigger/Open The Modal -->
+
+
+<!-- The Modal -->
+<div id="myModal1" class="modal1">
+
+  <!-- Modal content -->
+  <div class="modal-content1">
+
+    <div ng-hide="$ctrl.loading" class="">
+   <div class="action-modal-title">
+      <div class="row">
+         <div class="col-xs-8 col-sm-8 text-left text-overflow flex flex-vertical-center">
+            <div class="doc-block__logo inline-block vertical-middle"> <img ng-src="https://ondoc.me/uploads/files/public/2017/03/1489499548_thumb_58c7f59c2ef8d.jpeg" alt="" src="https://ondoc.me/uploads/files/public/2017/03/1489499548_thumb_58c7f59c2ef8d.jpeg"> </div>
+            <span>
+               <strong>Avrasiya Klinikası</strong>
+               <div class="gray-text">Nərimanov r. Azadlıq pr. 23</div>
+            </span>
+         </div>
+         <div class="col-xs-4 col-sm-4 text-right font-size-null actions-modal-call">
+            <!----><a href="#" class="contact-doc contact-doc--call right-space--md" ng-if="$ctrl.clinic.phone" ng-class="{'right-space--md' : $ctrl.clinic.isAllowCallback}" ng-click="$ctrl.openCallModal()"></a><!----> <!----><a href="#" class="contact-doc contact-doc--backcall" ng-if="$ctrl.clinic.isAllowCallback" ng-click="$ctrl.openEnrollModal()"></a><!---->
+         </div>
+      </div>
+   </div>
+   <div class="custom-modal__body text-left">
+      <p class="font-medium"> <strong>İlk konsultasiya yalnız 30 AZN!</strong> </p>
+      <p class="text-center action-preview-image"> <img ng-src="{% static 'img/aksiya22.jpeg'%}" alt="" class="center-block" src="{% static 'img/aksiya22.jpeg'%}"> </p>
+      <!---->
+
+      <!----> <!---->
+      <div class="text-center widget-consultation__line" ng-if="$ctrl.campaign.rules"> <span class="widget-consultation__title">Haqqında</span> </div>
+      <!----> <!---->
+      <div class="widget--bottom-space" ng-if="$ctrl.campaign.rules">
+         <p class="p-small" ng-bind-html="$ctrl.campaign.rules|nl2br|raw">
+         <p>Daha ətraflı məlumat üçün bizim əlaqə nömrələri ilə əlaqə saxlaya bilərsiniz və ya email yaza bilərsiniz.</p>
+         <p>Bu aksiya 27 mart 2019 tarixinə kimi keçərlidir.<br></p>
+         </p>
+      </div>
+      <!----> <!---->
+      <div class="widget-consultation__text">
+         <!---->
+      </div>
+   </div>
+   <hr>
+   <div class="text-center"> <input type="submit" class="r-button r-button--blue-border r-button--lg close1" value="Bağla" ng-click="$ctrl.handleClose()"> </div>
+</div>
+</div>
+
+</div>
+
+<script>
+// Get the modal
+var modal1 = document.getElementById('myModal1');
+
+// Get the button that opens the modal
+var btn1 = document.getElementById("myBtn1");
+
+// Get the <span> element that closes the modal
+var span1 = document.getElementsByClassName("close1")[0];
+
+// When the user clicks the button, open the modal
+btn1.onclick = function() {
+  modal1.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span1.onclick = function() {
+  modal1.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal1) {
+    modal1.style.display = "none";
+  }
+  else if (event.target == modal2) {
+    modal2.style.display = "none";
+  }
+
+  else if (event.target == modal3) {
+    modal3.style.display = "none";
+  }
+  else if (event.target == modal4) {
+    modal4.style.display = "none";
+  }
+}
+</script>
 
 
 
 
+
+
+
+<div id="myModal2" class="modal2">
+
+  <!-- Modal content -->
+  <div class="modal-content2">
+    <div ng-hide="$ctrl.loading" class="">
+   <div class="action-modal-title">
+      <div class="row">
+         <div class="col-xs-8 col-sm-8 text-left text-overflow flex flex-vertical-center">
+            <div class="doc-block__logo inline-block vertical-middle"> <img ng-src="https://ondoc.me/uploads/files/public/2017/03/1489499548_thumb_58c7f59c2ef8d.jpeg" alt="" src="https://ondoc.me/uploads/files/public/2017/03/1489499548_thumb_58c7f59c2ef8d.jpeg"> </div>
+            <span>
+               <strong>Avrasiya Klinikası</strong>
+               <div class="gray-text">Nərimanov r. Azadlıq pr. 23</div>
+            </span>
+         </div>
+         <div class="col-xs-4 col-sm-4 text-right font-size-null actions-modal-call">
+            <!----><a href="#" class="contact-doc contact-doc--call right-space--md" ng-if="$ctrl.clinic.phone" ng-class="{'right-space--md' : $ctrl.clinic.isAllowCallback}" ng-click="$ctrl.openCallModal()"></a><!----> <!----><a href="#" class="contact-doc contact-doc--backcall" ng-if="$ctrl.clinic.isAllowCallback" ng-click="$ctrl.openEnrollModal()"></a><!---->
+         </div>
+      </div>
+   </div>
+   <div class="custom-modal__body text-left">
+      <p class="font-medium"> <strong>İlk konsultasiya yalnız 30 AZN!</strong> </p>
+      <p class="text-center action-preview-image"> <img ng-src="{% static 'img/aksiya11.jpeg'%}" alt="" class="center-block" src="{% static 'img/aksiya11.jpeg'%}"> </p>
+      <!---->
+
+      <!----> <!---->
+      <div class="text-center widget-consultation__line" ng-if="$ctrl.campaign.rules"> <span class="widget-consultation__title">Haqqında</span> </div>
+      <!----> <!---->
+      <div class="widget--bottom-space" ng-if="$ctrl.campaign.rules">
+         <p class="p-small" ng-bind-html="$ctrl.campaign.rules|nl2br|raw">
+         <p>Daha ətraflı məlumat üçün bizim əlaqə nömrələri ilə əlaqə saxlaya bilərsiniz və ya email yaza bilərsiniz.</p>
+         <p>Bu aksiya 27 mart 2019 tarixinə kimi keçərlidir.<br></p>
+         </p>
+      </div>
+      <!----> <!---->
+      <div class="widget-consultation__text">
+         <!---->
+      </div>
+   </div>
+   <hr>
+   <div class="text-center"> <input type="submit" class="r-button r-button--blue-border r-button--lg close2" value="Bağla" ng-click="$ctrl.handleClose()"> </div>
+</div>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal2 = document.getElementById('myModal2');
+
+// Get the button that opens the modal
+var btn2 = document.getElementById("myBtn2");
+
+// Get the <span> element that closes the modal
+var span2 = document.getElementsByClassName("close2")[0];
+
+// When the user clicks the button, open the modal
+btn2.onclick = function() {
+  modal2.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span2.onclick = function() {
+  modal2.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+
+</script>
+
+
+
+
+<div id="myModal3" class="modal3">
+
+  <!-- Modal content -->
+  <div class="modal-content3">
+    <div ng-hide="$ctrl.loading" class="">
+   <div class="action-modal-title">
+      <div class="row">
+         <div class="col-xs-8 col-sm-8 text-left text-overflow flex flex-vertical-center">
+            <div class="doc-block__logo inline-block vertical-middle"> <img ng-src="https://ondoc.me/uploads/files/public/2017/03/1489499548_thumb_58c7f59c2ef8d.jpeg" alt="" src="https://ondoc.me/uploads/files/public/2017/03/1489499548_thumb_58c7f59c2ef8d.jpeg"> </div>
+            <span>
+               <strong>Avrasiya Klinikası</strong>
+               <div class="gray-text">Nərimanov r. Azadlıq pr. 23</div>
+            </span>
+         </div>
+         <div class="col-xs-4 col-sm-4 text-right font-size-null actions-modal-call">
+            <!----><a href="#" class="contact-doc contact-doc--call right-space--md" ng-if="$ctrl.clinic.phone" ng-class="{'right-space--md' : $ctrl.clinic.isAllowCallback}" ng-click="$ctrl.openCallModal()"></a><!----> <!----><a href="#" class="contact-doc contact-doc--backcall" ng-if="$ctrl.clinic.isAllowCallback" ng-click="$ctrl.openEnrollModal()"></a><!---->
+         </div>
+      </div>
+   </div>
+   <div class="custom-modal__body text-left">
+      <p class="font-medium"> <strong>İlk konsultasiya yalnız 30 AZN!</strong> </p>
+      <p class="text-center action-preview-image"> <img ng-src="{% static 'img/aksiya22.jpeg'%}" alt="" class="center-block" src="{% static 'img/aksiya22.jpeg'%}"> </p>
+      <!---->
+
+      <!----> <!---->
+      <div class="text-center widget-consultation__line" ng-if="$ctrl.campaign.rules"> <span class="widget-consultation__title">Haqqında</span> </div>
+      <!----> <!---->
+      <div class="widget--bottom-space" ng-if="$ctrl.campaign.rules">
+         <p class="p-small" ng-bind-html="$ctrl.campaign.rules|nl2br|raw">
+         <p>Daha ətraflı məlumat üçün bizim əlaqə nömrələri ilə əlaqə saxlaya bilərsiniz və ya email yaza bilərsiniz.</p>
+         <p>Bu aksiya 27 mart 2019 tarixinə kimi keçərlidir.<br></p>
+         </p>
+      </div>
+      <!----> <!---->
+      <div class="widget-consultation__text">
+         <!---->
+      </div>
+   </div>
+   <hr>
+   <div class="text-center"> <input type="submit" class="r-button r-button--blue-border r-button--lg close3" value="Bağla" ng-click="$ctrl.handleClose()"> </div>
+</div>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal3 = document.getElementById('myModal3');
+
+// Get the button that opens the modal
+var btn3 = document.getElementById("myBtn3");
+
+// Get the <span> element that closes the modal
+var span3 = document.getElementsByClassName("close3")[0];
+
+// When the user clicks the button, open the modal
+btn3.onclick = function() {
+  modal3.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span3.onclick = function() {
+  modal3.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+
+</script>
 
 
 
@@ -517,32 +1011,7 @@
           <div style="  font-size: 25px;    margin: 0px 0 16px 20px;    color: #1d1d1d;">Xidmətlər və qiymətləri</div>
   <div class="col-sm-6">
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingOne">
-                     <h4 class="panel-titleaccordion">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
-                <b>  Andrologiya</b>
-                </a>
-              </h4>
 
-                </div>
-                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                    <div class="panel-body">
-                      <p>&nbsp;&nbsp;MRT ........................................................................ 50 AZN</p>
-                      <p>&nbsp;&nbsp;UZI .......................................................................... 40 AZN</p>
-                      <p>&nbsp;&nbsp;Tomografiya ............................................................ 30 AZN</p>
-                      <p>&nbsp;&nbsp;Qan Analizi .............................................................. 20 AZN</p>
-                      <p>&nbsp;&nbsp;Şəkər Ölçümü .......................................................... 90 AZN</p>
-                      <p>&nbsp;&nbsp;Ümumi Müayinə ...................................................... 120 AZN</p>
-                      <p>&nbsp;&nbsp;Analizlər .................................................................. 110 AZN</p>
-                      <p>&nbsp;&nbsp;Sidik Analizi ............................................................. 90 AZN</p>
-                      <p>&nbsp;&nbsp;Cərrahiyyə ............................................................... 35 AZN</p>
-                      <p>&nbsp;&nbsp;Mammografiya ......................................................... 55 AZN</p>
-                      <p>&nbsp;&nbsp;KT ............................................................................ 63 AZN</p>
-                      <p>&nbsp;&nbsp;USM ......................................................................... 44 AZN</p>
-                    </div>
-                </div>
-            </div>
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingTwo">
                      <h4 class="panel-titleaccordion">
@@ -673,37 +1142,12 @@
 
   <div style="  font-size: 25px;    margin: 0px 0 16px 0px;    color: #1d1d1d;">Diaqnostika xidmətləri və qiymətləri</div>
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingOne2">
-                         <h4 class="panel-titleaccordion">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
-                    <b>  Andrologiya</b>
-                    </a>
-                  </h4>
 
-                    </div>
-                    <div id="collapseOne2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne2">
-                        <div class="panel-body">
-                          <p>&nbsp;&nbsp;MRT ........................................................................ 50 AZN</p>
-                          <p>&nbsp;&nbsp;UZI .......................................................................... 40 AZN</p>
-                          <p>&nbsp;&nbsp;Tomografiya ............................................................ 30 AZN</p>
-                          <p>&nbsp;&nbsp;Qan Analizi .............................................................. 20 AZN</p>
-                          <p>&nbsp;&nbsp;Şəkər Ölçümü .......................................................... 90 AZN</p>
-                          <p>&nbsp;&nbsp;Ümumi Müayinə ...................................................... 120 AZN</p>
-                          <p>&nbsp;&nbsp;Analizlər .................................................................. 110 AZN</p>
-                          <p>&nbsp;&nbsp;Sidik Analizi ............................................................. 90 AZN</p>
-                          <p>&nbsp;&nbsp;Cərrahiyyə ............................................................... 35 AZN</p>
-                          <p>&nbsp;&nbsp;Mammografiya ......................................................... 55 AZN</p>
-                          <p>&nbsp;&nbsp;KT ............................................................................ 63 AZN</p>
-                          <p>&nbsp;&nbsp;USM ......................................................................... 44 AZN</p>
-                        </div>
-                    </div>
-                </div>
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingTwo2">
                          <h4 class="panel-titleaccordion">
                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
-                    <b>  Ginekologiya</b>
+                    <b>  USM</b>
                     </a>
                   </h4>
 
@@ -729,7 +1173,7 @@
                     <div class="panel-heading" role="tab" id="headingThree2">
                          <h4 class="panel-titleaccordion">
                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree2" aria-expanded="false" aria-controls="collapseThree2">
-                  <b>    Travmatologiya</b>
+                  <b>    MRT</b>
                     </a>
                   </h4>
 
@@ -754,7 +1198,7 @@
                     <div class="panel-heading" role="tab" id="headingFour2">
                          <h4 class="panel-titleaccordion">
                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour2" aria-expanded="false" aria-controls="collapseFour2">
-                    <b>  Nevrologiya</b>
+                    <b>  Doppler</b>
                     </a>
                   </h4>
 
@@ -779,7 +1223,7 @@
                     <div class="panel-heading" role="tab" id="headingFive2">
                          <h4 class="panel-titleaccordion">
                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive2" aria-expanded="false" aria-controls="collapseFive2">
-                    <b>  Cərrahiyyə</b>
+                    <b>  KT</b>
                     </a>
                   </h4>
 
@@ -800,34 +1244,11 @@
                     </div>
                 </div>
 
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingSix2">
-                         <h4 class="panel-titleaccordion">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix2">
-                      <b>Laboratoriya</b>
-                    </a>
-                  </h4>
 
-                    </div>
-                    <div id="collapseSix2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix2">
-                        <div class="panel-body"><p>&nbsp;&nbsp;MRT ........................................................................ 50 AZN</p>
-                        <p>&nbsp;&nbsp;UZI .......................................................................... 40 AZN</p>
-                        <p>&nbsp;&nbsp;Tomografiya ............................................................ 30 AZN</p>
-                        <p>&nbsp;&nbsp;Qan Analizi .............................................................. 20 AZN</p>
-                        <p>&nbsp;&nbsp;Şəkər Ölçümü .......................................................... 90 AZN</p>
-                        <p>&nbsp;&nbsp;Ümumi Müayinə ...................................................... 120 AZN</p>
-                        <p>&nbsp;&nbsp;Analizlər .................................................................. 110 AZN</p>
-                        <p>&nbsp;&nbsp;Sidik Analizi ............................................................. 90 AZN</p>
-                        <p>&nbsp;&nbsp;Cərrahiyyə ............................................................... 35 AZN</p>
-                        <p>&nbsp;&nbsp;Mammografiya ......................................................... 55 AZN</p>
-                        <p>&nbsp;&nbsp;KT ............................................................................ 63 AZN</p>
-                        <p>&nbsp;&nbsp;USM ......................................................................... 44 AZN</p></div>
-                    </div>
-                </div>
             </div>
   </div>
 
-  <div class="col-sm-6" style="height: 1446px;"><div class="sticky" style="position: -webkit-sticky;position: sticky;    top: 0;     padding: 41px 0 0 0;    font-size: 20px;">
+  <div class="col-sm-6" style="height: 551px;"><div class="sticky" style="position: -webkit-sticky;position: sticky;    top: 0;     padding: 41px 0 0 0;    font-size: 20px;">
     <div class="clinic__info">
 
     <div class="js-map-teaser hidden" data-type="clinic" data-clinic-id="35333" data-latitude="55.8281320000" data-longitude="37.6502260000">
@@ -1028,13 +1449,14 @@
 									<div class="clinic__select">
 										<div class="select select_sorting" data-block="select" style="float: right;margin: 56px -18px 0 0;">
 
-                      <select style=" background: #fff; font-size: 16px; display: inline-block; color: #828288; line-height: 30px; border: 1px solid #e1e1e5; border-radius: 4px; box-sizing: border-box; padding: 0 10px; width: 155px; overflow: hidden; text-overflow: ellipsis; vertical-align: top; height: 34px; ">
-                       <option value="1">İxtisaslar</option>
+                      <select>
+                      <option value="1">İxtisaslar&nbsp;&nbsp;&nbsp;&nbsp;</option>
                        <option value="2">Kardioloq</option>
                        <option value="3">Terapevt</option>
                        <option value="4">Oftolmoloq</option>
                        <option value="5">Cərrah</option>
                       </select>
+
 										</div>
 									</div>
 								</div>
@@ -1220,12 +1642,12 @@
                         <div style="margin: 26px 0 22px 0;"> <h3>Sertifikatlar</h3></div>
                         <div style="margin: 26px 0 22px 0;">
                           <div class="row">
-                            <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
-                            <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
-                            <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
-                            <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
-                            <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
-                            <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
+                            <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat1.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></a></div>
+                            <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat2.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat2.jpg'%}"/></a></div>
+                            <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat3.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat3.jpg'%}"/></a></div>
+                            <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat4.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat4.jpg'%}"/></a></div>
+                            <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat5.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat5.jpg'%}"/></a></div>
+                            <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat6.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat6.jpg'%}"/></a></div>
                           </div>
                         </div>
 
@@ -1233,16 +1655,21 @@
                           <div class="collapse" id="collapseExample">
                             <div style="margin: 0px 0 22px 0;">
                               <div class="row">
-                                <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
-                                <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
-                                <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
-                                <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
-                                <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
-                                <div class="col-6 col-sm-2"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></div>
+                                <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat7.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat7.jpg'%}"/></a></div>
+                                <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat8.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat8.jpg'%}"/></a></div>
+                                <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat9.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat9.jpg'%}"/></a></div>
+                                <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat10.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat10.jpg'%}"/></a></div>
+                                <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat11.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat11.jpg'%}"/></a></div>
+                                <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat12.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat12.jpg'%}"/></a></div>
                               </div>
 
                             </div>
                           </div>
+                          <script>
+                          $(function(){
+                          	$('.image-link').viewbox();
+                          });
+                          </script>
                           <a id="butunfiliallar" class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style=" width: 100px; box-sizing: border-box; display: block; color: #fff; background: #00aec7; text-align: center; border-radius: 4px; font-size: 12px; line-height: 7px; height: 32px; text-transform: uppercase; padding: 15px 18px; border: 0; cursor: pointer; letter-spacing: 0.18px; font-family: 'Muller', sans-serif; -webkit-transition: background-color 0.1s linear 0s; -moz-transition: background-color 0.1s linear 0s; -o-transition: background-color 0.1s linear 0s; transition: background-color 0.1s linear 0s; -webkit-backface-visibility: hidden; ">Daha Çox</a>
                           <script>
                           $('#butunfiliallar').click(function(){
@@ -1302,14 +1729,50 @@
 			<i class="fa fa-star" aria-hidden="true"></i>
 		</div>
 	</div>		</div>
-		<div class="reviews__grade">Отлично</div>
+		<div class="reviews__grade">Əla</div>
 	</div>
 	<div class="reviews__text" itemprop="reviewBody">
-		Я пришла по рекомендации. Врач внимательно посмотрела мои анализы, все узнала, внесла коррективы. Что было не понятно, она мне объяснила и сделала свои назначения. Я продолжу лечение с этим доктором.	</div>
+		Xidmət və keyfiyyət əladır. Hərkəsə tövsiyyə edirəm	</div>
 	<div class="reviews__name"><span itemprop="author">Алина</span>,
 		<span itemprop="datePublished" content="2018-10-31 11:57:30">31 октября 2018</span>,
 					<span class="review_doctor">
-				лечащий врач: <a href="https://tapdoc.az/doctor/Tsareva_Anna">Царева Анна Владимировна</a>			</span>
+				лечащий врач: <a href="https://tapdoc.az/doctor/Tsareva_Anna">Aygün Muradova</a>			</span>
+
+			</div>
+</div>
+<div class="reviews__item " itemprop="review" itemscope itemtype="http://schema.org/Review" >
+	<meta itemprop="itemReviewed" content="New Med Klinikası">
+
+	<div class="reviews__top">
+		<div class="reviews__rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+			<meta itemprop="bestRating" content="10">
+			<meta itemprop="worstRating" content="1">
+			<meta itemprop="ratingValue" content="10">
+
+<div class="rate rate_small">
+	<div class="rate__default">
+		<i class="fa fa-star" aria-hidden="true"></i>
+		<i class="fa fa-star" aria-hidden="true"></i>
+		<i class="fa fa-star" aria-hidden="true"></i>
+		<i class="fa fa-star" aria-hidden="true"></i>
+		<i class="fa fa-star" aria-hidden="true"></i>
+	</div>
+			<div class="rate__value" style="width:100%;">
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+		</div>
+	</div>		</div>
+		<div class="reviews__grade">Əla</div>
+	</div>
+	<div class="reviews__text" itemprop="reviewBody">
+		Tam razı qaldım.	</div>
+	<div class="reviews__name"><span itemprop="author">Оксана</span>,
+		<span itemprop="datePublished" content="2018-06-30 12:45:18">30 июня 2018</span>,
+					<span class="review_doctor">
+				лечащий врач: <a href="https://tapdoc.az/doctor/Tsareva_Anna">Həsən Mehdiyev</a>			</span>
 
 			</div>
 </div>
@@ -1341,11 +1804,11 @@
 		<div class="reviews__grade">Отлично</div>
 	</div>
 	<div class="reviews__text" itemprop="reviewBody">
-		Все отлично. Мне все понравилось. Анна Владимировна все мне подробно объяснила и рассказала, все нормально.	</div>
+		Gözəl xidmət və keyfiyyət üçün təşəkkür edirəm. Hərkəsə tövsiyyə edirəm</div>
 	<div class="reviews__name"><span itemprop="author">Оксана</span>,
 		<span itemprop="datePublished" content="2018-06-30 12:45:18">30 июня 2018</span>,
 					<span class="review_doctor">
-				лечащий врач: <a href="https://tapdoc.az/doctor/Tsareva_Anna">Царева Анна Владимировна</a>			</span>
+				лечащий врач: <a href="https://tapdoc.az/doctor/Tsareva_Anna">Səlim Məmmədli</a>			</span>
 
 			</div>
 </div>
@@ -1356,7 +1819,7 @@
 		<div class="reviews__rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
 			<meta itemprop="bestRating" content="10">
 			<meta itemprop="worstRating" content="1">
-			<meta itemprop="ratingValue" content="1">
+			<meta itemprop="ratingValue" content="10">
 
 <div class="rate rate_small">
 	<div class="rate__default">
@@ -1366,25 +1829,110 @@
 		<i class="fa fa-star" aria-hidden="true"></i>
 		<i class="fa fa-star" aria-hidden="true"></i>
 	</div>
+			<div class="rate__value" style="width:100%;">
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+		</div>
 	</div>		</div>
-		<div class="reviews__grade">нет оценки</div>
+		<div class="reviews__grade">Yaxşı</div>
 	</div>
 	<div class="reviews__text" itemprop="reviewBody">
-		Замечательный доктор! Все хорошо объясняет, отзывчивая, отвечает на все интересующие вопросы. Мне понравилось!	</div>
-	<div class="reviews__name"><span itemprop="author">Анастасия</span>,
-		<span itemprop="datePublished" content="2018-05-23 12:20:24">23 мая 2018</span>,
+		Xidmət və keyfiyyət əladır. Hərkəsə tövsiyyə edirəm	</div>
+	<div class="reviews__name"><span itemprop="author">Оксана</span>,
+		<span itemprop="datePublished" content="2018-06-30 12:45:18">30 июня 2018</span>,
 					<span class="review_doctor">
-				лечащий врач: <a href="https://tapdoc.az/doctor/Tsareva_Anna">Царева Анна Владимировна</a>			</span>
+				лечащий врач: <a href="https://tapdoc.az/doctor/Tsareva_Anna">Taleh Seyidli</a>			</span>
 
 			</div>
-</div>                                            </div>
-                                            <div class="reviews__bottom reviews__bottom_clinic">
-							<span class="reviews__more js-reviews-clinic"
-                                  data-clinic-id="35333"
-                                  data-count-more="2"
-                                  data-more-limit="20"
-                                  data-branch-group=""
-                                  data-speciality="">Показать ещё 2 отзыва							</span>
+</div>
+<div class="collapse" id="collapserey">
+  <div class="reviews__item " itemprop="review" itemscope itemtype="http://schema.org/Review" >
+  	<meta itemprop="itemReviewed" content="New Med Klinikası">
+
+  	<div class="reviews__top">
+  		<div class="reviews__rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+  			<meta itemprop="bestRating" content="10">
+  			<meta itemprop="worstRating" content="1">
+  			<meta itemprop="ratingValue" content="10">
+
+  <div class="rate rate_small">
+  	<div class="rate__default">
+  		<i class="fa fa-star" aria-hidden="true"></i>
+  		<i class="fa fa-star" aria-hidden="true"></i>
+  		<i class="fa fa-star" aria-hidden="true"></i>
+  		<i class="fa fa-star" aria-hidden="true"></i>
+  		<i class="fa fa-star" aria-hidden="true"></i>
+  	</div>
+  			<div class="rate__value" style="width:100%;">
+  			<i class="fa fa-star" aria-hidden="true"></i>
+  			<i class="fa fa-star" aria-hidden="true"></i>
+  			<i class="fa fa-star" aria-hidden="true"></i>
+  			<i class="fa fa-star" aria-hidden="true"></i>
+  			<i class="fa fa-star" aria-hidden="true"></i>
+  		</div>
+  	</div>		</div>
+  		<div class="reviews__grade">Əla</div>
+  	</div>
+  	<div class="reviews__text" itemprop="reviewBody">
+  	Keyfiyyət əla idi. Müalicəm tam effekt verdi.	</div>
+  	<div class="reviews__name"><span itemprop="author">Оксана</span>,
+  		<span itemprop="datePublished" content="2018-06-30 12:45:18">30 июня 2018</span>,
+  					<span class="review_doctor">
+  				лечащий врач: <a href="https://tapdoc.az/doctor/Tsareva_Anna">Kəmalə Rəhimova</a>			</span>
+
+  			</div>
+  </div>
+  <div class="reviews__item " itemprop="review" itemscope itemtype="http://schema.org/Review" >
+  	<meta itemprop="itemReviewed" content="New Med Klinikası">
+
+  	<div class="reviews__top">
+  		<div class="reviews__rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+  			<meta itemprop="bestRating" content="10">
+  			<meta itemprop="worstRating" content="1">
+  			<meta itemprop="ratingValue" content="10">
+
+  <div class="rate rate_small">
+  	<div class="rate__default">
+  		<i class="fa fa-star" aria-hidden="true"></i>
+  		<i class="fa fa-star" aria-hidden="true"></i>
+  		<i class="fa fa-star" aria-hidden="true"></i>
+  		<i class="fa fa-star" aria-hidden="true"></i>
+  		<i class="fa fa-star" aria-hidden="true"></i>
+  	</div>
+  			<div class="rate__value" style="width:100%;">
+  			<i class="fa fa-star" aria-hidden="true"></i>
+  			<i class="fa fa-star" aria-hidden="true"></i>
+  			<i class="fa fa-star" aria-hidden="true"></i>
+  			<i class="fa fa-star" aria-hidden="true"></i>
+  			<i class="fa fa-star" aria-hidden="true"></i>
+  		</div>
+  	</div>		</div>
+  		<div class="reviews__grade">Əla</div>
+  	</div>
+  	<div class="reviews__text" itemprop="reviewBody">
+  	Keyfiyyət əla idi. Müalicəm tam effekt verdi.	</div>
+  	<div class="reviews__name"><span itemprop="author">Оксана</span>,
+  		<span itemprop="datePublished" content="2018-06-30 12:45:18">30 июня 2018</span>,
+  					<span class="review_doctor">
+  				лечащий врач: <a href="https://tapdoc.az/doctor/Tsareva_Anna">Eldar Əhmədov</a>			</span>
+
+  			</div>
+  </div>
+     </div>                                      </div>
+                                            <div class="reviews__bottom reviews__bottom_clinic" style="  margin: 0 0 38px 0;">
+<a id="reyler" class="reyler" data-toggle="collapse" href="#collapserey" role="button" aria-expanded="false" aria-controls="collapserey">Bütün Rəylər (2)</a>
+
+
+
+                                  <script>
+                                  $('#reyler').click(function(){
+                                      $(this).text(function(i,old){
+                                          return old=='Bütün Rəylər (2)' ?  'Bağla' : 'Bütün Rəylər (2)';
+                                      });
+                                  });</script>
                         </div>
                                     </div>
 
@@ -1405,7 +1953,7 @@
 		<div class="reviewform__title">Rəy əlavə edin.<br /> Sizin fikirləriniz bizim üçün vacibdir.</div>
 		<div class="reviewform__rate">
 			<div class="reviewform__field">
-				<div class="reviewform__label reviewform__label_grade"><span>Ваша</span> оценка клинике:</div>
+				<div class="reviewform__label reviewform__label_grade">Sizin qiymətləndirməniz:</div>
 				<div class="reviewform__rating">
 					<div class="reviews__form-rating__val"><input type="hidden" id="review-rating_doctor" class="reviewform__input js-rating-score" name="rating_clinic" autocomplete="off"><div class="js-rating" data-score-selector=".js-rating-score"></div></div>
                     <div><label class="label-error error" style="display: none;"></label></div>
@@ -1413,24 +1961,24 @@
 			</div>
 		</div>
 		<div class="reviewform__field">
-			<div class="reviewform__label">Отзыв о клинике:</div>
-			<textarea class="reviewform__input" rows="3" placeholder="Расскажите ваши впечатления о клинике." name="reviewComment" data-required="true"></textarea>
+			<div class="reviewform__label">Klinika haqqında rəy:</div>
+			<textarea class="reviewform__input" rows="3" placeholder="Klinika haqqında rəyinizi əlavə edin" name="reviewComment" data-required="true"></textarea>
             <div><label class="label-error error" style="display: none;"></label></div>
 		</div>
 		<div class="reviewform__field">
-			<div class="reviewform__label">Введите ваше имя:</div>
+			<div class="reviewform__label">Ad Soyad:</div>
 			<label for="reviewName" class="reviewform__icon reviewform__icon_user"></label>
 			<div class="reviewform__fieldset">
-				<input type="text" class="reviewform__input" placeholder="Контактное лицо" id="reviewName" name="reviewName" value="" />
+				<input type="text" class="reviewform__input" placeholder="Ad Soyad" id="reviewName" name="reviewName" value="" />
 			</div>
 		</div>
 		<div class="reviewform__field ">
-			<div class="reviewform__label">Введите ваш телефон:</div>
+			<div class="reviewform__label">Telefon nömrəniz:</div>
 			<label for="reviewPhone" class="reviewform__icon reviewform__icon_phone"></label>
 			<div class="reviewform__fieldset">
-				<input type="tel" class="reviewform__input" placeholder="Ваш телефон" data-tel="yes" id="reviewPhone" name="reviewPhone" value="" />
+				<input type="tel" class="reviewform__input" placeholder="Telefon Nömrəniz" data-tel="yes" id="reviewPhone" name="reviewPhone" value="" />
 			</div>
-            			    <div class="reviewform__note">*на указанный вами номер будет отправлено SMS с кодом подтверждения</div>
+            			    <div class="reviewform__note">*şəxsi məlumatlarınız gizli saxlanılacaq</div>
             		</div>
         <div class="reviewform__code hidden">
             <div class="reviewform__field">
@@ -1539,7 +2087,14 @@
     <script src="https://s.docdoc.ru/compile/vendor.js?1943356933"></script>
     <script src="https://s.docdoc.ru/compile/new-docdoc.js?1943356933"></script>
 
-
+    <script src="{% static 'js/jquery.viewbox.min.js'%}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
+    <script>
+    $(document).ready(function() {
+      $('select:not(.ignore)').niceSelect();
+      FastClick.attach(document.body);
+    });
+  </script>
 
 
 

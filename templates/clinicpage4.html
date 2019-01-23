@@ -525,7 +525,19 @@ for="kidsReception3"> Siğorta</label>
 </div>
 </div>
 
+<div class="search__checkbox link-departure" >
+<div class="checkbox"  style="padding-top: 1px;">
+<input class="checkbox__input" type="checkbox" value="3" name="kidsReception4" id="kidsReception4"/>			<label class="checkbox__label js-click-spinner"  style=" top: 0.5px; "
+for="kidsReception4"> <i class="fa fa-male" style="font-size: 18px;color:#0199F4;"></i></label>
+</div>
+</div>
 
+<div class="search__checkbox link-departure" >
+<div class="checkbox"  style="padding-top: 1px;">
+<input class="checkbox__input" type="checkbox" value="3" name="kidsReception5" id="kidsReception5" />			<label class="checkbox__label js-click-spinner"  style=" top: 0.5px; "
+for="kidsReception5"> <i class="fa fa-female" style="font-size: 18px;color:#DD71E3;"></i></label>
+</div>
+</div>
 
 
 
@@ -1901,37 +1913,41 @@ $('#butunfiliallar').click(function(){
 		<div class="doctors__paginate">
 
 <div class="paginate">
-	<ul class="paginate__inner">
+<ul class="paginate__inner">
 
+<li>
+<a href="{% url 'clinicpage3'%}" class="paginate__item paginate__item_next">
+<span></span> <i class="fa fa-chevron-left" aria-hidden="true"></i>
+</a>
+</li>
+        <li>
+      <a href="{% url 'clinic'%}" class="paginate__item">
+        1				</a>
+    </li>
+        <li>
+      <a href="{% url 'clinicpage2'%}" class="paginate__item">
+        2				</a>
+    </li>
+        <li>
+      <a href="{% url 'clinicpage3'%}" class="paginate__item">
+        3				</a>
+    </li>
+        <li>
+      <a href="{% url 'clinicpage4'%}" class="paginate__item paginate__item_active">
+        4				</a>
+    </li>
+        <li>
+      <a href="{% url 'clinicpage5'%}" class="paginate__item">
+        5				</a>
+    </li>
 
-					<li>
-				<a href="{% url 'clinic'%}" class="paginate__item paginate__item_active">
-					1				</a>
-			</li>
-					<li>
-				<a href="{% url 'clinicpage2'%}" class="paginate__item">
-					2				</a>
-			</li>
-					<li>
-				<a href="{% url 'clinicpage3'%}" class="paginate__item">
-					3				</a>
-			</li>
-					<li>
-				<a href="{% url 'clinicpage4'%}" class="paginate__item">
-					4				</a>
-			</li>
-					<li>
-				<a href="{% url 'clinicpage5'%}" class="paginate__item">
-					5				</a>
-			</li>
+        <li>
+      <a href="{% url 'clinicpage5'%}" class="paginate__item paginate__item_next">
+        <span></span> <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+    </li>
 
-					<li>
-				<a href="{% url 'clinicpage2'%}" class="paginate__item paginate__item_next">
-					<span></span> <i class="fa fa-chevron-right" aria-hidden="true"></i>
-				</a>
-			</li>
-
-	</ul>
+</ul>
 </div>
 		</div>
 

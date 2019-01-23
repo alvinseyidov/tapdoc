@@ -1860,18 +1860,22 @@ background: #eeeff3;
 
 <div class="paginate">
 <ul class="paginate__inner">
-
+<li>
+<a href="{% url 'diaqnostikapage2'%}" class="paginate__item paginate__item_next">
+<span></span> <i class="fa fa-chevron-left" aria-hidden="true"></i>
+</a>
+</li>
 
         <li>
-      <a href="{% url 'diaqnostika'%}" class="paginate__item  paginate__item_active">
+      <a href="{% url 'diaqnostika'%}" class="paginate__item">
         1				</a>
     </li>
         <li>
-      <a href="{% url 'diaqnostikapage2'%}" class="paginate__item">
+      <a href="{% url 'diaqnostikapage2'%}" class="paginate__item ">
         2				</a>
     </li>
         <li>
-      <a href="{% url 'diaqnostikapage3'%}" class="paginate__item">
+      <a href="{% url 'diaqnostikapage3'%}" class="paginate__item paginate__item_active">
         3				</a>
     </li>
         <li>
@@ -1884,7 +1888,7 @@ background: #eeeff3;
     </li>
 
     <li>
-    <a href="{% url 'diaqnostikapage2'%}" class="paginate__item paginate__item_next">
+    <a href="{% url 'diaqnostikapage4'%}" class="paginate__item paginate__item_next">
     <span></span> <i class="fa fa-chevron-right" aria-hidden="true"></i>
     </a>
     </li>

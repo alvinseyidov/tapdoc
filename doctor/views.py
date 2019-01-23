@@ -40,6 +40,86 @@ def doctor(request):
     return render(request, 'doctor.html', context)
 
 @login_required(login_url='/admin/')
+def doctorpage2(request):
+    doctors_list = Doctor.objects.all()
+    query = request.GET.get('q')
+    querygeo = request.GET.get('geo')
+    if query:
+        doctors_list = doctors_list.filter(first_name__icontains=query)
+
+
+
+    paginator = Paginator(doctors_list, 4)
+    page = request.GET.get('page')
+    doctors = paginator.get_page(page)
+
+    context = {
+        "doctors": doctors
+    }
+    return render(request, 'doctorpage2.html', context)
+
+@login_required(login_url='/admin/')
+def doctorpage3(request):
+    doctors_list = Doctor.objects.all()
+    query = request.GET.get('q')
+    querygeo = request.GET.get('geo')
+    if query:
+        doctors_list = doctors_list.filter(first_name__icontains=query)
+
+
+
+    paginator = Paginator(doctors_list, 4)
+    page = request.GET.get('page')
+    doctors = paginator.get_page(page)
+
+    context = {
+        "doctors": doctors
+    }
+    return render(request, 'doctorpage3.html', context)
+
+
+@login_required(login_url='/admin/')
+def doctorpage4(request):
+    doctors_list = Doctor.objects.all()
+    query = request.GET.get('q')
+    querygeo = request.GET.get('geo')
+    if query:
+        doctors_list = doctors_list.filter(first_name__icontains=query)
+
+
+
+    paginator = Paginator(doctors_list, 4)
+    page = request.GET.get('page')
+    doctors = paginator.get_page(page)
+
+    context = {
+        "doctors": doctors
+    }
+    return render(request, 'doctorpage4.html', context)
+
+
+@login_required(login_url='/admin/')
+def doctorpage5(request):
+    doctors_list = Doctor.objects.all()
+    query = request.GET.get('q')
+    querygeo = request.GET.get('geo')
+    if query:
+        doctors_list = doctors_list.filter(first_name__icontains=query)
+
+
+
+    paginator = Paginator(doctors_list, 4)
+    page = request.GET.get('page')
+    doctors = paginator.get_page(page)
+
+    context = {
+        "doctors": doctors
+    }
+    return render(request, 'doctorpage5.html', context)
+
+
+
+@login_required(login_url='/admin/')
 def doctors(request):
     doctors_list = Doctor.objects.all()
     query = request.GET.get('q')
@@ -63,8 +143,41 @@ def clinic(request):
     return render(request, 'clinic.html')
 
 @login_required(login_url='/admin/')
+def clinicpage2(request):
+    return render(request, 'clinicpage2.html')
+
+@login_required(login_url='/admin/')
+def clinicpage3(request):
+    return render(request, 'clinicpage3.html')
+
+@login_required(login_url='/admin/')
+def clinicpage4(request):
+    return render(request, 'clinicpage4.html')
+
+@login_required(login_url='/admin/')
+def clinicpage5(request):
+    return render(request, 'clinicpage5.html')
+
+@login_required(login_url='/admin/')
 def diaqnostika(request):
     return render(request, 'diaqnostika.html')
+
+@login_required(login_url='/admin/')
+def diaqnostikapage2(request):
+    return render(request, 'diaqnostikapage2.html')
+
+@login_required(login_url='/admin/')
+def diaqnostikapage3(request):
+    return render(request, 'diaqnostikapage3.html')
+
+@login_required(login_url='/admin/')
+def diaqnostikapage4(request):
+    return render(request, 'diaqnostikapage4.html')
+
+@login_required(login_url='/admin/')
+def diaqnostikapage5(request):
+    return render(request, 'diaqnostikapage5.html')
+
 
 @login_required(login_url='/admin/')
 def xidmetler(request):
