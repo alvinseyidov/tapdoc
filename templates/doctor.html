@@ -45,6 +45,12 @@
 
     <meta name="theme-color" content="#ffffff">
 
+    <script src="{% static 'js/selectize.js'%}"></script>
+      <script src="{% static 'js/selectizeindex.js'%}"></script>
+
+
+
+
             <link rel="stylesheet" href="https://s.docdoc.ru/compile/chunks.css?2937290733">
         <script defer src="https://s.docdoc.ru/compile/chunks.js?2937290733"></script>
                     <script defer src="https://s.docdocc.ru/compile/new_site.js?2937290733"></script>
@@ -96,6 +102,9 @@
 
 </script>
 <style>
+.theme-selector{
+  display:none;
+}
 .sorting__item1 {
   display: inline-block;
   vertical-align: top;
@@ -547,6 +556,34 @@ background: #eeeff3;
 .sorting__item:hover{
   background: #e1e1e5 !important;
 }
+
+
+.search_indexloc{
+  height: 51px;
+    background: #fff;
+    border: 2px solid #e1e1e5;
+    border-radius: 4px;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    padding: 0 0 0 19px;
+    font-size: 20px;
+    color: #828288;
+    line-height: normal;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-transition: border-color 0.1s linear 0s;
+    -moz-transition: border-color 0.1s linear 0s;
+    -o-transition: border-color 0.1s linear 0s;
+    transition: border-color 0.1s linear 0s;
+    -webkit-backface-visibility: hidden;
+    font-family: 'CalibriCommon', sans-serif;
+}
+.selectize-input > input{
+  margin: 7px 0 0 0 !important;
+    font-size: 18px !important;
+}
 </style>
 
 </head>
@@ -715,15 +752,66 @@ background: #eeeff3;
                             <button class="search__button"><i class="fa fa-search"></i></button>
                         </div>
 
+
                         <div class="search-inp__geo search__field search__field_select">
-                            <div class="search__field_icon"></div>
-                            <input type="text"
-                                   class="forms__input search__input js-suggest-location"
-                                   data-autocomplete-id="autocomplete-geo"
-                                   placeholder="Metro, Rayon"
-                                   data-is-district="0"
-                                   value="" />
+
+                            <div class="control-group search_indexloc">
+
+    <select id="select-animal" class="demo-animals ignore" placeholder="Rayon, Metro"></select>
+    </div>
+    <script>
+    $('#select-animal').selectize({
+    options: [
+      {class: 'metrolar', value: '11', name: '28 May'},
+      {class: 'metrolar', value: '12', name: '20 Yanvar'},
+      {class: 'metrolar', value: '13', name: 'Həzi Aslanov'},
+      {class: 'metrolar', value: '14', name: 'Əhmədli'},
+      {class: 'metrolar', value: '15', name: 'Xalqlar Dostluğu'},
+      {class: 'metrolar', value: '16', name: 'Neftçilər'},
+      {class: 'metrolar', value: '17', name: 'Qara Qarayev'},
+      {class: 'metrolar', value: '18', name: 'Koroğlu'},
+      {class: 'metrolar', value: '19', name: 'Ulduz'},
+      {class: 'metrolar', value: '20', name: 'Nərimanov'},
+      {class: 'metrolar', value: '21', name: 'Gənclik'},
+      {class: 'metrolar', value: '22', name: 'Nizami'},
+      {class: 'metrolar', value: '23', name: 'Elmlər Akademiyası'},
+      {class: 'metrolar', value: '24', name: 'İnşaatçılar'},
+      {class: 'metrolar', value: '25', name: 'Memar Əcəmi'},
+      {class: 'metrolar', value: '26', name: 'Dərnəgül'},
+      {class: 'metrolar', value: '27', name: 'Xətai'},
+      {class: 'metrolar', value: '28', name: 'Cəfər Cabbarlı'},
+      {class: 'metrolar', value: '29', name: 'Azadlıq Prospekti'},
+      {class: 'metrolar', value: '30', name: 'Avtovağzal'},
+    {class: 'rayonlar', value: "1", name: "Nərimanov" },
+    {class: 'rayonlar', value: "2", name: "Nizami" },
+    {class: 'rayonlar', value: "3", name: "Nəsimi" },
+    {class: 'rayonlar', value: "4", name: "Yasamal" },
+    {class: 'rayonlar', value: "5", name: "Xəzər" },
+    {class: 'rayonlar', value: "6", name: "Xətai" },
+    {class: 'rayonlar', value: '7', name: 'Biləcəri'},
+    {class: 'rayonlar', value: '8', name: 'Səbail'},
+    {class: 'rayonlar', value: '9', name: 'Binəqədi'},
+    {class: 'rayonlar', value: '10', name: 'Seagull'}
+    ],
+    optgroups: [
+    {value: 'metrolar', label: 'Metrolar', label_scientific: ''},
+    {value: 'rayonlar', label: 'Rayonlar', label_scientific: ''}
+
+    ],
+    optgroupField: 'class',
+    labelField: 'name',
+    searchField: ['name'],
+    render: {
+    optgroup_header: function(data, escape) {
+    return '<div class="optgroup-header">' + escape(data.label) + ' <span class="scientific">' + escape(data.label_scientific) + '</span></div>';
+    }
+    }
+    });
+    </script>
                         </div>
+
+
+
                         <div class="search__field search__field_button">
                             <button class="button button_search forms__button" type="submit">Axtarış</button>
                         </div>
@@ -1315,7 +1403,7 @@ function myFunction() {
                   <div class="form-input-icoo "><i class="fa fa-hospital-o fa-flip-horizontal"></i></div>
 
 
-                    <select name="carlist" form="carform" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;">
+                    <select name="carlist" form="carform" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;">
                       <option value="volvo">New Med Klinikası</option>
                       <option value="saab">Medical Plaza</option>
 

@@ -758,6 +758,13 @@
   <link rel="mask-icon" href="https://s.docdoc.ru/new-doc-doc/favicon/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="theme-color" content="#ffffff">
 
+
+
+  <script src="{% static 'js/selectize.js'%}"></script>
+		<script src="{% static 'js/selectizeindex.js'%}"></script>
+
+
+
   <link rel="stylesheet" href="{% static 'css/chunks59fa.css' %}">
   <script defer src="{% static 'js/chunks59fa.js' %}"></script>
 
@@ -1004,6 +1011,27 @@ input[type="text"]#phoneInput {
     color: #828288;
 }
 
+.search_indexloc {
+  border: 0;
+box-shadow: 0 1px 3px rgba(93, 93, 93, 0.4);
+height: 54px;
+}
+.selectize-input{
+    height:54px;
+    padding: 17px 0 0 37px;
+}
+
+.selectize-control.single .selectize-input {
+    border-color: #b8b8b8;
+    padding: 17px 0 0 36px;
+}
+.selectize-input, .selectize-input input{
+      font-size: 18px !important;
+}
+
+.selectize-dropdown{
+  padding:0;
+}
     </style>
 </head>
 
@@ -1149,44 +1177,73 @@ input[type="text"]#phoneInput {
                         </div>
                         <div class="search__field search__field_select">
                           <div class="search__field_icon search__field_icon--pink"></div>
-                          <datalist id="xidmetler">
-                                            <option class="metro" value="Ginekoloq">
-                                            <option class="metro" value="Cərrah">
-                                            <option class="metro" value="Pediatr">
-                                            <option class="metro" value="Endokrinoloq">
-                                            <option class="metro" value="AllerqoloqÜ">
 
-                                        </datalist>
-                          <input type="text"
-                                               name="geo"
-                                               class="forms__input search__input js-suggest-location"
-                                               data-autocomplete-id="autocomplete-geo"
-                                               placeholder="Rayon, Metro"
-                                               data-is-district="0"
-                                               value=""
-                                               tabindex="2"
-                                               list="browsers"
-                                               data-event-tracker="1"
-                                               data-tracker-event="input"
-                                               data-tracker-action="search"
-                                               data-tracker-label="metro"
-                                               data-tracker-value="__current__value__" />
-                          <datalist id="browsers">
-                                            <option class="metro" value="Nərimanov ray.">
-                                            <option class="metro" value="Nəsimi ray.">
-                                            <option class="metro" value="Nizami ray.">
-                                            <option class="metro" value="Yasamal ray.">
-                                            <option class="metro" value="Xəzər ray.">
-                                            <option class="metro" value="Xətai ray.">
-                                            <option class="metro" value="Binəqədi ray.">
-                                            <option class="metro" value="Qaradağ ray.">
-                                            <option class="metro" value="Sabunçu ray.">
-                                            <option class="metro" value="Suraxanı ray.">
-                                        </datalist>
+                                        <div class="control-group search_indexloc">
+              
+                <select id="select-animal" class="demo-animals" placeholder="Rayon, Metro"></select>
+                </div>
+                <script>
+                $('#select-animal').selectize({
+                options: [
+                  {class: 'metrolar', value: '11', name: '28 May'},
+                  {class: 'metrolar', value: '12', name: '20 Yanvar'},
+                  {class: 'metrolar', value: '13', name: 'Həzi Aslanov'},
+                  {class: 'metrolar', value: '14', name: 'Əhmədli'},
+                  {class: 'metrolar', value: '15', name: 'Xalqlar Dostluğu'},
+                  {class: 'metrolar', value: '16', name: 'Neftçilər'},
+                  {class: 'metrolar', value: '17', name: 'Qara Qarayev'},
+                  {class: 'metrolar', value: '18', name: 'Koroğlu'},
+                  {class: 'metrolar', value: '19', name: 'Ulduz'},
+                  {class: 'metrolar', value: '20', name: 'Nərimanov'},
+                  {class: 'metrolar', value: '21', name: 'Gənclik'},
+                  {class: 'metrolar', value: '22', name: 'Nizami'},
+                  {class: 'metrolar', value: '23', name: 'Elmlər Akademiyası'},
+                  {class: 'metrolar', value: '24', name: 'İnşaatçılar'},
+                  {class: 'metrolar', value: '25', name: 'Memar Əcəmi'},
+                  {class: 'metrolar', value: '26', name: 'Dərnəgül'},
+                  {class: 'metrolar', value: '27', name: 'Xətai'},
+                  {class: 'metrolar', value: '28', name: 'Cəfər Cabbarlı'},
+                  {class: 'metrolar', value: '29', name: 'Azadlıq Prospekti'},
+                  {class: 'metrolar', value: '30', name: 'Avtovağzal'},
+                {class: 'rayonlar', value: "1", name: "Nərimanov" },
+                {class: 'rayonlar', value: "2", name: "Nizami" },
+                {class: 'rayonlar', value: "3", name: "Nəsimi" },
+                {class: 'rayonlar', value: "4", name: "Yasamal" },
+                {class: 'rayonlar', value: "5", name: "Xəzər" },
+                {class: 'rayonlar', value: "6", name: "Xətai" },
+                {class: 'rayonlar', value: '7', name: 'Biləcəri'},
+                {class: 'rayonlar', value: '8', name: 'Səbail'},
+                {class: 'rayonlar', value: '9', name: 'Binəqədi'},
+                {class: 'rayonlar', value: '10', name: 'Seagull'}
+                ],
+                optgroups: [
+                {value: 'metrolar', label: 'Metrolar', label_scientific: ''},
+                {value: 'rayonlar', label: 'Rayonlar', label_scientific: ''}
+
+                ],
+                optgroupField: 'class',
+                labelField: 'name',
+                searchField: ['name'],
+                render: {
+                optgroup_header: function(data, escape) {
+                return '<div class="optgroup-header">' + escape(data.label) + ' <span class="scientific">' + escape(data.label_scientific) + '</span></div>';
+                }
+                }
+                });
+                </script>
+
+
+
+
+
+
                         </div>
                         <div class="search__field search__field_button">
                           <button class="button button_search forms__button" type="submit">Axtarış</button>
                         </div>
+
+
+
                       </div>
                       <!--<div class="search__note">
                                     Например: <a href="/doctor/gastroenterolog">гастроэнтеролог</a>
