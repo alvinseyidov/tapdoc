@@ -856,14 +856,14 @@ for="kidsReception3"> Siğorta</label>
 
 <div class="search__checkbox link-departure" >
 <div class="checkbox"  style="padding-top: 1px;">
-<input class="checkbox__input" type="checkbox" value="3" name="kidsReception4" id="kidsReception4"/>			<label class="checkbox__label js-click-spinner"  style=" top: 0.5px; "
+<input class="checkbox__input" type="radio" value="3" name="kidsReception4" id="kidsReception4"/>			<label class="checkbox__label js-click-spinner"  style=" top: 0.5px; "
 for="kidsReception4"> <i class="fa fa-male" style="font-size: 18px;color:#0199F4;"></i></label>
 </div>
 </div>
 
 <div class="search__checkbox link-departure" >
 <div class="checkbox"  style="padding-top: 1px;">
-<input class="checkbox__input" type="checkbox" value="3" name="kidsReception5" id="kidsReception5" />			<label class="checkbox__label js-click-spinner"  style=" top: 0.5px; "
+<input class="checkbox__input" type="radio" value="3" name="kidsReception4" id="kidsReception5" />			<label class="checkbox__label js-click-spinner"  style=" top: 0.5px; "
 for="kidsReception5"> <i class="fa fa-female" style="font-size: 18px;color:#DD71E3;"></i></label>
 </div>
 </div>
@@ -1196,7 +1196,7 @@ function myFunction() {
   <div><p style="font-size: 13px;text-align: center;margin: 66px 32px 8px 0;">Bu klinikada hal-hazırda onlayn qeydiyyat yoxdur. Qəbula yazılmaq üçün müraciət edin, sizinlə 10 dəq ərzində əlaqə saxlanılacaq.</p></div>
 
               <div style="margin: 0 0px 0 62px;" class="clinic-address__button clinic-card__clinic-button js-book-clinic">
-                     <button class="myBtnmuraciet" id="myBtnmuraciet{{ doctor.id }}">Müraciət</button>
+                     <button class="myBtnmuraciet myBtnmuraciet{{ doctor.id }}" id="myBtnmuraciet1{{ doctor.id }}">Müraciət</button>
 
               </div><br>
               <div class="clinic-card__clinic-address">
@@ -1633,6 +1633,14 @@ window.onclick = function(event) {
         modal4.style.display = "none";
 
     }
+    else if (event.target == modal5) {
+        modal5.style.display = "none";
+
+    }
+    else if (event.target == modal6) {
+        modal6.style.display = "none";
+
+    }
 
 }
 
@@ -1640,6 +1648,53 @@ window.onclick = function(event) {
 
 </script>
 
+
+
+
+<script>
+// Get the modal
+var modal1{{doctor.id}} = document.getElementById('myModalmuraciet{{doctor.id}}');
+
+
+// Get the button that opens the modal
+var btn1{{doctor.id}} = document.getElementById("myBtnmuraciet1{{doctor.id}}");
+
+// Get the <span> element that closes the modal
+var span1{{doctor.id}} = document.getElementsByClassName("closemuraciet1{{doctor.id}}")[0];
+
+// When the user clicks the button, open the modal
+btn1{{doctor.id}}.onclick = function() {
+    modal1{{doctor.id}}.style.display = "block";
+    //document.getElementById('bodyy').style.overflow="hidden";
+}
+
+// When the user clicks on <span> (x), close the modal
+span1{{doctor.id}}.onclick = function() {
+    modal1{{doctor.id}}.style.display = "none";
+    document.getElementById('bodyy').style.overflow="initial";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+
+
+
+
+// Get the modal
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  //alert(event.target)
+    if (event.target == modal4) {
+        modal4.style.display = "none";
+
+    }
+
+}
+
+
+
+</script>
 {% endfor %}
 
 

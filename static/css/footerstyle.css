@@ -6428,8 +6428,9 @@ h3.links__title-small {
 .doctor__right {
   float: right;
   width: 410px;
-  position: relative;
-  top: -63px;
+  position: sticky;
+  top: 0px;
+  margin: -63px 0 0 0;
   -webkit-transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
   z-index: 999;
@@ -6482,7 +6483,7 @@ h3.links__title-small {
 }
 .doctor__reviews {
   padding-bottom: 27px;
-  
+
   position: relative;
 }
 .doctor__reviews-note {
