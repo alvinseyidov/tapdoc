@@ -219,6 +219,21 @@ def clinicdetail(request):
     return render(request, 'clinicdetail.html')
 
 @login_required(login_url='/admin/')
+def clinicdetailnerimanov(request):
+    doctorid = 1
+    return render(request, 'clinicdetailnerimanov.html')
+
+@login_required(login_url='/admin/')
+def clinicdetailnesimi(request):
+    doctorid = 1
+    return render(request, 'clinicdetailnesimi.html')
+
+@login_required(login_url='/admin/')
+def clinicdetailyasamal(request):
+    doctorid = 1
+    return render(request, 'clinicdetailyasamal.html')
+
+@login_required(login_url='/admin/')
 def clinicdetailistanbul(request):
     doctorid = 1
     return render(request, 'clinicdetailistanbul.html')

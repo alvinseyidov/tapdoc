@@ -226,6 +226,20 @@ float: right !important;
   margin: 7px 0 0 0 !important;
     font-size: 18px !important;
 }
+a:hover{
+  text-decoration:none !important;
+}
+a:active{
+  text-decoration:none !important;
+}
+
+.procedures__list-link:hover{
+color: #7d7d7d;
+}
+
+.xidmetlerside:hover{
+  color:#004f83 !important;
+}
 
 </style>
 </head>
@@ -285,7 +299,7 @@ float: right !important;
     </aside>
 
     <section class="outer">
-    <div class="headerdesktop"><div class="headerdesktoplogo"><a href="/"><img src="/static/img/tapdoc.png"></a></div> <div class="headerdesktopright"><div class="headerdesktop_phone"><div class="headerdesktop_phone-note"><span style="color: rgb(255, 37, 108); font-weight: 600;">Zəng Edin!</span> Həkim Axtarışında Kömək Üçün
+    <div class="headerdesktop"><div class="headerdesktoplogo"><a href="#"><img src="/static/img/tapdoc.png"></a></div> <div class="headerdesktopright"><div class="headerdesktop_phone"><div class="headerdesktop_phone-note"><span style="color: rgb(255, 37, 108); font-weight: 600;">Zəng Edin!</span> Həkim Axtarışında Kömək Üçün
       </div> <span class="headerdesktop_contact_phone ">
                     +994 (055) 555-55-55                                </span></div> <div class="dropdownmyp"><span>Şəxsi Kabinet</span> <div class="dropdown-contentmyp"><p><a href="/account/">Profilim</a></p> <p><a href="/logout/">Çıxış</a></p></div></div></div></div>
 
@@ -356,8 +370,8 @@ float: right !important;
 
 	<div class="search">
 		<div class="forms">
-			<form id="searchForm" class="forms__form search_form" method="post" action="https://tapdoc.az/site/searchRedirect">
-
+			<form id="searchForm" class="forms__form search_form" method="post" action="{% url 'xidmetler'%}">
+{% csrf_token %}
 				<input type="hidden" name="spec" class="js-choose-input-spec" id="spec" autocomplete="off" value="" />
 				<input type="hidden" name="serviceId" class="js-choose-input-service" value="" autocomplete="off"  />
 				<input type="hidden" name="diag" class="js-choose-input-diag" id="diag" value="" autocomplete="off"  />
@@ -529,7 +543,7 @@ float: right !important;
       </h2>
       <div>
          <ul>
-            <li><a href="/services/astana/diagnostika/mrt">Analizlər</a></li>
+            <li><a href="#" class="xidmetlerside">Analizlər</a></li>
 
          </ul>
       </div>
@@ -537,23 +551,23 @@ float: right !important;
          <div>
             <ul>
                <li><a style="display: inline-block;  vertical-align: top;       min-width: 111px;    font-size: 20px;    line-height: 16px;    box-sizing: border-box;    padding-top: 13px;    margin-left: -4px;    margin-top: 0;    height: 41px;    border-radius: 4px;       color: #1b1b1b;    text-align: center;    -webkit-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;    -moz-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;    -o-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;    transition: background-color 0.1s linear 0s, color 0.1s linear 0s;    -webkit-backface-visibility: hidden;  text-decoration: none;" href="">Diaqnostika</a></li>
-               <li><a href="/services/astana/diagnostika/mrt">KT</a></li>
-               <li><a href="/services/astana/diagnostika/mrt">MRT</a></li>
-               <li><a href="/services/astana/diagnostika/uzi">USM</a></li>
-               <li><a href="/services/astana/diagnostika/funktsionalnaya-diagnostika">Rentgen</a></li>
-               <li><a href="/services/astana/diagnostika/endoskopiya">Biopsiya</a></li>
-               <li><a href="/services/astana/diagnostika/endoskopiya">Bronxoskopiya</a></li>
-               <li><a href="/services/astana/diagnostika/endoskopiya">Qastroskopiya</a></li>
-               <li><a href="/services/astana/diagnostika/endoskopiya">Densitometriya</a></li>
-               <li><a href="/services/astana/diagnostika/endoskopiya">Dubleks Tarama</a></li>
-               <li><a href="/services/astana/diagnostika/endoskopiya">Scintigrafia</a></li>
-               <li><a href="/services/astana/diagnostika/endoskopiya">Flurografiya</a></li>
-               <li><a href="/services/astana/diagnostika/endoskopiya">Funksional Diaqnostika</a></li>
-               <li><a href="/services/astana/diagnostika/endoskopiya">Endoskopik Müayinə</a></li>
-               <li><a href="/services/astana/diagnostika/endoskopiya">Exokardioqrafiya</a></li>
-               <li><a href="/services/astana/diagnostika/endoskopiya">Multislays Spiral Kompüter Tomoqrafiyası</a></li>
-               <li><a href="/services/astana/diagnostika/endoskopiya">PET-KT</a></li>
-               <li><a href="/services/astana/diagnostika/endoskopiya">Doppleroqrafiya  </a></li>
+               <li><a href="#" class="xidmetlerside">KT</a></li>
+               <li><a href="#" class="xidmetlerside">MRT</a></li>
+               <li><a href="#" class="xidmetlerside">USM</a></li>
+               <li><a href="#" class="xidmetlerside">Rentgen</a></li>
+               <li><a href="#" class="xidmetlerside">Biopsiya</a></li>
+               <li><a href="#" class="xidmetlerside">Bronxoskopiya</a></li>
+               <li><a href="#" class="xidmetlerside">Qastroskopiya</a></li>
+               <li><a href="#" class="xidmetlerside">Densitometriya</a></li>
+               <li><a href="#" class="xidmetlerside">Dubleks Tarama</a></li>
+               <li><a href="#" class="xidmetlerside">Scintigrafia</a></li>
+               <li><a href="#" class="xidmetlerside">Flurografiya</a></li>
+               <li><a href="#" class="xidmetlerside">Funksional Diaqnostika</a></li>
+               <li><a href="#" class="xidmetlerside">Endoskopik Müayinə</a></li>
+               <li><a href="#" class="xidmetlerside">Exokardioqrafiya</a></li>
+               <li><a href="#" class="xidmetlerside">Multislays Spiral Kompüter Tomoqrafiyası</a></li>
+               <li><a href="#" class="xidmetlerside">PET-KT</a></li>
+               <li><a href="#" class="xidmetlerside">Doppleroqrafiya  </a></li>
 
             </ul>
          </div>
@@ -565,56 +579,56 @@ float: right !important;
          <li>
             <ul class="procedure-sections__subsections-list-spec">
                <li><a style="display: inline-block;  vertical-align: top;       min-width: 111px;    font-size: 20px;    line-height: 16px;    box-sizing: border-box;    padding-top: 13px;    margin-left: -4px;    margin-top: 0;    height: 41px;    border-radius: 4px;       color: #1b1b1b;    text-align: center;    -webkit-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;    -moz-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;    -o-transition: background-color 0.1s linear 0s, color 0.1s linear 0s;    transition: background-color 0.1s linear 0s, color 0.1s linear 0s;    -webkit-backface-visibility: hidden;  text-decoration: none;" href="">İstiqamətlər</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/cosmetologiya">Allerqologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/lor-protsedury">Andrologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/manualnaya-terapiya">Anasteziologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/massazh">Artrologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/narkologiya">Veterologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/nevrologiya">Venerologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/oftalmologiya">Vertebrologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/pediatriya">Qastrologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/urologiya">Gemotoloq</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/fizioterapiya">Genetika</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Ginekologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Hepatoloq</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Huridoterapiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Hemopatiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Dermotologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Diabetologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Dietologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">İmmunologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">İnfeksion</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Kardiologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Kinezologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Koloktrologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Kosmetologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Fiziologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Logopedi</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Mammalogiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Manual Terapiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Masaj</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Mikologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Narkologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Nevrologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Neoatalogiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Nefrologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Onkologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Ortopedia</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Ostopedia</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Otolaringologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Oftalmologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Parazitologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Pediatr</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Podologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Proktologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Psixiatr</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Psixologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Pulmologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Revmotologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Refleksolog</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Somnologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Stomotologiya</a></li>
-               <li><a href="/services/astana/po-spetsialnostyam/hirurgiya">Surdologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Allerqologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Andrologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Anasteziologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Artrologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Veterologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Venerologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Vertebrologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Qastrologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Gemotoloq</a></li>
+               <li><a href="#" class="xidmetlerside">Genetika</a></li>
+               <li><a href="#" class="xidmetlerside">Ginekologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Hepatoloq</a></li>
+               <li><a href="#" class="xidmetlerside">Huridoterapiya</a></li>
+               <li><a href="#" class="xidmetlerside">Hemopatiya</a></li>
+               <li><a href="#" class="xidmetlerside">Dermotologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Diabetologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Dietologiya</a></li>
+               <li><a href="#" class="xidmetlerside">İmmunologiya</a></li>
+               <li><a href="#" class="xidmetlerside">İnfeksion</a></li>
+               <li><a href="#" class="xidmetlerside">Kardiologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Kinezologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Koloktrologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Kosmetologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Fiziologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Logopedi</a></li>
+               <li><a href="#" class="xidmetlerside">Mammalogiya</a></li>
+               <li><a href="#" class="xidmetlerside">Manual Terapiya</a></li>
+               <li><a href="#" class="xidmetlerside">Masaj</a></li>
+               <li><a href="#" class="xidmetlerside">Mikologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Narkologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Nevrologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Neoatalogiya</a></li>
+               <li><a href="#" class="xidmetlerside">Nefrologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Onkologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Ortopedia</a></li>
+               <li><a href="#" class="xidmetlerside">Ostopedia</a></li>
+               <li><a href="#" class="xidmetlerside">Otolaringologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Oftalmologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Parazitologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Pediatr</a></li>
+               <li><a href="#" class="xidmetlerside">Podologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Proktologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Psixiatr</a></li>
+               <li><a href="#" class="xidmetlerside">Psixologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Pulmologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Revmotologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Refleksolog</a></li>
+               <li><a href="#" class="xidmetlerside">Somnologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Stomotologiya</a></li>
+               <li><a href="#" class="xidmetlerside">Surdologiya</a></li>
 
             </ul>
          </li>
@@ -626,96 +640,82 @@ float: right !important;
       <div class="procedure__section">
          <div>
             <div class="procedure__section-subsection">
-               <a class="procedure__section-subsection-title" href="/services/astana/diagnostika/mrt">МРТ</a>
+               <a class="procedure__section-subsection-title" href="#">МРТ</a>
                <ul class="procedures__list">
-                  <li class="procedures__list-item"><a href="/services/astana/mrt-myagkih-tkaney" class="procedures__list-link">МРТ мягких тканей</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">МРТ мягких тканей</a></li>
                </ul>
             </div>
          </div>
          <div>
             <div class="procedure__section-subsection">
-               <a class="procedure__section-subsection-title" href="/services/astana/diagnostika/uzi">УЗИ</a>
+               <a class="procedure__section-subsection-title" href="#">УЗИ</a>
                <ul class="procedures__list">
-                  <li class="procedures__list-item"><a href="/services/astana/3d-uzi-ploda" class="procedures__list-link">3D УЗИ плода</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/4d-uzi-ploda" class="procedures__list-link">4D УЗИ плода</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/dopler-uzi" class="procedures__list-link">Доплер УЗИ плода (доплерография)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/transkranialnaya-ultrasonografiya" class="procedures__list-link">Транскраниальная ультрасонография (ТУС)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/truzi" class="procedures__list-link">ТРУЗИ</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-bryushnoy-polosti" class="procedures__list-link">УЗИ брюшной полости</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-vilochkovoy-zhelezy" class="procedures__list-link">УЗИ вилочковой железы</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-glaz" class="procedures__list-link">УЗИ глаз</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-golovnogo-mozga" class="procedures__list-link">УЗИ головного мозга </a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/neyrosonografiya" class="procedures__list-link">УЗИ головного мозга ребенка (нейросонография)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-zhelchnogo-puzyrya" class="procedures__list-link">УЗИ желчного пузыря</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-kolennogo-sustava" class="procedures__list-link">УЗИ коленного сустава</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-limfaticheskih-uzlov" class="procedures__list-link">УЗИ лимфатических узлов</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-lonnogo-sochleneniya" class="procedures__list-link">УЗИ лонного сочленения (симфиза)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-molochnyh-zhelez" class="procedures__list-link">УЗИ молочных желез</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-mochevogo-puzyrya" class="procedures__list-link">УЗИ мочевого пузыря</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-organov-moshonki" class="procedures__list-link">УЗИ мошонки (яичек)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-myagkih-tkaney" class="procedures__list-link">УЗИ мягких тканей</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-nadpochechnikov" class="procedures__list-link">УЗИ надпочечников</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-malogo-taza" class="procedures__list-link">УЗИ органов малого таза</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-pecheni" class="procedures__list-link">УЗИ печени </a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-plevralnoy-polosti" class="procedures__list-link">УЗИ плевральной полости</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-ploda" class="procedures__list-link">УЗИ плода (для беременных)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-podzheludochnoy-zhelezy" class="procedures__list-link">УЗИ поджелудочной железы</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-polovogo-chlena" class="procedures__list-link">УЗИ полового члена</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-pochek" class="procedures__list-link">УЗИ почек</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-predstatelnoy-zhelezy" class="procedures__list-link">УЗИ предстательной железы (простаты)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/skrining-1-iy" class="procedures__list-link">УЗИ при беременности 1 триместра</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/skrining-2-oi" class="procedures__list-link">УЗИ при беременности 2 триместра</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/skrining-3-iy" class="procedures__list-link">УЗИ при беременности 3 триместра</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-selezenki" class="procedures__list-link">УЗИ селезенки</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-serdtsa" class="procedures__list-link">УЗИ сердца</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-sosudov" class="procedures__list-link">УЗИ сосудов</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-sosudov-verhnih-konechnostey" class="procedures__list-link">УЗИ сосудов верхних конечностей</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-sosudov-golovy" class="procedures__list-link">УЗИ сосудов головы</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-sosudov-nizhnih-konechnostey" class="procedures__list-link">УЗИ сосудов нижних конечностей</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-sustavov" class="procedures__list-link">УЗИ суставов</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-tazobedrennogo-sustava" class="procedures__list-link">УЗИ тазобедренного сустава</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-shei" class="procedures__list-link">УЗИ шеи</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uzi-shchitovidnoy-zhelezy" class="procedures__list-link">УЗИ щитовидной железы</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">3D УЗИ плода</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">4D УЗИ плода</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Доплер УЗИ плода (доплерография)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Транскраниальная ультрасонография (ТУС)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">ТРУЗИ</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ брюшной полости</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ вилочковой железы</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ глаз</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ головного мозга </a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ головного мозга ребенка (нейросонография)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ желчного пузыря</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ коленного сустава</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ лимфатических узлов</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ лонного сочленения (симфиза)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ молочных желез</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ мочевого пузыря</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ мошонки (яичек)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ мягких тканей</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ надпочечников</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ органов малого таза</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ печени </a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ плевральной полости</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ плода (для беременных)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ поджелудочной железы</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ полового члена</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ почек</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ предстательной железы (простаты)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ при беременности 1 триместра</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ при беременности 2 триместра</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ при беременности 3 триместра</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ селезенки</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ сердца</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ сосудов</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ сосудов верхних конечностей</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ сосудов головы</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ сосудов нижних конечностей</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ суставов</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ тазобедренного сустава</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ шеи</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УЗИ щитовидной железы</a></li>
                </ul>
             </div>
          </div>
          <div>
             <div class="procedure__section-subsection">
-               <a class="procedure__section-subsection-title" href="/services/astana/diagnostika/funktsionalnaya-diagnostika">диагностика</a>
+               <a class="procedure__section-subsection-title" href="#">диагностика</a>
                <ul class="procedures__list">
-                  <li class="procedures__list-item"><a href="/services/astana/kardiotokografiya" class="procedures__list-link">Кардиотокография (КТГ)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/sutochnoe-monitorirovanie-arterialnogo-davleniya" class="procedures__list-link">Суточное мониторирование артериального давления (СМАД)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/sutochnoe-monitorirovanie-ekg" class="procedures__list-link">Суточное мониторирование ЭКГ (по Холтеру)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/flyuorografiya" class="procedures__list-link">Флюорография</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/ekg-elektrokardiogramma" class="procedures__list-link">ЭКГ (электрокардиограмма)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/eeg" class="procedures__list-link">ЭЭГ (электроэнцефалография)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Кардиотокография (КТГ)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Суточное мониторирование артериального давления (СМАД)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Суточное мониторирование ЭКГ (по Холтеру)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Флюорография</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">ЭКГ (электрокардиограмма)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">ЭЭГ (электроэнцефалография)</a></li>
                </ul>
             </div>
          </div>
          <div>
             <div class="procedure__section-subsection">
-               <a class="procedure__section-subsection-title" href="/services/astana/diagnostika/endoskopiya">Эндоскопия</a>
+               <a class="procedure__section-subsection-title" href="#">Эндоскопия</a>
                <ul class="procedures__list">
-                  <li class="procedures__list-item"><a href="/services/astana/videokolposkopiya" class="procedures__list-link">Видеокольпоскопия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/kolonoskopiya" class="procedures__list-link">Колоноскопия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/kolposkopiya" class="procedures__list-link">Кольпоскопия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/laringoskopiya" class="procedures__list-link">Ларингоскопия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/fgds" class="procedures__list-link">ФГДС</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/egds" class="procedures__list-link">ЭГДС</a></li>
-               </ul>
-            </div>
-         </div>
-      </div>
-      <div class="procedure__section">
-         <div>
-            <div class="procedure__section-subsection">
-               <ul class="procedures__list">
-                  <li class="procedures__list-item"><a href="/services/astana/spravka-070-04" class="procedures__list-link">Справка 070/у-04 (для путевки в санаторий)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/spravka-083-gai" class="procedures__list-link">Справка 083 (ГАИ)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/spravka-083-shoferskaya-spravka" class="procedures__list-link">Справка 083/у (шоферская справка)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/spravka-086-na-uchebu" class="procedures__list-link">Справка 086/у (на учебу)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/spravka-v-basseyn" class="procedures__list-link">Справка в бассейн</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/spravka-po-forme-026" class="procedures__list-link">Справка по форме 026/у (паспорт здоровья ребенка) </a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Видеокольпоскопия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Колоноскопия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Кольпоскопия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Ларингоскопия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">ФГДС</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">ЭГДС</a></li>
                </ul>
             </div>
          </div>
@@ -723,217 +723,231 @@ float: right !important;
       <div class="procedure__section">
          <div>
             <div class="procedure__section-subsection">
-               <a class="procedure__section-subsection-title" href="/services/astana/po-spetsialnostyam/andrologiya">Андрология</a>
                <ul class="procedures__list">
-                  <li class="procedures__list-item"><a href="/services/astana/massazh-prostaty" class="procedures__list-link">Массаж простаты</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Справка 070/у-04 (для путевки в санаторий)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Справка 083 (ГАИ)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Справка 083/у (шоферская справка)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Справка 086/у (на учебу)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Справка в бассейн</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Справка по форме 026/у (паспорт здоровья ребенка) </a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="procedure__section">
+         <div>
+            <div class="procedure__section-subsection">
+               <a class="procedure__section-subsection-title" href="#">Андрология</a>
+               <ul class="procedures__list">
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Массаж простаты</a></li>
                </ul>
             </div>
          </div>
          <div>
             <div class="procedure__section-subsection">
-               <a class="procedure__section-subsection-title" href="/services/astana/po-spetsialnostyam/ginekologiya">Гинекология</a>
+               <a class="procedure__section-subsection-title" href="#">Гинекология</a>
                <ul class="procedures__list">
-                  <li class="procedures__list-item"><a href="/services/astana/biopsiya-sheyki-matki" class="procedures__list-link">Биопсия шейки матки</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/vedenie-beremennosti" class="procedures__list-link">Ведение беременности</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/videokolposkopiya" class="procedures__list-link">Видеокольпоскопия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/vosstanovlenie-devstvennosti" class="procedures__list-link">Восстановление девственности (гименопластика)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/vskrytie-abstsessa-bartolinovoy-zhelezy" class="procedures__list-link">Вскрытие абсцесса бартолиновой железы</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/ginekologicheskiy-massazh" class="procedures__list-link">Гинекологический массаж</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/labioplastika" class="procedures__list-link">Интимная пластика (Лабиопластика)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/koagulyatsiya-sheyki-matki" class="procedures__list-link">Коагуляция шейки матки</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/kolposkopiya" class="procedures__list-link">Кольпоскопия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/konizatsiya-sheyki-matki" class="procedures__list-link">Конизация шейки матки</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/lechenie-erozii-sheyki-matki" class="procedures__list-link">Лечение эрозии шейки матки</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/medikamentozniy-abort" class="procedures__list-link">Медикаментозный аборт</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/obrabotka-sheyki-matki" class="procedures__list-link">Обработка шейки матки</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/onkotsitologiya" class="procedures__list-link">Онкоцитология</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/sanatsiya-vlagalishcha" class="procedures__list-link">Санация влагалища</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-vms" class="procedures__list-link">Удаление ВМС</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-kisty-bartolinovoy-zhelezy" class="procedures__list-link">Удаление кисты бартолиновой железы</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-kondilom-vulvy-sheyki" class="procedures__list-link">Удаление кондилом вульвы шейки</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/polipektomiya-sheyki-matki" class="procedures__list-link">Удаление полипов шейки матки (Полипэктомия)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/ustanovka-vms" class="procedures__list-link">Установка ВМС</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/ehosalpingoskopiya-matochnyh-trub" class="procedures__list-link">Эхосальпингоскопия проходимости маточных труб</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Биопсия шейки матки</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Ведение беременности</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Видеокольпоскопия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Восстановление девственности (гименопластика)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Вскрытие абсцесса бартолиновой железы</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Гинекологический массаж</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Интимная пластика (Лабиопластика)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Коагуляция шейки матки</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Кольпоскопия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Конизация шейки матки</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Лечение эрозии шейки матки</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Медикаментозный аборт</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Обработка шейки матки</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Онкоцитология</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Санация влагалища</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление ВМС</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление кисты бартолиновой железы</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление кондилом вульвы шейки</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление полипов шейки матки (Полипэктомия)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Установка ВМС</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Эхосальпингоскопия проходимости маточных труб</a></li>
                </ul>
             </div>
          </div>
          <div>
             <div class="procedure__section-subsection">
-               <a class="procedure__section-subsection-title" href="/services/astana/po-spetsialnostyam/cosmetologiya">Косметология</a>
+               <a class="procedure__section-subsection-title" href="#">Косметология</a>
                <ul class="procedures__list">
-                  <li class="procedures__list-item"><a href="/services/astana/biorevitalizatsiya" class="procedures__list-link">Биоревитализация</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/botulinoterapiya" class="procedures__list-link">Ботулинотерапия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/vakuumnaya-chistka-litsa" class="procedures__list-link">Вакуумная чистка лица</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/konturnaya-plastika" class="procedures__list-link">Контурная пластика</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/korrektsiya-figury" class="procedures__list-link">Коррекция фигуры</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/lazernaya-chistka-litsa" class="procedures__list-link">Лазерная чистка лица</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/lazernoe-omolozhenie" class="procedures__list-link">Лазерное омоложение </a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/lazernoe-udalenie-tatuirovok" class="procedures__list-link">Лазерное удаление татуировок</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/massazh-litsa" class="procedures__list-link">Массаж лица</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/mezoniti" class="procedures__list-link">Мезонити</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/mezoterapiya" class="procedures__list-link">Мезотерапия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/mehanicheskaya-chistka-litsa" class="procedures__list-link">Механическая чистка лица</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/mikrodermabraziya" class="procedures__list-link">Микродермабразия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/otbelivanie-intimnyh-zon" class="procedures__list-link">Отбеливание интимных зон</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/piling-litsa" class="procedures__list-link">Пилинг лица</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/plazmolifting" class="procedures__list-link">Плазмолифтинг</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/skleroterapiya" class="procedures__list-link">Склеротерапия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/ultrazvukovaya-chistka-litsa" class="procedures__list-link">Ультразвуковая чистка лица</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/elektroporatsiya" class="procedures__list-link">Электропорация</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Биоревитализация</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Ботулинотерапия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Вакуумная чистка лица</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Контурная пластика</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Коррекция фигуры</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Лазерная чистка лица</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Лазерное омоложение </a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Лазерное удаление татуировок</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Массаж лица</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Мезонити</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Мезотерапия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Механическая чистка лица</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Микродермабразия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Отбеливание интимных зон</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Пилинг лица</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Плазмолифтинг</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Склеротерапия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Ультразвуковая чистка лица</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Электропорация</a></li>
                </ul>
             </div>
          </div>
          <div>
             <div class="procedure__section-subsection">
-               <a class="procedure__section-subsection-title" href="/services/astana/po-spetsialnostyam/lor-protsedury">ЛОР-процедуры</a>
+               <a class="procedure__section-subsection-title" href="#">ЛОР-процедуры</a>
                <ul class="procedures__list">
-                  <li class="procedures__list-item"><a href="/services/astana/vskrytie-paratonzillyarnogo-abstsessa" class="procedures__list-link">Вскрытие паратонзиллярного абсцесса</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/pnevmomassazh-barabannoy-pereponki" class="procedures__list-link">Пневмомассаж барабанной перепонки</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/produvanie-ushey" class="procedures__list-link">Продувание ушей</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/promyvanie-mindalin" class="procedures__list-link">Промывание миндалин</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/promyvanie-nosa" class="procedures__list-link">Промывание носа</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/promyvanie-nosa-kukushka" class="procedures__list-link">Промывание носа Кукушка</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/punktsiya-gaymorovoy-pazuhi" class="procedures__list-link">Пункция гайморовой пазухи</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-inorodnogo-tela-iz-glotki" class="procedures__list-link">Удаление инородного тела из глотки</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-inorodnogo-tela-iz-nosa" class="procedures__list-link">Удаление инородного тела из носа</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-inorodnogo-tela-iz-uha" class="procedures__list-link">Удаление инородного тела из уха</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-sernoy-probki" class="procedures__list-link">Удаление серной пробки</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Вскрытие паратонзиллярного абсцесса</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Пневмомассаж барабанной перепонки</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Продувание ушей</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Промывание миндалин</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Промывание носа</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Промывание носа Кукушка</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Пункция гайморовой пазухи</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление инородного тела из глотки</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление инородного тела из носа</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление инородного тела из уха</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление серной пробки</a></li>
                </ul>
             </div>
          </div>
          <div>
             <div class="procedure__section-subsection">
-               <a class="procedure__section-subsection-title" href="/services/astana/po-spetsialnostyam/manualnaya-terapiya">Мануальная терапия</a>
+               <a class="procedure__section-subsection-title" href="#">Мануальная терапия</a>
                <ul class="procedures__list">
-                  <li class="procedures__list-item"><a href="/services/astana/igloterapiya" class="procedures__list-link">Иглотерапия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Иглотерапия</a></li>
                </ul>
             </div>
          </div>
          <div>
             <div class="procedure__section-subsection">
-               <a class="procedure__section-subsection-title" href="/services/astana/po-spetsialnostyam/massazh">Массаж</a>
+               <a class="procedure__section-subsection-title" href="#">Массаж</a>
                <ul class="procedures__list">
-                  <li class="procedures__list-item"><a href="/services/astana/antitsellyulitniy-massazh" class="procedures__list-link">Антицеллюлитный массаж</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/banochniy-massazh" class="procedures__list-link">Баночный массаж</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/korrektiruyushchiy-massazh-pri-deformatsiyah" class="procedures__list-link">Корректирующий массаж при деформациях</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/lechebniy-massazh" class="procedures__list-link">Лечебный массаж</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/massazh-golovy" class="procedures__list-link">Массаж головы</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/massazh-zivota" class="procedures__list-link">Массаж живота</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/massazh-nog" class="procedures__list-link">Массаж ног</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/massazh-oblasti-grudnoy-kletki" class="procedures__list-link">Массаж области грудной клетки</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/massazh-ruk" class="procedures__list-link">Массаж рук</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/massazh-spiny" class="procedures__list-link">Массаж спины</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/massazh-tazobedrennogo-sustava" class="procedures__list-link">Массаж тазобедренного сустава</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/massazh-sheyno-vorotnikovoy-zony" class="procedures__list-link">Массаж шейно-воротниковой зоны</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/medoviy-massazh" class="procedures__list-link">Медовый массаж</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/obshchiy-massazh" class="procedures__list-link">Общий массаж</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/sportivniy-massazh" class="procedures__list-link">Спортивный массаж</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Антицеллюлитный массаж</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Баночный массаж</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Корректирующий массаж при деформациях</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Лечебный массаж</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Массаж головы</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Массаж живота</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Массаж ног</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Массаж области грудной клетки</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Массаж рук</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Массаж спины</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Массаж тазобедренного сустава</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Массаж шейно-воротниковой зоны</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Медовый массаж</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Общий массаж</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Спортивный массаж</a></li>
                </ul>
             </div>
          </div>
          <div>
             <div class="procedure__section-subsection">
-               <a class="procedure__section-subsection-title" href="/services/astana/po-spetsialnostyam/narkologiya">Наркология</a>
+               <a class="procedure__section-subsection-title" href="#">Наркология</a>
                <ul class="procedures__list">
-                  <li class="procedures__list-item"><a href="/services/astana/kodirovanie-ot-alkogolya" class="procedures__list-link">Кодирование от алкоголя</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/lechenie-alkogolizma" class="procedures__list-link">Лечение алкоголизма</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/lechenie-igromanii" class="procedures__list-link">Лечение игромании</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/lechenie-narkomanii" class="procedures__list-link">Лечение наркомании</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Кодирование от алкоголя</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Лечение алкоголизма</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Лечение игромании</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Лечение наркомании</a></li>
                </ul>
             </div>
          </div>
          <div>
             <div class="procedure__section-subsection">
-               <a class="procedure__section-subsection-title" href="/services/astana/po-spetsialnostyam/nevrologiya">Неврология</a>
+               <a class="procedure__section-subsection-title" href="#">Неврология</a>
                <ul class="procedures__list">
-                  <li class="procedures__list-item"><a href="/services/astana/alkogolizatsiya-troynichnogo-nerva" class="procedures__list-link">Алкоголизация тройничного нерва</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/blokada-pozvonochnika" class="procedures__list-link">Блокада позвоночника</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Алкоголизация тройничного нерва</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Блокада позвоночника</a></li>
                </ul>
             </div>
          </div>
          <div>
             <div class="procedure__section-subsection">
-               <a class="procedure__section-subsection-title" href="/services/astana/po-spetsialnostyam/oftalmologiya">Офтальмология</a>
+               <a class="procedure__section-subsection-title" href="#">Офтальмология</a>
                <ul class="procedures__list">
-                  <li class="procedures__list-item"><a href="/services/astana/gonioskopiya" class="procedures__list-link">Гониоскопия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/zondirovanie-slezno-nosovogo-kanala" class="procedures__list-link">Зондирование слезно-носового канала</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/keratorefraktometriya-oboih-glaz" class="procedures__list-link">Кераторефрактометрия обоих глаз</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/oftalmoskopiya" class="procedures__list-link">Офтальмоскопия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/promyvanie-slezno-nosovogo-kanala" class="procedures__list-link">Промывание слезно-носового канала</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/tonometriya-glaza" class="procedures__list-link">Тонометрия глаза</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-inorodnogo-tela-konyunktivy" class="procedures__list-link">Удаление инородного тела конъюнктивы</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-inorodnogo-tela-rogovitsy" class="procedures__list-link">Удаление инородного тела роговицы</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-pterigiuma" class="procedures__list-link">Удаление птеригиума</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-halyaziona" class="procedures__list-link">Удаление халязиона</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/tsikloskopiya" class="procedures__list-link">Циклоскопия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Гониоскопия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Зондирование слезно-носового канала</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Кераторефрактометрия обоих глаз</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Офтальмоскопия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Промывание слезно-носового канала</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Тонометрия глаза</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление инородного тела конъюнктивы</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление инородного тела роговицы</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление птеригиума</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление халязиона</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Циклоскопия</a></li>
                </ul>
             </div>
          </div>
          <div>
             <div class="procedure__section-subsection">
-               <a class="procedure__section-subsection-title" href="/services/astana/po-spetsialnostyam/pediatriya">Педиатрия</a>
+               <a class="procedure__section-subsection-title" href="#">Педиатрия</a>
                <ul class="procedures__list">
-                  <li class="procedures__list-item"><a href="/services/astana/nablyudenie-detey" class="procedures__list-link">Наблюдение детей (от 1 года)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/pantronazh-novorozhdennogo" class="procedures__list-link">Патронаж новорожденного (от рождения до 1 года)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Наблюдение детей (от 1 года)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Патронаж новорожденного (от рождения до 1 года)</a></li>
                </ul>
             </div>
          </div>
          <div>
             <div class="procedure__section-subsection">
-               <a class="procedure__section-subsection-title" href="/services/astana/po-spetsialnostyam/urologiya">Урология</a>
+               <a class="procedure__section-subsection-title" href="#">Урология</a>
                <ul class="procedures__list">
-                  <li class="procedures__list-item"><a href="/services/astana/blokada-semennogo-kanatika" class="procedures__list-link">Блокада семенного канатика</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/buzhirovanie-uretry" class="procedures__list-link">Бужирование уретры</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/instillyatsiya-mochevogo-puzyrya" class="procedures__list-link">Инстилляция мочевого пузыря</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/instillyatsiya-uretry" class="procedures__list-link">Инстилляция уретры</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/kateterizatsiya-mochevogo-puzyrya" class="procedures__list-link">Катетеризация мочевого пузыря</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-polipov-uretry" class="procedures__list-link">Удаление полипов уретры</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Блокада семенного канатика</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Бужирование уретры</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Инстилляция мочевого пузыря</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Инстилляция уретры</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Катетеризация мочевого пузыря</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление полипов уретры</a></li>
                </ul>
             </div>
          </div>
          <div>
             <div class="procedure__section-subsection">
-               <a class="procedure__section-subsection-title" href="/services/astana/po-spetsialnostyam/fizioterapiya">Физиотерапия</a>
+               <a class="procedure__section-subsection-title" href="#">Физиотерапия</a>
                <ul class="procedures__list">
-                  <li class="procedures__list-item"><a href="/services/astana/galvanizatsiya" class="procedures__list-link">Гальванизация</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/diadinamoterapiya" class="procedures__list-link">Диадинамотерапия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/ingalyatsionnaya-terapiya" class="procedures__list-link">Ингаляционная терапия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/lazernaya-terapiya" class="procedures__list-link">Лазерная терапия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/magnitoterapiya" class="procedures__list-link">Магнитотерапия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/parafinoterapiya" class="procedures__list-link">Парафинотерапия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/uvch-terapiya" class="procedures__list-link">УВЧ-терапия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/ultrazvukovaya-terapiya" class="procedures__list-link">Ультразвуковая терапия</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/elektromiosrimulyatsiya" class="procedures__list-link">Электромиостимуляция</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/elektroforez" class="procedures__list-link">Электрофорез</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Гальванизация</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Диадинамотерапия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Ингаляционная терапия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Лазерная терапия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Магнитотерапия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Парафинотерапия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">УВЧ-терапия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Ультразвуковая терапия</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Электромиостимуляция</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Электрофорез</a></li>
                </ul>
             </div>
          </div>
          <div>
             <div class="procedure__section-subsection">
-               <a class="procedure__section-subsection-title" href="/services/astana/po-spetsialnostyam/hirurgiya">Хирургия</a>
+               <a class="procedure__section-subsection-title" href="#">Хирургия</a>
                <ul class="procedures__list">
-                  <li class="procedures__list-item"><a href="/services/astana/vskrytie-abstsessa" class="procedures__list-link">Вскрытие абсцесса</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/vskrytie-gidradenita" class="procedures__list-link">Вскрытие гидраденита</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/vskrytie-panaritsiya" class="procedures__list-link">Вскрытие панариция</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/vskrytie-furunkula" class="procedures__list-link">Вскрытие фурункула</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/issechenie-rubtsov" class="procedures__list-link">Иссечение рубцов</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/kraevaya-rezektsiya-nogtevoy-plastiny" class="procedures__list-link">Краевая резекция ногтевой пластины</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/lechenie-gematomy" class="procedures__list-link">Лечение гематомы</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/nalozhenie-shvov" class="procedures__list-link">Наложение  швов</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/obrezanie" class="procedures__list-link">Обрезание (циркумцизия)</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/perevyazka-ran" class="procedures__list-link">Перевязка ран</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/podrezanie-uzdechki-yazyka" class="procedures__list-link">Подрезание уздечки языка</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/snyatie-shvov" class="procedures__list-link">Снятие швов</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-ateromy" class="procedures__list-link">Удаление атеромы</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-borodavok" class="procedures__list-link">Удаление бородавок</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-vrosshego-nogtya" class="procedures__list-link">Удаление вросшего ногтя</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-gigromy" class="procedures__list-link">Удаление гигромы</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-keratomy" class="procedures__list-link">Удаление кератомы</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-kondilomy" class="procedures__list-link">Удаление кондиломы</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-lipomy" class="procedures__list-link">Удаление липомы</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-metallokonstruktsiy" class="procedures__list-link">Удаление металлоконструкций</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-papillom" class="procedures__list-link">Удаление папиллом</a></li>
-                  <li class="procedures__list-item"><a href="/services/astana/udalenie-sosudistoy-setochki" class="procedures__list-link">Удаление сосудистой сеточки</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Вскрытие абсцесса</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Вскрытие гидраденита</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Вскрытие панариция</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Вскрытие фурункула</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Иссечение рубцов</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Краевая резекция ногтевой пластины</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Лечение гематомы</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Наложение  швов</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Обрезание (циркумцизия)</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Перевязка ран</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Подрезание уздечки языка</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Снятие швов</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление атеромы</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление бородавок</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление вросшего ногтя</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление гигромы</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление кератомы</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление кондиломы</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление липомы</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление металлоконструкций</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление папиллом</a></li>
+                  <li class="procedures__list-item"><a href="#" class="procedures__list-link">Удаление сосудистой сеточки</a></li>
                </ul>
             </div>
          </div>

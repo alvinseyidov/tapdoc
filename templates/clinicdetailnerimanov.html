@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--><html class="no-js" lang="ru"><!--<![endif]-->
 
 <!-- Mirrored from docdoc.ru/clinic/eko-sodeystvie by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 09 Nov 2018 08:12:24 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<!-- Added by HTTrack  --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
         <!-- Yandex.Metrika counter -->
@@ -31,7 +31,8 @@
 
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://www.jqueryscript.net/demo/Easy-jQuery-Input-Mask-Plugin-inputmask/dist/jquery.inputmask.bundle.min.js"></script>
+            <script src="https://www.jqueryscript.net/demo/Easy-jQuery-Input-Mask-Plugin-inputmask/dist/jquery.inputmask.bundle.min.js"></script>
+
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -364,6 +365,49 @@ border-radius: 7px;
 
 
 
+
+.modal4 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content4 {
+  background-color: #fefefe;
+margin: auto;
+padding: 20px;
+border: 1px solid #888;
+width: 50%;
+border-radius: 7px;
+}
+
+/* The Close Button */
+.close4 {
+  color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close4:hover,
+.close4:focus {
+  color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
 .closemuraciet {
     color: #aaaaaa;
     float: right;
@@ -464,7 +508,6 @@ a:hover{
 a:active{
   text-decoration:none !important;
 }
-
 </style>
 </head>
 
@@ -552,7 +595,7 @@ a:active{
 <section class="clinic" itemscope itemtype="http://schema.org/LocalBusiness">
 	<div class="clinic__top">
 		<div>
-			<meta itemprop="name" content="İstanbul NS Klinikası">
+			<meta itemprop="name" content="Avrasiya Klinikası">
 			<div class="wrapper">
 				<div class="clinic__header">
 					<div class="clinic__inner">
@@ -566,7 +609,7 @@ a:active{
 								<div class="clinic__caption">
 									<div class="clinic__caption-left">
 										<div class="clinic__logo ">
-											<img src="{% static 'img/instanbul.png'%}" alt=""/>
+											<img src="{% static 'img/avrasiya.png'%}" alt=""/>
 										</div>
 
 										<div class="clinic__rating">
@@ -604,17 +647,17 @@ a:active{
 					<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 				  <a itemprop="item" href="https://tapdoc.az/clinic"><span itemprop="name">Klinikalar</span></a>	></span>
 					<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-				  <span itemprop="name">İstanbul NS Klinikası</span>				<meta itemprop="position" content="3" />
+				  <span itemprop="name">Avrasiya Klinikası</span>				<meta itemprop="position" content="3" />
 			</span>
 			</div>
 										</div>
-                                        										<h1 class="clinic__name">İstanbul NS  Klinikası</h1>
+                                        										<h1 class="clinic__name">Avrasiya  Klinikası Nərimanov Filialı</h1>
 									</div>
 								</div>
 								<div class="clinic__slider-container w3-content w3-display-container">
-																			<img class="mySlides" src="{% static 'img/istanbulbg2.jpg'%}"/>
-                                      <img class="mySlides" src="{% static 'img/istanbulbg1.jpg'%}"/>
-                                      <img class="mySlides" src="{% static 'img/istanbulbg3.jpg'%}"/>
+																			<img class="mySlides" src="{% static 'img/avrasiyabg.jpg'%}"/>
+                                      <img class="mySlides" src="{% static 'img/avrasiyabg1.jpg'%}"/>
+                                      <img class="mySlides" src="{% static 'img/avrasiyabg2.jpg'%}"/>
 
                                       <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%;    z-index: 100;">
     <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)"><a href="javascript:void(0)"><img src="{% static 'img/leftarrow.png'%}"/></a></div>
@@ -677,7 +720,7 @@ function showDivs(n) {
 
 
 	<div class='balloon__right'>
-					<a href='https://tapdoc.az/clinic/eko-sodeystvie' class='balloon__name'>İstanbul NS Klinikası</a>
+					<a href='https://tapdoc.az/clinic/eko-sodeystvie' class='balloon__name'>Avrasiya Klinikası</a>
 
 
 							<div class='balloon__rating'>
@@ -726,6 +769,30 @@ function showDivs(n) {
 <br>
 
 
+        <script>
+        // Get the modal
+        var modal4 = document.getElementById('myModal4');
+
+        // Get the button that opens the modal
+        var btn4 = document.getElementById("myBtn4");
+
+        // Get the <span> element that closes the modal
+        var span4 = document.getElementsByClassName("close4")[0];
+
+        // When the user clicks the button, open the modal
+        btn4.onclick = function() {
+          modal4.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span4.onclick = function() {
+          modal4.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+
+        </script>
+
 
 
 
@@ -739,7 +806,11 @@ function showDivs(n) {
 								     data-ga-action="clickPhoneNumber">
 																			+994 (051) 927-01-01																	</div>
 																						<div class="clinic__button">
-									<button class="myBtnmuraciet" id="myBtnmuracietmrc3">Müraciət</button>
+								 <button class="myBtnmuraciet" id="myBtnmuracietmrc3">Müraciət</button>
+
+
+
+
 								</div>
 																		</div>
 				</div>
@@ -747,7 +818,7 @@ function showDivs(n) {
 										<div class="clinic__text js-short-description">
 						<div class="clinic__title">Klinika Haqqında</div>
 						<div class="js-result-txt clinic__text-inner" itemprop="description">
-							<p>«İstanbul NS Klinikası» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir. Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir. Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.</div>
+							<p>«Avrasiya Klinikası» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir. Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir. Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.</div>
 					</div>
 				</div>
 
@@ -783,9 +854,9 @@ function showDivs(n) {
    <div class="action-modal-title">
       <div class="row">
          <div class="col-xs-8 col-sm-8 text-left text-overflow flex flex-vertical-center">
-            <div class="doc-block__logo inline-block vertical-middle"> <img ng-src="{% static 'img/istanbul.png'%}" alt="" src="{% static 'img/istanbul.png'%}"> </div>
+            <div class="doc-block__logo inline-block vertical-middle"> <img ng-src="{% static 'img/avrasiya.png'%}" alt="" src="{% static 'img/avrasiya.png'%}"> </div>
             <span>
-               <strong>İstanbul NS Klinikası</strong>
+               <strong>Avrasiya Klinikası</strong>
                <div class="gray-text">Nərimanov r. Azadlıq pr. 23</div>
             </span>
          </div>
@@ -852,18 +923,8 @@ window.onclick = function(event) {
   else if (event.target == modal3) {
     modal3.style.display = "none";
   }
-
-  else if (event.target == modalmrc1) {
-    modalmrc1.style.display = "none";
-  }
-  else if (event.target == modalmrc2) {
-    modalmrc2.style.display = "none";
-  }
-  else if (event.target == modalmrc3) {
-    modalmrc3.style.display = "none";
-  }
-  else if (event.target == modalmrc4) {
-    modalmrc4.style.display = "none";
+  else if (event.target == modal4) {
+    modal4.style.display = "none";
   }
 }
 </script>
@@ -882,9 +943,9 @@ window.onclick = function(event) {
    <div class="action-modal-title">
       <div class="row">
          <div class="col-xs-8 col-sm-8 text-left text-overflow flex flex-vertical-center">
-            <div class="doc-block__logo inline-block vertical-middle"> <img ng-src="{% static 'img/istanbul.png'%}" alt="" src="{% static 'img/istanbul.png'%}"> </div>
+            <div class="doc-block__logo inline-block vertical-middle"> <img ng-src="{% static 'img/avrasiya.png'%}" alt="" src="{% static 'img/avrasiya.png'%}"> </div>
             <span>
-               <strong>İstanbul NS Klinikası</strong>
+               <strong>Avrasiya Klinikası</strong>
                <div class="gray-text">Nərimanov r. Azadlıq pr. 23</div>
             </span>
          </div>
@@ -954,9 +1015,9 @@ span2.onclick = function() {
    <div class="action-modal-title">
       <div class="row">
          <div class="col-xs-8 col-sm-8 text-left text-overflow flex flex-vertical-center">
-            <div class="doc-block__logo inline-block vertical-middle"> <img ng-src="{% static 'img/istanbul.png'%}" alt="" src="{% static 'img/istanbul.png'%}"> </div>
+            <div class="doc-block__logo inline-block vertical-middle"> <img ng-src="{% static 'img/avrasiya.png'%}" alt="" src="{% static 'img/avrasiya.png'%}"> </div>
             <span>
-               <strong>İstanbul NS Klinikası</strong>
+               <strong>Avrasiya Klinikası</strong>
                <div class="gray-text">Nərimanov r. Azadlıq pr. 23</div>
             </span>
          </div>
@@ -1277,7 +1338,7 @@ span3.onclick = function() {
 
 
     	<div class="balloon__right">
-    					<a href="https://tapdoc.az/clinic/eko-sodeystvie" class="balloon__name">İstanbul NS Klinikası</a>
+    					<a href="https://tapdoc.az/clinic/eko-sodeystvie" class="balloon__name">Avrasiya Klinikası</a>
 
 
     							<div class="balloon__rating">
@@ -1330,7 +1391,7 @@ span3.onclick = function() {
     																											<div class="clinic__phone" itemprop="telephone" data-ga-label="doctor clinic form" data-ga-action="clickPhoneNumber">
     																			+994 (051) 927-01-01																	</div>
     																						<div class="clinic__button">
-    									<button class="myBtnmuraciet" id="myBtnmuracietmrc4">Müraciət</button>
+    									 <button class="myBtnmuraciet" id="myBtnmuracietmrc4">Müraciət</button>
     								</div>
     																		</div>
   </div></div>
@@ -1398,7 +1459,7 @@ span3.onclick = function() {
 
 
                 					<div class="clinic__button">
-	                    <div class="button js-request-form-hook" data-ga-label="doctor clinic form"  data-stat="btnCard" data-pid="8097" data-tracking="{&quot;action&quot;:&quot;click&quot;,&quot;name&quot;:&quot;ClinicServiceForm&quot;,&quot;formType&quot;:&quot;ServiceForm&quot;,&quot;pageType&quot;:&quot; full&quot;}" onmouseenter="dispatchTrackingEvent({&quot;name&quot;:&quot;ClinicServiceForm&quot;,&quot;action&quot;:&quot;hover&quot;,&quot;formType&quot;:&quot;ServiceForm&quot;,&quot;pageType&quot;:&quot; full&quot;})" data-clinic-id="35333" data-clinic-name="İstanbul NS Klinikası" data-clinic-area="Алексеевский" data-clinic-address="Azadlıq prospekti 43" data-clinic-metro="Gənclik" data-is-pink="1">
+	                    <div class="button js-request-form-hook" data-ga-label="doctor clinic form"  data-stat="btnCard" data-pid="8097" data-tracking="{&quot;action&quot;:&quot;click&quot;,&quot;name&quot;:&quot;ClinicServiceForm&quot;,&quot;formType&quot;:&quot;ServiceForm&quot;,&quot;pageType&quot;:&quot; full&quot;}" onmouseenter="dispatchTrackingEvent({&quot;name&quot;:&quot;ClinicServiceForm&quot;,&quot;action&quot;:&quot;hover&quot;,&quot;formType&quot;:&quot;ServiceForm&quot;,&quot;pageType&quot;:&quot; full&quot;})" data-clinic-id="35333" data-clinic-name="Avrasiya Klinikası" data-clinic-area="Алексеевский" data-clinic-address="Azadlıq prospekti 43" data-clinic-metro="Gənclik" data-is-pink="1">
 	                        Müraciət
 	                    </div>
 					</div>
@@ -1552,7 +1613,7 @@ span3.onclick = function() {
                                   <div class="clinic-card__clinic-address">
 
                                             <div class="clinic-card__clinic-address">
-                                            <a href="/clinic/1/detail">İstanbul NS Klinikası</a><br>
+                                            <a href="/clinic/1/detail">Avrasiya Klinikası</a><br>
                                           <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
 
                                            <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro2.png">&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="/static/img/metro1.png">&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
@@ -1631,13 +1692,13 @@ span3.onclick = function() {
         <div><p style="font-size: 13px;text-align: center; margin: 0 32px 8px 0;">Bu klinikada hal-hazırda onlayn qeydiyyat yoxdur. Qəbula yazılmaq üçün müraciət edin, sizinlə 10 dəq ərzində əlaqə saxlanılacaq.</p></div>
 
                     <div style="margin: 0 0px 0 62px;" class="clinic-address__button clinic-card__clinic-button js-book-clinic">
-                           <button class="myBtnmuraciet" id="myBtnmuracietmrc2">Müraciət</button>
+                            <button class="myBtnmuraciet" id="myBtnmuracietmrc2">Müraciət</button>
 
                     </div><br>
                     <div class="clinic-card__clinic-address">
 
                               <div class="clinic-card__clinic-address">
-                              <a href="/clinic/1/detail">İstanbul NS Klinikası</a><br>
+                              <a href="/clinic/1/detail">Avrasiya Klinikası</a><br>
                             <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
 
                              <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="/static/img/metro2.png">&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="/static/img/metro1.png">&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
@@ -1659,6 +1720,8 @@ span3.onclick = function() {
 	</div>
 </div>
 																					</div>
+
+
 
 
 
@@ -1722,7 +1785,7 @@ span3.onclick = function() {
                                             <div class="popup-book__infobox"><div class="popup-book__info clearfix">
                                             <div class="popup-book__doc">
                                               <div class="popup-book__pic">
-                                                <img data-bind="attr: {src: doctor.image}" src="{% static 'img/clinic.png' %}">
+                                                <img data-bind="attr: {src: doctor.image}" src="{% static 'img/avrasiya.png' %}">
                                               </div>
                                               <div class="doc__rating">
                                                 <div class="rate">
@@ -1748,7 +1811,7 @@ span3.onclick = function() {
                                               </div>
                                             </div>
                                             <div class="popup-book__float">
-                                              <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">İstanbul NS Klinikası</span><br>
+                                              <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">Avrasiya Klinikası</span><br>
                                               </div>
                                                   <!-- ko if: priceSelectorVisible -->
 
@@ -2064,7 +2127,7 @@ span3.onclick = function() {
                                             <div class="popup-book__infobox"><div class="popup-book__info clearfix">
                                             <div class="popup-book__doc">
                                               <div class="popup-book__pic">
-                                                <img data-bind="attr: {src: doctor.image}" src="{% static 'img/clinic.png' %}">
+                                                <img data-bind="attr: {src: doctor.image}" src="{% static 'img/avrasiya.png' %}">
                                               </div>
                                               <div class="doc__rating">
                                                 <div class="rate">
@@ -2090,7 +2153,7 @@ span3.onclick = function() {
                                               </div>
                                             </div>
                                             <div class="popup-book__float">
-                                              <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">İstanbul NS Klinikası</span><br>
+                                              <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">Avrasiya Klinikası</span><br>
                                               </div>
                                                   <!-- ko if: priceSelectorVisible -->
 
@@ -2408,7 +2471,7 @@ span3.onclick = function() {
                                             <div class="popup-book__infobox"><div class="popup-book__info clearfix">
                                             <div class="popup-book__doc">
                                               <div class="popup-book__pic">
-                                                <img data-bind="attr: {src: doctor.image}" src="{% static 'img/instanbul.png' %}">
+                                                <img data-bind="attr: {src: doctor.image}" src="{% static 'img/avrasiya.png' %}">
                                               </div>
                                               <div class="doc__rating">
                                                 <div class="rate">
@@ -2434,7 +2497,7 @@ span3.onclick = function() {
                                               </div>
                                             </div>
                                             <div class="popup-book__float">
-                                              <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">İstanbul NS Klinikası</span><br>
+                                              <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">Avrasiya Klinikası</span><br>
                                               </div>
                                                   <!-- ko if: priceSelectorVisible -->
 
@@ -2749,7 +2812,7 @@ span3.onclick = function() {
                                             <div class="popup-book__infobox"><div class="popup-book__info clearfix">
                                             <div class="popup-book__doc">
                                               <div class="popup-book__pic">
-                                                <img data-bind="attr: {src: doctor.image}" src="{% static 'img/instanbul.png' %}">
+                                                <img data-bind="attr: {src: doctor.image}" src="{% static 'img/avrasiya.png' %}">
                                               </div>
                                               <div class="doc__rating">
                                                 <div class="rate">
@@ -2775,7 +2838,7 @@ span3.onclick = function() {
                                               </div>
                                             </div>
                                             <div class="popup-book__float">
-                                              <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">İstanbul NS Klinikası</span><br>
+                                              <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">Avrasiya Klinikası</span><br>
                                               </div>
                                                   <!-- ko if: priceSelectorVisible -->
 
@@ -3038,26 +3101,6 @@ span3.onclick = function() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         <div style="margin: 26px 0 22px 0;"> <h3>Sertifikatlar</h3></div>
                         <div style="margin: 26px 0 22px 0;">
                           <div class="row">
@@ -3107,7 +3150,7 @@ span3.onclick = function() {
 <div class="doctor__tab" data-tab="reviews">
 
     <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-        <meta itemprop="itemReviewed" content="İstanbul NS Klinikası"/>
+        <meta itemprop="itemReviewed" content="Avrasiya Klinikası"/>
         <meta itemprop="reviewCount" content="5"/>
         <meta itemprop="ratingValue" content="4.75"/>
         <meta itemprop="worstRating" content="1"/>
@@ -3119,12 +3162,12 @@ span3.onclick = function() {
             <div class="doctors__reviews-inner">
                 <a name="reviews"></a>
                                 <div class="doctors__left doctors__left_reviews">
-                                                                        <div class="doctors__reviews-title">"İstanbul NS Klinikası" haqqında yazılan rəylər</div>
+                                                                        <div class="doctors__reviews-title">"Avrasiya Klinikası" haqqında yazılan rəylər</div>
                                                                 <div class="reviews__items">
 
 
 <div class="reviews__item " itemprop="review" itemscope itemtype="http://schema.org/Review" >
-	<meta itemprop="itemReviewed" content="İstanbul NS Klinikası">
+	<meta itemprop="itemReviewed" content="Avrasiya Klinikası">
 
 	<div class="reviews__top">
 		<div class="reviews__rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
@@ -3160,7 +3203,7 @@ span3.onclick = function() {
 			</div>
 </div>
 <div class="reviews__item " itemprop="review" itemscope itemtype="http://schema.org/Review" >
-	<meta itemprop="itemReviewed" content="İstanbul NS Klinikası">
+	<meta itemprop="itemReviewed" content="Avrasiya Klinikası">
 
 	<div class="reviews__top">
 		<div class="reviews__rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
@@ -3196,7 +3239,7 @@ span3.onclick = function() {
 			</div>
 </div>
 <div class="reviews__item " itemprop="review" itemscope itemtype="http://schema.org/Review" >
-	<meta itemprop="itemReviewed" content="İstanbul NS Klinikası">
+	<meta itemprop="itemReviewed" content="Avrasiya Klinikası">
 
 	<div class="reviews__top">
 		<div class="reviews__rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
@@ -3232,7 +3275,7 @@ span3.onclick = function() {
 			</div>
 </div>
 <div class="reviews__item " itemprop="review" itemscope itemtype="http://schema.org/Review" >
-	<meta itemprop="itemReviewed" content="İstanbul NS Klinikası">
+	<meta itemprop="itemReviewed" content="Avrasiya Klinikası">
 
 	<div class="reviews__top">
 		<div class="reviews__rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
@@ -3269,7 +3312,7 @@ span3.onclick = function() {
 </div>
 <div class="collapse" id="collapserey">
   <div class="reviews__item " itemprop="review" itemscope itemtype="http://schema.org/Review" >
-  	<meta itemprop="itemReviewed" content="İstanbul NS Klinikası">
+  	<meta itemprop="itemReviewed" content="Avrasiya Klinikası">
 
   	<div class="reviews__top">
   		<div class="reviews__rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
@@ -3305,7 +3348,7 @@ span3.onclick = function() {
   			</div>
   </div>
   <div class="reviews__item " itemprop="review" itemscope itemtype="http://schema.org/Review" >
-  	<meta itemprop="itemReviewed" content="İstanbul NS Klinikası">
+  	<meta itemprop="itemReviewed" content="Avrasiya Klinikası">
 
   	<div class="reviews__top">
   		<div class="reviews__rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
@@ -3462,7 +3505,7 @@ span3.onclick = function() {
 
 
 	<div class='balloon__right'>
-					<a href='https://tapdoc.az/clinic/eko-sodeystvie' class='balloon__name'>İstanbul NS Klinikası</a>
+					<a href='https://tapdoc.az/clinic/eko-sodeystvie' class='balloon__name'>Avrasiya Klinikası</a>
 
 
 							<div class='balloon__rating'>

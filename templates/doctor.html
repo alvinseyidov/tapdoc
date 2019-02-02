@@ -509,7 +509,7 @@ float: right;
 }
 
 .clinichover:hover {
-
+  color:blue;
 }
 
 .multiclinicdoc .active {
@@ -583,6 +583,18 @@ background: #eeeff3;
 .selectize-input > input{
   margin: 7px 0 0 0 !important;
     font-size: 18px !important;
+}
+
+.nice-select{
+  width:220px;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+.clinic-card__name:hover{
+  color:blue;
 }
 </style>
 
@@ -1032,7 +1044,7 @@ function myFunction() {
 
 				<div class="clinic-card__photo">
 					<!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
-                    <a href="https://tapdoc.az/clinic/trastmed" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
+                    <a href="{% url 'doctordetail' doctor.id %}" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
                         <img src="{{doctor.image.url}}" alt="" class="avatar-round --big"/>                    </a>
 					<div class="clinic-card__rating">
 
@@ -1052,7 +1064,7 @@ function myFunction() {
 			<i class="fa fa-star" aria-hidden="true"></i>
 		</div>
 	</div>						<div class="clinic-card__rating-value">
-							<a href="https://tapdoc.az/clinic/trastmed#reviews">
+							<a href="{% url 'doctordetail' doctor.id %}">
 																	5125 rəy															</a>
 						</div>
 					</div>
@@ -1083,13 +1095,13 @@ function myFunction() {
 
       </div>
 
-       <div style="margin: -85px -66px 0 0;padding: 4px 0 0 0;" id="London{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
+       <div style="margin: -85px -76px 0 0;padding: 4px 0 0 0;" id="London{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
 				<div class="clinic-card__clinic" style="padding: 40px 25px 25px 57px;">
         <div class="bozpanel1" style="font-size:15px;">Həkim bir neçə klinikada fəaliyyət göstərir.</div>
-        <div style="    padding: 0 0 0 60px;">
+        <div style="    padding: 0 0 0 29px;">
         <select style="    width: 192px;" id="doctabselectdrop1" onchange="doctabselectdrop1()">
-   <option value="1">Medical Plaza&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-   <option value="2">New Med Klinikası</option>
+   <option value="1">Avrasiya Klinkası&nbsp;&nbsp;&nbsp;&nbsp;</option>
+   <option value="2">Vital Klinikası</option>
  </select></div>
  <script type="text/javascript">
 
@@ -1128,7 +1140,7 @@ function myFunction() {
                         <div class="clinic-card__clinic-address">
 
               						        <div class="clinic-card__clinic-address">
-              		              <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Medical Plaza </span></a><br>
+              		              <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Avrasiya Klinikası</span></a><br>
                                 <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
 
               	                 <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
@@ -1140,28 +1152,28 @@ function myFunction() {
 
 
 
-         <div style="margin: -85px -66px 0 0;padding: 4px 0 0 0;" id="Paris{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
+         <div style="margin: -85px -76px 0 0;padding: 4px 0 0 0;" id="Paris{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
   				<div class="clinic-card__clinic" style="padding: 40px 25px 25px 57px;">
 
           <div class="bozpanel1"  style="font-size:15px;">Həkim bir neçə klinikada fəaliyyət göstərir.</div>
           <label class="dropdownbozpanel" style="display:none;">
 
     <div class="dd-buttonbozpanel">
-      New Med Klinikası
+      Vital Klinikası
     </div>
 
     <input type="checkbox" class="dd-inputbozpanel" id="test">
 
     <ul class="dd-menubozpanel">
-    <a onclick="openCitydoctabdrop11(event, 'London{{doctor.id}}')" id="defaultOpendoctab{{doctor.id}}"><li>New Med</li></a>
+    <a onclick="openCitydoctabdrop11(event, 'London{{doctor.id}}')" id="defaultOpendoctab{{doctor.id}}"><li>Vital</li></a>
 
     </ul>
 
   </label>
-  <div style="    padding: 0 0 0 60px;">
+  <div style="    padding: 0 0 0 29px;">
   <select style="  width: 192px;" id="doctabselectdrop2" onchange="doctabselectdrop2()">
-     <option value="1">New Med Klinikası</option>
-     <option value="2">Medical Plaza&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+     <option value="1">Vital Klinikası</option>
+     <option value="2">Vital Klinikası&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
    </select></div>
    <script type="text/javascript">
 
@@ -1202,7 +1214,7 @@ function myFunction() {
               <div class="clinic-card__clinic-address">
 
                         <div class="clinic-card__clinic-address">
-                        <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">New Med </span>Klinikası</a><br>
+                        <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Vital Klinikası</span></a><br>
                       <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
 
                        <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
@@ -1215,7 +1227,7 @@ function myFunction() {
 
 <div class="clinic-card__right">
 				<div class="clinic-card__clinic">
-        <div class="bozpanel2"  style="font-size:15px;">Həkim <span>New Med Klinikasında</span> fəaliyyət göstərir.</div>
+        <div class="bozpanel2"  style="font-size:15px;">Həkim <span>Vital Klinikasında</span> fəaliyyət göstərir.</div>
 
         <div><p style="font-size: 13px;text-align: center; margin: 0 32px 8px 0;">Bu klinikada hal-hazırda onlayn qeydiyyat yoxdur. Qəbula yazılmaq üçün müraciət edin, sizinlə 10 dəq ərzində əlaqə saxlanılacaq.</p></div>
 
@@ -1226,7 +1238,7 @@ function myFunction() {
                     <div class="clinic-card__clinic-address">
 
                               <div class="clinic-card__clinic-address">
-                              <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">New Med</span> Klinikası</a><br>
+                              <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Vital</span> Klinikası</a><br>
                             <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
 
                              <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
@@ -1306,7 +1318,7 @@ function myFunction() {
     <div class="popup-book__infobox"><div class="popup-book__info clearfix">
     <div class="popup-book__doc">
       <div class="popup-book__pic">
-        <img data-bind="attr: {src: doctor.image}" src="{% static 'img/doctor.png' %}">
+        <img data-bind="attr: {src: doctor.image}" src="{{doctor.image.url}}">
       </div>
       <div class="doc__rating">
         <div class="rate">
@@ -1333,7 +1345,7 @@ function myFunction() {
     </div>
     <div class="popup-book__float">
       <div class="popup-book__info-name" data-bind="text: doctor.name">{{doctor.first_name}}  {{doctor.last_name}}</div>
-      <span data-bind="text: specialityName">Uroloq, Cərrah</span> <span data-bind="text: clinicSubtitle"> - New Med Klinikası</span><br>
+      <span data-bind="text: specialityName">Uroloq, Cərrah</span> <span data-bind="text: clinicSubtitle"> - Vital Klinikası</span><br>
           <!-- ko if: priceSelectorVisible -->
       <span class="popup-book__info-price">Həkim Qəbulu</span> <span data-bind="text: price.actualPriceText"> 50 AZN</span><br>
           <!-- /ko -->
@@ -1404,8 +1416,8 @@ function myFunction() {
 
 
                     <select name="carlist" form="carform" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;">
-                      <option value="volvo">New Med Klinikası</option>
-                      <option value="saab">Medical Plaza</option>
+                      <option value="volvo">Vital Klinikası</option>
+
 
                     </select>
               </div>

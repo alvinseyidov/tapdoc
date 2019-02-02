@@ -13,6 +13,8 @@
     <meta name="description" content="Запись в клиники и центры. Все медицинские центры Москвы на одном сайте! Рейтинги, отзывы посетителей." />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://www.jqueryscript.net/demo/Easy-jQuery-Input-Mask-Plugin-inputmask/dist/jquery.inputmask.bundle.min.js"></script>
+
 
       <script src="{% static 'js/selectize.js'%}"></script>
         <script src="{% static 'js/selectizeindex.js'%}"></script>
@@ -308,7 +310,7 @@ float: right;
 }
 .myBtnmuraciet{
   width: 200px;
-  margin:auto;
+  margin:0 0 0 -18px;
     box-sizing: border-box;
     display: block;
     color: #fff;
@@ -387,6 +389,17 @@ background: #eeeff3;
 .selectize-input > input{
   margin: 7px 0 0 0 !important;
     font-size: 18px !important;
+}
+
+a:hover{
+  text-decoration:none !important;
+}
+a:active{
+  text-decoration:none !important;
+}
+
+.butundiaqnostikalar:hover{
+  background-color: #048ca0 !important;
 }
 </style>
 </head>
@@ -517,8 +530,8 @@ background: #eeeff3;
 
 	<div class="search">
 		<div class="forms">
-			<form id="searchForm" class="forms__form search_form" method="post" action="https://tapdoc.az/site/searchRedirect">
-
+			<form id="searchForm" class="forms__form search_form" method="post" action="{% url 'diaqnostika'%}">
+{% csrf_token %}
 				<input type="hidden" name="spec" class="js-choose-input-spec" id="spec" autocomplete="off" value="" />
 				<input type="hidden" name="serviceId" class="js-choose-input-service" value="" autocomplete="off"  />
 				<input type="hidden" name="diag" class="js-choose-input-diag" id="diag" value="" autocomplete="off"  />
@@ -632,7 +645,7 @@ background: #eeeff3;
 	<a class="search__checkbox link-departure" href="https://tapdoc.az/clinic/direction/desc">
 		<div class="checkbox">
 			<input class="checkbox__input" type="checkbox" value="1" name="all-day" id="all-day" />			<label class="checkbox__label js-click-spinner"
-			       for="all-day">Evə Çağırış</label>
+			       for="all-day">24/7 Xidmət</label>
 		</div>
 	</a>
 														<a class="search__checkbox link-departure" href="https://tapdoc.az/clinic/direction/desc/dms-policy/1">
@@ -670,49 +683,49 @@ background: #eeeff3;
     <div class="spec_list1" style="">
       <ul class="columns_5">
       			<li class="columnd">
-      				<div class="spec_list_head"><a href="/uzi/" class="ixtisaslinks">KT</a></div>
-      				<div>– <a href="/uzi-dlya-beremennih/" class="ixtisaslinks">baş beyin</a></div>
-      				<div>– <a href="/uzi/uzi-brushnoi-polosti/" class="ixtisaslinks">ürək</a></div>
-      				<div>– <a href="/uzi/uzi-malogo-taza/" class="ixtisaslinks">qarın boşluğu</a></div>
-      				<div>– <a href="/uzi/uzi-pochek/" class="ixtisaslinks">spinal (bel onurğası)</a></div>
-      				<div>– <a href="/ehokardiografiya/" class="ixtisaslinks">döş qəfəsi</a></div>
-      				<div>– <a href="/3d-uzi/" class="ixtisaslinks">böyrək</a></div>
+      				<div class="spec_list_head"><a href="{% url 'diaqnostika'%}" class="ixtisaslinks">KT</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">baş beyin</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">ürək</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">qarın boşluğu</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">spinal (bel onurğası)</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">döş qəfəsi</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">böyrək</a></div>
       			</li>
       			<li class="columnd">
-      				<div class="spec_list_head"><a href="/komputernaya-tomografiya/" class="ixtisaslinks">MRT</a></div>
-      				<div>– <a href="/komputernaya-tomografiya/kt-golovi/" class="ixtisaslinks">baş beyin</a></div>
-      				<div>– <a href="/komputernaya-tomografiya/kt-leghih-i-serdca/" class="ixtisaslinks">spinal (bel onurğası)</a></div>
-      				<div>– <a href="/komputernaya-tomografiya/kt-brushnoi-polosti/" class="ixtisaslinks">diz birgəsi</a></div>
-      				<div>– <a href="/komputernaya-tomografiya/kt-pozvonochnika/" class="ixtisaslinks">qarın boşluğu</a></div>
-      				<div>– <a href="/komputernaya-tomografiya/kt-grudnoi-kletki/" class="ixtisaslinks">kiçik çanaq</a></div>
-      				<div>– <a href="/komputernaya-tomografiya/kt-pochek/" class="ixtisaslinks">hipofiz</a></div>
+      				<div class="spec_list_head"><a href="{% url 'diaqnostika'%}" class="ixtisaslinks">MRT</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">baş beyin</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">spinal (bel onurğası)</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">diz birgəsi</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">qarın boşluğu</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">kiçik çanaq</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">hipofiz</a></div>
       			</li>
       			<li class="columnd">
-      				<div class="spec_list_head"><a href="/mrt/" class="ixtisaslinks">Rentgen</a></div>
-      				<div>– <a href="/mrt/mrt-golovnogo-mozga/" class="ixtisaslinks">ağciyər</a></div>
-      				<div>– <a href="/mrt/mrt-otdelov-pozvonochnika/" class="ixtisaslinks">spinal</a></div>
-      				<div>– <a href="/mrt/mrt-kolennogo-sustava/" class="ixtisaslinks">döş qəfəsi</a></div>
-      				<div>– <a href="/mrt/mrt-brushnoi-polosti-zabrjushinnogo-prostranstva/" class="ixtisaslinks">oynaqlar</a></div>
-      				<div>– <a href="/mrt/mrt-malogo-taza/" class="ixtisaslinks">mamografiya</a></div>
-      				<div>– <a href="/mrt/mrt-gipofiza/" class="ixtisaslinks">irriqoskpiya</a></div>
+      				<div class="spec_list_head"><a href="{% url 'diaqnostika'%}" class="ixtisaslinks">Rentgen</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">ağciyər</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">spinal</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">döş qəfəsi</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">oynaqlar</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">mamografiya</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">irriqoskpiya</a></div>
       			</li>
       			<li class="columnd">
-      				<div class="spec_list_head"><a href="/rentgen/" class="ixtisaslinks">USM</a></div>
-      				<div>– <a href="/rentgen/rentgen-legkih/" class="ixtisaslinks">hamiləlik zamanı</a></div>
-      				<div>– <a href="/rentgen/rentgen-pozvonochnika/" class="ixtisaslinks">qarın boşluğu</a></div>
-      				<div>– <a href="/rentgen/rentgen-grudnoi-kletki/" class="ixtisaslinks">kiçik çanaq</a></div>
-      				<div>– <a href="/rentgen/rentgen-sustavov/" class="ixtisaslinks">böyrək</a></div>
-      				<div>– <a href="/rentgen/mammografia/" class="ixtisaslinks">ürək</a></div>
-      				<div>– <a href="/rentgen/rentgen_tolstoj_kishki_irrigoskopia/" class="ixtisaslinks">3D ultrasəs</a></div>
+      				<div class="spec_list_head"><a href="{% url 'diaqnostika'%}" class="ixtisaslinks">USM</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">hamiləlik zamanı</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">qarın boşluğu</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">kiçik çanaq</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">böyrək</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">ürək</a></div>
+      				<div>– <a href="{% url 'diaqnostika'%}" class="ixtisaslinks">3D ultrasəs</a></div>
       			</li>
       			<li class="columnd" style="list-style-type: none;">
-      				<div><a href="/fluorografiya/" class="ixtisaslinks">Fluorografi</a></div>
-      				<div><a href="/func-diagnostika/sutochnoe-ekg/" class="ixtisaslinks">Elektrokardioqrafiya (EKQ)</a></div>
-      				<div><a href="/endoskopicheskie-issledovaniya/kolonoskopiya/" class="ixtisaslinks">Kolonoskopiya</a></div>
-      				<div><a href="/gastroskopiya/" class="ixtisaslinks">Qastroskopiya</a></div>
-      				<div><a href="/bronhoskopiya/" class="ixtisaslinks">Bronkoskopiya</a></div>
-      				<div><a href="/endoskopicheskie-issledovaniya/rektoromanoskopiya/" class="ixtisaslinks">Rektoromanoskopiya</a></div>
-      				<div><a href="/densitometriia/" class="ixtisaslinks">Densitometriya</a></div>
+      				<div><a href="{% url 'diaqnostika'%}" class="ixtisaslinks">Fluorografi</a></div>
+      				<div><a href="{% url 'diaqnostika'%}" class="ixtisaslinks">Elektrokardioqrafiya (EKQ)</a></div>
+      				<div><a href="{% url 'diaqnostika'%}" class="ixtisaslinks">Kolonoskopiya</a></div>
+      				<div><a href="{% url 'diaqnostika'%}" class="ixtisaslinks">Qastroskopiya</a></div>
+      				<div><a href="{% url 'diaqnostika'%}" class="ixtisaslinks">Bronkoskopiya</a></div>
+      				<div><a href="{% url 'diaqnostika'%}" class="ixtisaslinks">Rektoromanoskopiya</a></div>
+      				<div><a href="{% url 'diaqnostika'%}" class="ixtisaslinks">Densitometriya</a></div>
       			</li>
 
       		</ul>
@@ -769,12 +782,12 @@ background: #eeeff3;
                 </ul>
 
               </div>
-            <button id="diaqnostikaixtisaslar" style="display: block;margin: 0px auto -16px auto;background-color: #00aec7;border: 0;height: 29px;" type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Ətraflı</button>
+            <button id="diaqnostikaixtisaslar" style="display: block;margin: 0px auto -16px auto;background-color: #00aec7;border: 0;height: 29px;" type="button" class="btn btn-info butundiaqnostikalar" data-toggle="collapse" data-target="#demo">Bütün Diaqnostikalar</button>
 
             <script>
             $('#diaqnostikaixtisaslar').click(function(){
                 $(this).text(function(i,old){
-                    return old=='Ətraflı' ?  'Bağla' : 'Ətraflı';
+                    return old=='Bütün Diaqnostikalar' ?  'Bağla' : 'Bütün Diaqnostikalar';
                 });
             });</script>
           </div>
@@ -888,7 +901,7 @@ background: #eeeff3;
       <a href="#" style="float:right;" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
       				<div class="clinic-card__photo">
       					<!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
-                          <a href="https://tapdoc.az/clinic/trastmed" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
+                          <a href="{% url 'clinicdetail' %}" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
                             <img src="{% static 'img/avrasiya.png'%}" alt="" />                    </a>
       					<div class="clinic-card__rating">
 
@@ -908,19 +921,19 @@ background: #eeeff3;
       			<i class="fa fa-star" aria-hidden="true"></i>
       		</div>
       	</div>						<div class="clinic-card__rating-value">
-      							<a href="https://tapdoc.az/clinic/trastmed#reviews">
+      							<a href="{% url 'clinicdetail' %}">
       																	5125 rəy															</a>
       						</div>
       					</div>
       				</div>
       				<div class="clinic-card__info">
-      					<a href="#nerimanov" class="clinic-card__name">Avrasiya Klinikası</a>
+      					<a href="{% url 'clinicdetail' %}" target="_blank" class="clinic-card__name">Avrasiya Klinikası</a>
       					<div class="clinic-card__type">diaqnostika mərkəzi</div>
       					<div class="clinic-card__cost">
       													Ortalama xidmət qiymətləri - yüksək											</div>
 
       					<div class="clinic-card__clinictext">
-      						«NewMed» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir. Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.	Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.					<a href="https://tapdoc.az/clinic/trastmed">Ətraflı</a>
+      						«NewMed» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir. Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.	Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.					<a href="{% url 'clinicdetail'%}">Ətraflı</a>
       					</div>
       				</div>
       			</div>
@@ -952,7 +965,7 @@ background: #eeeff3;
       	<div class="clinic-card__inner">
       		<div id="nerimanov" class="clinic-card__left">
           <a href="#" style="float:right;" class="addfavor"><img src="/static/img/liked.png"></a>
-      			<a href="{% url 'clinicdetail' %}" class="clinic-card__branch-name">Avrasiya Klinikası Nərimanov Filialı</a>
+      			<a href="{% url 'clinicdetailnerimanov' %}" class="clinic-card__branch-name">Avrasiya Klinikası Nərimanov Filialı</a>
       			<div class="clinic-card__rating clinic-card__rating_clinic">
 
       <div class="rate" style="    margin: 0 0 0 10px;">
@@ -971,14 +984,14 @@ background: #eeeff3;
       			<i class="fa fa-star" aria-hidden="true"></i>
       		</div>
       	</div>			<br>	<div style="    margin: 0 0 0 10px;" class="clinic-card__rating-value">
-      					<a href="/clinic/on_klinik_na_novom_arbate#reviews">
+      					<a href="{% url 'clinicdetailnerimanov' %}">
       													1112 rəy											</a>
       				</div>
       			</div>
 
 
             <div class="row">
-        <div class="col-sm-4"><a style=" width: 110px; height: 110px; margin: 3px 0 0 0; " href="https://tapdoc.az/clinic/trastmed" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
+        <div class="col-sm-4"><a style=" width: 110px; height: 110px; margin: 3px 0 0 0; " href="{% url 'clinicdetailnerimanov' %}" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
                           <img src="{% static 'img/avrasiya.png'%}" alt="" />                    </a></div>
         <div class="col-sm-8">
 
@@ -1037,7 +1050,7 @@ background: #eeeff3;
         Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
 
 
-      <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="https://tapdoc.az/static/img/metro1.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="https://tapdoc.az/static/img/metro2.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+      <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro1.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro2.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
       </div>
               </div>
 
@@ -1064,7 +1077,7 @@ background: #eeeff3;
       	<div class="clinic-card__inner">
       		<div class="clinic-card__left">
           <a href="#" style="float:right;" class="addfavor"><img src="/static/img/liked.png"></a>
-      			<a href="{% url 'clinicdetail' %}" class="clinic-card__branch-name">Avrasiya Klinikası Nəsimi Rayon Filialı</a>
+      			<a href="{% url 'clinicdetailnesimi' %}" class="clinic-card__branch-name">Avrasiya Klinikası Nəsimi Filialı</a>
       			<div class="clinic-card__rating clinic-card__rating_clinic">
 
       <div class="rate" style="margin: 0 0 0 10px;">
@@ -1083,12 +1096,12 @@ background: #eeeff3;
       			<i class="fa fa-star" aria-hidden="true"></i>
       		</div>
       	</div>				<br><div style="  margin: 0 0px 0 16px;" class="clinic-card__rating-value">
-      					<a href="/clinic/on_klinik_na_ulitse_1905_goda#reviews">
+      					<a href="{% url 'clinicdetailnesimi' %}">
       													818 rəy											</a>
       				</div>
       			</div>
             <div class="row">
-        <div class="col-sm-4"><a style=" width: 110px; height: 110px; margin: 3px 0 0 0; " href="https://tapdoc.az/clinic/trastmed" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
+        <div class="col-sm-4"><a style=" width: 110px; height: 110px; margin: 3px 0 0 0; " href="{% url 'clinicdetailnesimi' %}" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
                           <img src="{% static 'img/avrasiya.png'%}" alt="" />                    </a></div>
         <div class="col-sm-8">
 
@@ -1143,7 +1156,7 @@ background: #eeeff3;
         Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
 
 
-      <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="https://tapdoc.az/static/img/metro1.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="https://tapdoc.az/static/img/metro2.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+      <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro1.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro2.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
       </div>
               </div>
 
@@ -1173,7 +1186,7 @@ background: #eeeff3;
                         <div class="clinic-card__branch">
                         <div class="clinic-card__inner">
                         <div class="clinic-card__left">
-                        <a href="{% url 'clinicdetail' %}" class="clinic-card__branch-name">Avrasiya Klinikası Nəsimi Rayon Filialı</a>
+                        <a href="{% url 'clinicdetailyasamal' %}" class="clinic-card__branch-name">Avrasiya Klinikası Yasamal Filialı</a>
                         <div class="clinic-card__rating clinic-card__rating_clinic">
 
                         <div class="rate" style="margin: 0 0 0 10px;">
@@ -1192,12 +1205,12 @@ background: #eeeff3;
                         <i class="fa fa-star" aria-hidden="true"></i>
                         </div>
                         </div>				<br><div style="  margin: 0 0px 0 16px;" class="clinic-card__rating-value">
-                          <a href="/clinic/on_klinik_na_ulitse_1905_goda#reviews">
+                          <a href="{% url 'clinicdetailyasamal' %}">
                                           818 rəy											</a>
                         </div>
                         </div>
                         <div class="row">
-                        <div class="col-sm-4"><a style=" width: 110px; height: 110px; margin: 3px 0 0 0; " href="https://tapdoc.az/clinic/trastmed" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
+                        <div class="col-sm-4"><a style=" width: 110px; height: 110px; margin: 3px 0 0 0; " href="{% url 'clinicdetailyasamal' %}" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
                                     <img src="{% static 'img/avrasiya.png'%}" alt="" />                  </a></div>
                         <div class="col-sm-8">
 
@@ -1252,7 +1265,7 @@ background: #eeeff3;
                         Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
 
 
-                        <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="https://tapdoc.az/static/img/metro1.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="https://tapdoc.az/static/img/metro2.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+                        <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro1.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro2.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
                         </div>
                         </div>
 
@@ -1297,7 +1310,7 @@ background: #eeeff3;
     <!-- Müraciət1 Form Popup Content Start -->
 
       <div id="myModalmuraciet1" class="modalmuraciet modalmuraciet1" >
-      <div class="modal-contentmuraciet modal-contentmuraciet" style="  max-height: 677px; ">
+      <div class="modal-contentmuraciet modal-contentmuraciet1" style="  max-height: 677px; ">
       <span class="closemuraciet closemuraciet1">&times;</span>
       <style>
           input[type="text"]#prefix1 {
@@ -1349,7 +1362,7 @@ background: #eeeff3;
         <div class="popup-book__infobox"><div class="popup-book__info clearfix">
         <div class="popup-book__doc">
           <div class="popup-book__pic">
-            <img data-bind="attr: {src: doctor.image}" src="{% static 'img/clinic.png' %}">
+            <img data-bind="attr: {src: doctor.image}" src="{% static 'img/avrasiya.png' %}">
           </div>
           <div class="doc__rating">
             <div class="rate">
@@ -1375,7 +1388,7 @@ background: #eeeff3;
           </div>
         </div>
         <div class="popup-book__float">
-          <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">New Med Tibb Mərkəzi</span><br>
+          <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">Avrasiya Klinikası</span><br>
           </div>
               <!-- ko if: priceSelectorVisible -->
 
@@ -1678,9 +1691,9 @@ background: #eeeff3;
 
 <!-- Müraciət2 Form Popup Content Start -->
 
-  <div id="myModalmuraciet1" class="modalmuraciet modalmuraciet1" >
-  <div class="modal-contentmuraciet modal-contentmuraciet" style="  max-height: 677px; ">
-  <span class="closemuraciet closemuraciet1">&times;</span>
+  <div id="myModalmuraciet2" class="modalmuraciet modalmuraciet2" >
+  <div class="modal-contentmuraciet modal-contentmuraciet2" style="  max-height: 677px; ">
+  <span class="closemuraciet closemuraciet2">&times;</span>
   <style>
       input[type="text"]#prefix1 {
         -webkit-appearance: none!important;
@@ -1731,7 +1744,7 @@ background: #eeeff3;
     <div class="popup-book__infobox"><div class="popup-book__info clearfix">
     <div class="popup-book__doc">
       <div class="popup-book__pic">
-        <img data-bind="attr: {src: doctor.image}" src="{% static 'img/clinic.png' %}">
+        <img data-bind="attr: {src: doctor.image}" src="{% static 'img/avrasiya.png' %}">
       </div>
       <div class="doc__rating">
         <div class="rate">
@@ -1757,7 +1770,7 @@ background: #eeeff3;
       </div>
     </div>
     <div class="popup-book__float">
-      <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">New Med Tibb Mərkəzi</span><br>
+      <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">Avrasiya Klinikası Nərimanov Filialı</span><br>
       </div>
           <!-- ko if: priceSelectorVisible -->
 
@@ -2009,14 +2022,14 @@ background: #eeeff3;
 
   <script>
   // Get the modal
-  var modal2 = document.getElementById('myModalmuraciet1');
+  var modal2 = document.getElementById('myModalmuraciet2');
 
 
   // Get the button that opens the modal
   var btn2 = document.getElementById("myBtnmuraciet2");
 
   // Get the <span> element that closes the modal
-  var span2 = document.getElementsByClassName("closemuraciet1")[0];
+  var span2 = document.getElementsByClassName("closemuraciet2")[0];
 
   // When the user clicks the button, open the modal
   btn2.onclick = function() {
@@ -2059,9 +2072,9 @@ background: #eeeff3;
 
 <!-- Müraciət3 Form Popup Content Start -->
 
-  <div id="myModalmuraciet1" class="modalmuraciet modalmuraciet1" >
-  <div class="modal-contentmuraciet modal-contentmuraciet" style="  max-height: 677px; ">
-  <span class="closemuraciet closemuraciet1">&times;</span>
+  <div id="myModalmuraciet3" class="modalmuraciet modalmuraciet3" >
+  <div class="modal-contentmuraciet modal-contentmuraciet3" style="  max-height: 677px; ">
+  <span class="closemuraciet closemuraciet3">&times;</span>
   <style>
       input[type="text"]#prefix1 {
         -webkit-appearance: none!important;
@@ -2112,7 +2125,7 @@ background: #eeeff3;
     <div class="popup-book__infobox"><div class="popup-book__info clearfix">
     <div class="popup-book__doc">
       <div class="popup-book__pic">
-        <img data-bind="attr: {src: doctor.image}" src="{% static 'img/clinic.png' %}">
+        <img data-bind="attr: {src: doctor.image}" src="{% static 'img/avrasiya.png' %}">
       </div>
       <div class="doc__rating">
         <div class="rate">
@@ -2138,7 +2151,7 @@ background: #eeeff3;
       </div>
     </div>
     <div class="popup-book__float">
-      <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">New Med Tibb Mərkəzi</span><br>
+      <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">Avrasiya Klinikası Nəsimi Filialı</span><br>
       </div>
           <!-- ko if: priceSelectorVisible -->
 
@@ -2390,14 +2403,14 @@ background: #eeeff3;
 
   <script>
   // Get the modal
-  var modal3 = document.getElementById('myModalmuraciet1');
+  var modal3 = document.getElementById('myModalmuraciet3');
 
 
   // Get the button that opens the modal
   var btn3 = document.getElementById("myBtnmuraciet3");
 
   // Get the <span> element that closes the modal
-  var span3 = document.getElementsByClassName("closemuraciet1")[0];
+  var span3 = document.getElementsByClassName("closemuraciet3")[0];
 
   // When the user clicks the button, open the modal
   btn3.onclick = function() {
@@ -2440,9 +2453,9 @@ background: #eeeff3;
 
 <!-- Müraciət4 Form Popup Content Start -->
 
-  <div id="myModalmuraciet1" class="modalmuraciet modalmuraciet1" >
-  <div class="modal-contentmuraciet modal-contentmuraciet" style="  max-height: 677px; ">
-  <span class="closemuraciet closemuraciet1">&times;</span>
+  <div id="myModalmuraciet4" class="modalmuraciet modalmuraciet4" >
+  <div class="modal-contentmuraciet modal-contentmuraciet4" style="  max-height: 677px; ">
+  <span class="closemuraciet closemuraciet4">&times;</span>
   <style>
       input[type="text"]#prefix1 {
         -webkit-appearance: none!important;
@@ -2493,7 +2506,7 @@ background: #eeeff3;
     <div class="popup-book__infobox"><div class="popup-book__info clearfix">
     <div class="popup-book__doc">
       <div class="popup-book__pic">
-        <img data-bind="attr: {src: doctor.image}" src="{% static 'img/clinic.png' %}">
+        <img data-bind="attr: {src: doctor.image}" src="{% static 'img/avrasiya.png' %}">
       </div>
       <div class="doc__rating">
         <div class="rate">
@@ -2519,7 +2532,7 @@ background: #eeeff3;
       </div>
     </div>
     <div class="popup-book__float">
-      <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">New Med Tibb Mərkəzi</span><br>
+      <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">Avrasiya Klinikası Yasamal Filialı</span><br>
       </div>
           <!-- ko if: priceSelectorVisible -->
 
@@ -2771,14 +2784,14 @@ background: #eeeff3;
 
   <script>
   // Get the modal
-  var modal4 = document.getElementById('myModalmuraciet1');
+  var modal4 = document.getElementById('myModalmuraciet4');
 
 
   // Get the button that opens the modal
   var btn4 = document.getElementById("myBtnmuraciet4");
 
   // Get the <span> element that closes the modal
-  var span4 = document.getElementsByClassName("closemuraciet1")[0];
+  var span4 = document.getElementsByClassName("closemuraciet4")[0];
 
   // When the user clicks the button, open the modal
   btn4.onclick = function() {
@@ -2825,7 +2838,7 @@ background: #eeeff3;
       <a href="#" style="float:right;" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
       				<div class="clinic-card__photo">
       					<!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
-                          <a href="https://tapdoc.az/clinic/trastmed" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
+                          <a href="{% url 'clinicdetailistanbul' %}" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
                               <img src="{% static 'img/instanbul.png'%}" alt="" />                  </a>
       					<div class="clinic-card__rating">
 
@@ -2845,13 +2858,13 @@ background: #eeeff3;
       			<i class="fa fa-star" aria-hidden="true"></i>
       		</div>
       	</div>						<div class="clinic-card__rating-value">
-      							<a href="https://tapdoc.az/clinic/trastmed#reviews">
+      							<a href="{% url 'clinicdetailistanbul' %}">
       																	5125 rəy															</a>
       						</div>
       					</div>
       				</div>
       				<div class="clinic-card__info">
-      					<a href="{% url 'clinicdetail' %}" class="clinic-card__name">İstanbul NS Klinikası</a>
+      					<a href="{% url 'clinicdetailistanbul' %}" class="clinic-card__name">İstanbul NS Klinikası</a>
       					<div class="clinic-card__type">diaqnostika mərkəzi</div>
       					<div class="clinic-card__cost">
       													Ortalama xidmət qiymətləri - yüksək											</div>
@@ -2904,7 +2917,7 @@ background: #eeeff3;
       		Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
 
 
-      	<a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="https://tapdoc.az/static/img/metro1.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="https://tapdoc.az/static/img/metro2.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+      	<a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro1.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro2.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
       </div>
       					</div>
 
@@ -2938,7 +2951,7 @@ background: #eeeff3;
       <a href="#" style="float:right;" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
       				<div class="clinic-card__photo">
       					<!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
-                          <a href="https://tapdoc.az/clinic/trastmed" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
+                          <a href="{% url 'clinicdetailvital' %}" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
                                 <img src="{% static 'img/vital.png'%}" alt="" />                 </a>
       					<div class="clinic-card__rating">
 
@@ -2958,13 +2971,13 @@ background: #eeeff3;
       			<i class="fa fa-star" aria-hidden="true"></i>
       		</div>
       	</div>						<div class="clinic-card__rating-value">
-      							<a href="https://tapdoc.az/clinic/trastmed#reviews">
+      							<a href="{% url 'clinicdetailvital' %}">
       																	5125 rəy															</a>
       						</div>
       					</div>
       				</div>
       				<div class="clinic-card__info">
-      					<a href="{% url 'clinicdetail' %}" class="clinic-card__name">Vital Klinikası</a>
+      					<a href="{% url 'clinicdetailvital' %}" class="clinic-card__name">Vital Klinikası</a>
       					<div class="clinic-card__type">diaqnostika mərkəzi</div>
       					<div class="clinic-card__cost">
       													Ortalama xidmət qiymətləri - yüksək											</div>
@@ -3018,7 +3031,7 @@ background: #eeeff3;
       		Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
 
 
-      	<a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/taganskaya"><i><img src="https://tapdoc.az/static/img/metro1.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="https://tapdoc.az/clinic/station/marksistskaya"><i><img src="https://tapdoc.az/static/img/metro2.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+      	<a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro1.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro2.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
       </div>
       					</div>
 
@@ -3053,9 +3066,9 @@ background: #eeeff3;
 
     <!-- Müraciət5 Form Popup Content Start -->
 
-      <div id="myModalmuraciet1" class="modalmuraciet modalmuraciet1" >
-      <div class="modal-contentmuraciet modal-contentmuraciet" style="  max-height: 677px; ">
-      <span class="closemuraciet closemuraciet1">&times;</span>
+      <div id="myModalmuraciet5" class="modalmuraciet modalmuraciet5" >
+      <div class="modal-contentmuraciet modal-contentmuraciet5" style="  max-height: 677px; ">
+      <span class="closemuraciet closemuraciet5">&times;</span>
       <style>
           input[type="text"]#prefix1 {
             -webkit-appearance: none!important;
@@ -3106,7 +3119,7 @@ background: #eeeff3;
         <div class="popup-book__infobox"><div class="popup-book__info clearfix">
         <div class="popup-book__doc">
           <div class="popup-book__pic">
-            <img data-bind="attr: {src: doctor.image}" src="{% static 'img/clinic.png' %}">
+            <img data-bind="attr: {src: doctor.image}" src="{% static 'img/istanbul.png' %}">
           </div>
           <div class="doc__rating">
             <div class="rate">
@@ -3132,7 +3145,7 @@ background: #eeeff3;
           </div>
         </div>
         <div class="popup-book__float">
-          <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">New Med Tibb Mərkəzi</span><br>
+          <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">İstanbul NS Klinikası</span><br>
           </div>
               <!-- ko if: priceSelectorVisible -->
 
@@ -3384,14 +3397,14 @@ background: #eeeff3;
 
       <script>
       // Get the modal
-      var modal5 = document.getElementById('myModalmuraciet1');
+      var modal5 = document.getElementById('myModalmuraciet5');
 
 
       // Get the button that opens the modal
       var btn5 = document.getElementById("myBtnmuraciet5");
 
       // Get the <span> element that closes the modal
-      var span5 = document.getElementsByClassName("closemuraciet1")[0];
+      var span5 = document.getElementsByClassName("closemuraciet5")[0];
 
       // When the user clicks the button, open the modal
       btn5.onclick = function() {
@@ -3433,9 +3446,9 @@ background: #eeeff3;
 
   <!-- Müraciət1 Form Popup Content Start -->
 
-    <div id="myModalmuraciet1" class="modalmuraciet modalmuraciet1" >
-    <div class="modal-contentmuraciet modal-contentmuraciet" style="  max-height: 677px; ">
-    <span class="closemuraciet closemuraciet1">&times;</span>
+    <div id="myModalmuraciet6" class="modalmuraciet modalmuraciet6" >
+    <div class="modal-contentmuraciet modal-contentmuraciet6" style="  max-height: 677px; ">
+    <span class="closemuraciet closemuraciet6">&times;</span>
     <style>
         input[type="text"]#prefix1 {
           -webkit-appearance: none!important;
@@ -3486,7 +3499,7 @@ background: #eeeff3;
       <div class="popup-book__infobox"><div class="popup-book__info clearfix">
       <div class="popup-book__doc">
         <div class="popup-book__pic">
-          <img data-bind="attr: {src: doctor.image}" src="{% static 'img/clinic.png' %}">
+          <img data-bind="attr: {src: doctor.image}" src="{% static 'img/vital.png' %}">
         </div>
         <div class="doc__rating">
           <div class="rate">
@@ -3512,7 +3525,7 @@ background: #eeeff3;
         </div>
       </div>
       <div class="popup-book__float">
-        <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">New Med Tibb Mərkəzi</span><br>
+        <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">Vital Klinikası</span><br>
         </div>
             <!-- ko if: priceSelectorVisible -->
 
@@ -3764,14 +3777,14 @@ background: #eeeff3;
 
     <script>
     // Get the modal
-    var modal6 = document.getElementById('myModalmuraciet1');
+    var modal6 = document.getElementById('myModalmuraciet6');
 
 
     // Get the button that opens the modal
     var btn6 = document.getElementById("myBtnmuraciet6");
 
     // Get the <span> element that closes the modal
-    var span6 = document.getElementsByClassName("closemuraciet1")[0];
+    var span6 = document.getElementsByClassName("closemuraciet6")[0];
 
     // When the user clicks the button, open the modal
     btn6.onclick = function() {
