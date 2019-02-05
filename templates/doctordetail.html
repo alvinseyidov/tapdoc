@@ -190,7 +190,7 @@
                   float: right;
                   font-size: 28px;
                   font-weight: bold;
-                  margin: 0px 0px 0 -17px;
+                  margin:-1px 7px 0 -24px;
               }
 
               .modal-contentmuracietmrc1 {
@@ -236,6 +236,10 @@
                   -o-transition: background-color 0.1s linear 0s;
                   transition: background-color 0.1s linear 0s;
                   -webkit-backface-visibility: hidden;
+              }
+
+              .doc__face{
+                margin: auto !important;
               }
                </style>
 
@@ -948,10 +952,17 @@
                                                                                <div class="form-input-icoo "><i class="fa fa-hospital-o fa-flip-horizontal"></i></div>
 
 
+
+
+
+                                                                                 {% if doctor.id == 4 %}
                                                                                  <select name="carlist" form="carform" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0px 0 0px 20px;font-family: sans-serif;font-size: 14px;">
                                                                                    <option value="volvo">Avrasiya Klinikası</option>
                                                                                    <option value="saab">Vital Klinikası</option>
                                                                                  </select>
+                                                                                 {% else %}
+                                                                                 <input name="carlist" readonly="true" value="Vital Klinikası" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;"/>
+                                                                                 {% endif %}
                                                                            </div>
 
                                                                            <div class="form-input--busy" data-bind="visible: slotField.isSlotBusy()" style="display: none;">Ой! Просим прощения, кто-то вас опередил. Пожалуйста, выберите другое время приема.</div>

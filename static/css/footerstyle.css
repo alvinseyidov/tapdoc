@@ -5168,13 +5168,13 @@ h3.links__title-small {
   content: '\F004';
 }
 .doc__face {
-  border-radius: 100%;
+
   display: block;
   overflow: hidden;
   height: 141px;
 }
 .doc__face img {
-  display: block;
+
 }
 .doc__rating {
   padding-top: 13px;

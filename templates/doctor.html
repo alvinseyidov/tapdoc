@@ -311,7 +311,7 @@ float: right;
     float: right;
     font-size: 28px;
     font-weight: bold;
-    margin: 0px 0px 0 -17px;
+    margin: 7px 7px 7px -23px;
 }
 
 .closemuraciet:hover,
@@ -1238,7 +1238,7 @@ function myFunction() {
                     <div class="clinic-card__clinic-address">
 
                               <div class="clinic-card__clinic-address">
-                              <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Vital</span> Klinikası</a><br>
+                              <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Vital Klinikası</span></a><br>
                             <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
 
                              <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
@@ -1263,7 +1263,7 @@ function myFunction() {
 
   <!-- Modal content -->
   <div class="modal-contentmuraciet modal-contentmuraciet" style="max-height: 677px; ">
-  <span class="closemuraciet closemuraciet{{doctor.id}}">&times;</span>
+  <a href="javascript:void(0)"><span class="closemuraciet closemuraciet{{doctor.id}}">&times;</span></a>
 
 
 
@@ -1414,12 +1414,15 @@ function myFunction() {
                       click: changeSlotClick" style="cursor: pointer">
                   <div class="form-input-icoo "><i class="fa fa-hospital-o fa-flip-horizontal"></i></div>
 
+                  {% if doctor.id == 4 %}
+                  <select name="carlist" form="carform" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;">
+                    <option value="volvo">Vital Klinikası</option>
+                    <option value="volvo">Avrasiya Klinikası</option>
+                  </select>
+                  {% else %}
+                  <input name="carlist" readonly="true" value="Vital Klinikası" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;"/>
+                  {% endif %}
 
-                    <select name="carlist" form="carform" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;">
-                      <option value="volvo">Vital Klinikası</option>
-
-
-                    </select>
               </div>
 
               <div class="form-input--busy" data-bind="visible: slotField.isSlotBusy()" style="display: none;">Ой! Просим прощения, кто-то вас опередил. Пожалуйста, выберите другое время приема.</div>

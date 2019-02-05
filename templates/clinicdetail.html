@@ -396,7 +396,7 @@ border-radius: 7px;
 .close4 {
   color: #aaa;
     float: right;
-    font-size: 28px;
+    font-size: 28px !important;
     font-weight: bold;
 }
 
@@ -522,7 +522,7 @@ background: #eeeff3;
     float: right;
     font-size: 28px;
     font-weight: bold;
-    margin: 0px 0px 0 -17px;
+    margin: 7px 7px 7px -23px;
 }
 
 .modal-contentmuracietmrc1 {
@@ -774,9 +774,9 @@ a:active{
 	<div class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
 							<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 				<a itemprop="item" href="https://tapdoc.az/"><span itemprop="name">Ana Səhifə</span></a>				<meta itemprop="position" content="1" />
-			</span>
+			/</span>
 					<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-				  <a itemprop="item" href="https://tapdoc.az/clinic"><span itemprop="name">Klinikalar</span></a>	></span>
+				  <a itemprop="item" href="https://tapdoc.az/clinic"><span itemprop="name">Klinikalar</span></a>	/</span>
 					<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 				  <span itemprop="name">Avrasiya Klinikası</span>				<meta itemprop="position" content="3" />
 			</span>
@@ -905,7 +905,7 @@ function showDivs(n) {
 
           <!-- Modal content -->
           <div class="modal-content4">
-            <a href="javascript:void(0)"><span class="closemuraciet close4">&times;</span></a>
+            <a href="javascript:void(0)"><span class="close4">&times;</span></a>
             <div class="popup-filials-list" style="width: 287px;">
 													<div class="popup-filials-list__item js-popup-filial" data-id="clinic-13">
 						<div class="popup-filials-list__num">1</div>
@@ -974,7 +974,7 @@ function showDivs(n) {
 										<div class="clinic__text js-short-description">
 						<div class="clinic__title">Klinika Haqqında</div>
 						<div class="js-result-txt clinic__text-inner" itemprop="description">
-							<p>«Avrasiya Klinikası» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir. Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir. Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.</div>
+							<p>«Avrasiya Klinikası» — yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir. Yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir. Yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.</div>
 					</div>
 				</div>
 
@@ -1928,7 +1928,7 @@ span3.onclick = function() {
 </div>
 </div>
 <div class="clinic-card__info">
-<a href="/doctor/6/detail" class="clinic-card__name">Selcan Məmmədli</a>
+<a href="/doctor/7/detail" class="clinic-card__name">Selcan Məmmədli</a>
 <div class="clinic-card__type">Endokrinoloq Cərrah</div>
 <div class="clinic-card__cost">
             Təcrübəsi - 12 il											</div><br>
@@ -1975,12 +1975,12 @@ span3.onclick = function() {
 </div>
 </div>
 <div style="text-align: center;margin: 11px 0 0 0;">
-<a id="butunhekimlers" class="" data-toggle="collapse" href="#butunhekimler" role="button" aria-expanded="false" aria-controls="butunhekimler">Bütün Həkimlər</a>
+<a id="butunhekimlers" class="" data-toggle="collapse" href="#butunhekimler" role="button" aria-expanded="false" aria-controls="butunhekimler">Digər Həkimlər (3)</a>
 
   <script>
   $('#butunhekimlers').click(function(){
       $(this).text(function(i,old){
-          return old=='Bütün Həkimlər' ?  'Bağla' : 'Bütün Həkimlər';
+          return old=='Digər Həkimlər (3)' ?  'Bağla' : 'Digər Həkimlər (3)';
       });
   });</script>
 
@@ -2129,7 +2129,7 @@ input[type="text"]#phoneInputmrc1 {
         <!-- ko if: dateSelectorVisible() && interval() == null -->
         <div class="popup-book__item" >
             <div class="popup-book__label">
-                <span data-bind="text: slotLabelText, css: {'mark-label-exclusive': isExclusiveLabel}">Filial Seçin</span>
+                <span data-bind="text: slotLabelText, css: {'mark-label-exclusive': isExclusiveLabel}">Klinika Seçin</span>
             </div>
 
             <div class="form-input-withlabel js-popup-date-back valided" data-bind="
@@ -2138,12 +2138,8 @@ input[type="text"]#phoneInputmrc1 {
                 <div class="form-input-icoo "><i class="fa fa-hospital-o fa-flip-horizontal"></i></div>
 
 
-                  <select name="carlist" form="carform" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0px 0 0px 20px;font-family: sans-serif;font-size: 14px;">
-                    <option value="volvo">Nərimanov Filialı</option>
-                    <option value="saab">Nəsimi Filialı</option>
-                    <option value="saab">Əcəmi Filialı</option>
+                <input name="carlist" readonly="true" value="Avrasiya Klinikası" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;"/>
 
-                  </select>
             </div>
 
             <div class="form-input--busy" data-bind="visible: slotField.isSlotBusy()" style="display: none;">Ой! Просим прощения, кто-то вас опередил. Пожалуйста, выберите другое время приема.</div>
@@ -2480,12 +2476,8 @@ input[type="text"]#phoneInputmrc2 {
                 <div class="form-input-icoo "><i class="fa fa-hospital-o fa-flip-horizontal"></i></div>
 
 
-                  <select name="carlist" form="carform" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0px 0 0px 20px;font-family: sans-serif;font-size: 14px;">
-                    <option value="volvo">Nərimanov Filialı</option>
-                    <option value="saab">Nəsimi Filialı</option>
-                    <option value="saab">Əcəmi Filialı</option>
+                <input name="carlist" readonly="true" value="Avrasiya Klinikası" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;"/>
 
-                  </select>
             </div>
 
             <div class="form-input--busy" data-bind="visible: slotField.isSlotBusy()" style="display: none;">Ой! Просим прощения, кто-то вас опередил. Пожалуйста, выберите другое время приема.</div>
@@ -2821,12 +2813,8 @@ input[type="text"]#phoneInputmrc2 {
                 <div class="form-input-icoo "><i class="fa fa-hospital-o fa-flip-horizontal"></i></div>
 
 
-                  <select name="carlist" form="carform" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0px 0 0px 20px;font-family: sans-serif;font-size: 14px;">
-                    <option value="volvo">Nərimanov Filialı</option>
-                    <option value="saab">Nəsimi Filialı</option>
-                    <option value="saab">Əcəmi Filialı</option>
+                <input name="carlist" readonly="true" value="Avrasiya Klinikası" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;"/>
 
-                  </select>
             </div>
 
             <div class="form-input--busy" data-bind="visible: slotField.isSlotBusy()" style="display: none;">Ой! Просим прощения, кто-то вас опередил. Пожалуйста, выберите другое время приема.</div>
