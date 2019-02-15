@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <html class="no-js gr__ondoc_me" lang="ru" ng-app="ondocAngularApp" ng-strict-di="">
    <head>
       <style type="text/css">[uib-typeahead-popup].dropdown-menu{display:block;}</style>
@@ -1104,7 +1105,7 @@
                <div class="container-responsive">
                   <div class="navbar-header">
                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="icon-bar icon-bar__top"></span> <span class="icon-bar icon-bar__mid"></span> <span class="icon-bar icon-bar__bot"></span> </button>
-                     <div class="header-logo-block"> <a class="header-external-responsive__link" href="/health" title="" ui-sref="health.feed"> <img ng-src="{% static 'img/tapdoc.png'%}" class="logo-2x" alt="" src="{% static 'img/tapdoc.png'%}"> </a> </div>
+                     <div class="header-logo-block"> <a class="header-external-responsive__link" href="{% url 'homepage'%}" title="" ui-sref="health.feed"> <img ng-src="{% static 'img/tapdoc.png'%}" class="logo-2x" alt="" src="{% static 'img/tapdoc.png'%}"> </a> </div>
                   </div>
                   <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
                      <div class="nav navbar-nav">
@@ -1208,13 +1209,15 @@
                      <section class="col-xs-36 col-sm-26 col-md-27 col-lg-28 content-in" ui-view="">
                         <!----> <!---->
                         <div class="widget" ng-if="vm.profile.isOwn || vm.profile.isOwner">
-                           <form ng-submit="vm.form.submit()" class="ng-pristine ng-valid ng-valid-pattern ng-valid-maxlength">
+                          <form method="POST" enctype="multipart/form-data">
+
+                              {% csrf_token %}
                               <div class="profile-widget__block">
                                  <div class="row">
                                     <div class="col-xs-24 col-xs-offset-6 col-sm-14 col-sm-offset-0 col-md-10 col-md-offset-0 profile-img text-center">
                                        <div class="profile-img__logo">
-                                          <!----> <img ng-src="https://cdn.ondoc.me/img/c88b0d8b253a0fc6abad472107baa3fa.jpg" alt="" class="img-circle image-crop-center" src="https://cdn.ondoc.me/img/c88b0d8b253a0fc6abad472107baa3fa.jpg">
-                                          <div class="pos-rel"> <input accept="image/*" type="file" nv-file-select="" uploader="vm.uploader" class="profile-img__logo-choose-file"> <a href="" class="profile-img__logo-choose inline-block"> <strong>Şəkil Yüklə</strong> </a> </div>
+                                          <!----> <img ng-src="https://cdn.ondoc.me/img/c88b0d8b253a0fc6abad472107baa3fa.jpg" alt="" class="img-circle image-crop-center" src="{{ user.profile.image.url }}">
+                                          <div class="pos-rel"> <input accept="image/*" type="file" class="profile-img__logo-choose-file"> <a href="" class="profile-img__logo-choose inline-block"> <strong>Şəkil Yüklə</strong> </a> </div>
                                        </div>
                                        <span class="error-hint"></span>
                                     </div>
@@ -1222,14 +1225,14 @@
                                        <!---->
                                        <p class="text-right small-center" ng-if="vm.platform.isShowOndoced"> </p>
                                        <!---->
-                                       <div class="form-group"> <strong> <input type="text" placeholder="Ad" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.form.model.name" ng-class="{'form-control--error': vm.form.errors.surname}"> </strong> <span class="error-hint"></span> </div>
-                                       <div class="form-group"> <strong> <input type="text" placeholder="Ata Adı" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.form.model.patronymic"> </strong> </div>
-                                       <div class="form-group"> <strong> <input type="text" placeholder="Soyad" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.form.model.surname" ng-class="{'form-control--error': vm.form.errors.surname}"> </strong> <span class="error-hint"></span> </div>
+                                       <div class="form-group"> <strong> <input type="text" name="first_name" placeholder="Ad" value="{{ user.first_name }}" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.form.model.name" ng-class="{'form-control--error': vm.form.errors.surname}"> </strong> <span class="error-hint"></span> </div>
+                                       <div class="form-group"> <strong> <input type="text" name="ata_name" placeholder="Ata Adı" value="{{ user.profile.ata_name }}" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.form.model.patronymic"> </strong> </div>
+                                       <div class="form-group"> <strong> <input type="text" name="last_name" placeholder="Soyad"  value="{{ user.last_name }}" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.form.model.surname" ng-class="{'form-control--error': vm.form.errors.surname}"> </strong> <span class="error-hint"></span> </div>
                                        <div class="form-group">
                                           <strong>
-                                             <angucomplete-alt id="cities" minlength="2" pause="50" search-fields="name" max-total-results-count="100" placeholder="Şəhər" selected-object="vm.onCitySelect" remote-url="https://ondoc.me/api/v2/cities?query=" title-field="name" text-searching="Поиск..." text-no-results="Нет результатов" input-class="form-control">
+                                             <angucomplete-alt id="cities" minlength="2" pause="50" search-fields="name" max-total-results-count="100" placeholder="Şəhər"selected-object="vm.onCitySelect" remote-url="https://ondoc.me/api/v2/cities?query=" title-field="name" text-searching="Поиск..." text-no-results="Нет результатов" input-class="form-control">
                                                 <div class="angucomplete-holder" ng-class="{'angucomplete-dropdown-visible': showDropdown}">
-                                                   <input id="cities_value" name="" tabindex="" ng-class="{'angucomplete-input-not-empty': notEmpty}" ng-model="searchStr" ng-disabled="disableInput" type="text" placeholder="Şəhər" maxlength="524288" ng-focus="onFocusHandler()" class="form-control ng-empty ng-valid-maxlength" ng-blur="hideResults($event)" autocapitalize="off" autocorrect="off" autocomplete="off" ng-change="inputChangeHandler(searchStr)">
+                                                   <input name="city" id="cities_value" name="" tabindex="" ng-class="{'angucomplete-input-not-empty': notEmpty}" ng-model="searchStr" ng-disabled="disableInput" type="text" placeholder="Şəhər" value="{{ user.profile.city }}"  maxlength="524288" ng-focus="onFocusHandler()" class="form-control ng-empty ng-valid-maxlength" ng-blur="hideResults($event)" autocapitalize="off" autocorrect="off" autocomplete="off" ng-change="inputChangeHandler(searchStr)">
                                                    <div id="cities_dropdown" class="angucomplete-dropdown ng-hide" ng-show="showDropdown">
                                                       <div class="angucomplete-searching ng-hide" ng-show="searching" ng-bind="textSearching">Поиск...</div>
                                                       <div class="angucomplete-searching" ng-show="!searching &amp;&amp; (!results || results.length == 0)" ng-bind="textNoResults">Нет результатов</div>
@@ -1241,12 +1244,25 @@
                                        </div>
                                        <div class="user-data small-center">
                                           <div class="row">
-                                             <div class="col-md-19 col-lg-16"> <a href="" class="nav-btn nav-btn--male" ng-class="{'nav-btn--active': vm.form.model.sex === 1}" ng-click="vm.selectSex(1)"> <strong>Kişi</strong> </a> <a href="" class="nav-btn nav-btn--female" ng-class="{'nav-btn--active': vm.form.model.sex === 0}" ng-click="vm.selectSex(0)"> <strong>Qadın</strong> </a> </div>
+                                            <style>
+                                            input[type=radio] + label {
+
+
+                                            }
+                                            input[type=radio]:checked + label {
+                                                  color: #2dc8d7;
+                                                  background-color: rgba(45,200,215,0.15);
+
+
+                                            }
+
+                                            </style>
+                                             <div class="col-md-19 col-lg-16"><div style=" float: left; "><input type="radio" id="male1" name="gender" value="male" style=" visibility: hidden; " checked> <label class="nav-btn nav-btn--male" for="male1">Kişi</label> </div><div style=" float: left; "> <input type="radio" id="female1" name="gender" value = "female" style="visibility: hidden;"> <label class="nav-btn nav-btn--female" for="female1">Qadın</label></div></div>
                                              <div class="col-md-17 col-lg-10">
                                                 <calendar date="vm.form.model.birthday" placeholder="Doğum Tarixi" class="flex-1" input-container-class="'full-width'">
                                                    <div class="inline-block visible-xs text-center full-width" ng-class="[$ctrl.inputContainerClass]"> <button class="visible-xs r-button r-button--blue-border center-block" ng-click="$ctrl.toggle()">Doğum Tarixi</button> </div>
                                                    <div class="pos-rel inline-block hidden-xs full-width" ng-class="[$ctrl.inputContainerClass]">
-                                                      <input type="text" class="form-control inline-block ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern" placeholder="Doğum Tarixi" ng-model="$ctrl.enteredDate" ng-click="$ctrl.onInputClick($event)" ng-keypress="$ctrl.onKeyPress($event)" ng-keyup="$ctrl.onKeyUp()" wmask="" pattern="\d{1,2}.\d{1,2}.\d{4}" ng-class="[$ctrl.inputClass, {'input-error': $ctrl.inputDayError}]"> <!----> <!----><span class="datepicker__calendar-icon" ng-if="!($ctrl.enteredDate &amp;&amp; !$ctrl.required)"></span><!---->
+                                                      <input type="text"  name="borndate" placeholder="Doğum Tarixi"  value="{{ user.profile.borndate }}"  > <!----> <!----><span class="datepicker__calendar-icon" ng-if="!($ctrl.enteredDate &amp;&amp; !$ctrl.required)"></span><!---->
                                                    </div>
                                                    <section class="datepicker ng-hide" ng-show="$ctrl.isShow" ng-class="{'datepicker--right': $ctrl.position == 'right', 'datepicker--left': $ctrl.position == 'left', 'datepicker--bottom-left': $ctrl.position == 'bottom-left'}">
                                                       <div class="datepicker__month"> <a href="" class="datepicker__arrow pull-left" ng-click="$ctrl.decMonth()"></a> <span class="datepicker__month-item">Октябрь, 2018</span> <a href="" class="datepicker__arrow datepicker__arrow--right pull-right" ng-click="$ctrl.incMonth()"></a> </div>
@@ -1275,7 +1291,7 @@
                                              </div>
                                              <div class="col-md-36 col-lg-10">
                                                 <blood-type blood-type="vm.form.model.bloodType" rh-factor="vm.form.model.rhFactor" on-change="vm.onBloodChange(rhFactor, bloodType)">
-                                                   <a class="user-data__blood arrow-down" ng-class="{'drugs__link--error': error, 'arrow-up': isShow}" href="" ng-click="toggle()">Qan Qrupu</a>
+                                                   <a href="javascript:void(0)" class="user-data__blood arrow-down" ng-class="{'drugs__link--error': error, 'arrow-up': isShow}" href="" ng-click="toggle()">O(l) RH+</a>
                                                    <div class="drugs__dosage-popup drugs__dosage-popup--blood ng-hide" ng-show="isShow">
                                                       <!---->
                                                       <p class="drugs__dosage-popup-item" ng-click="selectStatus(status)" ng-repeat="status in statuses">О(1) Rh-</p>
@@ -1311,20 +1327,20 @@
                                  <div class="row" ng-if="vm.platform.isShowDmsField">
                                     <div class="col-xs-36 col-sm-6 col-md-2"> <span class="policy__title">Siğorta</span> </div>
                                     <div class="col-xs-36 col-sm-15 col-md-17">
-                                       <div class="form-group"> <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" placeholder="Könüllü siğorta Şirkəti" ng-model="vm.form.model.dmsName"> </div>
+                                       <div class="form-group"> <input type="text" name="konullu_sigorta_com" class="form-control ng-pristine ng-valid ng-empty ng-touched" placeholder="Könüllü siğorta Şirkəti" value="{{user.profile.konullu_sigorta_com}}" ng-model="vm.form.model.dmsName"> </div>
                                     </div>
                                     <div class="col-xs-36 col-sm-15 col-md-17">
-                                       <div class="form-group"> <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="İD Nömrəniz" ng-model="vm.form.model.dmsNumber"> </div>
+                                       <div class="form-group"> <input type="text" name="konullu_sigorta_id" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="İD Nömrəniz"  value="{{user.profile.konullu_sigorta_id}}" ng-model="vm.form.model.dmsNumber"> </div>
                                     </div>
                                  </div>
                                  <!----> <!---->
                                  <div class="row policy" ng-if="vm.platform.isShowOmsField">
                                     <div class="col-xs-36 col-sm-6 col-md-2"> <span class="policy__title">Siğorta</span> </div>
                                     <div class="col-xs-36 col-sm-15 col-md-17">
-                                       <div class="form-group"> <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="İcbari siğorta şirkəti" ng-model="vm.form.model.omsName"> </div>
+                                       <div class="form-group"> <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="İcbari siğorta şirkəti" name="icbari_sigorta_com" value="{{user.profile.icbari_sigorta_com}}"ng-model="vm.form.model.omsName"> </div>
                                     </div>
                                     <div class="col-xs-36 col-sm-15 col-md-17">
-                                       <div class="form-group"> <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="İD Nömrəniz" ng-model="vm.form.model.omsNumber"> </div>
+                                       <div class="form-group"> <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="İD Nömrəniz"  name="icbari_sigorta_id" value="{{user.profile.icbari_sigorta_id}}" ng-model="vm.form.model.omsNumber"> </div>
                                     </div>
                                  </div>
                                  <!---->

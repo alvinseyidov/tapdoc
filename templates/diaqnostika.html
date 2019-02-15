@@ -562,59 +562,17 @@ a:active{
 
                         <div class="search-inp__geo search__field search__field_select">
 
-                            <div class="control-group search_indexloc">
 
-    <select id="select-animal" class="demo-animals ignore" placeholder="Rayon, Metro"></select>
-    </div>
-    <script>
-    $('#select-animal').selectize({
-    options: [
-      {class: 'metrolar', value: '11', name: '28 May'},
-      {class: 'metrolar', value: '12', name: '20 Yanvar'},
-      {class: 'metrolar', value: '13', name: 'Həzi Aslanov'},
-      {class: 'metrolar', value: '14', name: 'Əhmədli'},
-      {class: 'metrolar', value: '15', name: 'Xalqlar Dostluğu'},
-      {class: 'metrolar', value: '16', name: 'Neftçilər'},
-      {class: 'metrolar', value: '17', name: 'Qara Qarayev'},
-      {class: 'metrolar', value: '18', name: 'Koroğlu'},
-      {class: 'metrolar', value: '19', name: 'Ulduz'},
-      {class: 'metrolar', value: '20', name: 'Nərimanov'},
-      {class: 'metrolar', value: '21', name: 'Gənclik'},
-      {class: 'metrolar', value: '22', name: 'Nizami'},
-      {class: 'metrolar', value: '23', name: 'Elmlər Akademiyası'},
-      {class: 'metrolar', value: '24', name: 'İnşaatçılar'},
-      {class: 'metrolar', value: '25', name: 'Memar Əcəmi'},
-      {class: 'metrolar', value: '26', name: 'Dərnəgül'},
-      {class: 'metrolar', value: '27', name: 'Xətai'},
-      {class: 'metrolar', value: '28', name: 'Cəfər Cabbarlı'},
-      {class: 'metrolar', value: '29', name: 'Azadlıq Prospekti'},
-      {class: 'metrolar', value: '30', name: 'Avtovağzal'},
-    {class: 'rayonlar', value: "1", name: "Nərimanov" },
-    {class: 'rayonlar', value: "2", name: "Nizami" },
-    {class: 'rayonlar', value: "3", name: "Nəsimi" },
-    {class: 'rayonlar', value: "4", name: "Yasamal" },
-    {class: 'rayonlar', value: "5", name: "Xəzər" },
-    {class: 'rayonlar', value: "6", name: "Xətai" },
-    {class: 'rayonlar', value: '7', name: 'Biləcəri'},
-    {class: 'rayonlar', value: '8', name: 'Səbail'},
-    {class: 'rayonlar', value: '9', name: 'Binəqədi'},
-    {class: 'rayonlar', value: '10', name: 'Seagull'}
-    ],
-    optgroups: [
-    {value: 'metrolar', label: 'Metrolar', label_scientific: ''},
-    {value: 'rayonlar', label: 'Rayonlar', label_scientific: ''}
+                            <input type="text"
+                                                 class="forms__input search__input js-suggest-search-new"
+                                                 name="q"
+                                                 autocomplete="off"
+                                                 placeholder="Rayon, Metro"
+                                                 value=""
+                                                 list="xidmetler"/>
 
-    ],
-    optgroupField: 'class',
-    labelField: 'name',
-    searchField: ['name'],
-    render: {
-    optgroup_header: function(data, escape) {
-    return '<div class="optgroup-header">' + escape(data.label) + ' <span class="scientific">' + escape(data.label_scientific) + '</span></div>';
-    }
-    }
-    });
-    </script>
+    
+
                         </div>
                         <div class="search__field search__field_button">
                             <button class="button button_search forms__button" type="submit">Axtarış</button>

@@ -1016,23 +1016,19 @@ input[type="text"]#phoneInput {
 box-shadow: 0 1px 3px rgba(93, 93, 93, 0.4);
 height: 54px;
 }
-.selectize-input{
-    height:54px;
-    padding: 17px 0 0 37px;
+
+.header_main-fixed  .dropdowndil {
+    margin: 0 0 0 33px;
+}
+.header_main-fixed  .langs  {
+    top: 30px;
 }
 
-.selectize-control.single .selectize-input {
-    border-color: #b8b8b8;
-    padding: 17px 0 0 36px;
-}
-.selectize-input, .selectize-input input{
-      font-size: 18px !important;
-}
 
-.selectize-dropdown{
-  padding:0;
-}
     </style>
+    <link href="{% static 'css/langbasic.css'%}" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 </head>
 
 <body class="body body_main ">
@@ -1092,14 +1088,22 @@ height: 54px;
           <a href="{% url 'homepage' %}" class="header__logowhite"><img src="{% static 'img/tapdocwhite.png' %}" alt="Tapdoc"/></a>
           <a href="{% url 'homepage' %}" class="header__logo"><img src="{% static 'img/tapdoc.png' %}" alt="Tapdoc"/></a>
 
-                 <!--<div class="dropdowndil">
-                   <a class="dil" ahref="#"><div class="dilaz"><img src="{% static 'img/az.png'%}"/></div><div class="dilaz1"> Az</div></a>
-                   <div class="dropdown-contentdil">
-                     <a href="#"><div class="dilaz"><img src="{% static 'img/az.png'%}"/></div> Az</a>
-                     <a href="#"><div class="dilaz"><img src="{% static 'img/ru.png'%}"/></div> Ru</a>
 
-                   </div>
-                 </div>-->
+
+                 <div class="dropdowndil">
+                 <section class="langs">
+                             <ul style="  margin: 0;    padding: 0;    border: 0;    outline: 0;">
+                                 <li href="/" class="fc selected">
+                                     <a href="/">AZ</a>
+                                 </li>
+
+                                 <li href="/en/" class="lc ">
+                                     <a href="/en/">RU</a>
+                                 </li>
+                               </ul>
+                             <div class="clear"></div>
+                 </section>
+                 </div>
 
 
           <aside class="header__right">
@@ -1160,77 +1164,24 @@ height: 54px;
                           <input type="text"
                                                class="forms__input search__input js-suggest-search-new"
                                                name="q"
-                                               data-suggestclass="autocomplete-suggestion-withgroup"
-                                               data-autocomplete-id="autocomplete-spec"
+                                               autocomplete="off"
                                                placeholder="Həkim, Klinika, Xidmət"
                                                value=""
-                                               tabindex="1"
-                                               list="xidmetler"
 
-                                               data-event-tracker="1"
-                                               data-tracker-event="input"
-                                               data-tracker-action="search"
-                                               data-tracker-label="speciality"
-                                               data-tracker-value="__current__value__" />
+/>
 
                           <button class="search__button"><i class="fa fa-search"></i></button>
                         </div>
                         <div class="search__field search__field_select">
                           <div class="search__field_icon search__field_icon--pink"></div>
 
-                                        <div class="control-group search_indexloc">
-
-                <select id="select-animal" class="demo-animals" placeholder="Rayon, Metro"></select>
-                </div>
-                <script>
-                $('#select-animal').selectize({
-                options: [
-                  {class: 'metrolar', value: '11', name: '28 May'},
-                  {class: 'metrolar', value: '12', name: '20 Yanvar'},
-                  {class: 'metrolar', value: '13', name: 'Həzi Aslanov'},
-                  {class: 'metrolar', value: '14', name: 'Əhmədli'},
-                  {class: 'metrolar', value: '15', name: 'Xalqlar Dostluğu'},
-                  {class: 'metrolar', value: '16', name: 'Neftçilər'},
-                  {class: 'metrolar', value: '17', name: 'Qara Qarayev'},
-                  {class: 'metrolar', value: '18', name: 'Koroğlu'},
-                  {class: 'metrolar', value: '19', name: 'Ulduz'},
-                  {class: 'metrolar', value: '20', name: 'Nərimanov'},
-                  {class: 'metrolar', value: '21', name: 'Gənclik'},
-                  {class: 'metrolar', value: '22', name: 'Nizami'},
-                  {class: 'metrolar', value: '23', name: 'Elmlər Akademiyası'},
-                  {class: 'metrolar', value: '24', name: 'İnşaatçılar'},
-                  {class: 'metrolar', value: '25', name: 'Memar Əcəmi'},
-                  {class: 'metrolar', value: '26', name: 'Dərnəgül'},
-                  {class: 'metrolar', value: '27', name: 'Xətai'},
-                  {class: 'metrolar', value: '28', name: 'Cəfər Cabbarlı'},
-                  {class: 'metrolar', value: '29', name: 'Azadlıq Prospekti'},
-                  {class: 'metrolar', value: '30', name: 'Avtovağzal'},
-                {class: 'rayonlar', value: "1", name: "Nərimanov" },
-                {class: 'rayonlar', value: "2", name: "Nizami" },
-                {class: 'rayonlar', value: "3", name: "Nəsimi" },
-                {class: 'rayonlar', value: "4", name: "Yasamal" },
-                {class: 'rayonlar', value: "5", name: "Xəzər" },
-                {class: 'rayonlar', value: "6", name: "Xətai" },
-                {class: 'rayonlar', value: '7', name: 'Biləcəri'},
-                {class: 'rayonlar', value: '8', name: 'Səbail'},
-                {class: 'rayonlar', value: '9', name: 'Binəqədi'},
-                {class: 'rayonlar', value: '10', name: 'Seagull'}
-                ],
-                optgroups: [
-                {value: 'metrolar', label: 'Metrolar', label_scientific: ''},
-                {value: 'rayonlar', label: 'Rayonlar', label_scientific: ''}
-
-                ],
-                optgroupField: 'class',
-                labelField: 'name',
-                searchField: ['name'],
-                render: {
-                optgroup_header: function(data, escape) {
-                return '<div class="optgroup-header">' + escape(data.label) + ' <span class="scientific">' + escape(data.label_scientific) + '</span></div>';
-                }
-                }
-                });
-                </script>
+                          <input type="text"
+                                               class="forms__input search__input js-suggest-search-new"
+                                               name="q"
+                                               autocomplete="off"
+                                               placeholder="Rayon, Metro"
+                                               value=""
+                                               list="xidmetler"/>
 
 
 
@@ -1349,7 +1300,7 @@ height: 54px;
                 <li class="suggested-features-showcase__item">
                   <a href="#insurance">
 							<header class="suggested-feature__header">
-								<div class="suggested3"><p class="suggested-feature__description" style="margin: 10px 0px 0px;padding: 74px 0 0 0;"><br>Tibbi Siğorta</p></div>
+								<div class="suggested3"><p class="suggested-feature__description" style="margin: 10px 0px 0px;padding: 74px 0 0 0;"><br>Tibbi Sığorta</p></div>
 
 							</header>
 
@@ -1476,18 +1427,18 @@ height: 54px;
                 <div class="insurance">
                   <div class="insurance__container">
                     <div class="insurance__left">
-                      <div class="insurance__title">Siğortanız Varmı?</div>
-                      <div class="insurance__text">Tapdocda siğorta paketində olan həkimləri seçin və qəbuluna yazilin.</div>
+                      <div class="insurance__title">Sığortanız Varmı?</div>
+                      <div class="insurance__text">Tapdocda Sığorta paketində olan həkimləri seçin və qəbuluna yazilin.</div>
                     </div>
                     <div class="insurance__right">
                       <form class="js-dms-form" data-error="" action="https://tapdoc.az/lca/auth" method="get"> <select required name="companyId" id="companyId">
 					<option value="" disabled selected hidden>Şirkət</option>
-											<option value="2">Xalq Siğorta</option>
+											<option value="2">Xalq Sığorta</option>
                       <option value="12">Standart Insurence</option>
-                      <option value="12">Mega Siğorta</option>
-                      <option value="12">Atəşgah Siğorta</option>
-                      <option value="12">A-Group Siğorta</option>
-                      <option value="12">AXA MBASK Siğorta</option>																				</select>
+                      <option value="12">Mega Sığorta</option>
+                      <option value="12">Atəşgah Sığorta</option>
+                      <option value="12">A-Group Sığorta</option>
+                      																			</select>
                         <input placeholder="İd nömrəniz" required="required" maxlength="35" type="text" value="" name="number" id="number" /> <input placeholder="Soyad" required="required" maxlength="35" type="text" value="" name="lastName" id="lastName" />
                         <input class="button button_insurance" type="submit" name="yt0" value="Axtarın" />				</form>
                     </div>
@@ -1637,6 +1588,8 @@ height: 54px;
 
     <div class="footer-push"></div>
   </section>
+
+
 
   {% include 'footer-main.html' %}
 

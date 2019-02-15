@@ -240,6 +240,7 @@
 
               .doc__face{
                 margin: auto !important;
+                border-radius: 100%;
               }
                </style>
 
@@ -312,7 +313,7 @@
                                                    <i class="fa fa-star" aria-hidden="true"></i>
                                                    <i class="fa fa-star" aria-hidden="true"></i>
                                                 </div>
-                                                <div class="rate__value" style="width:{{reviewaverage}}0%;">
+                                                <div class="rate__value" style="width:90%;">
                                                    <i class="fa fa-star" aria-hidden="true"></i>
                                                    <i class="fa fa-star" aria-hidden="true"></i>
                                                    <i class="fa fa-star" aria-hidden="true"></i>
@@ -322,17 +323,9 @@
                                              </div>
                                           </div>
                                           <div class="doc__rating-label">
-                                             {% if reviewaverage > 8 %}
+
                                              Əla
-                                             {% elif reviewaverage > 6 %}
-                                             Yaxşı
-                                             {% elif reviewaverage > 4 %}
-                                             Orta
-                                             {% elif reviewaverage > 2 %}
-                                             Pis
-                                             {% elif reviewaverage > 0 %}
-                                             Çox Pis
-                                             {% endif%}
+
                                           </div>
                                           <div class="doc__rating-value">
                                              <a href="https://tapdoc.az/doctor/Sergeyko_Anatoliy#reviews"
@@ -522,7 +515,7 @@
                                     </div>
                                     <a name="reviews"></a>
                                     <div class="doctor__tab doctor__tab_reviews doctor__reviews" data-tab="reviews">
-                                       <div class="doctor__title">Həkim haqqında rəylər</div>
+                                       <div class="doctor__title" style=" margin: 0px 0 12px 0; ">Həkim haqqında rəylər</div>
                                        <div class="doctor__reviews-note">
 
 
@@ -535,7 +528,51 @@
                                              <meta itemprop="bestRating" content="5">
                                              <meta itemprop="worstRating" content="1">
                                           </div>
+                                          <div class="reviews__item " itemprop="review" itemscope
+                                             itemtype="https://schema.org/Review">
+                                             <meta itemprop="itemReviewed" content="Сергейко Анатолий Анатольевич">
+                                             <div class="reviews__top">
+                                                <div class="reviews__rating">
+                                                   <div class="rate rate_small">
+                                                      <div class="rate__default">
+                                                         <i class="fa fa-star" aria-hidden="true"></i>
+                                                         <i class="fa fa-star" aria-hidden="true"></i>
+                                                         <i class="fa fa-star" aria-hidden="true"></i>
+                                                         <i class="fa fa-star" aria-hidden="true"></i>
+                                                         <i class="fa fa-star" aria-hidden="true"></i>
+                                                      </div>
+                                                      <div class="rate__value" style="width:80%;">
+                                                         <i class="fa fa-star" aria-hidden="true"></i>
+                                                         <i class="fa fa-star" aria-hidden="true"></i>
+                                                         <i class="fa fa-star" aria-hidden="true"></i>
+                                                         <i class="fa fa-star" aria-hidden="true"></i>
+                                                         <i class="fa fa-star" aria-hidden="true"></i>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                                                   <meta itemprop="bestRating" content="10">
+                                                   <meta itemprop="worstRating" content="1">
+                                                   <meta itemprop="ratingValue" content="8">
+
+                                                   <div class="reviews__grade">Əla</div>
+
+
+                                                </span>
+
+                                             </div>
+                                             <div class="reviews__text" itemprop="reviewBody">
+                                                Xidmətlərdən çox razı qaldım
+                                             </div>
+                                             <div class="reviews__name">
+                                                <span class="review_author" itemprop="author">Eldar</span>, <span class="review_date" itemprop="datePublished" content="2018-08-16 17:28:35"></span> qəbulda olduğu xəstəxana "<a target="_blank" data-event-tracker="1" data-tracker-event="click" data-tracker-action="clinic-link" data-tracker-label="reviews" href="{% url 'clinicdetail' %}">Avrasiya Klinika</a>"
+                                             </div>
+                                          </div>
+
                                           {% for review in doctor.reviews.all %}
+
+                                          {% if review.published == 1 %}
+
                                           <div class="reviews__items">
                                              <div class="reviews__item " itemprop="review" itemscope
                                                 itemtype="https://schema.org/Review">
@@ -550,7 +587,7 @@
                                                             <i class="fa fa-star" aria-hidden="true"></i>
                                                             <i class="fa fa-star" aria-hidden="true"></i>
                                                          </div>
-                                                         <div class="rate__value" style="width:{{review.star|mul:2}}0%;">
+                                                         <div class="rate__value" style="width:90%;">
                                                             <i class="fa fa-star" aria-hidden="true"></i>
                                                             <i class="fa fa-star" aria-hidden="true"></i>
                                                             <i class="fa fa-star" aria-hidden="true"></i>
@@ -563,7 +600,7 @@
                                                       <meta itemprop="bestRating" content="10">
                                                       <meta itemprop="worstRating" content="1">
                                                       <meta itemprop="ratingValue" content="8">
-                                                      {% if review.star == 5 %}
+                                                      {% if review.star != 5 %}
                                                       <div class="reviews__grade">Əla</div>
                                                       {% elif review.star == 4 %}
                                                       <div class="reviews__grade">Yaxşı</div>
@@ -580,15 +617,16 @@
                                                    {{review.message}}
                                                 </div>
                                                 <div class="reviews__name">
-                                                   <span class="review_author" itemprop="author">{{review.starter.username}}</span>, <span class="review_date" itemprop="datePublished" content="2018-08-16 17:28:35">{{review.created_at|date:"d-m-Y"}}</span>, qəbulda olduğu xəstəxana "<a target="_blank" data-event-tracker="1" data-tracker-event="click" data-tracker-action="clinic-link" data-tracker-label="reviews" href="{% url 'clinicdetail' %}">{{review.clinic.name}}</a>"
+                                                   <span class="review_author" itemprop="author">{{review.starter.first_name}} {{review.starter.last_name}}</span>, <span class="review_date" itemprop="datePublished" content="2018-08-16 17:28:35">{{review.created_at|date:"d-m-Y"}}</span>, qəbulda olduğu xəstəxana "<a target="_blank" data-event-tracker="1" data-tracker-event="click" data-tracker-action="clinic-link" data-tracker-label="reviews" href="{% url 'clinicdetail' %}">Avrasiya Klinikası</a>"
                                                 </div>
                                              </div>
 
 
                                           </div>
+                                          {% endif %}
                                           {% endfor %}
                                           <div class="collapse" id="butunreyler">
-                                            <div class="reviews__item " itemprop="review" itemscope
+                                            <br><div class="reviews__item " itemprop="review" itemscope
                                                itemtype="https://schema.org/Review">
                                                <meta itemprop="itemReviewed" content="Сергейко Анатолий Анатольевич">
                                                <div class="reviews__top">
@@ -642,7 +680,7 @@
                                                 <script>
                                                 $('#reyelaveet').click(function(){
                                                     $(this).text(function(i,old){
-                                                        return old=='Rəy Əlavə Et' ?  'Bağla' : 'Rəy Əlavə Et';
+                                                        return old=='Rəy Əlavə Et' ?  'Bağla ' : 'Rəy Əlavə Et';
                                                     });
                                                 });</script>
 
@@ -652,7 +690,7 @@
                                     </div>
                                     <div class="doctor__form collapse" id="collapseExampleform">
                                        <div class="reviewform js-review-form">
-                                          <form method="post" class="reviewform__form review_form review-form--doctor review_form clearfix" action="{% url 'doctordetail' doctor.id %}" novalidate="novalidate">
+                                          <form method="post" class="reviewform__form review_form review-form--doctor review_form clearfix" action="{% url 'doctordetail' doctor.id %}">
                                              {% csrf_token %}
                                              <div class="reviewform__title">Rəy bildirin. Sizin fikrinizi bizim üçün dəyərlidir.</div>
                                              <div class="reviewform__rate">
@@ -671,7 +709,7 @@
                                                 <div class="reviewform__label">Adınızı daxil edin:</div>
                                                 <label for="reviewName" class="reviewform__icon reviewform__icon_user"></label>
                                                 <div class="reviewform__fieldset">
-                                                   <input type="text" class="reviewform__input" placeholder="Ad Soyad" id="reviewName" name="clinic" value="" data-event-tracker="1" data-tracker-event="input" data-tracker-action="review-form" data-tracker-label="name" data-tracker-value="__current__value__" />
+                                                   <input type="text" class="reviewform__input" placeholder="Ad Soyad" id="reviewName" name="clinic" value="" />
                                                    <label for="reviewName" class="label-error error" style="display: none;"></label>
                                                 </div>
                                              </div>
@@ -702,32 +740,13 @@
                                                 <!-- Phone Number Input Mask End -->
                                                 <div class="reviewform__note">*Şəxsi məlumatlarınız gizli saxlanılacaq.</div>
                                              </div>
-                                             <div class="reviewform__code hidden">
-                                                <div class="reviewform__field">
-                                                   <div class="reviewform__label">Код из SMS:</div>
-                                                   <label for="validatePhoneCode" class="reviewform__icon reviewform__icon_code"></label>
-                                                   <div class="reviewform__fieldset">
-                                                      <input type="text" class="reviewform__input" placeholder="xxxx" id="validatePhoneCode" name="validatePhoneCode" />
-                                                      <label for="validatePhoneCode" class="label-error error" style="display: none;"></label>
-                                                   </div>
-                                                   <div class="repeat-validate-code-block js-repeat-validate-code">
-                                                      Отправить еще раз
-                                                      <span class="js-repeat-validate-code-count"></span>
-                                                      <span class="js-repeat-validate-code-interval">через 30 сек.</span>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div class="validation-error hidden error"></div>
+
+
                                              <input type="hidden" name="doctorId" id="doctor-id" value="26705" />
                                              <div class="reviewform__bottom">
                                                 <div class="reviewform__button">
                                                    <button type="submit" class="button button_submit phone-num-block " data-event-tracker="1" data-tracker-event="click" data-tracker-action="send-review">Rəy Əlavə Et</button>
-                                                   <div class="phone-code-block hidden">
-                                                      <button type="submit" class="button button_submit">
-                                                         <div class="button__cont js-click-spinner" data-spinner-timeout="600">Подтвердить</div>
-                                                      </button>
-                                                      <div class="reviewform__repeat"><a href="#" class="repeat-phone">Ввести другой номер</a></div>
-                                                   </div>
+
                                                 </div>
                                                 <div class="reviewform__rules">
                                                    Tapdoc.azda təhqir və alçaldıcı rəylər qəbul olunmur.
@@ -735,9 +754,7 @@
                                                 </div>
                                              </div>
                                           </form>
-                                          <div class="reviewform__success">
-                                             Спасибо за отзыв, ваше мнение очень важно для нас.<br />Отзыв отправлен на проверку и будет опубликован в том случае, если Вы записывались на прием с помощью нашего сервиса.
-                                          </div>
+
                                        </div>
                                     </div>
 

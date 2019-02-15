@@ -1536,7 +1536,7 @@ input.button {
   font-size: 16px;
   padding: 0;
   background: #858d9f;
-  padding-top: 7px;
+  padding-top: 2px;
   cursor: pointer;
   font-family: 'CalibriCommon', sans-serif;
 }
@@ -6782,7 +6782,7 @@ h3.links__title-small {
   color: #1593db;
   line-height: 16px;
   display: inline-block;
-  border-bottom: 1px dashed #1593db;
+
   cursor: pointer;
   vertical-align: top;
   margin-top: 5px;

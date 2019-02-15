@@ -1,18 +1,11 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.contrib.auth.models import User
+from clinic.models import Clinic
 
 
 # Create your models here.
 
-
-class Clinic(models.Model):
-    name = models.CharField(max_length=256)
-    address = models.CharField(max_length=256)
-    description = models.TextField(max_length=10000, null=True)
-
-    def __str__(self):
-        return self.name
 
 
 class Profession(models.Model):
@@ -43,7 +36,6 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     star = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)], null=True)
     message = models.TextField(max_length=4000)
-    clinic = models.ForeignKey(Clinic, related_name='reviews', on_delete=models.CASCADE, null=True)
-
+    published = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(1)], null=True)
     def __str__(self):
         return self.message

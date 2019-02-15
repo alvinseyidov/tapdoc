@@ -20,15 +20,13 @@ def logindoc(request):
 def loginclinic(request):
     return render(request, 'loginclinic.html')
 
-@login_required(login_url='/admin/')
+
 def doctor(request):
     doctors_list = Doctor.objects.all()
     query = request.GET.get('q')
     querygeo = request.GET.get('geo')
     if query:
         doctors_list = doctors_list.filter(first_name__icontains=query)
-
-
 
     paginator = Paginator(doctors_list, 4)
     page = request.GET.get('page')
@@ -39,7 +37,7 @@ def doctor(request):
     }
     return render(request, 'doctor.html', context)
 
-@login_required(login_url='/admin/')
+
 def doctorpage2(request):
     doctors_list = Doctor.objects.all()
     query = request.GET.get('q')
@@ -58,7 +56,7 @@ def doctorpage2(request):
     }
     return render(request, 'doctorpage2.html', context)
 
-@login_required(login_url='/admin/')
+
 def doctorpage3(request):
     doctors_list = Doctor.objects.all()
     query = request.GET.get('q')
@@ -78,7 +76,7 @@ def doctorpage3(request):
     return render(request, 'doctorpage3.html', context)
 
 
-@login_required(login_url='/admin/')
+
 def doctorpage4(request):
     doctors_list = Doctor.objects.all()
     query = request.GET.get('q')
@@ -98,7 +96,7 @@ def doctorpage4(request):
     return render(request, 'doctorpage4.html', context)
 
 
-@login_required(login_url='/admin/')
+
 def doctorpage5(request):
     doctors_list = Doctor.objects.all()
     query = request.GET.get('q')
@@ -119,7 +117,7 @@ def doctorpage5(request):
 
 
 
-@login_required(login_url='/admin/')
+
 def doctors(request):
     doctors_list = Doctor.objects.all()
     query = request.GET.get('q')
@@ -138,107 +136,114 @@ def doctors(request):
     }
     return render(request, 'doctors.html', context)
 
-@login_required(login_url='/admin/')
 def clinic(request):
-    return render(request, 'clinic.html')
+    clinics_list = Clinic.objects.all()
+    query_clinic = request.GET.get('q')
+    querygeo_clinic = request.GET.get('geo')
+    if query_clinic:
+        clinics_list = clinics_list.filter(name__icontains=query)
 
-@login_required(login_url='/admin/')
+    paginator_clinic = Paginator(clinics_list, 4)
+    page_clinic = request.GET.get('page')
+    clinics = paginator_clinic.get_page(page_clinic)
+
+    context = {
+        "clinics": clinics
+    }
+    return render(request, 'clinic.html', context)
+
+
 def clinicpage2(request):
     return render(request, 'clinicpage2.html')
 
-@login_required(login_url='/admin/')
+
 def clinicpage3(request):
     return render(request, 'clinicpage3.html')
 
-@login_required(login_url='/admin/')
 def clinicpage4(request):
     return render(request, 'clinicpage4.html')
 
-@login_required(login_url='/admin/')
+
 def clinicpage5(request):
     return render(request, 'clinicpage5.html')
 
-@login_required(login_url='/admin/')
+
 def diaqnostika(request):
     return render(request, 'diaqnostika.html')
 
-@login_required(login_url='/admin/')
+
 def diaqnostikapage2(request):
     return render(request, 'diaqnostikapage2.html')
 
-@login_required(login_url='/admin/')
+
 def diaqnostikapage3(request):
     return render(request, 'diaqnostikapage3.html')
 
-@login_required(login_url='/admin/')
+
 def diaqnostikapage4(request):
     return render(request, 'diaqnostikapage4.html')
 
-@login_required(login_url='/admin/')
+
 def diaqnostikapage5(request):
     return render(request, 'diaqnostikapage5.html')
 
 
-@login_required(login_url='/admin/')
+
 def xidmetler(request):
     return render(request, 'xidmetler.html')
 
 
-@login_required(login_url='/admin/')
+
 def doctordetail(request, id):
     doctor = get_object_or_404(Doctor, id=id)
     wishlist = doctor.wishlist.all()
     reviewaverage = 0
     reviewcount = 0
     if doctor.reviews.count()>0:
-        reviewaverage= round(doctor.reviews.aggregate(Avg('star'))['star__avg'])
         reviewcount = doctor.reviews.count()
-
     if request.method == 'POST':
         if request.user.is_authenticated:
             form = ReviewForm(request.POST)
-            reviewclinicid = request.POST.get('clinic')
-            reviewclinic = Clinic.objects.get(id=reviewclinicid)
             if form.is_valid():
                 post = form.save(commit=False)
                 post.doctor = doctor
                 post.starter = request.user
-                post.clinic = reviewclinic
+                post.published = '0'
                 post.save()
                 return redirect('doctordetail', id=id)
         else:
             return redirect('login')
     else:
         form = ReviewForm()
-    return render(request, 'doctordetail.html', {'wishlist': wishlist,'doctor': doctor, 'form': form, 'reviewcount': reviewcount, 'reviewaverage':reviewaverage})
+    return render(request, 'doctordetail.html', {'wishlist': wishlist,'doctor': doctor, 'form': form,'reviewcount': reviewcount})
 
 
-@login_required(login_url='/admin/')
+
 def clinicdetail(request):
     doctorid = 1
     return render(request, 'clinicdetail.html')
 
-@login_required(login_url='/admin/')
+
 def clinicdetailnerimanov(request):
     doctorid = 1
     return render(request, 'clinicdetailnerimanov.html')
 
-@login_required(login_url='/admin/')
+
 def clinicdetailnesimi(request):
     doctorid = 1
     return render(request, 'clinicdetailnesimi.html')
 
-@login_required(login_url='/admin/')
+
 def clinicdetailyasamal(request):
     doctorid = 1
     return render(request, 'clinicdetailyasamal.html')
 
-@login_required(login_url='/admin/')
+
 def clinicdetailistanbul(request):
     doctorid = 1
     return render(request, 'clinicdetailistanbul.html')
 
-@login_required(login_url='/admin/')
+
 def clinicdetailvital(request):
     doctorid = 1
     return render(request, 'clinicdetailvital.html')

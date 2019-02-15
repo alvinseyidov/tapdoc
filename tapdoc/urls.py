@@ -19,6 +19,7 @@ from doctor import views
 from django.conf.urls.static import static
 from django.conf import settings
 from accounts import views as accounts_views
+from clinic import views as clinic_views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -35,6 +36,7 @@ urlpatterns = [
     path('logindoc/', views.logindoc, name='logindoc'),
     path('loginclinic/', views.loginclinic, name='loginclinic'),
     path('clinic/', views.clinic, name='clinic'),
+    path('clinic/<int:id>/profile', clinic_views.clinicprofile, name='clinicprofile'),
     path('clinicpage2/', views.clinicpage2, name='clinicpage2'),
     path('clinicpage3/', views.clinicpage3, name='clinicpage3'),
     path('clinicpage4/', views.clinicpage4, name='clinicpage4'),

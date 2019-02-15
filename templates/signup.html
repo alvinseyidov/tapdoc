@@ -1,60 +1,15 @@
-{% load static %}
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>W3.CSS</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{% static 'css/loginstyle.css'%}">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
-
 <body>
-  <div class="col-xs-36 col-lg-16 col-lg-offset-10">
-    <form ng-submit="vm.form.submit()" class="login-form__form ng-valid ng-dirty ng-valid-parse" method="post">
-{% csrf_token %}
-<div class="row login-form__tabs" ng-if="vm.platform.docPanelUrl || vm.platform.partnerPanelUrl"> <div class="pasientler"> <strong class="login-form__tabs-item font-large">Pasientlər Üçün</strong> </div> <div ng-if="vm.platform.docPanelUrl" class="hekimler"> <a href="{% url 'logindoc' %}" ng-href="https://doc.ondoc.me/" class="login-form__tabs-item"> <strong class="font-large">Həkimlər Üçün</strong> </a> </div>
-<div ng-if="vm.platform.partnerPanelUrl" class="klinikalar"> <a href="{% url 'loginclinic' %}" ng-href="https://partner.ondoc.me/" class="login-form__tabs-item"> <strong class="font-large">Klinikalar Üçün</strong> </a> </div> </div>
-
-      <div class="row login-form__icon"> <span class="login-form__icon-img icon-user-light"></span> </div>
-      <div class="pos-rel">
-
-        <div class="input-form-group">
-          <input type="text" name="username" class="rounded-input rounded-input--lg login-form__input text-center ng-pristine ng-valid ng-empty ng-touched" placeholder="Email və ya Telefon" ng-model="vm.form.model.login" autocomplete="username"/>
-          <span class="login-form__error text-center"></span>
-        </div>
-        <div class="input-form-group">
-          <input type="password" name="password" class="rounded-input rounded-input--lg login-form__input text-center ng-pristine ng-untouched ng-valid ng-empty" placeholder="Adınız" ng-model="vm.form.model.password" autocomplete="current-password"/>
-          <span class="login-form__error text-center"></span> <span class="login-form__error text-center"></span>
-        </div>
-        <div class="input-form-group">
-          <input type="password" name="password" class="rounded-input rounded-input--lg login-form__input text-center ng-pristine ng-untouched ng-valid ng-empty" placeholder="Soyadınız" ng-model="vm.form.model.password" autocomplete="current-password"/>
-          <span class="login-form__error text-center"></span> <span class="login-form__error text-center"></span>
-        </div>
-        <div class="input-form-group">
-          <input type="password" name="password" class="rounded-input rounded-input--lg login-form__input text-center ng-pristine ng-untouched ng-valid ng-empty" placeholder="Şifrə" ng-model="vm.form.model.password" autocomplete="current-password"/>
-          <span class="login-form__error text-center"></span> <span class="login-form__error text-center"></span>
-        </div>
-        <div class="input-form-group">
-          <input type="password" name="password" class="rounded-input rounded-input--lg login-form__input text-center ng-pristine ng-untouched ng-valid ng-empty" placeholder="Şifrə Təkrar" ng-model="vm.form.model.password" autocomplete="current-password"/>
-          <span class="login-form__error text-center"></span> <span class="login-form__error text-center"></span>
-        </div>
-      
-      </div> <button type="submit" class="login-form__submit r-button r-button--elg r-button--aquamarine btn-block margin-bottom-large">Qeydiyyat</button>
-
-      <div class="text-center" ng-if="vm.platform.isRegistrationEnabled"> <a href="{% url 'login'%}" class="login-form__sign-link font-medium" ui-sref="register">Daxil Ol</a> </div>
-
+<h2>Sign up</h2>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Create an account</button>
     </form>
-    <div class="hidden-xs">
-      <a ng-href="https://itunes.apple.com/RU/app/id945720044?mt=8" ng-if="vm.platform.iosAppLink" class="margin-right-base" href="https://itunes.apple.com/RU/app/id945720044?mt=8"> <img src="https://cdn.ondoc.me/img/a74ef8b161ec30c66c1f8af2016e2f89.png"
-          alt="Скачать из AppStore"> </a>
-
-      <a ng-href="https://play.google.com/store/apps/details?id=me.ondoc.main" ng-if="vm.platform.androidAppLink" href="https://play.google.com/store/apps/details?id=me.ondoc.main"> <img src="https://cdn.ondoc.me/img/46c9955654308f4bb34b6c0e3cc48768.png"
-          alt="Скачать из Google Play"> </a>
-
-    </div>
-  </div>
 </body>
-
 </html>

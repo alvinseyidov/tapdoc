@@ -1,22 +1,23 @@
 from django.contrib.auth import login as auth_login
 from django.shortcuts import render, redirect
 from doctor.models import Doctor, User
-from .forms import SignUpForm
+from .forms import SignUpForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
-@login_required(login_url='/admin/')
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
             auth_login(request, user)
-            return redirect('home')
+            return redirect('account')
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
 
-@login_required(login_url='/admin/')
+@login_required(login_url='/login/')
 def account(request):
     doctors_list = Doctor.objects.all()
     wishlist1 = User.objects.first()
@@ -32,7 +33,26 @@ def accountdoctors(request):
 
 @login_required(login_url='/admin/')
 def accountsettings(request):
-    return render(request, 'settings.html')
+    if request.method == 'POST':
+
+        p_form = ProfileUpdateForm(request.POST,
+                                   
+                                   instance=request.user.profile)
+        if p_form.is_valid():
+
+            p_form.save()
+            return redirect('homepage')
+
+    else:
+
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+
+        'p_form': p_form
+    }
+
+    return render(request, 'settings.html', context)
 
 @login_required(login_url='/admin/')
 def accountsettingssecurity(request):
