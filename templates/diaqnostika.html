@@ -47,6 +47,7 @@
     <link rel="icon" type="image/png" href="https://s.docdoc.ru/new-doc-doc/favicon/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://s.docdoc.ru/new-doc-doc/favicon/favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="https://s.docdoc.ru/new-doc-doc/favicon/manifest.json">
+    <link href="{% static 'css/langbasic.css'%}" rel="stylesheet" />
     <link rel="mask-icon" href="https://s.docdoc.ru/new-doc-doc/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
 
@@ -459,7 +460,22 @@ a:active{
     </aside>
 
     <section class="outer">
-    <div class="headerdesktop"><div class="headerdesktoplogo"><a href="/"><img src="/static/img/tapdoc.png"></a></div> <div class="headerdesktopright"><div class="headerdesktop_phone"><div class="headerdesktop_phone-note"><span style="color: rgb(255, 37, 108); font-weight: 600;">Zəng Edin!</span> Həkim Axtarışında Kömək Üçün
+    <div class="headerdesktop"><div class="headerdesktoplogo"><a href="/"><img src="/static/img/tapdoc.png"></a></div>
+    <div class="dropdowndil" style="  float: left;">
+                 <section class="langs" style="    top: 16px;    margin-left: 31px;">
+                             <ul style="  margin: 0;    padding: 0;    border: 0;    outline: 0;">
+                                 <li href="#" class="fc selected">
+                                     <a href="#">AZ</a>
+                                 </li>
+
+                                 <li href="#" class="lc ">
+                                     <a href="#">RU</a>
+                                 </li>
+                               </ul>
+                             <div class="clear"></div>
+                 </section>
+                 </div>
+     <div class="headerdesktopright"><div class="headerdesktop_phone"><div class="headerdesktop_phone-note"><span style="color: rgb(255, 37, 108); font-weight: 600;">Zəng Edin!</span> Həkim Axtarışında Kömək Üçün
       </div> <span class="headerdesktop_contact_phone ">
                     +994 (055) 555-55-55                                </span></div> <div class="dropdownmyp"><span>Şəxsi Kabinet</span> <div class="dropdown-contentmyp"><p><a href="/account/">Profilim</a></p> <p><a href="/logout/">Çıxış</a></p></div></div></div></div>
 
@@ -571,7 +587,7 @@ a:active{
                                                  value=""
                                                  list="xidmetler"/>
 
-    
+
 
                         </div>
                         <div class="search__field search__field_button">
@@ -608,7 +624,7 @@ a:active{
 	</a>
 														<a class="search__checkbox link-departure" href="https://tapdoc.az/clinic/direction/desc/dms-policy/1">
 		<div class="checkbox">
-			<input class="checkbox__input need-dms-auth" type="checkbox" value="1" name="dms-policy" id="dms-policy" />			<label class="checkbox__label js-click-spinner" for="dms-policy">Siğorta</label>
+			<input class="checkbox__input need-dms-auth" type="checkbox" value="1" name="dms-policy" id="dms-policy" />			<label class="checkbox__label js-click-spinner" for="dms-policy">Sığorta</label>
 		</div>
 	</a>
 	<span class="dms-logo "></span>
@@ -891,7 +907,7 @@ a:active{
       													Ortalama xidmət qiymətləri - yüksək											</div>
 
       					<div class="clinic-card__clinictext">
-      						«NewMed» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir. Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.	Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.					<a href="{% url 'clinicdetail'%}">Ətraflı</a>
+      						«Avrasiya Klinikası» — yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir. Yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.Yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.					<a href="{% url 'clinicdetail'%}">Ətraflı</a>
       					</div>
       				</div>
       			</div>
@@ -2816,7 +2832,7 @@ a:active{
       													Ortalama xidmət qiymətləri - yüksək											</div>
 
       					<div class="clinic-card__clinictext">
-      						«NewMed» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.						<a href="https://tapdoc.az/clinic/trastmed">Ətraflı</a>
+      						«İstanbul NS Klinikası» — yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.						<a href="{% url 'clinicdetailistanbul' %}">Ətraflı</a>
       					</div>
 
                 <!-- Collapsible Begin -->
@@ -2929,7 +2945,7 @@ a:active{
       													Ortalama xidmət qiymətləri - yüksək											</div>
 
       					<div class="clinic-card__clinictext">
-      						«NewMed» — Trustmed, yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.						<a href="https://tapdoc.az/clinic/trastmed">Ətraflı</a>
+      						«Vital Klinikası» — yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.						<a href="https://tapdoc.az/clinic/trastmed">Ətraflı</a>
       					</div>
 
                 <!-- Collapsible Begin -->

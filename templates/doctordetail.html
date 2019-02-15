@@ -18,6 +18,7 @@
                  <link rel="stylesheet" type="text/css" href="{% static 'css/rfclinic.css'%}">
                <link rel="apple-touch-icon" sizes="180x180" href="https://s.docdoc.ru/new-doc-doc/favicon/apple-touch-icon.png">
                <link rel="icon" type="image/png" href="https://s.docdoc.ru/new-doc-doc/favicon/favicon-32x32.png" sizes="32x32">
+               <link href="{% static 'css/langbasic.css'%}" rel="stylesheet" />
                <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
                <link rel="icon" type="image/png" href="https://s.docdoc.ru/new-doc-doc/favicon/favicon-16x16.png" sizes="16x16">
                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -258,6 +259,20 @@
                <section class="outer">
                   <div class="headerdesktop">
                      <div class="headerdesktoplogo"><a href="/"><img src="/static/img/tapdoc.png"></a></div>
+                     <div class="dropdowndil" style="  float: left;">
+                                   <section class="langs" style="    top: 16px;    margin-left: 31px;">
+                                               <ul style="  margin: 0;    padding: 0;    border: 0;    outline: 0;">
+                                                   <li href="#" class="fc selected">
+                                                       <a href="#">AZ</a>
+                                                   </li>
+
+                                                   <li href="#" class="lc ">
+                                                       <a href="#">RU</a>
+                                                   </li>
+                                                 </ul>
+                                               <div class="clear"></div>
+                                   </section>
+                                   </div>
                      <div class="headerdesktopright">
                         <div class="headerdesktop_phone">
                            <div class="headerdesktop_phone-note"><span style="color: rgb(255, 37, 108); font-weight: 600;">Zəng Edin!</span> Həkim Axtarışında Kömək Üçün
@@ -668,13 +683,16 @@
                                             </div>
                                           </div>
                                           <div class="reviews__bottom">
-                                             <a id="butunreyler" class="reviews__more" data-toggle="collapse" href="#butunreyler" role="button" aria-expanded="false" aria-controls="butunreyler">Bütün Rəylər</a>
-                                                <script>
-                                                $('#butunreyler').click(function(){
-                                                    $(this).text(function(i,old){
-                                                        return old=='Bütün Rəylər' ?  'Bağla' : 'Bütün Rəylər';
-                                                    });
-                                                });</script>
+                                             <a id="reyler" class="reyler" data-toggle="collapse" href="#butunreyler" role="button" aria-expanded="false" aria-controls="butunreyler">Bütün Rəylər</a>
+
+
+
+                                                                               <script>
+                                                                               $('#reyler').click(function(){
+                                                                                   $(this).text(function(i,old){
+                                                                                       return old=='Bütün Rəylər' ?  'Bağla' : 'Bütün Rəylər';
+                                                                                   });
+                                                                               });</script>
                                              <div class="reviews__button">
                                                 <button id="reyelaveet" class="button button_showform js-review-form-show" data-toggle="collapse" data-target="#collapseExampleform" aria-expanded="false" aria-controls="collapseExampleform">Rəy Əlavə Et</button>
                                                 <script>

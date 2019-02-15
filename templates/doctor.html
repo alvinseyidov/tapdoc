@@ -201,7 +201,7 @@ button#myBtn {
     background-repeat: no-repeat;
     border: none;
     cursor: pointer;
-    overflow: hidden;
+
     outline: none;
     color: #1593db;
     padding: 0 0 0 0;
@@ -295,7 +295,7 @@ float: right;
 
 /* Modal Content */
 .body-noscroll-modal {
-    overflow: hidden;
+
 }
 .modal-contentmuraciet {
     background-color: #fefefe;
@@ -359,7 +359,7 @@ float: right;
 
 .listspec li {
     position:relative;
-    overflow:hidden;
+
     width:238px;
 }
 .listspec li:after {
@@ -661,12 +661,12 @@ a:hover {
     <div class="dropdowndil" style="  float: left;">
                  <section class="langs" style="    top: 16px;    margin-left: 31px;">
                              <ul style="  margin: 0;    padding: 0;    border: 0;    outline: 0;">
-                                 <li href="/" class="fc selected">
-                                     <a href="/">AZ</a>
+                                 <li href="#" class="fc selected">
+                                     <a href="#">AZ</a>
                                  </li>
 
-                                 <li href="/en/" class="lc ">
-                                     <a href="/en/">RU</a>
+                                 <li href="#" class="lc ">
+                                     <a href="#">RU</a>
                                  </li>
                                </ul>
                              <div class="clear"></div>
@@ -771,8 +771,7 @@ a:hover {
                         <div class="search__field search__field_zoom">
                             <input type="text"
                                    class="forms__input search__input js-suggest-search-new"
-                                   data-suggestclass="autocomplete-suggestion-withgroup"
-                                   data-autocomplete-id="autocomplete-spec"
+                                   autocomplete="off"
                                    placeholder="Həkimlər"
                                    value="" />
 
@@ -1345,7 +1344,7 @@ function myFunction() {
               <div class="clinic-card__clinic-address">
 
                         <div class="clinic-card__clinic-address">
-                        <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Vital Klinikası</span></a><br>
+                        <a href="{% url 'clinicdetailvital' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Vital Klinikası</span></a><br>
                       <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
 
                        <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
@@ -1369,7 +1368,7 @@ function myFunction() {
                     <div class="clinic-card__clinic-address">
 
                               <div class="clinic-card__clinic-address">
-                              <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Vital Klinikası</span></a><br>
+                              <a href="{% url 'clinicdetailvital' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Vital Klinikası</span></a><br>
                             <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
 
                              <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
@@ -1889,24 +1888,7 @@ window.onclick = function(event) {
 
 
 
-  <div class="clinics__bottom">
-<div class="wrapper">
-
-<div class="clinics__info">
-
-
-<p class="del" style="margin: -32px 8px -28px 0;color: #000;padding: 15px 13px 16px 52px!important;background-position: 22px;border: 1px solid #ced1db;border-radius: 5px;font-size: .875rem!important;background-repeat: no-repeat;line-height: 1.25rem!important;width: 658px;margin-left: 156px;"><span>DİQQƏT!</span> Səhifədəki məlumatlar informativ xarakterlidir. Müalicə üçün həkimə müraciət edin.<br></p>
-
-
-
-</div>
-
-
-
-
-
-</div>
-</div>
+  
 
 
     {% include 'footer-main.html' %}

@@ -18,7 +18,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 <title>Klinika Profil</title>
-
+<link href="{% static 'css/langbasic.css'%}" rel="stylesheet" />
         <link rel="stylesheet" href="https://docdoc.ru/static/compile/fonts.css?1943356933">
         <link rel="stylesheet" type="text/css" href="{% static 'css/rfclinic.css'%}">
          <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -549,6 +549,20 @@ a:active{
     <section class="outer">
     <div class="headerdesktop">
                    <div class="headerdesktoplogo"><a href="/"><img src="/static/img/tapdoc.png"></a></div>
+                   <div class="dropdowndil" style="  float: left;">
+                 <section class="langs" style="top: 43px;margin-left: 87px;">
+                             <ul style="  margin: 0;    padding: 0;    border: 0;    outline: 0;">
+                                 <li href="#" class="fc selected">
+                                     <a href="#">AZ</a>
+                                 </li>
+
+                                 <li href="#" class="lc ">
+                                     <a href="#">RU</a>
+                                 </li>
+                               </ul>
+                             <div class="clear"></div>
+                 </section>
+                 </div>
                    <div class="headerdesktopright">
                       <div class="headerdesktop_phone">
                          <div class="headerdesktop_phone-note"><span style="color: rgb(255, 37, 108); font-weight: 600;">Zəng Edin!</span> Həkim Axtarışında Kömək Üçün
@@ -577,10 +591,10 @@ a:active{
 			<div class="wrapper">
 				<div class="clinic__header">
 					<div class="clinic__inner">
-						<div class="clinic__right clinic__right_map">
+            <div class="clinic__right clinic__right_map">
 							<div class="clinic__map">
-								<div class="loading"></div>
-																	<div class="clinic__map-container" id="map-clinic"></div>							</div>
+
+																	<div style="width: 100%"><iframe width="100%" height="300" src="https://maps.google.com/maps?width=100%&amp;height=300&amp;hl=en&amp;coord=40.402725,49.87065124616494&amp;q=Baku%2C%20nasimi+(Klinika)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/create-google-map/">Google map generator</a></iframe></div><br />						</div>
 						</div>
 						<div class="clinic__left">
 							<div class="clinic__slider">
@@ -1456,7 +1470,7 @@ span3.onclick = function() {
 										<div class="calendar-root"></div>
 									</div>
 									<div class="clinic__left-title">
-										<div class="clinic__title"><div style="color: #ff3c7c !important;width: 219px;border-bottom: 1.5px solid;padding: 0 0 8px 0;">Klinika Həkimləri (4)</div></div>
+										<div class="clinic__title"><div style="color: #ff3c7c !important;width: 219px;border-bottom: 1.5px solid;padding: 0 0 8px 0;">Klinika Həkimləri (3)</div></div>
 
 
 
@@ -1476,7 +1490,24 @@ span3.onclick = function() {
                     </div>
                     </a>
 
+                    <div class="search__checkbox link-departure" style=" margin: -1px 13px 0 0; ">
+                    <div class="checkbox" style="padding-top: 1px;">
+                    <input class="checkbox__input check" type="checkbox" value="3" name="kidsReception4" id="kidsReception4">			<label class="checkbox__label js-click-spinner" style=" top: 0.5px; " for="kidsReception4"> <i class="fa fa-male" style="font-size: 18px;color:#0199F4;"></i></label>
+                    </div>
+                    </div>
+                    <div class="search__checkbox link-departure" style=" margin: -1px 0 0 0;">
+                    <div class="checkbox" style="padding-top: 1px;">
+                    <input class="checkbox__input check" type="checkbox" value="3" name="kidsReception4" id="kidsReception5">			<label class="checkbox__label js-click-spinner" style=" top: 0.5px; " for="kidsReception5"> <i class="fa fa-female" style="font-size: 18px;color:#DD71E3;"></i></label>
+                    </div>
+                    </div>
+                    <script>
+                    $(document).ready(function(){
+                        $('.check').click(function() {
+                            $('.check').not(this).prop('checked', false);
+                        });
+                    });
 
+                    </script>
 
                     <span class="dms-logo "></span>
                                 </div>
@@ -1518,7 +1549,7 @@ span3.onclick = function() {
               				<div class="clinic-card__photo">
               					<!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
                                   <a href="#" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
-                                      <img src="/media/taleh_rFqJF06.jpg" alt="" class="avatar-round --big">                    </a>
+                                      <img src="{% static 'img/2.jpg'%}" alt="" class="avatar-round --big">                    </a>
               					<div class="clinic-card__rating">
 
               <div class="rate">
@@ -1562,7 +1593,7 @@ span3.onclick = function() {
 
               <div class="clinic-card__right">
               				<div class="clinic-card__clinic">
-                      <div class="bozpanel2">Həkim Medical Plazada fəaliyyət göstərir.</div>
+                      <div class="bozpanel2">İstanbul NS Klinikasında fəaliyyət göstərir.</div>
 
                       <div><p style="font-size: 13px;text-align: center; margin: 0 32px 8px 0;">Bu klinikada hal-hazırda onlayn qeydiyyat yoxdur. Qəbula yazılmaq üçün müraciət edin, sizinlə 10 dəq ərzində əlaqə saxlanılacaq.</p></div>
 
@@ -1603,7 +1634,7 @@ span3.onclick = function() {
 				<div class="clinic-card__photo">
 					<!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
                     <a href="#" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
-                        <img src="/media/3.jpg" alt="" class="avatar-round --big">                    </a>
+                        <img src="{% static 'img/3.jpg'%}" alt="" class="avatar-round --big">                    </a>
 					<div class="clinic-card__rating">
 
 <div class="rate">
@@ -1628,7 +1659,7 @@ span3.onclick = function() {
 					</div>
 				</div>
 				<div class="clinic-card__info">
-					<a href="/doctor/6/detail" class="clinic-card__name">Eldar  Seyidzade</a>
+					<a href="/doctor/8/detail" class="clinic-card__name">Eldar  Seyidzade</a>
 					<div class="clinic-card__type">Endokrinoloq Cərrah</div>
 					<div class="clinic-card__cost">
 													Təcrübəsi - 12 il											</div><br>
@@ -1647,7 +1678,7 @@ span3.onclick = function() {
 
 <div class="clinic-card__right">
 				<div class="clinic-card__clinic">
-        <div class="bozpanel2">Həkim Medical Plazada fəaliyyət göstərir.</div>
+        <div class="bozpanel2">İstanbul NS Klinikasında fəaliyyət göstərir.</div>
 
         <div><p style="font-size: 13px;text-align: center; margin: 0 32px 8px 0;">Bu klinikada hal-hazırda onlayn qeydiyyat yoxdur. Qəbula yazılmaq üçün müraciət edin, sizinlə 10 dəq ərzində əlaqə saxlanılacaq.</p></div>
 
@@ -1735,7 +1766,7 @@ span3.onclick = function() {
 
 <div class="clinic-card__right">
 <div class="clinic-card__clinic">
-<div class="bozpanel2">Həkim Avrasiya Klinkasında fəaliyyət göstərir.</div>
+<div class="bozpanel2">İstanbul NS Klinkasında fəaliyyət göstərir.</div>
 
 <div><p style="font-size: 13px;text-align: center; margin: 0 32px 8px 0;">Bu klinikada hal-hazırda onlayn qeydiyyat yoxdur. Qəbula yazılmaq üçün müraciət edin, sizinlə 10 dəq ərzində əlaqə saxlanılacaq.</p></div>
 
@@ -2175,7 +2206,7 @@ span3.onclick = function() {
                                             <div class="popup-book__infobox"><div class="popup-book__info clearfix">
                                             <div class="popup-book__doc">
                                               <div class="popup-book__pic">
-                                                <img data-bind="attr: {src: doctor.image}" src="/media/3.jpg">
+                                                <img data-bind="attr: {src: doctor.image}" src="{% static 'img/3.jpg'%}">
                                               </div>
                                               <div class="doc__rating">
                                                 <div class="rate">
