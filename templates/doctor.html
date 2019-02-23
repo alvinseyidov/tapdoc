@@ -1196,7 +1196,7 @@ function myFunction() {
         <div class="bozpanel1" style="font-size:15px;">Həkim bir neçə klinikada fəaliyyət göstərir.</div>
         <div style="    padding: 0 0 0 29px;">
         <select style="    width: 192px;" id="doctabselectdrop1" onchange="doctabselectdrop1()">
-   <option value="1">Avrasiya Klinkası&nbsp;&nbsp;&nbsp;&nbsp;</option>
+   <option value="1">Avrasiya Hospital&nbsp;&nbsp;&nbsp;&nbsp;</option>
    <option value="2">Vital Klinikası</option>
  </select></div>
  <script type="text/javascript">
@@ -1236,7 +1236,7 @@ function myFunction() {
                         <div class="clinic-card__clinic-address">
 
               						        <div class="clinic-card__clinic-address">
-              		              <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Avrasiya Klinikası</span></a><br>
+              		              <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Avrasiya Hospital</span></a><br>
                                 <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
 
               	                 <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
@@ -1513,7 +1513,7 @@ function myFunction() {
                   {% if doctor.id == 4 %}
                   <select name="carlist" form="carform" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;">
                     <option value="volvo">Vital Klinikası</option>
-                    <option value="volvo">Avrasiya Klinikası</option>
+                    <option value="volvo">Avrasiya Hospital</option>
                   </select>
                   {% else %}
                   <input name="carlist" readonly="true" value="Vital Klinikası" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;"/>
