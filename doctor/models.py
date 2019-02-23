@@ -1,7 +1,7 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.contrib.auth.models import User
-from clinic.models import Clinic
+from clinic.models import Clinic, Clinic_branch
 
 
 # Create your models here.
@@ -20,6 +20,7 @@ class Doctor(models.Model):
     first_name = models.CharField(max_length=256)
     last_name = models.CharField(max_length=256)
     clinics = models.ManyToManyField(Clinic, related_name='doctors')
+    clinicsbranch = models.ManyToManyField(Clinic_branch, related_name='doctors')
     image = models.ImageField(null=True, blank=True)
     description = models.TextField(max_length=10000, null=True)
     professions = models.ManyToManyField(Profession, related_name='doctors')

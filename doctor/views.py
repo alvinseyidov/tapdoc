@@ -28,7 +28,7 @@ def doctor(request):
     if query:
         doctors_list = doctors_list.filter(first_name__icontains=query)
 
-    paginator = Paginator(doctors_list, 4)
+    paginator = Paginator(doctors_list, 3)
     page = request.GET.get('page')
     doctors = paginator.get_page(page)
 
@@ -36,6 +36,23 @@ def doctor(request):
         "doctors": doctors
     }
     return render(request, 'doctor.html', context)
+
+
+def aa(request):
+    doctors_list = Doctor.objects.all()
+    query = request.GET.get('q')
+    querygeo = request.GET.get('geo')
+    if query:
+        doctors_list = doctors_list.filter(first_name__icontains=query)
+
+    paginator = Paginator(doctors_list, 2)
+    page = request.GET.get('page')
+    doctors = paginator.get_page(page)
+
+    context = {
+        "doctors": doctors
+    }
+    return render(request, 'aa.html', context)
 
 
 def doctorpage2(request):

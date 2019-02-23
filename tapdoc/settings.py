@@ -26,7 +26,7 @@ SECRET_KEY = '!dg%sqr8tf_l9-qzqcc+t1%#xt25%t%wizs!k&ec7cquad6&v@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['tapdoc.az']
+ALLOWED_HOSTS = []
 # 'alvinsayidzade.pythonanywhere.comm'
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'doctor',
     'clinic',
     'accounts',
+    'xidmetler',
     'mathfilters',
     'crispy_forms',
 ]

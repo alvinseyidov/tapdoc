@@ -20,38 +20,29 @@ from django.conf.urls.static import static
 from django.conf import settings
 from accounts import views as accounts_views
 from clinic import views as clinic_views
+from diaqnostika import views as diaqnostika_views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
+    path('aa', views.aa, name='aa'),
     path('', views.homepage, name='homepage'),
     path('doctor/', views.doctor, name='doctor'),
-    path('doctorpage2/', views.doctorpage2, name='doctorpage2'),
-    path('doctorpage3/', views.doctorpage3, name='doctorpage3'),
-    path('doctorpage4/', views.doctorpage4, name='doctorpage4'),
-    path('doctorpage5/', views.doctorpage5, name='doctorpage5'),
     path('muracietform/', views.muracietform, name='muracietform'),
     path('muracietform2/', views.muracietform2, name='muracietform2'),
     path('doctors/', views.doctors, name='doctors'),
     path('logindoc/', views.logindoc, name='logindoc'),
     path('loginclinic/', views.loginclinic, name='loginclinic'),
-    path('clinic/', views.clinic, name='clinic'),
+    path('clinic/', clinic_views.clinics, name='clinic'),
     path('clinic/<int:id>/profile', clinic_views.clinicprofile, name='clinicprofile'),
-    path('clinicpage2/', views.clinicpage2, name='clinicpage2'),
-    path('clinicpage3/', views.clinicpage3, name='clinicpage3'),
-    path('clinicpage4/', views.clinicpage4, name='clinicpage4'),
-    path('clinicpage5/', views.clinicpage5, name='clinicpage5'),
+    path('clinicbranch/<int:id>/profile', clinic_views.clinicbranchprofile, name='clinicbranchprofile'),
     path('clinic/1/detail', views.clinicdetail, name='clinicdetail'),
     path('clinic/11/detail', views.clinicdetailnerimanov, name='clinicdetailnerimanov'),
     path('clinic/12/detail', views.clinicdetailyasamal, name='clinicdetailyasamal'),
     path('clinic/13/detail', views.clinicdetailnesimi, name='clinicdetailnesimi'),
     path('clinic/2/detail', views.clinicdetailistanbul, name='clinicdetailistanbul'),
     path('clinic/3/detail', views.clinicdetailvital, name='clinicdetailvital'),
-    path('diaqnostika/', views.diaqnostika, name='diaqnostika'),
-    path('diaqnostikapage2/', views.diaqnostikapage2, name='diaqnostikapage2'),
-    path('diaqnostikapage3/', views.diaqnostikapage3, name='diaqnostikapage3'),
-    path('diaqnostikapage4/', views.diaqnostikapage4, name='diaqnostikapage4'),
-    path('diaqnostikapage5/', views.diaqnostikapage5, name='diaqnostikapage5'),
+    path('diaqnostika/', diaqnostika_views.diaqnostika, name='diaqnostika'),
     path('xidmetler/', views.xidmetler, name='xidmetler'),
     path('doctor/<int:id>/detail', views.doctordetail, name='doctordetail'),
     path('signup/', accounts_views.signup, name='signup'),
