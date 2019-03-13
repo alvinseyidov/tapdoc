@@ -1,5 +1,4 @@
-{% load static %}
-{% load mathfilters %}
+{% load static mathfilters %}
 <!DOCTYPE html>
 <html class="no-js" lang="ru">
             <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -372,26 +371,38 @@
                                           </div>
                                        </div>
                                        <h1 itemprop="name" class="doc__name">{{doctor.first_name}} {{doctor.last_name}}</h1>
-                                       <div class="doc__prof">Cərrah, Endoskopist                               <br/>23 il təcrübə, Elmlər Namizədi                            </div>
+                                       <div class="doc__prof">{% for profession in doctor.professions.all %}
+                                                              {{profession.name}}
+                                                              {% endfor %}
+                                                                     <br/>{{doctor.tecrube}} il təcrübə, Elmlər Namizədi                            </div>
                                        <div itemprop="makesOffer" itemscope itemtype="https://schema.org/Offer">
                                           <meta itemprop="price" content="1530"/>
                                           <meta itemprop="priceCurrency" content="RUB"/>
                                        </div>
                                        <div class="doc__price">
                                           Qəbula yazılma
-                                          <span class="doc__price-old">50</span>
+                                          <span class="doc__price-old">{{doctor.qebula_yazilma}}</span>
                                           <span class="doc__price-value doc__price-tooltip js-tooltip-custom js-tooltip-custom-interactive">
-                                          30 AZN.
+                                          {{endirimli_qiymet}} AZN.
 
                                           </span>
-                                          <span class="doc__price-label">-10%</span>
+                                          <span class="doc__price-label">-{{doctor.qebula_yazilma_endirim_faiz}}%</span>
 
                                        </div>
                                     </div>
                                  </div>
                                  <div class="doc__right doctor__map" style="position: relative;">
                                     <div class="loading1">
-                                    <div style="width: 100%"><iframe width="100%" height="300" src="https://maps.google.com/maps?width=100%&amp;height=300&amp;hl=en&amp;coord=40.402725,49.87065124616494&amp;q=Baku%2C%20nasimi+(Klinika)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/create-google-map/">Google map generator</a></iframe></div><br />
+                                      {% for clinic in doctor.clinics.all|slice:":1" %}
+                                    <div style="width: 100%"><iframe
+                                    width="100%"
+                                    height="300"
+                                    frameborder="0"
+                                    scrolling="no"
+                                    marginheight="0"
+                                    marginwidth="0"
+                                    src = "https://maps.google.com/maps?q={{clinic.location}}&hl=es;z=8&amp;output=embed"></iframe></div><br />
+                                     {% endfor %}
                                     </div>
 
                                  </div>
@@ -399,6 +410,8 @@
                            </div>
                         </div>
                      </div>
+
+
                      <div class="doctors__inner">
                         <div class="wrapper">
                            <div class="doctor">
@@ -416,6 +429,9 @@
                                           <meta  content="/clinic/trastmed" />
                                           <div class="rightbar__date">
                                           </div>
+
+
+                                          {% for clinic in doctor.clinics.all %}
                                           <div class="rightbar__section js-card-clinic-item js-doctor-clinic-item"
                                              name="doctor-card-shedule__content"
                                              data-current-id="26705-5719">
@@ -423,30 +439,6 @@
                                              <div class="rightbar__schedule">
                                                 <div class="schedule__heading">Qəbula yazılmaq üçün bizimlə əlaqə saxlayın.</div>
                                                 <button class="myBtnmuraciet" id="myBtnmuracietmrc1">Müraciət</button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                                 <div class="schedule schedule_docpage" data-doctor-id="26705" data-clinic-id="5719">
                                                    <div class="carousel" data-clinic="clinic1">
                                                    </div>
@@ -454,30 +446,32 @@
                                              </div>
                                              <div class="rightbar__inner">
                                                 <div class="rightbar__place">
-                                                   <div class="rightbar__place-title">
-                                                      5 saylı Mərkəzi Xəstəxana
-                                                   </div>
+                                                   <div class="rightbar__place-title" style="margin: -16px 0 12px 0; font-size: 21px;  color: #00a1ff;"><a href="{% url 'clinicprofile' clinic.id%}">{{clinic.name}}</a>
+                                                    </div>
                                                    <meta itemprop="name" content="Медицинский центр Трастмед на Таганке">
                                                    <meta itemprop="image" content="https://cdn.docdoc.ru/clinic/logo/min_5719.gif?1534499283">
                                                    <div class="rightbar__place-info">
                                                       <a href="#" target="_blank" class="js-result-doctor-clinics__address" data-clinic-id="5719" itemscope="" itemprop="address" itemtype="https://schema.org/PostalAddress">
-                                                      <span itemprop="AddressLocality">Bakı</span>,
-                                                      <span itemprop="streetAddress">Rəşid Behbudov küç. 57</span>
+                                                      <span itemprop="streetAddress">{{clinic.address}}</span>
                                                       </a>
                                                       <br>
                                                       <span class="rightbar__metro"><i class="i-metro-sm i-metro--line_11"></i>Nərimanov (490 м)</span>
-                                                      <span class="rightbar__metro"><i class="i-metro-sm i-metro--line_3"></i>Gənclik (580 м)</span>
+
                                                    </div>
                                                    <div class="rightbar__place-price">Həkim qəbulu qiyməti:
-                                                      30 AZN.
+                                                      {{doctor.endirimli_qiymet}} AZN.
                                                    </div>
                                                    <div class="rightbar__place-phone" data-ga-action="clickPhoneNumber"
                                                       data-ga-label="doctor online form">
-                                                      (+994) 50 519-31-04
+                                                      (+994) {{doctor.contact_phone}}
                                                    </div>
                                                 </div>
                                              </div>
                                           </div>
+                                          {% endfor %}
+
+
+
                                           <div class="doctor-card js-map-teaser hidden"
                                              data-type="doctor"
                                              data-doctor-id="26705-5719"
@@ -784,12 +778,9 @@
                            <div style="margin: 26px 0 22px 0;"> <h3>Sertifikatlar</h3></div>
                            <div style="margin: 26px 0 22px 0;">
                              <div class="row">
+                               {% for sertifikat in sertifikatlar|slice:":6" %}
                                <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat1.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></a></div>
-                               <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat2.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat2.jpg'%}"/></a></div>
-                               <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat3.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat3.jpg'%}"/></a></div>
-                               <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat4.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat4.jpg'%}"/></a></div>
-                               <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat5.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat5.jpg'%}"/></a></div>
-                               <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat6.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat6.jpg'%}"/></a></div>
+                               {% endfor %}
                              </div>
                            </div>
 
@@ -797,12 +788,9 @@
                              <div class="collapse" id="collapseExample">
                                <div style="margin: 0px 0 22px 0;">
                                  <div class="row">
-                                   <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat7.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat7.jpg'%}"/></a></div>
-                                   <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat8.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat8.jpg'%}"/></a></div>
-                                   <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat9.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat9.jpg'%}"/></a></div>
-                                   <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat10.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat10.jpg'%}"/></a></div>
-                                   <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat11.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat11.jpg'%}"/></a></div>
-                                   <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat12.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat12.jpg'%}"/></a></div>
+                                   {% for sertifikat in sertifikatlar|slice:"6:" %}
+                                   <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat1.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></a></div>
+                                   {% endfor %}
                                  </div>
 
                                </div>
@@ -812,6 +800,8 @@
                              	$('.image-link').viewbox();
                              });
                              </script>
+
+                             {% if sertifikatlar.count > 6 %}
                              <a id="butunfiliallar" class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style=" width: 100px; box-sizing: border-box; display: block; color: #fff; background: #00aec7; text-align: center; border-radius: 4px; font-size: 12px; line-height: 7px; height: 32px; text-transform: uppercase; padding: 15px 18px; border: 0; cursor: pointer; letter-spacing: 0.18px; font-family: 'Muller', sans-serif; -webkit-transition: background-color 0.1s linear 0s; -moz-transition: background-color 0.1s linear 0s; -o-transition: background-color 0.1s linear 0s; transition: background-color 0.1s linear 0s; -webkit-backface-visibility: hidden; ">Daha Çox</a>
                              <script>
                              $('#butunfiliallar').click(function(){
@@ -819,7 +809,7 @@
                                      return old=='Daha Çox' ?  'Bağla' : 'Daha Çox';
                                  });
                              });</script>
-
+                             {% endif %}
 
 
 

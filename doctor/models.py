@@ -1,34 +1,48 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.contrib.auth.models import User
-from clinic.models import Clinic, Clinic_branch
+from clinic.models import Clinic
 
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
 
 
+
 class Profession(models.Model):
     name = models.CharField(max_length=256)
-    description = models.TextField(max_length=10000)
+    description = models.TextField(max_length=10000,blank=True, null=True)
 
     def __str__(self):
         return self.name
 
-
 class Doctor(models.Model):
     first_name = models.CharField(max_length=256)
     last_name = models.CharField(max_length=256)
+    tecrube = models.IntegerField(null=True)
+    contact_phone = models.CharField(max_length=256,null=True)
+    qebula_yazilma = models.CharField(max_length=256,null=True)
+    qebula_yazilma_endirim_faiz = models.CharField(max_length=256,null=True)
     clinics = models.ManyToManyField(Clinic, related_name='doctors')
-    clinicsbranch = models.ManyToManyField(Clinic_branch, related_name='doctors')
     image = models.ImageField(null=True, blank=True)
-    description = models.TextField(max_length=10000, null=True)
-    professions = models.ManyToManyField(Profession, related_name='doctors')
+    description = RichTextField(blank=True, null=True)
     wishlist = models.ManyToManyField(User, related_name='wishlist', blank=True)
+    professions = models.ManyToManyField(Profession, related_name='doctors')
 
 
     def __str__(self):
         return self.first_name
+
+
+
+class Sertifikat(models.Model):
+    name = models.CharField(max_length=256)
+    image = models.ImageField(null=True, blank=True)
+    doctor = models.ForeignKey(Doctor, related_name='sertifikatlar', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 
 
 class Review(models.Model):
@@ -39,4 +53,4 @@ class Review(models.Model):
     message = models.TextField(max_length=4000)
     published = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(1)], null=True)
     def __str__(self):
-        return self.message
+        return self.doctor.first_name +' '+self.doctor.last_name+'-' + self.message

@@ -14,36 +14,51 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from doctor import views
 from django.conf.urls.static import static
 from django.conf import settings
 from accounts import views as accounts_views
 from clinic import views as clinic_views
+from service import views as service_views
 from diaqnostika import views as diaqnostika_views
 from django.contrib.auth import views as auth_views
+from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
-    path('aa', views.aa, name='aa'),
+    path('i18n/', include('django.conf.urls.i18n')),
+]
+urlpatterns += i18n_patterns(
     path('', views.homepage, name='homepage'),
     path('doctor/', views.doctor, name='doctor'),
+    path('doctor/staj', views.doctorstaj, name='doctorstaj'),
+    path('doctor/qiymet', views.doctorqiymet, name='doctorqiymet'),
+    path('doctor/reyler', views.doctorreyler, name='doctorreyler'),
+    path('doctor/reyting', views.doctorreyting, name='doctorreyting'),
+    path('doctor/category/<int:id>', views.doctorspecific, name='doctorspecific'),
     path('muracietform/', views.muracietform, name='muracietform'),
     path('muracietform2/', views.muracietform2, name='muracietform2'),
-    path('doctors/', views.doctors, name='doctors'),
     path('logindoc/', views.logindoc, name='logindoc'),
     path('loginclinic/', views.loginclinic, name='loginclinic'),
     path('clinic/', clinic_views.clinics, name='clinic'),
+    path('clinic/reyler', clinic_views.clinicsreyler, name='clinicreyler'),
+    path('clinic/qiymet', clinic_views.clinicsqiymet, name='clinicqiymet'),
+    path('clinic/reyting', clinic_views.clinicsreyting, name='clinicreyting'),
+    path('clinic/category/<int:id>', clinic_views.clinicsspecific, name='clinicsspecific'),
     path('clinic/<int:id>/profile', clinic_views.clinicprofile, name='clinicprofile'),
-    path('clinicbranch/<int:id>/profile', clinic_views.clinicbranchprofile, name='clinicbranchprofile'),
+    path('diaqnostika/', diaqnostika_views.diaqnostika, name='diaqnostika'),
+    path('diaqnostika/category/<int:id>', diaqnostika_views.diaqnostikaspecific, name='diaqnostikaspecific'),
+    path('diaqnostika/reyler', diaqnostika_views.diaqnostikareyler, name='diaqnostikareyler'),
+    path('diaqnostika/reyting', diaqnostika_views.diaqnostikareyting, name='diaqnostikareyting'),
+    path('diaqnostika/qiymet', diaqnostika_views.diaqnostikaqiymet, name='diaqnostikaqiymet'),
     path('clinic/1/detail', views.clinicdetail, name='clinicdetail'),
     path('clinic/11/detail', views.clinicdetailnerimanov, name='clinicdetailnerimanov'),
     path('clinic/12/detail', views.clinicdetailyasamal, name='clinicdetailyasamal'),
     path('clinic/13/detail', views.clinicdetailnesimi, name='clinicdetailnesimi'),
     path('clinic/2/detail', views.clinicdetailistanbul, name='clinicdetailistanbul'),
     path('clinic/3/detail', views.clinicdetailvital, name='clinicdetailvital'),
-    path('diaqnostika/', diaqnostika_views.diaqnostika, name='diaqnostika'),
-    path('xidmetler/', views.xidmetler, name='xidmetler'),
+    path('xidmetler/', service_views.xidmetler, name='xidmetler'),
     path('doctor/<int:id>/detail', views.doctordetail, name='doctordetail'),
     path('signup/', accounts_views.signup, name='signup'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
@@ -65,8 +80,9 @@ urlpatterns = [
     path('account/aptekdetail',accounts_views.accountaptekdetail , name='accountaptekdetail'),
     path('doctor/<int:id>/addtofavor', views.addtofavor, name='addtofavor'),
     path('doctor/<int:id>/removefavor', views.removefavor, name='removefavor'),
-    path('doctor/<int:id>/doctoraddtofavor', views.doctoraddtofavor, name='doctoraddtofavor'),
-    path('doctor/<int:id>/doctorremovefavor', views.doctorremovefavor, name='doctorremovefavor'),
-]
+    path('doctor/doctoraddtofavor', views.doctoraddtofavor, name='doctoraddtofavor'),
+    path('doctor/doctorremovefavor', views.doctorremovefavor, name='doctorremovefavor'),
+    prefix_default_language=False,
+)
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

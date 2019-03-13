@@ -1,15 +1,23 @@
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import get_object_or_404, render, HttpResponse, redirect
-from doctor.models import Doctor, Clinic
+from doctor.models import Doctor, Sertifikat, Profession
 from .forms import ReviewForm
 from django.db.models import Avg
+from django.db.models import Count
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-
+from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import to_locale, get_language
 # Create your views here.
 
 def homepage(request):
-    return render(request, 'index.html')
+    professions = Profession.objects.all()
+    lang = get_language()
+    context = {
+        "professions": professions,
+        "lang": lang
+    }
+    return render(request, 'index.html',context)
 def muracietform(request):
     return render(request, 'muracietiframe.html')
 def muracietform2(request):
@@ -22,192 +30,113 @@ def loginclinic(request):
 
 
 def doctor(request):
+    lang = get_language()
     doctors_list = Doctor.objects.all()
     query = request.GET.get('q')
     querygeo = request.GET.get('geo')
     if query:
         doctors_list = doctors_list.filter(first_name__icontains=query)
 
-    paginator = Paginator(doctors_list, 3)
+    paginator = Paginator(doctors_list, 10)
     page = request.GET.get('page')
     doctors = paginator.get_page(page)
 
+    professions = Profession.objects.all()
     context = {
-        "doctors": doctors
+        "doctors": doctors,
+        "professions": professions,
+        "lang": lang
     }
     return render(request, 'doctor.html', context)
 
+def doctorstaj(request):
+    doctors_list = Doctor.objects.order_by('-tecrube')
+    query = request.GET.get('q')
+    querygeo = request.GET.get('geo')
+    if query:
+        doctors_list = doctors_list.filter(first_name__icontains=query)
 
-def aa(request):
+    paginator = Paginator(doctors_list, 10)
+    page = request.GET.get('page')
+    doctors = paginator.get_page(page)
+
+    professions = Profession.objects.all()
+    context = {
+        "doctors": doctors,
+        "professions": professions
+    }
+    return render(request, 'doctorstaj.html', context)
+
+def doctorreyler(request):
+    doctors_list = Doctor.objects.all().annotate(num_reviews=Count('reviews')).order_by('-num_reviews')
+    query = request.GET.get('q')
+    querygeo = request.GET.get('geo')
+    if query:
+        doctors_list = doctors_list.filter(first_name__icontains=query)
+
+    paginator = Paginator(doctors_list, 10)
+    page = request.GET.get('page')
+    doctors = paginator.get_page(page)
+
+    professions = Profession.objects.all()
+    context = {
+        "doctors": doctors,
+        "professions": professions
+    }
+    return render(request, 'doctorreyler.html', context)
+
+def doctorqiymet(request):
+    doctors_list = Doctor.objects.order_by('-qebula_yazilma')
+    query = request.GET.get('q')
+    querygeo = request.GET.get('geo')
+    if query:
+        doctors_list = doctors_list.filter(first_name__icontains=query)
+
+    paginator = Paginator(doctors_list, 10)
+    page = request.GET.get('page')
+    doctors = paginator.get_page(page)
+
+    professions = Profession.objects.all()
+    context = {
+        "doctors": doctors,
+        "professions": professions
+    }
+    return render(request, 'doctorqiymet.html', context)
+
+def doctorreyting(request):
     doctors_list = Doctor.objects.all()
     query = request.GET.get('q')
     querygeo = request.GET.get('geo')
     if query:
         doctors_list = doctors_list.filter(first_name__icontains=query)
 
-    paginator = Paginator(doctors_list, 2)
+    paginator = Paginator(doctors_list, 10)
     page = request.GET.get('page')
     doctors = paginator.get_page(page)
 
+    professions = Profession.objects.all()
     context = {
-        "doctors": doctors
+        "doctors": doctors,
+        "professions": professions
     }
-    return render(request, 'aa.html', context)
+    return render(request, 'doctorreyting.html', context)
 
-
-def doctorpage2(request):
-    doctors_list = Doctor.objects.all()
-    query = request.GET.get('q')
-    querygeo = request.GET.get('geo')
-    if query:
-        doctors_list = doctors_list.filter(first_name__icontains=query)
-
-
-
-    paginator = Paginator(doctors_list, 4)
+def doctorspecific(request, id):
+    profession = Profession.objects.get(pk=id)
+    doctors_list = profession.doctors.all()
+    paginator = Paginator(doctors_list, 10)
     page = request.GET.get('page')
     doctors = paginator.get_page(page)
 
+    professions = Profession.objects.all()
     context = {
-        "doctors": doctors
+        "doctors": doctors,
+        "profession": profession,
+        "professions": professions
     }
-    return render(request, 'doctorpage2.html', context)
+    return render(request, 'doctorspecific.html', context)
 
 
-def doctorpage3(request):
-    doctors_list = Doctor.objects.all()
-    query = request.GET.get('q')
-    querygeo = request.GET.get('geo')
-    if query:
-        doctors_list = doctors_list.filter(first_name__icontains=query)
-
-
-
-    paginator = Paginator(doctors_list, 4)
-    page = request.GET.get('page')
-    doctors = paginator.get_page(page)
-
-    context = {
-        "doctors": doctors
-    }
-    return render(request, 'doctorpage3.html', context)
-
-
-
-def doctorpage4(request):
-    doctors_list = Doctor.objects.all()
-    query = request.GET.get('q')
-    querygeo = request.GET.get('geo')
-    if query:
-        doctors_list = doctors_list.filter(first_name__icontains=query)
-
-
-
-    paginator = Paginator(doctors_list, 4)
-    page = request.GET.get('page')
-    doctors = paginator.get_page(page)
-
-    context = {
-        "doctors": doctors
-    }
-    return render(request, 'doctorpage4.html', context)
-
-
-
-def doctorpage5(request):
-    doctors_list = Doctor.objects.all()
-    query = request.GET.get('q')
-    querygeo = request.GET.get('geo')
-    if query:
-        doctors_list = doctors_list.filter(first_name__icontains=query)
-
-
-
-    paginator = Paginator(doctors_list, 4)
-    page = request.GET.get('page')
-    doctors = paginator.get_page(page)
-
-    context = {
-        "doctors": doctors
-    }
-    return render(request, 'doctorpage5.html', context)
-
-
-
-
-def doctors(request):
-    doctors_list = Doctor.objects.all()
-    query = request.GET.get('q')
-    querygeo = request.GET.get('geo')
-    if query:
-        doctors_list = doctors_list.filter(first_name__icontains=query)
-
-
-
-    paginator = Paginator(doctors_list, 4)
-    page = request.GET.get('page')
-    doctors = paginator.get_page(page)
-
-    context = {
-        "doctors": doctors
-    }
-    return render(request, 'doctors.html', context)
-
-def clinic(request):
-    clinics_list = Clinic.objects.all()
-    query_clinic = request.GET.get('q')
-    querygeo_clinic = request.GET.get('geo')
-    if query_clinic:
-        clinics_list = clinics_list.filter(name__icontains=query)
-
-    paginator_clinic = Paginator(clinics_list, 4)
-    page_clinic = request.GET.get('page')
-    clinics = paginator_clinic.get_page(page_clinic)
-
-    context = {
-        "clinics": clinics
-    }
-    return render(request, 'clinic.html', context)
-
-
-def clinicpage2(request):
-    return render(request, 'clinicpage2.html')
-
-
-def clinicpage3(request):
-    return render(request, 'clinicpage3.html')
-
-def clinicpage4(request):
-    return render(request, 'clinicpage4.html')
-
-
-def clinicpage5(request):
-    return render(request, 'clinicpage5.html')
-
-
-def diaqnostika(request):
-    return render(request, 'diaqnostika.html')
-
-
-def diaqnostikapage2(request):
-    return render(request, 'diaqnostikapage2.html')
-
-
-def diaqnostikapage3(request):
-    return render(request, 'diaqnostikapage3.html')
-
-
-def diaqnostikapage4(request):
-    return render(request, 'diaqnostikapage4.html')
-
-
-def diaqnostikapage5(request):
-    return render(request, 'diaqnostikapage5.html')
-
-
-
-def xidmetler(request):
-    return render(request, 'xidmetler.html')
 
 
 
@@ -232,7 +161,19 @@ def doctordetail(request, id):
             return redirect('login')
     else:
         form = ReviewForm()
-    return render(request, 'doctordetail.html', {'wishlist': wishlist,'doctor': doctor, 'form': form,'reviewcount': reviewcount})
+
+    sertifikatlar = Sertifikat.objects.filter(doctor=doctor)
+    endirimli_qiymet = int(doctor.qebula_yazilma) - (int(doctor.qebula_yazilma) * int(doctor.qebula_yazilma_endirim_faiz)/100)
+    endirimli_qiymet = int(endirimli_qiymet)
+    context = {
+        'wishlist': wishlist,
+        'doctor': doctor,
+        'sertifikatlar': sertifikatlar,
+        'form': form,
+        'endirimli_qiymet':endirimli_qiymet,
+        'reviewcount': reviewcount
+    }
+    return render(request, 'doctordetail.html',context)
 
 
 
@@ -281,14 +222,25 @@ def removefavor(request, id):
 
     return redirect('doctordetail', id=id)
 
-def doctoraddtofavor(request, id):
-    doctor = get_object_or_404(Doctor, id=id)
-    doctor.wishlist.add(request.user)
 
-    return redirect('doctor')
 
-def doctorremovefavor(request, id):
-    doctor = get_object_or_404(Doctor, id=id)
-    doctor.wishlist.remove(request.user)
 
-    return redirect('doctor')
+def doctoraddtofavor(request):
+
+    if request.method == 'GET':
+        post_id = request.GET['post_id']
+        doctor = get_object_or_404(Doctor, id=post_id)
+        doctor.wishlist.add(request.user)
+        return HttpResponse("Success!") # Sending an success response
+    else:
+        return HttpResponse("Request method is not a GET")
+
+
+def doctorremovefavor(request):
+    if request.method == 'GET':
+        post_id = request.GET['post_id']
+        doctor = get_object_or_404(Doctor, id=post_id)
+        doctor.wishlist.remove(request.user)
+        return HttpResponse("Success!") # Sending an success response
+    else:
+        return HttpResponse("Request method is not a GET")

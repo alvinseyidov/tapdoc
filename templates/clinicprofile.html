@@ -11,7 +11,7 @@
     <meta charset="utf-8">
         <!-- Yandex.Metrika counter -->
 
- 
+
 
         <link rel="stylesheet" href="{% static 'css/viewbox.css'%}">
 
@@ -733,7 +733,15 @@ a:active{
 						<div class="clinic__right clinic__right_map">
 							<div class="clinic__map">
 
-																	<div style="width: 100%"><iframe width="100%" height="300" src="https://maps.google.com/maps?width=100%&amp;height=300&amp;hl=en&amp;coord=40.402725,49.87065124616494&amp;q=Baku%2C%20nasimi+(Klinika)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/create-google-map/">Google map generator</a></iframe></div><br />						</div>
+   <iframe
+   width="100%"
+   height="300"
+   frameborder="0"
+   scrolling="no"
+   marginheight="0"
+   marginwidth="0"
+   src = "https://maps.google.com/maps?q={{clinic.location}}&hl=es;z=8&amp;output=embed"></iframe>
+						</div>
 						</div>
 						<div class="clinic__left">
 							<div class="clinic__slider">
@@ -785,48 +793,56 @@ a:active{
                                         										<h1 class="clinic__name">{{clinic.name}}</h1>
 									</div>
 								</div>
-								<div class="clinic__slider-container w3-content w3-display-container">
-																			<img class="mySlides" src="{{clinic.image1.url}}"/>
-                                      <img class="mySlides" src="{{clinic.image2.url}}"/>
-                                      <img class="mySlides" src="{{clinic.image3.url}}"/>
 
+								<div class="clinic__slider-container w3-content w3-display-container">
+
+                                      {% for image in gallery %}
+                                      <img class="mySlides" src="{{image.image.url}}"/>
+
+
+                                      {% endfor %}
                                       <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%;    z-index: 100;">
     <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)"><a href="javascript:void(0)"><img src="{% static 'img/leftarrow.png'%}"/></a></div>
     <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)"><a href="javascript:void(0)"><img src="{% static 'img/rightarrow.png'%}"/></a></div>
-    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
-    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
-  </div>
-																	</div>
+    {% for image in gallery %}
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv({{image.id}})"></span>
 
-                                  <script>
+    {% endfor %}
+    <script>
 var slideIndex = 1;
 showDivs(slideIndex);
 
 function plusDivs(n) {
-  showDivs(slideIndex += n);
+showDivs(slideIndex += n);
 }
 
 function currentDiv(n) {
-  showDivs(slideIndex = n);
+showDivs(slideIndex = n);
 }
 
 function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" w3-white", "");
-  }
-  x[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " w3-white";
+var i;
+var x = document.getElementsByClassName("mySlides");
+var dots = document.getElementsByClassName("demo");
+if (n > x.length) {slideIndex = 1}
+if (n < 1) {slideIndex = x.length}
+for (i = 0; i < x.length; i++) {
+x[i].style.display = "none";
+}
+for (i = 0; i < dots.length; i++) {
+dots[i].className = dots[i].className.replace(" w3-white", "");
+}
+x[slideIndex-1].style.display = "block";
+dots[slideIndex-1].className += " w3-white";
 }
 </script>
+      </div>
+																	</div>
+
+
+
+
+
 							</div>
 						</div>
 					</div>
@@ -974,7 +990,13 @@ function showDivs(n) {
 										<div class="clinic__text js-short-description">
 						<div class="clinic__title">Klinika Haqqında</div>
 						<div class="js-result-txt clinic__text-inner" itemprop="description">
-							<p>{{clinic.description}}</p>
+							<p>{{clinic.description|safe}}</p>
+
+
+
+
+
+
 					</div>
 				</div>
 
@@ -986,12 +1008,12 @@ function showDivs(n) {
 
 <div class="clinic__content" style=" margin: -26px 0 0 0; ">
 <div class="wrapper">
-  <div style="margin: 26px 0 22px 0;"> <h3>Aksiyalar</h3></div>
+  <div style="margin: 26px 0 22px 0;"> </div>
   <div style="margin: 26px 0 22px 0;">
     <div class="row">
-      <a id="myBtn1"><div class="col-4 col-sm-4"><img class="aksiya" src="{% static 'img/aksiya1.png'%}"/></div></a>
+      <!--<a id="myBtn1"><div class="col-4 col-sm-4"><img class="aksiya" src="{% static 'img/aksiya1.png'%}"/></div></a>
       <a id="myBtn2"><div class="col-4 col-sm-4"><img class="aksiya" src="{% static 'img/aksiya2.png'%}"/></div></a>
-      <a id="myBtn3"><div class="col-4 col-sm-4"><img class="aksiya" src="{% static 'img/aksiya1.png'%}"/></div></a>
+      <a id="myBtn3"><div class="col-4 col-sm-4"><img class="aksiya" src="{% static 'img/aksiya1.png'%}"/></div></a>-->
 
     </div>
   </div>
@@ -1000,250 +1022,8 @@ function showDivs(n) {
   <!-- Trigger/Open The Modal -->
 
 
-<!-- The Modal -->
-<div id="myModal1" class="modal1">
-
-  <!-- Modal content -->
-  <div class="modal-content1">
-
-    <div ng-hide="$ctrl.loading" class="">
-   <div class="action-modal-title">
-      <div class="row">
-         <div class="col-xs-8 col-sm-8 text-left text-overflow flex flex-vertical-center">
-            <div class="doc-block__logo inline-block vertical-middle"> <img ng-src="{% static 'img/avrasiya.png'%}" alt="" src="{% static 'img/avrasiya.png'%}"> </div>
-            <span>
-               <strong>{{clinic.name}}</strong>
-               <div class="gray-text">Nərimanov r. Azadlıq pr. 23</div>
-            </span>
-         </div>
-         <div class="col-xs-4 col-sm-4 text-right font-size-null actions-modal-call">
-            <!----><a href="#" class="contact-doc contact-doc--call right-space--md" ng-if="$ctrl.clinic.phone" ng-class="{'right-space--md' : $ctrl.clinic.isAllowCallback}" ng-click="$ctrl.openCallModal()"></a><!----> <!----><a href="#" class="contact-doc contact-doc--backcall" ng-if="$ctrl.clinic.isAllowCallback" ng-click="$ctrl.openEnrollModal()"></a><!---->
-         </div>
-      </div>
-   </div>
-   <div class="custom-modal__body text-left">
-      <p class="font-medium"> <strong>İlk konsultasiya yalnız 30 AZN!</strong> </p>
-      <p class="text-center action-preview-image"> <img ng-src="{% static 'img/aksiya22.jpeg'%}" alt="" class="center-block" src="{% static 'img/aksiya22.jpeg'%}"> </p>
-      <!---->
-
-      <!----> <!---->
-      <div class="text-center widget-consultation__line" ng-if="$ctrl.campaign.rules"> <span class="widget-consultation__title">Haqqında</span> </div>
-      <!----> <!---->
-      <div class="widget--bottom-space" ng-if="$ctrl.campaign.rules">
-         <p class="p-small" ng-bind-html="$ctrl.campaign.rules|nl2br|raw">
-         <p>Daha ətraflı məlumat üçün bizim əlaqə nömrələri ilə əlaqə saxlaya bilərsiniz və ya email yaza bilərsiniz.</p>
-         <p>Bu aksiya 27 mart 2019 tarixinə kimi keçərlidir.<br></p>
-         </p>
-      </div>
-      <!----> <!---->
-      <div class="widget-consultation__text">
-         <!---->
-      </div>
-   </div>
-   <hr>
-   <div class="text-center"> <input type="submit" class="r-button r-button--blue-border r-button--lg close1" value="Bağla" ng-click="$ctrl.handleClose()"> </div>
-</div>
-</div>
-
-</div>
-
-<script>
-// Get the modal
-var modal1 = document.getElementById('myModal1');
-
-// Get the button that opens the modal
-var btn1 = document.getElementById("myBtn1");
-
-// Get the <span> element that closes the modal
-var span1 = document.getElementsByClassName("close1")[0];
-
-// When the user clicks the button, open the modal
-btn1.onclick = function() {
-  modal1.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span1.onclick = function() {
-  modal1.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal1) {
-    modal1.style.display = "none";
-  }
-  else if (event.target == modal2) {
-    modal2.style.display = "none";
-  }
-
-  else if (event.target == modal3) {
-    modal3.style.display = "none";
-  }
-  else if (event.target == modal4) {
-    modal4.style.display = "none";
-  }
-
-  else if (event.target == modalmrc1) {
-    modalmrc1.style.display = "none";
-  }
-  else if (event.target == modalmrc2) {
-    modalmrc2.style.display = "none";
-  }
-  else if (event.target == modalmrc3) {
-    modalmrc3.style.display = "none";
-  }
-  else if (event.target == modalmrc4) {
-    modalmrc4.style.display = "none";
-  }
-}
-</script>
 
 
-
-
-
-
-
-<div id="myModal2" class="modal2">
-
-  <!-- Modal content -->
-  <div class="modal-content2">
-    <div ng-hide="$ctrl.loading" class="">
-   <div class="action-modal-title">
-      <div class="row">
-         <div class="col-xs-8 col-sm-8 text-left text-overflow flex flex-vertical-center">
-            <div class="doc-block__logo inline-block vertical-middle"> <img ng-src="{% static 'img/avrasiya.png'%}" alt="" src="{% static 'img/avrasiya.png'%}"> </div>
-            <span>
-               <strong>{{clinic.name}}</strong>
-               <div class="gray-text">Nərimanov r. Azadlıq pr. 23</div>
-            </span>
-         </div>
-         <div class="col-xs-4 col-sm-4 text-right font-size-null actions-modal-call">
-            <!----><a href="#" class="contact-doc contact-doc--call right-space--md" ng-if="$ctrl.clinic.phone" ng-class="{'right-space--md' : $ctrl.clinic.isAllowCallback}" ng-click="$ctrl.openCallModal()"></a><!----> <!----><a href="#" class="contact-doc contact-doc--backcall" ng-if="$ctrl.clinic.isAllowCallback" ng-click="$ctrl.openEnrollModal()"></a><!---->
-         </div>
-      </div>
-   </div>
-   <div class="custom-modal__body text-left">
-      <p class="font-medium"> <strong>İlk konsultasiya yalnız 30 AZN!</strong> </p>
-      <p class="text-center action-preview-image"> <img ng-src="{% static 'img/aksiya11.jpeg'%}" alt="" class="center-block" src="{% static 'img/aksiya11.jpeg'%}"> </p>
-      <!---->
-
-      <!----> <!---->
-      <div class="text-center widget-consultation__line" ng-if="$ctrl.campaign.rules"> <span class="widget-consultation__title">Haqqında</span> </div>
-      <!----> <!---->
-      <div class="widget--bottom-space" ng-if="$ctrl.campaign.rules">
-         <p class="p-small" ng-bind-html="$ctrl.campaign.rules|nl2br|raw">
-         <p>Daha ətraflı məlumat üçün bizim əlaqə nömrələri ilə əlaqə saxlaya bilərsiniz və ya email yaza bilərsiniz.</p>
-         <p>Bu aksiya 27 mart 2019 tarixinə kimi keçərlidir.<br></p>
-         </p>
-      </div>
-      <!----> <!---->
-      <div class="widget-consultation__text">
-         <!---->
-      </div>
-   </div>
-   <hr>
-   <div class="text-center"> <input type="submit" class="r-button r-button--blue-border r-button--lg close2" value="Bağla" ng-click="$ctrl.handleClose()"> </div>
-</div>
-  </div>
-
-</div>
-
-<script>
-// Get the modal
-var modal2 = document.getElementById('myModal2');
-
-// Get the button that opens the modal
-var btn2 = document.getElementById("myBtn2");
-
-// Get the <span> element that closes the modal
-var span2 = document.getElementsByClassName("close2")[0];
-
-// When the user clicks the button, open the modal
-btn2.onclick = function() {
-  modal2.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span2.onclick = function() {
-  modal2.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-
-</script>
-
-
-
-
-<div id="myModal3" class="modal3">
-
-  <!-- Modal content -->
-  <div class="modal-content3">
-    <div ng-hide="$ctrl.loading" class="">
-   <div class="action-modal-title">
-      <div class="row">
-         <div class="col-xs-8 col-sm-8 text-left text-overflow flex flex-vertical-center">
-            <div class="doc-block__logo inline-block vertical-middle"> <img ng-src="{% static 'img/avrasiya.png'%}" alt="" src="{% static 'img/avrasiya.png'%}"> </div>
-            <span>
-               <strong>{{clinic.name}}</strong>
-               <div class="gray-text">Nərimanov r. Azadlıq pr. 23</div>
-            </span>
-         </div>
-         <div class="col-xs-4 col-sm-4 text-right font-size-null actions-modal-call">
-            <!----><a href="#" class="contact-doc contact-doc--call right-space--md" ng-if="$ctrl.clinic.phone" ng-class="{'right-space--md' : $ctrl.clinic.isAllowCallback}" ng-click="$ctrl.openCallModal()"></a><!----> <!----><a href="#" class="contact-doc contact-doc--backcall" ng-if="$ctrl.clinic.isAllowCallback" ng-click="$ctrl.openEnrollModal()"></a><!---->
-         </div>
-      </div>
-   </div>
-   <div class="custom-modal__body text-left">
-      <p class="font-medium"> <strong>İlk konsultasiya yalnız 30 AZN!</strong> </p>
-      <p class="text-center action-preview-image"> <img ng-src="{% static 'img/aksiya22.jpeg'%}" alt="" class="center-block" src="{% static 'img/aksiya22.jpeg'%}"> </p>
-      <!---->
-
-      <!----> <!---->
-      <div class="text-center widget-consultation__line" ng-if="$ctrl.campaign.rules"> <span class="widget-consultation__title">Haqqında</span> </div>
-      <!----> <!---->
-      <div class="widget--bottom-space" ng-if="$ctrl.campaign.rules">
-         <p class="p-small" ng-bind-html="$ctrl.campaign.rules|nl2br|raw">
-         <p>Daha ətraflı məlumat üçün bizim əlaqə nömrələri ilə əlaqə saxlaya bilərsiniz və ya email yaza bilərsiniz.</p>
-         <p>Bu aksiya 27 mart 2019 tarixinə kimi keçərlidir.<br></p>
-         </p>
-      </div>
-      <!----> <!---->
-      <div class="widget-consultation__text">
-         <!---->
-      </div>
-   </div>
-   <hr>
-   <div class="text-center"> <input type="submit" class="r-button r-button--blue-border r-button--lg close3" value="Bağla" ng-click="$ctrl.handleClose()"> </div>
-</div>
-  </div>
-
-</div>
-
-<script>
-// Get the modal
-var modal3 = document.getElementById('myModal3');
-
-// Get the button that opens the modal
-var btn3 = document.getElementById("myBtn3");
-
-// Get the <span> element that closes the modal
-var span3 = document.getElementsByClassName("close3")[0];
-
-// When the user clicks the button, open the modal
-btn3.onclick = function() {
-  modal3.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span3.onclick = function() {
-  modal3.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-
-</script>
 
 
 
@@ -1258,322 +1038,78 @@ span3.onclick = function() {
 
 
         <div class="row">
-          <div style="  font-size: 25px;    margin: 0px 0 16px 20px;    color: #1d1d1d;">Xidmətlər və qiymətləri</div>
   <div class="col-sm-6">
+
+    <div style="  font-size: 25px;    margin: 0px 0 16px 20px;    color: #1d1d1d;">Xidmətlər </div>
+
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingTwo">
-                     <h4 class="panel-titleaccordion">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                <b>  Ginekologiya</b>
-                </a>
-              </h4>
-
-                </div>
-                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                    <div class="panel-body">
-                      <p>&nbsp;&nbsp;MRT ........................................................................ 50 AZN</p>
-                      <p>&nbsp;&nbsp;UZI .......................................................................... 40 AZN</p>
-                      <p>&nbsp;&nbsp;Tomografiya ............................................................ 30 AZN</p>
-                      <p>&nbsp;&nbsp;Qan Analizi .............................................................. 20 AZN</p>
-                      <p>&nbsp;&nbsp;Şəkər Ölçümü .......................................................... 90 AZN</p>
-                      <p>&nbsp;&nbsp;Ümumi Müayinə ...................................................... 120 AZN</p>
-                      <p>&nbsp;&nbsp;Analizlər .................................................................. 110 AZN</p>
-                      <p>&nbsp;&nbsp;Sidik Analizi ............................................................. 90 AZN</p>
-                      <p>&nbsp;&nbsp;Cərrahiyyə ............................................................... 35 AZN</p>
-                      <p>&nbsp;&nbsp;Mammografiya ......................................................... 55 AZN</p>
-                      <p>&nbsp;&nbsp;KT ............................................................................ 63 AZN</p>
-                      <p>&nbsp;&nbsp;USM ......................................................................... 44 AZN</p>
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingThree">
-                     <h4 class="panel-titleaccordion">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              <b>    Travmatologiya</b>
-                </a>
-              </h4>
-
-                </div>
-                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                    <div class="panel-body">
-                      <p>&nbsp;&nbsp;MRT ........................................................................ 50 AZN</p>
-                      <p>&nbsp;&nbsp;UZI .......................................................................... 40 AZN</p>
-                      <p>&nbsp;&nbsp;Tomografiya ............................................................ 30 AZN</p>
-                      <p>&nbsp;&nbsp;Qan Analizi .............................................................. 20 AZN</p>
-                      <p>&nbsp;&nbsp;Şəkər Ölçümü .......................................................... 90 AZN</p>
-                      <p>&nbsp;&nbsp;Ümumi Müayinə ...................................................... 120 AZN</p>
-                      <p>&nbsp;&nbsp;Analizlər .................................................................. 110 AZN</p>
-                      <p>&nbsp;&nbsp;Sidik Analizi ............................................................. 90 AZN</p>
-                      <p>&nbsp;&nbsp;Cərrahiyyə ............................................................... 35 AZN</p>
-                      <p>&nbsp;&nbsp;Mammografiya ......................................................... 55 AZN</p>
-                      <p>&nbsp;&nbsp;KT ............................................................................ 63 AZN</p>
-                      <p>&nbsp;&nbsp;USM ......................................................................... 44 AZN</p></div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingFour">
-                     <h4 class="panel-titleaccordion">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                <b>  Nevrologiya</b>
-                </a>
-              </h4>
-
-                </div>
-                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                    <div class="panel-body"><p>&nbsp;&nbsp;MRT ........................................................................ 50 AZN</p>
-                    <p>&nbsp;&nbsp;UZI .......................................................................... 40 AZN</p>
-                    <p>&nbsp;&nbsp;Tomografiya ............................................................ 30 AZN</p>
-                    <p>&nbsp;&nbsp;Qan Analizi .............................................................. 20 AZN</p>
-                    <p>&nbsp;&nbsp;Şəkər Ölçümü .......................................................... 90 AZN</p>
-                    <p>&nbsp;&nbsp;Ümumi Müayinə ...................................................... 120 AZN</p>
-                    <p>&nbsp;&nbsp;Analizlər .................................................................. 110 AZN</p>
-                    <p>&nbsp;&nbsp;Sidik Analizi ............................................................. 90 AZN</p>
-                    <p>&nbsp;&nbsp;Cərrahiyyə ............................................................... 35 AZN</p>
-                    <p>&nbsp;&nbsp;Mammografiya ......................................................... 55 AZN</p>
-                    <p>&nbsp;&nbsp;KT ............................................................................ 63 AZN</p>
-                    <p>&nbsp;&nbsp;USM ......................................................................... 44 AZN</p></div>
-                </div>
-            </div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingFive">
-                     <h4 class="panel-titleaccordion">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                <b>  Cərrahiyyə</b>
-                </a>
-              </h4>
-
-                </div>
-                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-                    <div class="panel-body"><p>&nbsp;&nbsp;MRT ........................................................................ 50 AZN</p>
-                    <p>&nbsp;&nbsp;UZI .......................................................................... 40 AZN</p>
-                    <p>&nbsp;&nbsp;Tomografiya ............................................................ 30 AZN</p>
-                    <p>&nbsp;&nbsp;Qan Analizi .............................................................. 20 AZN</p>
-                    <p>&nbsp;&nbsp;Şəkər Ölçümü .......................................................... 90 AZN</p>
-                    <p>&nbsp;&nbsp;Ümumi Müayinə ...................................................... 120 AZN</p>
-                    <p>&nbsp;&nbsp;Analizlər .................................................................. 110 AZN</p>
-                    <p>&nbsp;&nbsp;Sidik Analizi ............................................................. 90 AZN</p>
-                    <p>&nbsp;&nbsp;Cərrahiyyə ............................................................... 35 AZN</p>
-                    <p>&nbsp;&nbsp;Mammografiya ......................................................... 55 AZN</p>
-                    <p>&nbsp;&nbsp;KT ............................................................................ 63 AZN</p>
-                    <p>&nbsp;&nbsp;USM ......................................................................... 44 AZN</p></div>
-                </div>
-            </div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingSix">
-                     <h4 class="panel-titleaccordion">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                  <b>Laboratoriya</b>
-                </a>
-              </h4>
-
-                </div>
-                <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
-                    <div class="panel-body"><p>&nbsp;&nbsp;MRT ........................................................................ 50 AZN</p>
-                    <p>&nbsp;&nbsp;UZI .......................................................................... 40 AZN</p>
-                    <p>&nbsp;&nbsp;Tomografiya ............................................................ 30 AZN</p>
-                    <p>&nbsp;&nbsp;Qan Analizi .............................................................. 20 AZN</p>
-                    <p>&nbsp;&nbsp;Şəkər Ölçümü .......................................................... 90 AZN</p>
-                    <p>&nbsp;&nbsp;Ümumi Müayinə ...................................................... 120 AZN</p>
-                    <p>&nbsp;&nbsp;Analizlər .................................................................. 110 AZN</p>
-                    <p>&nbsp;&nbsp;Sidik Analizi ............................................................. 90 AZN</p>
-                    <p>&nbsp;&nbsp;Cərrahiyyə ............................................................... 35 AZN</p>
-                    <p>&nbsp;&nbsp;Mammografiya ......................................................... 55 AZN</p>
-                    <p>&nbsp;&nbsp;KT ............................................................................ 63 AZN</p>
-                    <p>&nbsp;&nbsp;USM ......................................................................... 44 AZN</p></div>
-                </div>
-            </div>
-        </div>
 
 
-  <div style="  font-size: 25px;    margin: 0px 0 16px 0px;    color: #1d1d1d;">Diaqnostika xidmətləri və qiymətləri</div>
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    {% for xidmetlermovcud in xidmetlerlist %}
 
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingTwo2">
-                         <h4 class="panel-titleaccordion">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
-                    <b>  USM</b>
-                    </a>
-                  </h4>
+              <div class="panel panel-default ">
+                  <div class="panel-heading" role="tab" id="headingxid1{{xidmetlermovcud.id}}">
+                       <h4 class="panel-titleaccordion">
+                  <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapsexid1{{xidmetlermovcud.id}}" aria-expanded="false" aria-controls="collapsexid1{{xidmetlermovcud.id}}">
+                  <b>  {{xidmetlermovcud.group_name}}</b>
+                  </a>
+                </h4>
 
-                    </div>
-                    <div id="collapseTwo2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo2">
-                        <div class="panel-body">
-                          <p>&nbsp;&nbsp;MRT ........................................................................ 50 AZN</p>
-                          <p>&nbsp;&nbsp;UZI .......................................................................... 40 AZN</p>
-                          <p>&nbsp;&nbsp;Tomografiya ............................................................ 30 AZN</p>
-                          <p>&nbsp;&nbsp;Qan Analizi .............................................................. 20 AZN</p>
-                          <p>&nbsp;&nbsp;Şəkər Ölçümü .......................................................... 90 AZN</p>
-                          <p>&nbsp;&nbsp;Ümumi Müayinə ...................................................... 120 AZN</p>
-                          <p>&nbsp;&nbsp;Analizlər .................................................................. 110 AZN</p>
-                          <p>&nbsp;&nbsp;Sidik Analizi ............................................................. 90 AZN</p>
-                          <p>&nbsp;&nbsp;Cərrahiyyə ............................................................... 35 AZN</p>
-                          <p>&nbsp;&nbsp;Mammografiya ......................................................... 55 AZN</p>
-                          <p>&nbsp;&nbsp;KT ............................................................................ 63 AZN</p>
-                          <p>&nbsp;&nbsp;USM ......................................................................... 44 AZN</p>
+                  </div>
+                  <div id="collapsexid1{{xidmetlermovcud.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingxid1{{xidmetlermovcud.id}}">
+                      <div class="panel-body">
+                          {% for xidmetlerprice in xidmetlerprices %}
+                              {% if xidmetlerprice.xidmet.service_group.group_name == xidmetlermovcud.group_name %}
+
+                                  <p>&nbsp;&nbsp;{{xidmetlerprice.xidmet.name}} ........................................................................ {{xidmetlerprice.qiymet}} AZN</p>
+                              {% endif %}
+                          {% endfor %}
                         </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingThree2">
-                         <h4 class="panel-titleaccordion">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree2" aria-expanded="false" aria-controls="collapseThree2">
-                  <b>    MRT</b>
-                    </a>
-                  </h4>
-
-                    </div>
-                    <div id="collapseThree2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree2">
-                        <div class="panel-body">
-                          <p>&nbsp;&nbsp;MRT ........................................................................ 50 AZN</p>
-                          <p>&nbsp;&nbsp;UZI .......................................................................... 40 AZN</p>
-                          <p>&nbsp;&nbsp;Tomografiya ............................................................ 30 AZN</p>
-                          <p>&nbsp;&nbsp;Qan Analizi .............................................................. 20 AZN</p>
-                          <p>&nbsp;&nbsp;Şəkər Ölçümü .......................................................... 90 AZN</p>
-                          <p>&nbsp;&nbsp;Ümumi Müayinə ...................................................... 120 AZN</p>
-                          <p>&nbsp;&nbsp;Analizlər .................................................................. 110 AZN</p>
-                          <p>&nbsp;&nbsp;Sidik Analizi ............................................................. 90 AZN</p>
-                          <p>&nbsp;&nbsp;Cərrahiyyə ............................................................... 35 AZN</p>
-                          <p>&nbsp;&nbsp;Mammografiya ......................................................... 55 AZN</p>
-                          <p>&nbsp;&nbsp;KT ............................................................................ 63 AZN</p>
-                          <p>&nbsp;&nbsp;USM ......................................................................... 44 AZN</p></div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingFour2">
-                         <h4 class="panel-titleaccordion">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour2" aria-expanded="false" aria-controls="collapseFour2">
-                    <b>  Doppler</b>
-                    </a>
-                  </h4>
-
-                    </div>
-                    <div id="collapseFour2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour2">
-                        <div class="panel-body"><p>&nbsp;&nbsp;MRT ........................................................................ 50 AZN</p>
-                        <p>&nbsp;&nbsp;UZI .......................................................................... 40 AZN</p>
-                        <p>&nbsp;&nbsp;Tomografiya ............................................................ 30 AZN</p>
-                        <p>&nbsp;&nbsp;Qan Analizi .............................................................. 20 AZN</p>
-                        <p>&nbsp;&nbsp;Şəkər Ölçümü .......................................................... 90 AZN</p>
-                        <p>&nbsp;&nbsp;Ümumi Müayinə ...................................................... 120 AZN</p>
-                        <p>&nbsp;&nbsp;Analizlər .................................................................. 110 AZN</p>
-                        <p>&nbsp;&nbsp;Sidik Analizi ............................................................. 90 AZN</p>
-                        <p>&nbsp;&nbsp;Cərrahiyyə ............................................................... 35 AZN</p>
-                        <p>&nbsp;&nbsp;Mammografiya ......................................................... 55 AZN</p>
-                        <p>&nbsp;&nbsp;KT ............................................................................ 63 AZN</p>
-                        <p>&nbsp;&nbsp;USM ......................................................................... 44 AZN</p></div>
-                    </div>
-                </div>
-
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingFive2">
-                         <h4 class="panel-titleaccordion">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive2" aria-expanded="false" aria-controls="collapseFive2">
-                    <b>  KT</b>
-                    </a>
-                  </h4>
-
-                    </div>
-                    <div id="collapseFive2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive2">
-                        <div class="panel-body"><p>&nbsp;&nbsp;MRT ........................................................................ 50 AZN</p>
-                        <p>&nbsp;&nbsp;UZI .......................................................................... 40 AZN</p>
-                        <p>&nbsp;&nbsp;Tomografiya ............................................................ 30 AZN</p>
-                        <p>&nbsp;&nbsp;Qan Analizi .............................................................. 20 AZN</p>
-                        <p>&nbsp;&nbsp;Şəkər Ölçümü .......................................................... 90 AZN</p>
-                        <p>&nbsp;&nbsp;Ümumi Müayinə ...................................................... 120 AZN</p>
-                        <p>&nbsp;&nbsp;Analizlər .................................................................. 110 AZN</p>
-                        <p>&nbsp;&nbsp;Sidik Analizi ............................................................. 90 AZN</p>
-                        <p>&nbsp;&nbsp;Cərrahiyyə ............................................................... 35 AZN</p>
-                        <p>&nbsp;&nbsp;Mammografiya ......................................................... 55 AZN</p>
-                        <p>&nbsp;&nbsp;KT ............................................................................ 63 AZN</p>
-                        <p>&nbsp;&nbsp;USM ......................................................................... 44 AZN</p></div>
-                    </div>
-                </div>
+                  </div>
+              </div>
 
 
-            </div>
+    {% endfor %}
+
+    </div>
+
   </div>
 
-  <div class="col-sm-6" style="height: 551px;"><div class="sticky" style="position: -webkit-sticky;position: sticky;    top: 0;     padding: 41px 0 0 0;    font-size: 20px;">
-    <div class="clinic__info" style="    margin: -40px 0 5px 89px;">
+  <div class="col-sm-6">
+    <div style="  font-size: 25px;    margin: 0px 0 16px 20px;    color: #1d1d1d;">Diaqnostika</div>
 
-    <div class="js-map-teaser hidden" data-type="clinic" data-clinic-id="35333" data-latitude="55.8281320000" data-longitude="37.6502260000">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-    <div class="balloon__content balloon__content_clinic ">
+      {% for diaqnostikalarmovcud in diaqnostikalarlist %}
 
+                <div class="panel panel-default ">
+                    <div class="panel-heading" role="tab" id="headingdia1{{diaqnostikalarmovcud.id}}">
+                         <h4 class="panel-titleaccordion">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapsedia1{{diaqnostikalarmovcud.id}}" aria-expanded="false" aria-controls="collapsedia1{{xidmetlermovcud.id}}">
+                    <b>  {{diaqnostikalarmovcud.group_name}}</b>
+                    </a>
+                  </h4>
 
-    	<div class="balloon__right">
-    					<a href="https://tapdoc.az/clinic/eko-sodeystvie" class="balloon__name">{{clinic.name}}</a>
+                    </div>
+                    <div id="collapsedia1{{diaqnostikalarmovcud.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingdia1{{diaqnostikalarmovcud.id}}">
+                        <div class="panel-body">
+                            {% for diaqnostikalarprice in diaqnostikalarprices %}
+                                {% if diaqnostikalarprice.diaqnostika.diaqnostika_group.group_name == diaqnostikalarmovcud.group_name %}
 
-
-    							<div class="balloon__rating">
-
-    <div class="rate rate_small">
-    	<div class="rate__default">
-    		<i class="fa fa-star" aria-hidden="true"></i>
-    		<i class="fa fa-star" aria-hidden="true"></i>
-    		<i class="fa fa-star" aria-hidden="true"></i>
-    		<i class="fa fa-star" aria-hidden="true"></i>
-    		<i class="fa fa-star" aria-hidden="true"></i>
-    	</div>
-    			<div class="rate__value" style="width:88.5%;">
-    			<i class="fa fa-star" aria-hidden="true"></i>
-    			<i class="fa fa-star" aria-hidden="true"></i>
-    			<i class="fa fa-star" aria-hidden="true"></i>
-    			<i class="fa fa-star" aria-hidden="true"></i>
-    			<i class="fa fa-star" aria-hidden="true"></i>
-    		</div>
-    	</div>				</div>
-
-    							<div class="balloon__info">
-    											Bakı ş. Azadlıq Prospekti 43<br>
-    																<span class="rightbar__metro"><i class="i-metro-sm i-metro--line_5"></i>Gənclik(1 км)</span>
-    									</div>
+                                    <p>&nbsp;&nbsp;{{diaqnostikalarprice.diaqnostika.name}} ........................................................................ {{diaqnostikalarprice.qiymet}} AZN</p>
+                                {% endif %}
+                            {% endfor %}
+                          </div>
+                    </div>
+                </div>
 
 
-    	</div>
-    </div>
-    <div class="popup__close js-popup-close" onclick="closeBalloon('clinic')"></div>
-
-    </div>
-
-    <div class="clinic__address" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
-
-    	<meta itemprop="addressLocality" content="г. Москва">
-
-    	Bakı ş.
-    	<span itemprop="streetAddress">Azadlıq prospekti 43</span><br>
-
-    			<a href="https://tapdoc.az/clinic/area/svao" class="notlink"></a> <a href="https://tapdoc.az/clinic/district/alekseevskij" class="notlink"></a>					<div class="clinic__metro">
-    				<span class="i-metro-sm i-metro--line_5"></span>
-    				<a href="https://tapdoc.az/clinic/station/vdnh" class="notlink">
-    					Gənclik (1 км)
-    				</a>
-    			</div>
-
-    	</div>
-
-    																											<div class="clinic__phone" itemprop="telephone" data-ga-label="doctor clinic form" data-ga-action="clickPhoneNumber">
-    																			+994 (051) 927-01-01																	</div>
-    																						<div class="clinic__button">
-    									<button class="myBtnmuraciet" id="myBtnmuracietmrc4">Müraciət</button>
-    								</div>
-    																		</div>
-  </div></div>
+      {% endfor %}
+        </div>
+          </div>
 
 </div>
-
-
-
-
-
-
-
-
 
 
 </div>
@@ -3617,44 +3153,42 @@ spanmrc4.onclick = function() {
 
 
 																					</div>
-                        <div style="margin: 26px 0 22px 0;"> <h3>Sertifikatlar</h3></div>
-                        <div style="margin: 26px 0 22px 0;">
-                          <div class="row">
-                            <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat1.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></a></div>
-                            <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat2.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat2.jpg'%}"/></a></div>
-                            <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat3.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat3.jpg'%}"/></a></div>
-                            <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat4.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat4.jpg'%}"/></a></div>
-                            <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat5.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat5.jpg'%}"/></a></div>
-                            <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat6.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat6.jpg'%}"/></a></div>
-                          </div>
-                        </div>
+                                          <div style="margin: 26px 0 22px 0;"> <h3>Sertifikatlar</h3></div>
+                                          <div style="margin: 26px 0 22px 0;">
+                                            <div class="row">
+                                              {% for sertifikat in sertifikatlar|slice:":6" %}
+                                              <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat1.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></a></div>
+                                              {% endfor %}
+                                            </div>
+                                          </div>
 
 
-                          <div class="collapse" id="collapseExample">
-                            <div style="margin: 0px 0 22px 0;">
-                              <div class="row">
-                                <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat7.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat7.jpg'%}"/></a></div>
-                                <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat8.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat8.jpg'%}"/></a></div>
-                                <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat9.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat9.jpg'%}"/></a></div>
-                                <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat10.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat10.jpg'%}"/></a></div>
-                                <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat11.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat11.jpg'%}"/></a></div>
-                                <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat12.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat12.jpg'%}"/></a></div>
-                              </div>
+                                            <div class="collapse" id="collapseExample">
+                                              <div style="margin: 0px 0 22px 0;">
+                                                <div class="row">
+                                                  {% for sertifikat in sertifikatlar|slice:"6:" %}
+                                                  <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat1.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></a></div>
+                                                  {% endfor %}
+                                                </div>
 
-                            </div>
-                          </div>
-                          <script>
-                          $(function(){
-                          	$('.image-link').viewbox();
-                          });
-                          </script>
-                          <a id="butunfiliallar" class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style=" width: 100px; box-sizing: border-box; display: block; color: #fff; background: #00aec7; text-align: center; border-radius: 4px; font-size: 12px; line-height: 7px; height: 32px; text-transform: uppercase; padding: 15px 18px; border: 0; cursor: pointer; letter-spacing: 0.18px; font-family: 'Muller', sans-serif; -webkit-transition: background-color 0.1s linear 0s; -moz-transition: background-color 0.1s linear 0s; -o-transition: background-color 0.1s linear 0s; transition: background-color 0.1s linear 0s; -webkit-backface-visibility: hidden; ">Daha Çox</a>
-                          <script>
-                          $('#butunfiliallar').click(function(){
-                              $(this).text(function(i,old){
-                                  return old=='Daha Çox' ?  'Bağla' : 'Daha Çox';
-                              });
-                          });</script>
+                                              </div>
+                                            </div>
+                                            <script>
+                                            $(function(){
+                                             $('.image-link').viewbox();
+                                            });
+                                            </script>
+
+                                            {% if sertifikatlar.count > 6 %}
+                                            <a id="butunfiliallar" class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style=" width: 100px; box-sizing: border-box; display: block; color: #fff; background: #00aec7; text-align: center; border-radius: 4px; font-size: 12px; line-height: 7px; height: 32px; text-transform: uppercase; padding: 15px 18px; border: 0; cursor: pointer; letter-spacing: 0.18px; font-family: 'Muller', sans-serif; -webkit-transition: background-color 0.1s linear 0s; -moz-transition: background-color 0.1s linear 0s; -o-transition: background-color 0.1s linear 0s; transition: background-color 0.1s linear 0s; -webkit-backface-visibility: hidden; ">Daha Çox</a>
+                                            <script>
+                                            $('#butunfiliallar').click(function(){
+                                                $(this).text(function(i,old){
+                                                    return old=='Daha Çox' ?  'Bağla' : 'Daha Çox';
+                                                });
+                                            });</script>
+                                            {% endif %}
+
 
 					</div>
 				</div>
