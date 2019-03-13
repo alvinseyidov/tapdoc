@@ -978,11 +978,7 @@ function myFunction() {
 
 	{% for doctor in doctors %}
 
-  {% if user in doctor.wishlist.all %}
-  <a href="{% url 'doctorremovefavor' doctor.id %}" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
-  {% else %}
-  <a href="{% url 'doctoraddtofavor' doctor.id %}" class="addfavor"><img src="{% static 'img/like.png'%}"/></a>
-  {% endif %}
+  
 
 <div class="clinics-item result-card">
 	<div class="clinic-card">

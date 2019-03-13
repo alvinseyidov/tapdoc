@@ -905,7 +905,7 @@ border-radius: 7px;
     <a href="#" style="float:right;" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
             <div class="clinic-card__photo">
               <!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
-                        <a href="{% url 'clinicdetail' %}" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
+                        <a href="{% url 'clinicprofile' diaqnostika.id %}" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
                           <img src="{{diaqnostika.image.url}}" alt="" />                    </a>
               <div class="clinic-card__rating">
 
@@ -925,7 +925,7 @@ border-radius: 7px;
           <i class="fa fa-star" aria-hidden="true"></i>
         </div>
       </div>						<div class="clinic-card__rating-value">
-                  <a href="{% url 'clinicdetail' %}">
+                  <a href="{% url 'clinicprofile' diaqnostika.id %}">
                                       5125 rəy															</a>
                 </div>
               </div>
@@ -993,7 +993,7 @@ border-radius: 7px;
                               Ortalama xidmət qiymətləri - yüksək											</div>
 
               <div class="clinic-card__clinictext">
-                «Avrasiya Klinikası» — yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir. Yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.Yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.					<a href="{% url 'clinicdetail'%}">Ətraflı</a>
+                «Avrasiya Klinikası» — yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir. Yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.Yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.					<a href="{% url 'clinicprofile' diaqnostika.id %}">Ətraflı</a>
               </div>
             </div>
           </div>
@@ -1036,7 +1036,7 @@ border-radius: 7px;
     <a href="#" style="float:right;" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
             <div class="clinic-card__photo">
               <!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
-                        <a href="{% url 'clinicdetailvital' %}" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
+                        <a href="{% url 'clinicprofile' diaqnostika.id %}" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
                               <img src="{{diaqnostika.image.url}}" alt="" />                 </a>
               <div class="clinic-card__rating">
 
@@ -1056,13 +1056,13 @@ border-radius: 7px;
           <i class="fa fa-star" aria-hidden="true"></i>
         </div>
       </div>						<div class="clinic-card__rating-value">
-                  <a href="{% url 'clinicdetailvital' %}">
+                  <a href="{% url 'clinicprofile' diaqnostika.id %}">
                                       5125 rəy															</a>
                 </div>
               </div>
             </div>
             <div class="clinic-card__info">
-              <a href="{% url 'clinicdetailvital' %}" class="clinic-card__name">{{diaqnostika.name}}</a>
+              <a href="{% url 'clinicprofile' diaqnostika.id %}" class="clinic-card__name">{{diaqnostika.name}}</a>
               <div class="clinic-card__type">diaqnostika mərkəzi</div>
               <div class="clinic-card__cost">
                               Ortalama xidmət qiymətləri - yüksək											</div>
@@ -1113,7 +1113,7 @@ border-radius: 7px;
                 <div class="clinic-card__clinic-address">
 
 
-        Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
+        {{diaqnostika.address}}<br>
 
 
       <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro1.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro2.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
@@ -1167,7 +1167,7 @@ border-radius: 7px;
   <div class="clinic-card__inner">
     <div class="clinic-card__left">
     <a href="#" style="float:right;" class="addfavor"><img src="/static/img/liked.png"></a>
-      <a href="{% url 'clinicdetailnesimi' %}" class="clinic-card__branch-name">{{branch.name}}</a>
+      <a href="{% url 'clinicprofile' branch.id %}" class="clinic-card__branch-name">{{branch.name}}</a>
       <div class="clinic-card__rating clinic-card__rating_clinic">
 
 <div class="rate" style="margin: 0 0 0 10px;">
@@ -1186,12 +1186,12 @@ border-radius: 7px;
       <i class="fa fa-star" aria-hidden="true"></i>
     </div>
   </div>				<br><div style="  margin: 0 0px 0 16px;" class="clinic-card__rating-value">
-          <a href="{% url 'clinicdetailnesimi' %}">
+          <a href="{% url 'clinicprofile' branch.id %}">
                           818 rəy											</a>
         </div>
       </div>
       <div class="row">
-  <div class="col-sm-4"><a style=" width: 110px; height: 110px; margin: 3px 0 0 0; " href="{% url 'clinicdetailnesimi' %}" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
+  <div class="col-sm-4"><a style=" width: 110px; height: 110px; margin: 3px 0 0 0; " href="{% url 'clinicprofile' branch.id %}" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
                     <img src="{{branch.image.url}}" alt="" />                    </a></div>
   <div class="col-sm-8">
 
@@ -1243,7 +1243,7 @@ border-radius: 7px;
           <div class="clinic-card__clinic-address">
 
 
-  Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
+  {{branch.address}} <br>
 
 
 <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro1.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro2.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
@@ -1290,7 +1290,7 @@ border-radius: 7px;
     <div class="clinic-card__inner">
       <div class="clinic-card__left">
       <a href="#" style="float:right;" class="addfavor"><img src="/static/img/liked.png"></a>
-        <a href="{% url 'clinicdetailnesimi' %}" class="clinic-card__branch-name">{{branch.name}}</a>
+        <a href="{% url 'clinicprofile' branch.id %}" class="clinic-card__branch-name">{{branch.name}}</a>
         <div class="clinic-card__rating clinic-card__rating_clinic">
 
   <div class="rate" style="margin: 0 0 0 10px;">
@@ -1309,12 +1309,12 @@ border-radius: 7px;
         <i class="fa fa-star" aria-hidden="true"></i>
       </div>
     </div>				<br><div style="  margin: 0 0px 0 16px;" class="clinic-card__rating-value">
-            <a href="{% url 'clinicdetailnesimi' %}">
+            <a href="{% url 'clinicprofile' branch.id %}">
                             818 rəy											</a>
           </div>
         </div>
         <div class="row">
-    <div class="col-sm-4"><a style=" width: 110px; height: 110px; margin: 3px 0 0 0; " href="{% url 'clinicdetailnesimi' %}" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
+    <div class="col-sm-4"><a style=" width: 110px; height: 110px; margin: 3px 0 0 0; " href="{% url 'clinicprofile' branch.id %}" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
                       <img src="{{branch.image.url}}" alt="" />                    </a></div>
     <div class="col-sm-8">
 
@@ -1366,7 +1366,7 @@ border-radius: 7px;
             <div class="clinic-card__clinic-address">
 
 
-    Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
+    {{branch.address}} <br>
 
 
   <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro1.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro2.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>

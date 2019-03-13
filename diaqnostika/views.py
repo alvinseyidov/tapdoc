@@ -11,7 +11,7 @@ def diaqnostika(request):
     if query:
         diaqnostika_list = diaqnostika_list.filter(name__icontains=query)
 
-    paginator = Paginator(diaqnostika_list, 2)
+    paginator = Paginator(diaqnostika_list,4)
     page = request.GET.get('page')
     diaqnostika = paginator.get_page(page)
 
