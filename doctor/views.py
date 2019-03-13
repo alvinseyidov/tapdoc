@@ -41,7 +41,7 @@ def doctor(request):
     page = request.GET.get('page')
     doctors = paginator.get_page(page)
 
-    professions = Profession.objects.all()
+    professions = Profession.objects.order_by('name')
     context = {
         "doctors": doctors,
         "professions": professions,
