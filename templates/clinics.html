@@ -783,10 +783,70 @@ for="kidsReception3"> Sığorta</label>
                          Ortalama xidmət qiymətləri - yüksək											</div>
 
          <div class="clinic-card__clinictext">
-         {{clinic.descriptionmeta}}<a href="{% url 'clinicdetailistanbul'%}">Ətraflı</a>
+         {{clinic.descriptionmeta}}<a href="javascript:void(0)" id="myBtn43{{clinic.id}}">Ətraflı</a>
          </div>
        </div>
      </div>
+
+
+
+
+
+              <div id="myModal43{{clinic.id}}" class="modal4 modal43{{clinic.id}}">
+
+                <!-- Modal content -->
+                <div class="modal-content4 modal-content43{{clinic.id}}">
+                  <a href="javascript:void(0)"><span class="close4 close43{{clinic.id}}">&times;</span></a>
+                  <div class="popup-filials-list" style="width: 287px;">
+                    <h2 style=" margin: 0 0 14px 24px; ">Filialı Seçin</h2>
+                           {% for branch in clinic.filiallar.all %}
+      									<div class="popup-filials-list__item js-popup-filial" data-id="clinic-230">
+      						<div class="popup-filials-list__num">*</div>
+      						<a href="{% url 'clinicprofile' branch.id %}"><div class="popup-filials-list__name">{{branch}}</div></a>
+      						Səməd Vurğun küç. 55				</div>
+      									  {% endfor %}
+
+
+
+      							</div>
+                </div>
+
+              </div>
+
+              <script>
+              // Get the modal
+              var modal43{{clinic.id}} = document.getElementById('myModal43{{clinic.id}}');
+
+              // Get the button that opens the modal
+              var btn43{{clinic.id}} = document.getElementById("myBtn43{{clinic.id}}");
+
+              // Get the <span> element that closes the modal
+              var span43{{clinic.id}} = document.getElementsByClassName("close43{{clinic.id}}")[0];
+
+              // When the user clicks the button, open the modal
+              btn43{{clinic.id}}.onclick = function() {
+                modal43{{clinic.id}}.style.display = "block";
+              }
+
+              // When the user clicks on <span> (x), close the modal
+              span43{{clinic.id}}.onclick = function() {
+                modal43{{clinic.id}}.style.display = "none";
+              }
+
+              // When the user clicks anywhere outside of the modal, close it
+
+              </script>
+
+
+
+
+
+
+
+
+
+
+
 
      <div class="clinic-card__right">
        <div class="clinic-card__clinic" style=" margin: 31px 0 0 0; ">
@@ -862,7 +922,7 @@ data-ga-action="clickPhoneNumber">
                         Ortalama xidmət qiymətləri - yüksək											</div>
 
         <div class="clinic-card__clinictext">
-        {{clinic.descriptionmeta}}<a href="{% url 'clinicdetailistanbul'%}">Ətraflı</a>
+        {{clinic.descriptionmeta}}<a href="{% url 'clinicprofile' clinic.id%}">Ətraflı</a>
         </div>
       </div>
     </div>
