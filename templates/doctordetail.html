@@ -537,50 +537,11 @@
                                              <meta itemprop="bestRating" content="5">
                                              <meta itemprop="worstRating" content="1">
                                           </div>
-                                          <div class="reviews__item " itemprop="review" itemscope
-                                             itemtype="https://schema.org/Review">
-                                             <meta itemprop="itemReviewed" content="Сергейко Анатолий Анатольевич">
-                                             <div class="reviews__top">
-                                                <div class="reviews__rating">
-                                                   <div class="rate rate_small">
-                                                      <div class="rate__default">
-                                                         <i class="fa fa-star" aria-hidden="true"></i>
-                                                         <i class="fa fa-star" aria-hidden="true"></i>
-                                                         <i class="fa fa-star" aria-hidden="true"></i>
-                                                         <i class="fa fa-star" aria-hidden="true"></i>
-                                                         <i class="fa fa-star" aria-hidden="true"></i>
-                                                      </div>
-                                                      <div class="rate__value" style="width:80%;">
-                                                         <i class="fa fa-star" aria-hidden="true"></i>
-                                                         <i class="fa fa-star" aria-hidden="true"></i>
-                                                         <i class="fa fa-star" aria-hidden="true"></i>
-                                                         <i class="fa fa-star" aria-hidden="true"></i>
-                                                         <i class="fa fa-star" aria-hidden="true"></i>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                                <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
-                                                   <meta itemprop="bestRating" content="10">
-                                                   <meta itemprop="worstRating" content="1">
-                                                   <meta itemprop="ratingValue" content="8">
-
-                                                   <div class="reviews__grade">Əla</div>
 
 
-                                                </span>
+                                          {% for review in reviews|slice:":3"%}
 
-                                             </div>
-                                             <div class="reviews__text" itemprop="reviewBody">
-                                                Xidmətlərdən çox razı qaldım
-                                             </div>
-                                             <div class="reviews__name">
-                                                <span class="review_author" itemprop="author">Eldar</span>, <span class="review_date" itemprop="datePublished" content="2018-08-16 17:28:35"></span> qəbulda olduğu xəstəxana "<a target="_blank" data-event-tracker="1" data-tracker-event="click" data-tracker-action="clinic-link" data-tracker-label="reviews" href="{% url 'clinicdetail' %}">Avrasiya Hospital</a>"
-                                             </div>
-                                          </div>
 
-                                          {% for review in doctor.reviews.all %}
-
-                                          {% if review.published == 1 %}
 
                                           <div class="reviews__items">
                                              <div class="reviews__item " itemprop="review" itemscope
@@ -632,59 +593,79 @@
 
 
                                           </div>
-                                          {% endif %}
+
                                           {% endfor %}
                                           <div class="collapse" id="butunreyler">
-                                            <br><div class="reviews__item " itemprop="review" itemscope
-                                               itemtype="https://schema.org/Review">
-                                               <meta itemprop="itemReviewed" content="Сергейко Анатолий Анатольевич">
-                                               <div class="reviews__top">
-                                                  <div class="reviews__rating">
-                                                     <div class="rate rate_small">
-                                                        <div class="rate__default">
-                                                           <i class="fa fa-star" aria-hidden="true"></i>
-                                                           <i class="fa fa-star" aria-hidden="true"></i>
-                                                           <i class="fa fa-star" aria-hidden="true"></i>
-                                                           <i class="fa fa-star" aria-hidden="true"></i>
-                                                           <i class="fa fa-star" aria-hidden="true"></i>
-                                                        </div>
-                                                        <div class="rate__value" style="width:80%;">
-                                                           <i class="fa fa-star" aria-hidden="true"></i>
-                                                           <i class="fa fa-star" aria-hidden="true"></i>
-                                                           <i class="fa fa-star" aria-hidden="true"></i>
-                                                           <i class="fa fa-star" aria-hidden="true"></i>
-                                                           <i class="fa fa-star" aria-hidden="true"></i>
+                                            <br>
+                                            {% for review in reviews|slice:"3:"%}
+
+
+
+                                            <div class="reviews__items">
+                                               <div class="reviews__item " itemprop="review" itemscope
+                                                  itemtype="https://schema.org/Review">
+                                                  <meta itemprop="itemReviewed" content="Сергейко Анатолий Анатольевич">
+                                                  <div class="reviews__top">
+                                                     <div class="reviews__rating">
+                                                        <div class="rate rate_small">
+                                                           <div class="rate__default">
+                                                              <i class="fa fa-star" aria-hidden="true"></i>
+                                                              <i class="fa fa-star" aria-hidden="true"></i>
+                                                              <i class="fa fa-star" aria-hidden="true"></i>
+                                                              <i class="fa fa-star" aria-hidden="true"></i>
+                                                              <i class="fa fa-star" aria-hidden="true"></i>
+                                                           </div>
+                                                           <div class="rate__value" style="width:90%;">
+                                                              <i class="fa fa-star" aria-hidden="true"></i>
+                                                              <i class="fa fa-star" aria-hidden="true"></i>
+                                                              <i class="fa fa-star" aria-hidden="true"></i>
+                                                              <i class="fa fa-star" aria-hidden="true"></i>
+                                                              <i class="fa fa-star" aria-hidden="true"></i>
+                                                           </div>
                                                         </div>
                                                      </div>
+                                                     <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                                                        <meta itemprop="bestRating" content="10">
+                                                        <meta itemprop="worstRating" content="1">
+                                                        <meta itemprop="ratingValue" content="8">
+                                                        {% if review.star != 5 %}
+                                                        <div class="reviews__grade">Əla</div>
+                                                        {% elif review.star == 4 %}
+                                                        <div class="reviews__grade">Yaxşı</div>
+                                                        {% elif review.star == 3 %}
+                                                        <div class="reviews__grade">Orta</div>
+                                                        {% elif review.star == 2 %}
+                                                        <div class="reviews__grade">Pis</div>
+                                                        {% elif review.star == 1 %}
+                                                        <div class="reviews__grade">Çox Pis</div>
+                                                     </span>
+                                                     {% endif %}
                                                   </div>
-                                                  <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
-                                                     <meta itemprop="bestRating" content="10">
-                                                     <meta itemprop="worstRating" content="1">
-                                                     <meta itemprop="ratingValue" content="8">
-
-                                                     <div class="reviews__grade">Əla</div>
-
-
-                                                  </span>
-
+                                                  <div class="reviews__text" itemprop="reviewBody">
+                                                     {{review.message}}
+                                                  </div>
+                                                  <div class="reviews__name">
+                                                     <span class="review_author" itemprop="author">{{review.starter.first_name}} {{review.starter.last_name}}</span>, <span class="review_date" itemprop="datePublished" content="2018-08-16 17:28:35">{{review.created_at|date:"d-m-Y"}}</span>, qəbulda olduğu xəstəxana "<a target="_blank" data-event-tracker="1" data-tracker-event="click" data-tracker-action="clinic-link" data-tracker-label="reviews" href="{% url 'clinicdetail' %}">Avrasiya Hospital</a>"
+                                                  </div>
                                                </div>
-                                               <div class="reviews__text" itemprop="reviewBody">
-                                                  Xidmətlərdən çox razı qaldım
-                                               </div>
-                                               <div class="reviews__name">
-                                                  <span class="review_author" itemprop="author">Eldar</span>, <span class="review_date" itemprop="datePublished" content="2018-08-16 17:28:35"></span> qəbulda olduğu xəstəxana "<a target="_blank" data-event-tracker="1" data-tracker-event="click" data-tracker-action="clinic-link" data-tracker-label="reviews" href="{% url 'clinicdetail' %}">Avrasiya Hospital</a>"
-                                               </div>
+
+
                                             </div>
+
+                                            {% endfor %}
                                           </div>
                                           <div class="reviews__bottom">
-                                             <a id="reyler" class="reyler" data-toggle="collapse" href="#butunreyler" role="button" aria-expanded="false" aria-controls="butunreyler">Bütün Rəylər</a>
+                                             {% if reviewcount > 3 %}<a id="reyler" class="reyler" data-toggle="collapse" href="#butunreyler" role="button" aria-expanded="false" aria-controls="butunreyler">Bütün Rəylər ({{reviewcount}})</a>
+                                             {% elif reviewcount == 0 %}
+                                             <p>Həkim haqqında heç bir rəy əlavə olunmayıb</p>
+                                             {% endif %}
 
 
 
                                                                                <script>
                                                                                $('#reyler').click(function(){
                                                                                    $(this).text(function(i,old){
-                                                                                       return old=='Bütün Rəylər' ?  'Bağla' : 'Bütün Rəylər';
+                                                                                       return old=='Bütün Rəylər ({{reviewcount}})' ?  'Bağla' : 'Bütün Rəylər ({{reviewcount}})';
                                                                                    });
                                                                                });</script>
                                              <div class="reviews__button">

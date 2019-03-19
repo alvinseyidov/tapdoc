@@ -1053,42 +1053,43 @@ function myFunction() {
 
 
       <div class="tabdoctab{{doctor.id}} multiclinicdoc" style="margin: 10px 0 0 0;padding: 18px 0 0 0;">
-        <button style="margin: 4px 0 2px -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'London{{doctor.id}}')" id="defaultOpendoctabone">1</button><br>
-        <button style="margin: 1px 0 0 -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'Paris{{doctor.id}}')" id="defaultOpendoctabone2">2</button><br>
+        <button style="margin: 4px 0 2px -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'London{{doctor.id}}')" id="defaultOpendoctabone{{doctor.id}}">1</button><br>
+        <button style="margin: 1px 0 0 -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'Paris{{doctor.id}}')" id="defaultOpendoctabone2{{doctor.id}}">2</button><br>
 
 
       </div>
+
 
        <div style="margin: -85px -76px 0 0;padding: 4px 0 0 0;" id="London{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
 				<div class="clinic-card__clinic" style="padding: 40px 25px 25px 57px;">
         <div class="bozpanel1" style="font-size:15px;">Həkim bir neçə klinikada fəaliyyət göstərir.</div>
         <div style="    padding: 0 0 0 29px;">
-        <select style="    width: 192px;" id="doctabselectdrop1" onchange="doctabselectdrop1()">
+        <select style="    width: 192px;" id="doctabselectdrop1{{doctor.id}}" onchange="doctabselectdrop1{{doctor.id}}()">
    <option value="1">Avrasiya Hospital&nbsp;&nbsp;&nbsp;&nbsp;</option>
    <option value="2">Vital Klinikası</option>
  </select></div>
  <script type="text/javascript">
 
-   function doctabselectdrop1() {
-     var selectBox = document.getElementById("doctabselectdrop1");
-     var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+   function doctabselectdrop1{{doctor.id}}() {
+     var selectBox{{doctor.id}} = document.getElementById("doctabselectdrop1{{doctor.id}}");
+     var selectedValue{{doctor.id}} = selectBox{{doctor.id}}.options[selectBox{{doctor.id}}.selectedIndex].value;
 
 
-     if(selectedValue==1){document.getElementById("London4").style.display = "block";
-       document.getElementById("Paris4").style.display = "none";
-     var drop = document.getElementById("defaultOpendoctabone");
-     drop.className += " active";
-     var dropremove = document.getElementById("defaultOpendoctabone2");
-     dropremove.classList.remove("active");
+     if(selectedValue{{doctor.id}}==1){document.getElementById("London{{doctor.id}}").style.display = "block";
+       document.getElementById("Paris{{doctor.id}}").style.display = "none";
+     var drop{{doctor.id}} = document.getElementById("defaultOpendoctabone{{doctor.id}}");
+     drop{{doctor.id}}.className += " active";
+     var dropremove{{doctor.id}} = document.getElementById("defaultOpendoctabone2{{doctor.id}}");
+     dropremove{{doctor.id}}.classList.remove("active");
    }
-     else if(selectedValue==2){
-     document.getElementById("London4").style.display = "none";
-       document.getElementById("Paris4").style.display = "block";
-     var drop2 = document.getElementById("defaultOpendoctabone2");
-     drop2.className += " active";
-     var drop2remove = document.getElementById("defaultOpendoctabone");
-     drop2remove.classList.remove("active");
-     document.getElementById('doctabselectdrop2').value='1';
+     else if(selectedValue{{doctor.id}}==2){
+     document.getElementById("London{{doctor.id}}").style.display = "none";
+       document.getElementById("Paris{{doctor.id}}").style.display = "block";
+     var drop2{{doctor.id}} = document.getElementById("defaultOpendoctabone2{{doctor.id}}");
+     drop2{{doctor.id}}.className += " active";
+     var drop2remove{{doctor.id}} = document.getElementById("defaultOpendoctabone{{doctor.id}}");
+     drop2remove{{doctor.id}}.classList.remove("active");
+     document.getElementById('doctabselectdrop2{{doctor.id}}').value='1';
 
     }
  }
@@ -1129,38 +1130,40 @@ function myFunction() {
     <input type="checkbox" class="dd-inputbozpanel" id="test">
 
     <ul class="dd-menubozpanel">
-    <a onclick="openCitydoctabdrop11(event, 'London{{doctor.id}}')" id="defaultOpendoctab{{doctor.id}}"><li>Vital</li></a>
+    <a onclick="openCitydoctabdrop11{{doctor.id}}(event, 'London{{doctor.id}}')" id="defaultOpendoctab{{doctor.id}}"><li>Vital</li></a>
 
     </ul>
 
   </label>
+
+
   <div style="    padding: 0 0 0 29px;">
-  <select style="  width: 192px;" id="doctabselectdrop2" onchange="doctabselectdrop2()">
+  <select style="  width: 192px;" id="doctabselectdrop2{{doctor.id}}" onchange="doctabselectdrop2{{doctor.id}}()">
      <option value="1">Vital Klinikası</option>
      <option value="2">Vital Klinikası&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
    </select></div>
    <script type="text/javascript">
 
-     function doctabselectdrop2() {
-       var selectBox2 = document.getElementById("doctabselectdrop2");
-       var selectedValue2 = selectBox2.options[selectBox2.selectedIndex].value;
+     function doctabselectdrop2{{doctor.id}}() {
+       var selectBox2{{doctor.id}} = document.getElementById("doctabselectdrop2{{doctor.id}}");
+       var selectedValue2{{doctor.id}} = selectBox2{{doctor.id}}.options[selectBox2{{doctor.id}}.selectedIndex].value;
 
 
-       if(selectedValue2==2){
-         document.getElementById("London4").style.display = "block";
-           document.getElementById("Paris4").style.display = "none";
-         var drop11 = document.getElementById("defaultOpendoctabone");
-         drop11.className += " active";
-         var drop11remove = document.getElementById("defaultOpendoctabone2");
-         drop11remove.classList.remove("active");
+       if(selectedValue2{{doctor.id}}==2){
+         document.getElementById("London{{doctor.id}}").style.display = "block";
+           document.getElementById("Paris{{doctor.id}}").style.display = "none";
+         var drop11{{doctor.id}} = document.getElementById("defaultOpendoctabone{{doctor.id}}");
+         drop11{{doctor.id}}.className += " active";
+         var drop11remove{{doctor.id}} = document.getElementById("defaultOpendoctabone2{{doctor.id}}");
+         drop11remove{{doctor.id}}.classList.remove("active");
      }
-       else if(selectedValue2==1){
-         document.getElementById("London4").style.display = "none";
-           document.getElementById("Paris4").style.display = "block";
-         var drop22 = document.getElementById("defaultOpendoctabone2");
-         drop22.className += " active";
-         var drop22remove = document.getElementById("defaultOpendoctabone");
-         drop22remove.classList.remove("active");
+       else if(selectedValue2{{doctor.id}}==1){
+         document.getElementById("London{{doctor.id}}").style.display = "none";
+           document.getElementById("Paris{{doctor.id}}").style.display = "block";
+         var drop22{{doctor.id}} = document.getElementById("defaultOpendoctabone2{{doctor.id}}");
+         drop22{{doctor.id}}.className += " active";
+         var drop22remove{{doctor.id}} = document.getElementById("defaultOpendoctabone{{doctor.id}}");
+         drop22remove{{doctor.id}}.classList.remove("active");
 
      }
 
@@ -1186,6 +1189,42 @@ function myFunction() {
               </div>
   									</div>
   			   </div>
+
+
+
+
+           <script>
+           function openCitydoctab{{doctor.id}}(evt, cityNamedoctab{{doctor.id}}) {
+             var idoctab{{doctor.id}}, tabcontentdoctab{{doctor.id}}, tablinksdoctab{{doctor.id}};
+             tabcontentdoctab{{doctor.id}} = document.getElementsByClassName("tabcontentdoctab{{doctor.id}}");
+             for (idoctab{{doctor.id}} = 0; idoctab{{doctor.id}} < tabcontentdoctab{{doctor.id}}.length; idoctab{{doctor.id}}++) {
+               tabcontentdoctab{{doctor.id}}[idoctab{{doctor.id}}].style.display = "none";
+             }
+             tablinksdoctab{{doctor.id}} = document.getElementsByClassName("tablinksdoctab{{doctor.id}}");
+             for (idoctab{{doctor.id}} = 0; idoctab{{doctor.id}} < tablinksdoctab{{doctor.id}}.length; idoctab{{doctor.id}}++) {
+               tablinksdoctab{{doctor.id}}[idoctab{{doctor.id}}].className = tablinksdoctab{{doctor.id}}[idoctab{{doctor.id}}].className.replace(" active", "");
+             }
+             document.getElementById(cityNamedoctab{{doctor.id}}).style.display = "block";
+             evt.currentTarget.className += " active";
+           }
+
+
+
+           function openCitydoctabdrop11{{doctor.id}}() {
+             document.getElementById("London{{doctor.id}}").style.display = "block";
+               document.getElementById("Paris{{doctor.id}}").style.display = "none";
+             var drop11{{doctor.id}} = document.getElementById("defaultOpendoctabone{{doctor.id}}");
+             drop11{{doctor.id}}.className += " active";
+             var drop11remove{{doctor.id}} = document.getElementById("defaultOpendoctabone2{{doctor.id}}");
+             drop11remove{{doctor.id}}.classList.remove("active");
+           }
+
+
+
+           // Get the element with id="defaultOpen" and click on it
+           document.getElementById("defaultOpendoctab{{doctor.id}}").click();
+
+           </script>
 
 {% elif doctor.clinics.count <= 1 %}
 
@@ -1542,38 +1581,7 @@ function myFunction() {
 
 
 </script>
-<script>
-function openCitydoctab{{doctor.id}}(evt, cityNamedoctab{{doctor.id}}) {
-  var idoctab{{doctor.id}}, tabcontentdoctab{{doctor.id}}, tablinksdoctab{{doctor.id}};
-  tabcontentdoctab{{doctor.id}} = document.getElementsByClassName("tabcontentdoctab{{doctor.id}}");
-  for (idoctab{{doctor.id}} = 0; idoctab{{doctor.id}} < tabcontentdoctab{{doctor.id}}.length; idoctab{{doctor.id}}++) {
-    tabcontentdoctab{{doctor.id}}[idoctab{{doctor.id}}].style.display = "none";
-  }
-  tablinksdoctab{{doctor.id}} = document.getElementsByClassName("tablinksdoctab{{doctor.id}}");
-  for (idoctab{{doctor.id}} = 0; idoctab{{doctor.id}} < tablinksdoctab{{doctor.id}}.length; idoctab{{doctor.id}}++) {
-    tablinksdoctab{{doctor.id}}[idoctab{{doctor.id}}].className = tablinksdoctab{{doctor.id}}[idoctab{{doctor.id}}].className.replace(" active", "");
-  }
-  document.getElementById(cityNamedoctab{{doctor.id}}).style.display = "block";
-  evt.currentTarget.className += " active";
-}
 
-
-
-function openCitydoctabdrop11() {
-  document.getElementById("London4").style.display = "block";
-    document.getElementById("Paris4").style.display = "none";
-  var drop11 = document.getElementById("defaultOpendoctabone");
-  drop11.className += " active";
-  var drop11remove = document.getElementById("defaultOpendoctabone2");
-  drop11remove.classList.remove("active");
-}
-
-
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpendoctab{{doctor.id}}").click();
-
-</script>
 
 <script>
 // Get the modal

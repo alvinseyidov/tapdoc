@@ -40,7 +40,6 @@ def doctor(request):
     paginator = Paginator(doctors_list, 10)
     page = request.GET.get('page')
     doctors = paginator.get_page(page)
-
     professions = Profession.objects.order_by('name')
     context = {
         "doctors": doctors,
@@ -60,7 +59,7 @@ def doctorstaj(request):
     page = request.GET.get('page')
     doctors = paginator.get_page(page)
 
-    professions = Profession.objects.all()
+    professions = Profession.objects.order_by('name')
     context = {
         "doctors": doctors,
         "professions": professions
@@ -78,7 +77,7 @@ def doctorreyler(request):
     page = request.GET.get('page')
     doctors = paginator.get_page(page)
 
-    professions = Profession.objects.all()
+    professions = Profession.objects.order_by('name')
     context = {
         "doctors": doctors,
         "professions": professions
@@ -96,7 +95,7 @@ def doctorqiymet(request):
     page = request.GET.get('page')
     doctors = paginator.get_page(page)
 
-    professions = Profession.objects.all()
+    professions = Profession.objects.order_by('name')
     context = {
         "doctors": doctors,
         "professions": professions
@@ -114,7 +113,7 @@ def doctorreyting(request):
     page = request.GET.get('page')
     doctors = paginator.get_page(page)
 
-    professions = Profession.objects.all()
+    professions = Profession.objects.order_by('name')
     context = {
         "doctors": doctors,
         "professions": professions
@@ -128,7 +127,7 @@ def doctorspecific(request, id):
     page = request.GET.get('page')
     doctors = paginator.get_page(page)
 
-    professions = Profession.objects.all()
+    professions = Profession.objects.order_by('name')
     context = {
         "doctors": doctors,
         "profession": profession,
@@ -144,9 +143,9 @@ def doctordetail(request, id):
     doctor = get_object_or_404(Doctor, id=id)
     wishlist = doctor.wishlist.all()
     reviewaverage = 0
-    reviewcount = 0
-    if doctor.reviews.count()>0:
-        reviewcount = doctor.reviews.count()
+    reviewcount = doctor.reviews.filter(published__exact = 1).count()
+    reviews = doctor.reviews.filter(published__exact = 1)
+
     if request.method == 'POST':
         if request.user.is_authenticated:
             form = ReviewForm(request.POST)
@@ -171,7 +170,8 @@ def doctordetail(request, id):
         'sertifikatlar': sertifikatlar,
         'form': form,
         'endirimli_qiymet':endirimli_qiymet,
-        'reviewcount': reviewcount
+        'reviewcount': reviewcount,
+        'reviews': reviews
     }
     return render(request, 'doctordetail.html',context)
 
