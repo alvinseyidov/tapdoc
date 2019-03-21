@@ -24,6 +24,12 @@ def clinicprofile(request, id):
 
     gallery = Gallery.objects.filter(clinic=clinic)
     sertifikatlar = Sertifikat.objects.filter(clinic=clinic)
+
+
+    reviewaverage = 0
+    reviewcount = clinic.clinicreviews.filter(published__exact = 1).count()
+    reviews = clinic.clinicreviews.filter(published__exact = 1)
+
     context = {
         "clinic": clinic,
         "sertifikatlar": sertifikatlar,
@@ -32,7 +38,9 @@ def clinicprofile(request, id):
         "xidmetlergroup": xidmetlergroup,
         "xidmetlerlist": xidmetlerlist,
         "diaqnostikalarlist": diaqnostikalarlist,
-        "diaqnostikalarprices": diaqnostikalarprices
+        "diaqnostikalarprices": diaqnostikalarprices,
+        'reviewcount': reviewcount,
+        'reviews': reviews
         }
     return render(request, 'clinicprofile.html', context)
 
@@ -40,6 +48,7 @@ def clinicprofile(request, id):
 
 def clinicsqiymet(request):
     clinics_list = Clinic.objects.filter(type='MRK')
+    clinicsall = Clinic.objects.all()
     query = request.GET.get('q')
     querygeo = request.GET.get('geo')
     if query:
@@ -52,6 +61,7 @@ def clinicsqiymet(request):
     diaqnostikalar = Diaqnostikalar.objects.all()
     context = {
         "clinics": clinics,
+        "clinicsall": clinicsall,
         "xidmetler": xidmetler,
         "diaqnostikalar": diaqnostikalar
     }
@@ -59,6 +69,7 @@ def clinicsqiymet(request):
 
 def clinicsreyler(request):
     clinics_list = Clinic.objects.filter(type='MRK')
+    clinicsall = Clinic.objects.all()
     query = request.GET.get('q')
     querygeo = request.GET.get('geo')
     if query:
@@ -71,6 +82,7 @@ def clinicsreyler(request):
     diaqnostikalar = Diaqnostikalar.objects.all()
     context = {
         "clinics": clinics,
+        "clinicsall": clinicsall,
         "xidmetler": xidmetler,
         "diaqnostikalar": diaqnostikalar
     }
@@ -78,6 +90,7 @@ def clinicsreyler(request):
 
 def clinicsreyting(request):
     clinics_list = Clinic.objects.filter(type='MRK')
+    clinicsall = Clinic.objects.all()
     query = request.GET.get('q')
     querygeo = request.GET.get('geo')
     if query:
@@ -90,6 +103,7 @@ def clinicsreyting(request):
     diaqnostikalar = Diaqnostikalar.objects.all()
     context = {
         "clinics": clinics,
+        "clinicsall": clinicsall,
         "xidmetler": xidmetler,
         "diaqnostikalar": diaqnostikalar
     }
@@ -97,6 +111,7 @@ def clinicsreyting(request):
 
 def clinics(request):
     clinics_list = Clinic.objects.filter(type='MRK')
+    clinicsall = Clinic.objects.all()
     query = request.GET.get('q')
     querygeo = request.GET.get('geo')
     if query:
@@ -109,6 +124,7 @@ def clinics(request):
     diaqnostikalar = Diaqnostikalar.objects.all()
     context = {
         "clinics": clinics,
+        "clinicsall": clinicsall,
         "xidmetler": xidmetler,
         "diaqnostikalar": diaqnostikalar
     }
@@ -117,12 +133,14 @@ def clinics(request):
 def clinicsspecific(request, id):
     xidmet = Xidmatlar.objects.get(pk=id)
     clinics_list = xidmet.relate_name_xidmetler.all()
+    clinicsall = Clinic.objects.all()
     paginator = Paginator(clinics_list,3)
     page = request.GET.get('page')
     clinics = paginator.get_page(page)
     xidmetler = Xidmatlar.objects.all()
     context = {
         "clinics": clinics,
+        "clinicsall": clinicsall,
         "xidmetler": xidmetler,
         "xidmet": xidmet
 

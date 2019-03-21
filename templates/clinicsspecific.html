@@ -1,4 +1,4 @@
-{% load static %}
+{% load static custom_tags2 %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>     <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie ie6" lang="ru"><![endif]-->
 <!--[if IE 7]>        <html class="no-js lt-ie9 lt-ie8 ie ie7" lang="ru"><![endif]-->
@@ -707,14 +707,14 @@ for="kidsReception3"> Sığorta</label>
       <i class="fa fa-star" aria-hidden="true"></i>
     </div>
   </div>						<div class="clinic-card__rating-value">
-              <a href="#">
-                                  5125 rəy															</a>
+              <a href="{% url 'clinicprofile' clinic.id %}">
+                                  {{ clinic.id|clinicreviewscount }} rəy															</a>
             </div>
           </div>
         </div>
         <div class="clinic-card__info">
 
-          <a href="{% url 'clinicprofile' clinic.id %}" class="clinic-card__name">{{clinic.name}}</a>
+          <a href="{% url 'clinicprofile' clinic.id %}" target="_blank" target="_blank" class="clinic-card__name">{{clinic.name}}</a>
 
 
 
@@ -726,7 +726,7 @@ for="kidsReception3"> Sığorta</label>
                           Ortalama xidmət qiymətləri - yüksək											</div>
 
           <div class="clinic-card__clinictext">
-          {{clinic.descriptionmeta}}<a href="{% url 'clinicdetailistanbul'%}">Ətraflı</a>
+          {{clinic.descriptionmeta}}<a href="{% url 'clinicprofile' clinic.id %}">Ətraflı</a>
           </div>
         </div>
       </div>

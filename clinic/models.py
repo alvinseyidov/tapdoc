@@ -1,5 +1,7 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 from service.models import Xidmatlar, Diaqnostikalar
+from django.contrib.auth.models import User
 from clinic.widgets import *
 from ckeditor.fields import RichTextField
 
@@ -68,3 +70,15 @@ class Sertifikat(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Review(models.Model):
+    clinic = models.ForeignKey(Clinic, related_name='clinicreviews', on_delete=models.CASCADE)
+    starter = models.ForeignKey(User, related_name='clinicreviews', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    star = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)], null=True)
+    message = models.TextField(max_length=4000)
+
+    published = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(1)], null=True)
+    def __str__(self):
+        return self.clinic.name

@@ -1,4 +1,4 @@
-{% load static %}
+{% load static custom_tags2 %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>     <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie ie6" lang="ru"><![endif]-->
 <!--[if IE 7]>        <html class="no-js lt-ie9 lt-ie8 ie ie7" lang="ru"><![endif]-->
@@ -861,7 +861,7 @@ border-radius: 7px;
 
 		<div class="clinics__left clinics__left_fullwidth">
             <div class="sorting">
-                                    <div class="sorting__clinics">Bütün Diaqnostikalar - 98</div>
+                                    <div class="sorting__clinics">Bütün Diaqnostikalar - {{diaqnostikaall|length}}</div>
                                 <div class="sorting__label"></div>
                 <div class="sorting__items">
                 <a href="{% url 'diaqnostikareyting'%}" class="sorting__item " rel="nofollow" style=" text-decoration: none !important;background:#d7d7d7;">
@@ -925,8 +925,8 @@ border-radius: 7px;
           <i class="fa fa-star" aria-hidden="true"></i>
         </div>
       </div>						<div class="clinic-card__rating-value">
-                  <a href="{% url 'clinicdetail' %}">
-                                      5125 rəy															</a>
+                  <a href="{% url 'clinicprofile' diaqnostika.id %}">
+                                      {{ diaqnostika.id|clinicreviewscount }} rəy															</a>
                 </div>
               </div>
             </div>
@@ -1056,8 +1056,8 @@ border-radius: 7px;
           <i class="fa fa-star" aria-hidden="true"></i>
         </div>
       </div>						<div class="clinic-card__rating-value">
-                  <a href="{% url 'clinicdetailvital' %}">
-                                      5125 rəy															</a>
+                  <a href="{% url 'clinicprofile' diaqnostika.id %}">
+                                      {{ diaqnostika.id|clinicreviewscount }} rəy															</a>
                 </div>
               </div>
             </div>
@@ -1186,8 +1186,8 @@ border-radius: 7px;
       <i class="fa fa-star" aria-hidden="true"></i>
     </div>
   </div>				<br><div style="  margin: 0 0px 0 16px;" class="clinic-card__rating-value">
-          <a href="{% url 'clinicdetailnesimi' %}">
-                          818 rəy											</a>
+          <a href="{% url 'clinicprofile' branch.id %}">
+                          {{ branch.id|clinicreviewscount }} rəy											</a>
         </div>
       </div>
       <div class="row">
@@ -1309,8 +1309,8 @@ border-radius: 7px;
         <i class="fa fa-star" aria-hidden="true"></i>
       </div>
     </div>				<br><div style="  margin: 0 0px 0 16px;" class="clinic-card__rating-value">
-            <a href="{% url 'clinicdetailnesimi' %}">
-                            818 rəy											</a>
+            <a href="{% url 'clinicprofile' branch.id %}">
+                            {{ branch.id|clinicreviewscount }} rəy											</a>
           </div>
         </div>
         <div class="row">

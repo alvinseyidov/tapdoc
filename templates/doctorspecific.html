@@ -1,4 +1,4 @@
-{% load static mathfilters %}
+{% load static mathfilters custom_tags %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>     <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie ie6" lang="ru"><![endif]-->
 <!--[if IE 7]>        <html class="no-js lt-ie9 lt-ie8 ie ie7" lang="ru"><![endif]-->
@@ -972,51 +972,55 @@ function myFunction() {
 
 	</div>
 
-	<div class="clinics__inner">
-		<div class="clinics-items">
-			<div class="wrapper">
+  <div class="clinics__inner">
+    <div class="clinics-items">
+      <div class="wrapper">
 
-	{% for doctor in doctors %}
+  {% for doctor in doctors %}
 
-
+  {% if user in doctor.wishlist.all %}
+  <a id="unlike{{doctor.id}}" href="javascript:void(0);" data-catid="{{ doctor.id }}" class="removefavor"><img class="hearthidden hearthidden2" src="{% static 'img/like.png'%}"/><img class="heartshow" src="{% static 'img/liked.png'%}"/></a>
+  {% else %}
+  <a id="like{{doctor.id}}" href="javascript:void(0);" data-catid="{{ doctor.id }}" class="addfavor"><img class="heartshow" src="{% static 'img/like.png'%}"/><img class="hearthidden2 hearthidden" src="{% static 'img/liked.png'%}"/></a>
+  {% endif %}
 
 <div class="clinics-item result-card">
-	<div class="clinic-card">
-		<div class="clinic-card__inner">
-			<div class="clinic-card__left">
+  <div class="clinic-card">
+    <div class="clinic-card__inner">
+      <div class="clinic-card__left">
 
-				<div class="clinic-card__photo">
-					<!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
-                    <a href="{% url 'doctordetail' doctor.id %}" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
+        <div class="clinic-card__photo">
+          <!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
+                    <a href="{% url 'doctordetail' doctor.id %}" target="_blank" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
                         <img src="{{doctor.image.url}}" alt="" class="avatar-round --big"/>                    </a>
-					<div class="clinic-card__rating">
+          <div class="clinic-card__rating">
 
 <div class="rate">
-	<div class="rate__default">
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-	</div>
-			<div class="rate__value" style="width:90%;">
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-		</div>
-	</div>						<div class="clinic-card__rating-value">
-							<a href="{% url 'doctordetail' doctor.id %}">
-																	{{doctor.reviews.count}} rəy															</a>
-						</div>
-					</div>
-				</div>
-				<div class="clinic-card__info">
-					<a href="{% url 'doctordetail' doctor.id %}" class="clinic-card__name">{{doctor.first_name}}  {{doctor.last_name}}</a>
-					<div class="clinic-card__type">{% for profession in doctor.professions.all %}{{profession.name}} {% endfor %}</div>
-					<div class="clinic-card__cost">
-													Təcrübəsi - {{doctor.tecrube}} il											</div><br>
+  <div class="rate__default">
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+  </div>
+      <div class="rate__value" style="width:90%;">
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+    </div>
+  </div>						<div class="clinic-card__rating-value">
+              <a href="{% url 'doctordetail' doctor.id %}" target="_blank">
+                                  {{ doctor.id|reviewscount }} rəy															</a>
+            </div>
+          </div>
+        </div>
+        <div class="clinic-card__info">
+          <a href="{% url 'doctordetail' doctor.id %}" target="_blank" class="clinic-card__name">{{doctor.first_name}}  {{doctor.last_name}}</a>
+          <div class="clinic-card__type">{% for profession in doctor.professions.all %}{{profession.name}} {% endfor %}</div>
+          <div class="clinic-card__cost">
+                          Təcrübəsi - {{doctor.tecrube}} il											</div><br>
                           <div style="margin: -17px 0 -7px 0;font-size: 12px;">Qəbula yazılma<span class="clinichover" style="text-decoration: line-through;"> &nbsp; {{doctor.qebula_yazilma}}AZN</span> - <span style="border-bottom: 1.5px dotted #000;">
                             {% with endirim=doctor.qebula_yazilma|mul:doctor.qebula_yazilma_endirim_faiz|div:100 %}
                             {% with endirimli_qiymet=doctor.qebula_yazilma|sub:endirim %}
@@ -1029,55 +1033,56 @@ function myFunction() {
 
                           </span> <span class="doc__price-label">- {{doctor.qebula_yazilma_endirim_faiz}}%</span></div>
 
-					<div class="clinic-card__clinictext">
-								<div class="qebultext">Qəbula Yazılmaq Üçün:</div>
+          <div class="clinic-card__clinictext">
+                <div class="qebultext">Qəbula Yazılmaq Üçün:</div>
                 <div class="qebulphone">{{doctor.contact_phone}}</div>
 
-					</div>
-				</div>
-			</div>
+          </div>
+        </div>
+      </div>
 
 
       {% if doctor.clinics.count > 1 %}
 
 
       <div class="tabdoctab{{doctor.id}} multiclinicdoc" style="margin: 10px 0 0 0;padding: 18px 0 0 0;">
-        <button style="margin: 4px 0 2px -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'London{{doctor.id}}')" id="defaultOpendoctabone">1</button><br>
-        <button style="margin: 1px 0 0 -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'Paris{{doctor.id}}')" id="defaultOpendoctabone2">2</button><br>
+        <button style="margin: 4px 0 2px -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'London{{doctor.id}}')" id="defaultOpendoctabone{{doctor.id}}">1</button><br>
+        <button style="margin: 1px 0 0 -21px;background-color: #fff;border-bottom: 2px solid #eaeaea;border-right: 2px solid #eaeaea;border-top: 2px solid #eaeaea;border-left: 2px solid #eaeaea;position: relative;z-index: 1;" class="tablinksdoctab{{doctor.id}}" onclick="openCitydoctab{{doctor.id}}(event, 'Paris{{doctor.id}}')" id="defaultOpendoctabone2{{doctor.id}}">2</button><br>
 
 
       </div>
 
+
        <div style="margin: -85px -76px 0 0;padding: 4px 0 0 0;" id="London{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
-				<div class="clinic-card__clinic" style="padding: 40px 25px 25px 57px;">
+        <div class="clinic-card__clinic" style="padding: 40px 25px 25px 57px;">
         <div class="bozpanel1" style="font-size:15px;">Həkim bir neçə klinikada fəaliyyət göstərir.</div>
         <div style="    padding: 0 0 0 29px;">
-        <select style="    width: 192px;" id="doctabselectdrop1" onchange="doctabselectdrop1()">
+        <select style="    width: 192px;" id="doctabselectdrop1{{doctor.id}}" onchange="doctabselectdrop1{{doctor.id}}()">
    <option value="1">Avrasiya Hospital&nbsp;&nbsp;&nbsp;&nbsp;</option>
    <option value="2">Vital Klinikası</option>
  </select></div>
  <script type="text/javascript">
 
-   function doctabselectdrop1() {
-     var selectBox = document.getElementById("doctabselectdrop1");
-     var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+   function doctabselectdrop1{{doctor.id}}() {
+     var selectBox{{doctor.id}} = document.getElementById("doctabselectdrop1{{doctor.id}}");
+     var selectedValue{{doctor.id}} = selectBox{{doctor.id}}.options[selectBox{{doctor.id}}.selectedIndex].value;
 
 
-     if(selectedValue==1){document.getElementById("London4").style.display = "block";
-       document.getElementById("Paris4").style.display = "none";
-     var drop = document.getElementById("defaultOpendoctabone");
-     drop.className += " active";
-     var dropremove = document.getElementById("defaultOpendoctabone2");
-     dropremove.classList.remove("active");
+     if(selectedValue{{doctor.id}}==1){document.getElementById("London{{doctor.id}}").style.display = "block";
+       document.getElementById("Paris{{doctor.id}}").style.display = "none";
+     var drop{{doctor.id}} = document.getElementById("defaultOpendoctabone{{doctor.id}}");
+     drop{{doctor.id}}.className += " active";
+     var dropremove{{doctor.id}} = document.getElementById("defaultOpendoctabone2{{doctor.id}}");
+     dropremove{{doctor.id}}.classList.remove("active");
    }
-     else if(selectedValue==2){
-     document.getElementById("London4").style.display = "none";
-       document.getElementById("Paris4").style.display = "block";
-     var drop2 = document.getElementById("defaultOpendoctabone2");
-     drop2.className += " active";
-     var drop2remove = document.getElementById("defaultOpendoctabone");
-     drop2remove.classList.remove("active");
-     document.getElementById('doctabselectdrop2').value='1';
+     else if(selectedValue{{doctor.id}}==2){
+     document.getElementById("London{{doctor.id}}").style.display = "none";
+       document.getElementById("Paris{{doctor.id}}").style.display = "block";
+     var drop2{{doctor.id}} = document.getElementById("defaultOpendoctabone2{{doctor.id}}");
+     drop2{{doctor.id}}.className += " active";
+     var drop2remove{{doctor.id}} = document.getElementById("defaultOpendoctabone{{doctor.id}}");
+     drop2remove{{doctor.id}}.classList.remove("active");
+     document.getElementById('doctabselectdrop2{{doctor.id}}').value='1';
 
     }
  }
@@ -1086,27 +1091,27 @@ function myFunction() {
 
             <div><p style="font-size: 13px; text-align: center; margin: 66px 32px 8px 0;">Bu klinikada hal-hazırda onlayn qeydiyyat yoxdur. Qəbula yazılmaq üçün müraciət edin, sizinlə 10 dəq ərzində əlaqə saxlanılacaq.</p></div>
 
-												<div style="    margin: 0 0px 0 62px;" class="clinic-address__button clinic-card__clinic-button js-book-clinic">
-							                 <button class="myBtnmuraciet myBtnmuraciet{{ doctor.id }}" id="myBtnmuraciet{{ doctor.id }}">Müraciət</button>
+                        <div style="    margin: 0 0px 0 62px;" class="clinic-address__button clinic-card__clinic-button js-book-clinic">
+                               <button class="myBtnmuraciet myBtnmuraciet{{ doctor.id }}" id="myBtnmuraciet{{ doctor.id }}">Müraciət</button>
 
-						            </div><br>
+                        </div><br>
                         <div class="clinic-card__clinic-address">
 
-              						        <div class="clinic-card__clinic-address">
-              		              <a href="{% url 'clinicdetail' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Avrasiya Hospital</span></a><br>
+                                  <div class="clinic-card__clinic-address">
+                                <a href="{% url 'clinicprofile'  '2'%}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Avrasiya Hospital</span></a><br>
                                 <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
 
-              	                 <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+                                 <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
                                  </div>
-              					</div>
-									</div>
-			   </div>
+                        </div>
+                  </div>
+         </div>
 
 
 
 
          <div style="margin: -85px -76px 0 0;padding: 4px 0 0 0;" id="Paris{{doctor.id}}" class="clinic-card__right tabcontentdoctab{{doctor.id}}">
-  				<div class="clinic-card__clinic" style="padding: 40px 25px 25px 57px;">
+          <div class="clinic-card__clinic" style="padding: 40px 25px 25px 57px;">
 
           <div class="bozpanel1"  style="font-size:15px;">Həkim bir neçə klinikada fəaliyyət göstərir.</div>
           <label class="dropdownbozpanel" style="display:none;">
@@ -1118,38 +1123,40 @@ function myFunction() {
     <input type="checkbox" class="dd-inputbozpanel" id="test">
 
     <ul class="dd-menubozpanel">
-    <a onclick="openCitydoctabdrop11(event, 'London{{doctor.id}}')" id="defaultOpendoctab{{doctor.id}}"><li>Vital</li></a>
+    <a onclick="openCitydoctabdrop11{{doctor.id}}(event, 'London{{doctor.id}}')" id="defaultOpendoctab{{doctor.id}}"><li>Vital</li></a>
 
     </ul>
 
   </label>
+
+
   <div style="    padding: 0 0 0 29px;">
-  <select style="  width: 192px;" id="doctabselectdrop2" onchange="doctabselectdrop2()">
+  <select style="  width: 192px;" id="doctabselectdrop2{{doctor.id}}" onchange="doctabselectdrop2{{doctor.id}}()">
      <option value="1">Vital Klinikası</option>
      <option value="2">Vital Klinikası&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
    </select></div>
    <script type="text/javascript">
 
-     function doctabselectdrop2() {
-       var selectBox2 = document.getElementById("doctabselectdrop2");
-       var selectedValue2 = selectBox2.options[selectBox2.selectedIndex].value;
+     function doctabselectdrop2{{doctor.id}}() {
+       var selectBox2{{doctor.id}} = document.getElementById("doctabselectdrop2{{doctor.id}}");
+       var selectedValue2{{doctor.id}} = selectBox2{{doctor.id}}.options[selectBox2{{doctor.id}}.selectedIndex].value;
 
 
-       if(selectedValue2==2){
-         document.getElementById("London4").style.display = "block";
-           document.getElementById("Paris4").style.display = "none";
-         var drop11 = document.getElementById("defaultOpendoctabone");
-         drop11.className += " active";
-         var drop11remove = document.getElementById("defaultOpendoctabone2");
-         drop11remove.classList.remove("active");
+       if(selectedValue2{{doctor.id}}==2){
+         document.getElementById("London{{doctor.id}}").style.display = "block";
+           document.getElementById("Paris{{doctor.id}}").style.display = "none";
+         var drop11{{doctor.id}} = document.getElementById("defaultOpendoctabone{{doctor.id}}");
+         drop11{{doctor.id}}.className += " active";
+         var drop11remove{{doctor.id}} = document.getElementById("defaultOpendoctabone2{{doctor.id}}");
+         drop11remove{{doctor.id}}.classList.remove("active");
      }
-       else if(selectedValue2==1){
-         document.getElementById("London4").style.display = "none";
-           document.getElementById("Paris4").style.display = "block";
-         var drop22 = document.getElementById("defaultOpendoctabone2");
-         drop22.className += " active";
-         var drop22remove = document.getElementById("defaultOpendoctabone");
-         drop22remove.classList.remove("active");
+       else if(selectedValue2{{doctor.id}}==1){
+         document.getElementById("London{{doctor.id}}").style.display = "none";
+           document.getElementById("Paris{{doctor.id}}").style.display = "block";
+         var drop22{{doctor.id}} = document.getElementById("defaultOpendoctabone2{{doctor.id}}");
+         drop22{{doctor.id}}.className += " active";
+         var drop22remove{{doctor.id}} = document.getElementById("defaultOpendoctabone{{doctor.id}}");
+         drop22remove{{doctor.id}}.classList.remove("active");
 
      }
 
@@ -1167,19 +1174,55 @@ function myFunction() {
               <div class="clinic-card__clinic-address">
 
                         <div class="clinic-card__clinic-address">
-                        <a href="{% url 'clinicdetailvital' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Vital Klinikası</span></a><br>
+                        <a href="{% url 'clinicprofile' '8' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Vital Klinikası</span></a><br>
                       <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
 
                        <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
                        </div>
               </div>
-  									</div>
-  			   </div>
+                    </div>
+           </div>
+
+
+
+
+           <script>
+           function openCitydoctab{{doctor.id}}(evt, cityNamedoctab{{doctor.id}}) {
+             var idoctab{{doctor.id}}, tabcontentdoctab{{doctor.id}}, tablinksdoctab{{doctor.id}};
+             tabcontentdoctab{{doctor.id}} = document.getElementsByClassName("tabcontentdoctab{{doctor.id}}");
+             for (idoctab{{doctor.id}} = 0; idoctab{{doctor.id}} < tabcontentdoctab{{doctor.id}}.length; idoctab{{doctor.id}}++) {
+               tabcontentdoctab{{doctor.id}}[idoctab{{doctor.id}}].style.display = "none";
+             }
+             tablinksdoctab{{doctor.id}} = document.getElementsByClassName("tablinksdoctab{{doctor.id}}");
+             for (idoctab{{doctor.id}} = 0; idoctab{{doctor.id}} < tablinksdoctab{{doctor.id}}.length; idoctab{{doctor.id}}++) {
+               tablinksdoctab{{doctor.id}}[idoctab{{doctor.id}}].className = tablinksdoctab{{doctor.id}}[idoctab{{doctor.id}}].className.replace(" active", "");
+             }
+             document.getElementById(cityNamedoctab{{doctor.id}}).style.display = "block";
+             evt.currentTarget.className += " active";
+           }
+
+
+
+           function openCitydoctabdrop11{{doctor.id}}() {
+             document.getElementById("London{{doctor.id}}").style.display = "block";
+               document.getElementById("Paris{{doctor.id}}").style.display = "none";
+             var drop11{{doctor.id}} = document.getElementById("defaultOpendoctabone{{doctor.id}}");
+             drop11{{doctor.id}}.className += " active";
+             var drop11remove{{doctor.id}} = document.getElementById("defaultOpendoctabone2{{doctor.id}}");
+             drop11remove{{doctor.id}}.classList.remove("active");
+           }
+
+
+
+           // Get the element with id="defaultOpen" and click on it
+           document.getElementById("defaultOpendoctab{{doctor.id}}").click();
+
+           </script>
 
 {% elif doctor.clinics.count <= 1 %}
 
 <div class="clinic-card__right">
-				<div class="clinic-card__clinic">
+        <div class="clinic-card__clinic">
         {% for clinic in doctor.clinics.all %}<div class="bozpanel2"  style="font-size:15px;">Həkim <span>{{clinic.name}}</span> fəaliyyət göstərir.</div>
 
         <div><p style="font-size: 13px;text-align: center; margin: 0 32px 8px 0;">Bu klinikada hal-hazırda onlayn qeydiyyat yoxdur. Qəbula yazılmaq üçün müraciət edin, sizinlə 10 dəq ərzində əlaqə saxlanılacaq.</p></div>
@@ -1198,9 +1241,9 @@ function myFunction() {
                              </div>
                     </div>
 
-									</div>
+                  </div>
                   {% endfor %}
-			</div>
+      </div>
 
 {% endif %}
 
@@ -1210,8 +1253,8 @@ function myFunction() {
 
 
 
-		</div>
-	</div>
+    </div>
+  </div>
 </div>
 <div id="myModalmuraciet{{ doctor.id }}" class="modalmuraciet modalmuraciet{{ doctor.id }}" >
 
@@ -1531,38 +1574,7 @@ function myFunction() {
 
 
 </script>
-<script>
-function openCitydoctab{{doctor.id}}(evt, cityNamedoctab{{doctor.id}}) {
-  var idoctab{{doctor.id}}, tabcontentdoctab{{doctor.id}}, tablinksdoctab{{doctor.id}};
-  tabcontentdoctab{{doctor.id}} = document.getElementsByClassName("tabcontentdoctab{{doctor.id}}");
-  for (idoctab{{doctor.id}} = 0; idoctab{{doctor.id}} < tabcontentdoctab{{doctor.id}}.length; idoctab{{doctor.id}}++) {
-    tabcontentdoctab{{doctor.id}}[idoctab{{doctor.id}}].style.display = "none";
-  }
-  tablinksdoctab{{doctor.id}} = document.getElementsByClassName("tablinksdoctab{{doctor.id}}");
-  for (idoctab{{doctor.id}} = 0; idoctab{{doctor.id}} < tablinksdoctab{{doctor.id}}.length; idoctab{{doctor.id}}++) {
-    tablinksdoctab{{doctor.id}}[idoctab{{doctor.id}}].className = tablinksdoctab{{doctor.id}}[idoctab{{doctor.id}}].className.replace(" active", "");
-  }
-  document.getElementById(cityNamedoctab{{doctor.id}}).style.display = "block";
-  evt.currentTarget.className += " active";
-}
 
-
-
-function openCitydoctabdrop11() {
-  document.getElementById("London4").style.display = "block";
-    document.getElementById("Paris4").style.display = "none";
-  var drop11 = document.getElementById("defaultOpendoctabone");
-  drop11.className += " active";
-  var drop11remove = document.getElementById("defaultOpendoctabone2");
-  drop11remove.classList.remove("active");
-}
-
-
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpendoctab{{doctor.id}}").click();
-
-</script>
 
 <script>
 // Get the modal
@@ -1668,11 +1680,57 @@ window.onclick = function(event) {
 
 
 
-			</div>
-		</div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    $('.addfavor').click(function(){
+    var catid;
+    catid = $(this).attr("data-catid");
+    $.ajax(
+    {
+        type:"GET",
+        url: "/doctor/doctoraddtofavor",
+        data:{
+                 post_id: catid
+        },
+        success: function( data )
+        {
+          $(".heartshow").addClass("hearthidden");
+          $(".hearthidden").removeClass("heartshow");
+          $(".hearthidden2").removeClass("hearthidden");
 
 
 
+        }
+         })
+    });
+    </script>
+
+    <script type="text/javascript">
+    $('.removefavor').click(function(){
+    var uncatid;
+    uncatid = $(this).attr("data-catid");
+    $.ajax(
+    {
+        type:"GET",
+        url: "/doctor/doctorremovefavor",
+        data:{
+                 post_id: uncatid
+        },
+        success: function( data )
+        {
+          $(".hearthidden").removeClass("heartshow");
+          $(".heartshow").addClass("hearthidden");
+          $(".hearthidden2").removeClass("hearthidden");
+
+
+
+
+        }
+         })
+    });
+    </script>
 
 
   <div style="margin: 29px 0 0 0;">
@@ -1700,7 +1758,7 @@ window.onclick = function(event) {
     {% endif %}
   </div>
 
-	</div>
+  </div>
 
 
 

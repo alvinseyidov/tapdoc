@@ -6,6 +6,7 @@ from service.models import Diaqnostikalar
 
 def diaqnostika(request):
     diaqnostika_list = Clinic.objects.filter(type='MRK')
+    diaqnostikaall = Clinic.objects.all()
     query = request.GET.get('q')
     querygeo = request.GET.get('geo')
     if query:
@@ -16,12 +17,14 @@ def diaqnostika(request):
     diaqnostika = paginator.get_page(page)
 
     context = {
-        "diaqnostikas": diaqnostika
+        "diaqnostikas": diaqnostika,
+        "diaqnostikaall": diaqnostikaall
     }
     return render(request, 'diaqnostika.html', context)
 
 def diaqnostikaspecific(request, id):
     xidmet_diaqnostik = Diaqnostikalar.objects.get(pk=id)
+    diaqnostikaall = Clinic.objects.all()
     diaqnostika_list = xidmet_diaqnostik.relate_name_diaqnostikalar.all()
     query = request.GET.get('q')
     querygeo = request.GET.get('geo')
@@ -34,12 +37,14 @@ def diaqnostikaspecific(request, id):
 
     context = {
         "diaqnostikas": diaqnostika,
-        "xidmetdiaqnostik": xidmet_diaqnostik
+        "xidmetdiaqnostik": xidmet_diaqnostik,
+        "diaqnostikaall": diaqnostikaall
     }
     return render(request, 'diaqnostikaspecific.html', context)
 
 def diaqnostikareyler(request):
     diaqnostika_list = Clinic.objects.filter(type='MRK')
+    diaqnostikaall = Clinic.objects.all()
     query = request.GET.get('q')
     querygeo = request.GET.get('geo')
     if query:
@@ -50,12 +55,14 @@ def diaqnostikareyler(request):
     diaqnostika = paginator.get_page(page)
 
     context = {
-        "diaqnostikas": diaqnostika
+        "diaqnostikas": diaqnostika,
+        "diaqnostikaall": diaqnostikaall
     }
     return render(request, 'diaqnostikareyler.html', context)
 
 def diaqnostikaqiymet(request):
     diaqnostika_list = Clinic.objects.filter(type='MRK')
+    diaqnostikaall = Clinic.objects.all()
     query = request.GET.get('q')
     querygeo = request.GET.get('geo')
     if query:
@@ -66,12 +73,14 @@ def diaqnostikaqiymet(request):
     diaqnostika = paginator.get_page(page)
 
     context = {
-        "diaqnostikas": diaqnostika
+        "diaqnostikas": diaqnostika,
+        "diaqnostikaall": diaqnostikaall
     }
     return render(request, 'diaqnostikaqiymet.html', context)
 
 def diaqnostikareyting(request):
     diaqnostika_list = Clinic.objects.filter(type='MRK')
+    diaqnostikaall = Clinic.objects.all()
     query = request.GET.get('q')
     querygeo = request.GET.get('geo')
     if query:
@@ -82,6 +91,7 @@ def diaqnostikareyting(request):
     diaqnostika = paginator.get_page(page)
 
     context = {
-        "diaqnostikas": diaqnostika
+        "diaqnostikas": diaqnostika,
+        "diaqnostikaall": diaqnostikaall
     }
     return render(request, 'diaqnostikareyting.html', context)

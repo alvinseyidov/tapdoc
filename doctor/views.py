@@ -8,7 +8,9 @@ from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import to_locale, get_language
+
 # Create your views here.
+
 
 def homepage(request):
     professions = Profession.objects.all()
@@ -169,7 +171,7 @@ def doctordetail(request, id):
         'doctor': doctor,
         'sertifikatlar': sertifikatlar,
         'form': form,
-        'endirimli_qiymet':endirimli_qiymet,
+        'endirimli_qiymet': endirimli_qiymet,
         'reviewcount': reviewcount,
         'reviews': reviews
     }

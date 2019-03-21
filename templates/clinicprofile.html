@@ -770,8 +770,7 @@ a:active{
 		</div>
 	</div>											<div class="clinic__rating-value">
 												<a class="scrollTo" data-reltab="reviews" data-offset="0"
-												   href="#reviews">
-																											5														rəylər																									</a>
+												   href="#reviews">{{reviewcount}} rəy																									</a>
 											</div>
 										</div>
 
@@ -3215,7 +3214,7 @@ spanmrc4.onclick = function() {
                                                                         <div class="doctors__reviews-title">"{{clinic.name}}" haqqında yazılan rəylər</div>
                                                                 <div class="reviews__items">
 
-
+{% for review in reviews|slice:":4"%}
 <div class="reviews__item " itemprop="review" itemscope itemtype="http://schema.org/Review" >
 	<meta itemprop="itemReviewed" content="{{clinic.name}}">
 
@@ -3244,159 +3243,18 @@ spanmrc4.onclick = function() {
 		<div class="reviews__grade">Əla</div>
 	</div>
 	<div class="reviews__text" itemprop="reviewBody">
-		Xidmət və keyfiyyət əladır. Hərkəsə tövsiyyə edirəm	</div>
-	<div class="reviews__name"><span itemprop="author">Elvin</span>,
-		<span itemprop="datePublished" content="2018-10-31 11:57:30">31 oktyabr 2018</span>,
+	{{review.message}}	</div>
+	<div class="reviews__name"><span itemprop="author">{{review.starter}}</span>,
+		<span itemprop="datePublished" content="2018-10-31 11:57:30">{{review.created_at}}</span>,
 					<span class="review_doctor">
-				qəbuldu olduğu həkim: <a href="https://tapdoc.az/doctor/Tsareva_Anna">Aygün Muradova</a>			</span>
+				qəbuldu olduğu həkim: <a href="#">Aygün Muradova</a>			</span>
 
 			</div>
 </div>
-<div class="reviews__item " itemprop="review" itemscope itemtype="http://schema.org/Review" >
-	<meta itemprop="itemReviewed" content="{{clinic.name}}">
+{% endfor %}
 
-	<div class="reviews__top">
-		<div class="reviews__rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
-			<meta itemprop="bestRating" content="10">
-			<meta itemprop="worstRating" content="1">
-			<meta itemprop="ratingValue" content="10">
-
-<div class="rate rate_small">
-	<div class="rate__default">
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-	</div>
-			<div class="rate__value" style="width:100%;">
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-		</div>
-	</div>		</div>
-		<div class="reviews__grade">Əla</div>
-	</div>
-	<div class="reviews__text" itemprop="reviewBody">
-		Tam razı qaldım.	</div>
-	<div class="reviews__name"><span itemprop="author">Aydan</span>,
-		<span itemprop="datePublished" content="2018-06-30 12:45:18">30 iyun 2018</span>,
-					<span class="review_doctor">
-				qəbuldu olduğu həkim: <a href="https://tapdoc.az/doctor/Tsareva_Anna">Həsən Mehdiyev</a>			</span>
-
-			</div>
-</div>
-<div class="reviews__item " itemprop="review" itemscope itemtype="http://schema.org/Review" >
-	<meta itemprop="itemReviewed" content="{{clinic.name}}">
-
-	<div class="reviews__top">
-		<div class="reviews__rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
-			<meta itemprop="bestRating" content="10">
-			<meta itemprop="worstRating" content="1">
-			<meta itemprop="ratingValue" content="10">
-
-<div class="rate rate_small">
-	<div class="rate__default">
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-	</div>
-			<div class="rate__value" style="width:100%;">
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-		</div>
-	</div>		</div>
-		<div class="reviews__grade">Əla</div>
-	</div>
-	<div class="reviews__text" itemprop="reviewBody">
-		Gözəl xidmət və keyfiyyət üçün təşəkkür edirəm. Hərkəsə tövsiyyə edirəm</div>
-	<div class="reviews__name"><span itemprop="author">Aydan</span>,
-		<span itemprop="datePublished" content="2018-06-30 12:45:18">30 iyun 2018</span>,
-					<span class="review_doctor">
-				qəbuldu olduğu həkim: <a href="https://tapdoc.az/doctor/Tsareva_Anna">Səlim Məmmədli</a>			</span>
-
-			</div>
-</div>
-<div class="reviews__item " itemprop="review" itemscope itemtype="http://schema.org/Review" >
-	<meta itemprop="itemReviewed" content="{{clinic.name}}">
-
-	<div class="reviews__top">
-		<div class="reviews__rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
-			<meta itemprop="bestRating" content="10">
-			<meta itemprop="worstRating" content="1">
-			<meta itemprop="ratingValue" content="10">
-
-<div class="rate rate_small">
-	<div class="rate__default">
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-	</div>
-			<div class="rate__value" style="width:100%;">
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-		</div>
-	</div>		</div>
-		<div class="reviews__grade">Yaxşı</div>
-	</div>
-	<div class="reviews__text" itemprop="reviewBody">
-		Xidmət və keyfiyyət əladır. Hərkəsə tövsiyyə edirəm	</div>
-	<div class="reviews__name"><span itemprop="author">Aydan</span>,
-		<span itemprop="datePublished" content="2018-06-30 12:45:18">30 iyun 2018</span>,
-					<span class="review_doctor">
-				qəbuldu olduğu həkim: <a href="https://tapdoc.az/doctor/Tsareva_Anna">Taleh Seyidli</a>			</span>
-
-			</div>
-</div>
-<div class="reviews__item " itemprop="review" itemscope itemtype="http://schema.org/Review" >
-	<meta itemprop="itemReviewed" content="{{clinic.name}}">
-
-	<div class="reviews__top">
-		<div class="reviews__rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
-			<meta itemprop="bestRating" content="10">
-			<meta itemprop="worstRating" content="1">
-			<meta itemprop="ratingValue" content="10">
-
-<div class="rate rate_small">
-	<div class="rate__default">
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-	</div>
-			<div class="rate__value" style="width:100%;">
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-			<i class="fa fa-star" aria-hidden="true"></i>
-		</div>
-	</div>		</div>
-		<div class="reviews__grade">Yaxşı</div>
-	</div>
-	<div class="reviews__text" itemprop="reviewBody">
-		Xidmət və keyfiyyət əladır. Hərkəsə tövsiyyə edirəm	</div>
-	<div class="reviews__name"><span itemprop="author">Aydan</span>,
-		<span itemprop="datePublished" content="2018-06-30 12:45:18">30 iyun 2018</span>,
-					<span class="review_doctor">
-				qəbuldu olduğu həkim: <a href="https://tapdoc.az/doctor/Tsareva_Anna">Taleh Seyidli</a>			</span>
-
-			</div>
-</div>
 <div class="collapse" id="collapserey">
+  {% for review in reviews|slice:"4:"%}
   <div class="reviews__item " itemprop="review" itemscope itemtype="http://schema.org/Review" >
   	<meta itemprop="itemReviewed" content="{{clinic.name}}">
 
@@ -3429,59 +3287,30 @@ spanmrc4.onclick = function() {
   	<div class="reviews__name"><span itemprop="author">Aydan</span>,
   		<span itemprop="datePublished" content="2018-06-30 12:45:18">30 iyun 2018</span>,
   					<span class="review_doctor">
-  				qəbuldu olduğu həkim: <a href="https://tapdoc.az/doctor/Tsareva_Anna">Kəmalə Rəhimova</a>			</span>
+  				qəbuldu olduğu həkim: <a href="#">Kəmalə Rəhimova</a>			</span>
 
   			</div>
   </div>
-  <div class="reviews__item " itemprop="review" itemscope itemtype="http://schema.org/Review" >
-  	<meta itemprop="itemReviewed" content="{{clinic.name}}">
+{% endfor %}
 
-  	<div class="reviews__top">
-  		<div class="reviews__rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
-  			<meta itemprop="bestRating" content="10">
-  			<meta itemprop="worstRating" content="1">
-  			<meta itemprop="ratingValue" content="10">
-
-  <div class="rate rate_small">
-  	<div class="rate__default">
-  		<i class="fa fa-star" aria-hidden="true"></i>
-  		<i class="fa fa-star" aria-hidden="true"></i>
-  		<i class="fa fa-star" aria-hidden="true"></i>
-  		<i class="fa fa-star" aria-hidden="true"></i>
-  		<i class="fa fa-star" aria-hidden="true"></i>
-  	</div>
-  			<div class="rate__value" style="width:100%;">
-  			<i class="fa fa-star" aria-hidden="true"></i>
-  			<i class="fa fa-star" aria-hidden="true"></i>
-  			<i class="fa fa-star" aria-hidden="true"></i>
-  			<i class="fa fa-star" aria-hidden="true"></i>
-  			<i class="fa fa-star" aria-hidden="true"></i>
-  		</div>
-  	</div>		</div>
-  		<div class="reviews__grade">Əla</div>
-  	</div>
-  	<div class="reviews__text" itemprop="reviewBody">
-  	Keyfiyyət əla idi. Müalicəm tam effekt verdi.	</div>
-  	<div class="reviews__name"><span itemprop="author">Aydan</span>,
-  		<span itemprop="datePublished" content="2018-06-30 12:45:18">30 iyun 2018</span>,
-  					<span class="review_doctor">
-  				qəbuldu olduğu həkim: <a href="https://tapdoc.az/doctor/Tsareva_Anna">Eldar Əhmədov</a>			</span>
-
-  			</div>
-  </div>
      </div>                                      </div>
-                                            <div class="reviews__bottom reviews__bottom_clinic" style="  margin: 0 0 38px 0;">
-<a id="reyler" class="reyler" data-toggle="collapse" href="#collapserey" role="button" aria-expanded="false" aria-controls="collapserey">Bütün Rəylər (2)</a>
+     <div class="reviews__bottom" style="margin: 0 0 25px 0;">
+        {% if reviewcount > 4 %}<a id="reyler" class="reyler" data-toggle="collapse" href="#collapserey" role="button" aria-expanded="false" aria-controls="collapserey">Bütün Rəylər ({{reviewcount}})</a>
+        {% elif reviewcount == 0 %}
+        <p>Klinika haqqında heç bir rəy əlavə olunmayıb</p>
+        {% endif %}
 
 
 
-                                  <script>
-                                  $('#reyler').click(function(){
-                                      $(this).text(function(i,old){
-                                          return old=='Bütün Rəylər (2)' ?  'Bağla' : 'Bütün Rəylər (2)';
-                                      });
-                                  });</script>
-                        </div>
+                                          <script>
+                                          $('#reyler').click(function(){
+                                              $(this).text(function(i,old){
+                                                  return old=='Bütün Rəylər ({{reviewcount}})' ?  'Bağla' : 'Bütün Rəylər ({{reviewcount}})';
+                                              });
+                                          });</script>
+
+     </div>
+
                                     </div>
 
                 <div class="doctors__right doctors__right_reviews">
@@ -3493,7 +3322,7 @@ spanmrc4.onclick = function() {
                             </div>
                             <div class="js-review-form" >
 
-<div class="reviewform reviewform_clinic">
+<div class="reviewform reviewform_clinic" style="margin: 0 0 34px 0;">
 	<div class="reviewform__close js-review-form-show"></div>
 
 	<form class="reviewform__form review-form--doctor review_form clearfix" action="https://tapdoc.az/clinic/createReview" novalidate="novalidate">

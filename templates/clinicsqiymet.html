@@ -1,4 +1,4 @@
-{% load static %}
+{% load static custom_tags2 %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>     <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie ie6" lang="ru"><![endif]-->
 <!--[if IE 7]>        <html class="no-js lt-ie9 lt-ie8 ie ie7" lang="ru"><![endif]-->
@@ -644,7 +644,7 @@ for="kidsReception3"> Sığorta</label>
 
    <div class="clinics__left clinics__left_fullwidth">
            <div class="sorting">
-                                   <div class="sorting__clinics">Bütün Klinikalar - 115</div>
+                                   <div class="sorting__clinics">Bütün Klinikalar - {{clinicsall|length}}</div>
                                <div class="sorting__label"></div>
                <div class="sorting__items">
                          <a href="{% url 'clinicreyting'%}" class="sorting__item " rel="nofollow" style=" text-decoration: none !important;">
@@ -717,8 +717,8 @@ for="kidsReception3"> Sığorta</label>
      <i class="fa fa-star" aria-hidden="true"></i>
    </div>
  </div>						<div class="clinic-card__rating-value">
-             <a href="#">
-                                 5125 rəy															</a>
+             <a href="{% url 'clinicprofile' clinic.id %}">
+                                 {{ clinic.id|clinicreviewscount }} rəy															</a>
            </div>
          </div>
        </div>
@@ -738,7 +738,7 @@ for="kidsReception3"> Sığorta</label>
                       {% for branch in clinic.filiallar.all %}
  									<div class="popup-filials-list__item js-popup-filial" data-id="clinic-230">
  						<div class="popup-filials-list__num">*</div>
- 						<a href="{% url 'clinicprofile' branch.id %}"><div class="popup-filials-list__name">{{branch}}</div></a>
+ 						<a href="{% url 'clinicprofile' branch.id %}" target="_blank"><div class="popup-filials-list__name">{{branch}}</div></a>
  						Səməd Vurğun küç. 55				</div>
  									  {% endfor %}
 
@@ -783,7 +783,7 @@ for="kidsReception3"> Sığorta</label>
                          Ortalama xidmət qiymətləri - yüksək											</div>
 
          <div class="clinic-card__clinictext">
-         {{clinic.descriptionmeta}}<a href="{% url 'clinicdetailistanbul'%}">Ətraflı</a>
+         {{clinic.descriptionmeta}}<a href="{% url 'clinicprofile' clinic.id %}">Ətraflı</a>
          </div>
        </div>
      </div>
@@ -843,14 +843,14 @@ data-ga-action="clickPhoneNumber">
     <i class="fa fa-star" aria-hidden="true"></i>
   </div>
 </div>						<div class="clinic-card__rating-value">
-            <a href="#">
-                                5125 rəy															</a>
+            <a href="{% url 'clinicprofile' clinic.id %}">
+                                {{ clinic.id|clinicreviewscount }} rəy															</a>
           </div>
         </div>
       </div>
       <div class="clinic-card__info">
 
-        <a href="{% url 'clinicprofile' clinic.id %}" class="clinic-card__name">{{clinic.name}}</a>
+        <a href="{% url 'clinicprofile' clinic.id %}" target="_blank" class="clinic-card__name">{{clinic.name}}</a>
 
 
 
@@ -862,7 +862,7 @@ data-ga-action="clickPhoneNumber">
                         Ortalama xidmət qiymətləri - yüksək											</div>
 
         <div class="clinic-card__clinictext">
-        {{clinic.descriptionmeta}}<a href="{% url 'clinicdetailistanbul'%}">Ətraflı</a>
+        {{clinic.descriptionmeta}}<a href="{% url 'clinicprofile' clinic.id %}">Ətraflı</a>
         </div>
       </div>
     </div>
@@ -923,7 +923,7 @@ data-ga-action="clickPhoneNumber">
           <div class="clinic-card__inner">
           <div class="clinic-card__left">
           <a href="#" style="float:right;" class="addfavor"><img src="/static/img/liked.png"></a>
-          <a href="{% url 'clinicprofile' branch.id %}" class="clinic-card__branch-name">{{branch.name}}</a>
+          <a href="{% url 'clinicprofile' branch.id %}" target="_blank" class="clinic-card__branch-name">{{branch.name}}</a>
           <div class="clinic-card__clinic-address">
                   <div class="clinic-card__clinic-address">
 
@@ -952,8 +952,8 @@ data-ga-action="clickPhoneNumber">
           <i class="fa fa-star" aria-hidden="true"></i>
           </div>
           </div>			<br>	<div class="clinic-card__rating-value">
-            <a href="{% url 'clinicdetailnesimi'%}">
-                            818 rəy											</a>
+            <a href="{% url 'clinicprofile' branch.id %}">
+                            {{ branch.id|clinicreviewscount }} rəy											</a>
           </div>
           </div>
 
@@ -1365,7 +1365,7 @@ data-ga-action="clickPhoneNumber">
             <div class="clinic-card__inner">
             <div class="clinic-card__left">
             <a href="#" style="float:right;" class="addfavor"><img src="/static/img/liked.png"></a>
-            <a href="{% url 'clinicprofile' branch.id %}" class="clinic-card__branch-name">{{branch.name}}</a>
+            <a href="{% url 'clinicprofile' branch.id %}" target="_blank" class="clinic-card__branch-name">{{branch.name}}</a>
             <div class="clinic-card__clinic-address">
                     <div class="clinic-card__clinic-address">
 
@@ -1394,8 +1394,8 @@ data-ga-action="clickPhoneNumber">
             <i class="fa fa-star" aria-hidden="true"></i>
             </div>
             </div>			<br>	<div class="clinic-card__rating-value">
-              <a href="{% url 'clinicdetailnesimi'%}">
-                              818 rəy											</a>
+              <a href="{% url 'clinicprofile' branch.id %}">
+                              {{ branch.id|clinicreviewscount }} rəy											</a>
             </div>
             </div>
 

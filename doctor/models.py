@@ -18,6 +18,14 @@ class Profession(models.Model):
         return self.name
 
 class Doctor(models.Model):
+    MALE = 'M'
+    FEMALE = 'F'
+
+    GENDER = (
+        (MALE, 'Male'),
+        (FEMALE, 'Female')
+    )
+    gender = models.CharField(max_length=25, choices=GENDER, null=True, blank=True)
     first_name = models.CharField(max_length=256)
     last_name = models.CharField(max_length=256)
     tecrube = models.IntegerField(null=True)
@@ -29,6 +37,7 @@ class Doctor(models.Model):
     description = RichTextField(blank=True, null=True)
     wishlist = models.ManyToManyField(User, related_name='wishlist', blank=True)
     professions = models.ManyToManyField(Profession, related_name='doctors')
+
 
 
     def __str__(self):
