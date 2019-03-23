@@ -137,7 +137,7 @@ def clinicsspecific(request, id):
     paginator = Paginator(clinics_list,3)
     page = request.GET.get('page')
     clinics = paginator.get_page(page)
-    xidmetler = Xidmatlar.objects.all()
+    xidmetler = Xidmatlar.objects.all() 
     context = {
         "clinics": clinics,
         "clinicsall": clinicsall,
@@ -146,3 +146,26 @@ def clinicsspecific(request, id):
 
     }
     return render(request, 'clinicsspecific.html', context)
+
+
+
+
+def clinicaddtofavor(request):
+
+    if request.method == 'GET':
+        post_id = request.GET['post_id']
+        clinic = get_object_or_404(Clinic, id=post_id)
+        clinic.wishlist.add(request.user)
+        return HttpResponse("Success!") # Sending an success response
+    else:
+        return HttpResponse("Request method is not a GET")
+
+
+def clinicremovefavor(request):
+    if request.method == 'GET':
+        post_id = request.GET['post_id']
+        clinic = get_object_or_404(Clinic, id=post_id)
+        clinic.wishlist.remove(request.user)
+        return HttpResponse("Success!") # Sending an success response
+    else:
+        return HttpResponse("Request method is not a GET")

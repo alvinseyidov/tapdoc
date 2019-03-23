@@ -29,6 +29,7 @@ class Clinic(models.Model):
     location = LocationField(blank=True, max_length=255)
     metro1 = models.CharField(max_length=256,null=True, blank=True)
     metro2 = models.CharField(max_length=256,null=True, blank=True)
+    wishlist = models.ManyToManyField(User, related_name='clinicwishlist', blank=True)
 
 
     def __str__(self):

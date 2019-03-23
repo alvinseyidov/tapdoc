@@ -155,10 +155,7 @@ float: right;
    font-size: 13px;
        margin: 0 0 0 11px;
 }
-.addfavor img {
-   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 24px 0 rgba(0, 0, 0, 0.19);
-   border-radius: 39px;
-}
+
 .dotted:before {
    content: '\2022';
    color: gray;
@@ -353,6 +350,49 @@ border-radius: 7px;
     font-size: 28px !important;
     font-weight: bold;
     margin: -16px -6px 0 0;
+}
+
+
+.addfavor {
+    float: right;
+    z-index: 2;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 24px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 39px;
+}
+@media only screen and (max-width: 900px) {
+.addfavor {
+    float: right;
+    z-index: 2;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 24px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 39px;
+}
+}
+.addfavor img {
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 24px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 39px;
+}
+
+
+.removefavor {
+    float: right;
+    z-index: 2;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 24px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 39px;
+}
+@media only screen and (max-width: 900px) {
+.removefavor {
+    float: right;
+    z-index: 2;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 24px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 39px;
+}
+}
+.removefavor img {
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 24px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 39px;
+}
+.hearthidden{
+  display: none;
 }
 
 </style>
@@ -694,7 +734,63 @@ for="kidsReception3"> Sığorta</label>
  <div class="clinic-card">
    <div class="clinic-card__inner">
      <div class="clinic-card__left">
-<a href="#" style="float:right;" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
+       {% if user in clinic.wishlist.all %}
+       <img  id="unlike{{clinic.id}}" data-catid="{{ clinic.id }}" class="addfavor heartshow " src="{% static 'img/liked.png'%}"/>
+       <img  id="like{{clinic.id}}" data-catid="{{ clinic.id }}" class="removefavor hearthidden" src="{% static 'img/like.png'%}"/>
+       {% else %}
+       <img  id="like{{clinic.id}}" data-catid="{{ clinic.id }}" class="removefavor heartshow" src="{% static 'img/like.png'%}"/>
+       <img  id="unlike{{clinic.id}}" data-catid="{{ clinic.id }}" class="addfavor hearthidden " src="{% static 'img/liked.png'%}"/>
+       {% endif %}
+
+
+
+
+
+
+       <script type="text/javascript">
+       $('#like{{clinic.id}}').click(function(){
+       var catid;
+       catid = $(this).attr("data-catid");
+       $.ajax(
+       {
+           type:"GET",
+           url: "/clinics/clinicaddtofavor",
+           data:{
+                    post_id: catid
+           },
+           success: function( data )
+           {
+             $("#like{{clinic.id}}").addClass("hearthidden");
+             $("#like{{clinic.id}}").removeClass("heartshow");
+             $("#unlike{{clinic.id}}").addClass("heartshow");
+             $("#unlike{{clinic.id}}").removeClass("hearthidden");
+
+           }
+            })
+       });
+       </script>
+
+       <script type="text/javascript">
+       $('#unlike{{clinic.id}}').click(function(){
+       var uncatid;
+       uncatid = $(this).attr("data-catid");
+       $.ajax(
+       {
+           type:"GET",
+           url: "/clinics/clinicremovefavor",
+           data:{
+                    post_id: uncatid
+           },
+           success: function( data )
+           {
+             $("#unlike{{clinic.id}}").addClass("hearthidden");
+             $("#unlike{{clinic.id}}").removeClass("heartshow");
+             $("#like{{clinic.id}}").addClass("heartshow");
+             $("#like{{clinic.id}}").removeClass("hearthidden");
+           }
+            })
+       });
+       </script>
        <div class="clinic-card__photo">
          <!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
                    <a href="#" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
@@ -820,7 +916,63 @@ data-ga-action="clickPhoneNumber">
 <div class="clinic-card">
   <div class="clinic-card__inner">
     <div class="clinic-card__left">
-<a href="#" style="float:right;" class="addfavor"><img src="{% static 'img/liked.png'%}"/></a>
+      {% if user in clinic.wishlist.all %}
+      <img  id="unlike{{clinic.id}}" data-catid="{{ clinic.id }}" class="addfavor heartshow " src="{% static 'img/liked.png'%}"/>
+      <img  id="like{{clinic.id}}" data-catid="{{ clinic.id }}" class="removefavor hearthidden" src="{% static 'img/like.png'%}"/>
+      {% else %}
+      <img  id="like{{clinic.id}}" data-catid="{{ clinic.id }}" class="removefavor heartshow" src="{% static 'img/like.png'%}"/>
+      <img  id="unlike{{clinic.id}}" data-catid="{{ clinic.id }}" class="addfavor hearthidden " src="{% static 'img/liked.png'%}"/>
+      {% endif %}
+
+
+
+
+
+
+      <script type="text/javascript">
+      $('#like{{clinic.id}}').click(function(){
+      var catid;
+      catid = $(this).attr("data-catid");
+      $.ajax(
+      {
+          type:"GET",
+          url: "/clinics/clinicaddtofavor",
+          data:{
+                   post_id: catid
+          },
+          success: function( data )
+          {
+            $("#like{{clinic.id}}").addClass("hearthidden");
+            $("#like{{clinic.id}}").removeClass("heartshow");
+            $("#unlike{{clinic.id}}").addClass("heartshow");
+            $("#unlike{{clinic.id}}").removeClass("hearthidden");
+
+          }
+           })
+      });
+      </script>
+
+      <script type="text/javascript">
+      $('#unlike{{clinic.id}}').click(function(){
+      var uncatid;
+      uncatid = $(this).attr("data-catid");
+      $.ajax(
+      {
+          type:"GET",
+          url: "/clinics/clinicremovefavor",
+          data:{
+                   post_id: uncatid
+          },
+          success: function( data )
+          {
+            $("#unlike{{clinic.id}}").addClass("hearthidden");
+            $("#unlike{{clinic.id}}").removeClass("heartshow");
+            $("#like{{clinic.id}}").addClass("heartshow");
+            $("#like{{clinic.id}}").removeClass("hearthidden");
+          }
+           })
+      });
+      </script>
       <div class="clinic-card__photo">
         <!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
                   <a href="#" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
@@ -873,7 +1025,7 @@ data-ga-action="clickPhoneNumber">
           <div class="clinic-card__clinic-address" style="text-align:center;margin: 0 0 10px 0;">
 
 
-  Bakı ş. Fətəli Xan Xoyski küç. 52 <br>
+  {{clinic.address}} <br>
 
 
 <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro1.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro2.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
@@ -922,14 +1074,71 @@ data-ga-action="clickPhoneNumber">
           <div class="clinic-card__branch">
           <div class="clinic-card__inner">
           <div class="clinic-card__left">
-          <a href="#" style="float:right;" class="addfavor"><img src="/static/img/liked.png"></a>
+
+            {% if user in branch.wishlist.all %}
+            <img  id="unlike{{branch.id}}" data-catid="{{ branch.id }}" class="addfavor heartshow " src="{% static 'img/liked.png'%}"/>
+            <img  id="like{{branch.id}}" data-catid="{{ branch.id }}" class="removefavor hearthidden" src="{% static 'img/like.png'%}"/>
+            {% else %}
+            <img  id="like{{branch.id}}" data-catid="{{ branch.id }}" class="removefavor heartshow" src="{% static 'img/like.png'%}"/>
+            <img  id="unlike{{branch.id}}" data-catid="{{ branch.id }}" class="addfavor hearthidden " src="{% static 'img/liked.png'%}"/>
+            {% endif %}
+
+
+
+
+
+
+            <script type="text/javascript">
+            $('#like{{branch.id}}').click(function(){
+            var catid;
+            catid = $(this).attr("data-catid");
+            $.ajax(
+            {
+                type:"GET",
+                url: "/clinics/clinicaddtofavor",
+                data:{
+                         post_id: catid
+                },
+                success: function( data )
+                {
+                  $("#like{{branch.id}}").addClass("hearthidden");
+                  $("#like{{branch.id}}").removeClass("heartshow");
+                  $("#unlike{{branch.id}}").addClass("heartshow");
+                  $("#unlike{{branch.id}}").removeClass("hearthidden");
+
+                }
+                 })
+            });
+            </script>
+
+            <script type="text/javascript">
+            $('#unlike{{branch.id}}').click(function(){
+            var uncatid;
+            uncatid = $(this).attr("data-catid");
+            $.ajax(
+            {
+                type:"GET",
+                url: "/clinics/clinicremovefavor",
+                data:{
+                         post_id: uncatid
+                },
+                success: function( data )
+                {
+                  $("#unlike{{branch.id}}").addClass("hearthidden");
+                  $("#unlike{{branch.id}}").removeClass("heartshow");
+                  $("#like{{branch.id}}").addClass("heartshow");
+                  $("#like{{branch.id}}").removeClass("hearthidden");
+                }
+                 })
+            });
+            </script>
           <a href="{% url 'clinicprofile' branch.id %}" target="_blank" class="clinic-card__branch-name">{{branch.name}}</a>
           <div class="clinic-card__clinic-address">
                   <div class="clinic-card__clinic-address">
 
                   <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro1.png">&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro2.png">&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
 
-          <br> <span style="border-bottom: 1.5px dotted #000;line-height: 2;"> Bakı ş. Fətəli Xan Xoyski küç. 52</span> <br>
+          <br> <span style="border-bottom: 1.5px dotted #000;line-height: 2;"> {{branch.address}}</span> <br>
 
 
           </div>
@@ -1364,14 +1573,71 @@ data-ga-action="clickPhoneNumber">
             <div class="clinic-card__branch">
             <div class="clinic-card__inner">
             <div class="clinic-card__left">
-            <a href="#" style="float:right;" class="addfavor"><img src="/static/img/liked.png"></a>
+
+              {% if user in branch.wishlist.all %}
+              <img  id="unlike{{branch.id}}" data-catid="{{ branch.id }}" class="addfavor heartshow " src="{% static 'img/liked.png'%}"/>
+              <img  id="like{{branch.id}}" data-catid="{{ branch.id }}" class="removefavor hearthidden" src="{% static 'img/like.png'%}"/>
+              {% else %}
+              <img  id="like{{branch.id}}" data-catid="{{ branch.id }}" class="removefavor heartshow" src="{% static 'img/like.png'%}"/>
+              <img  id="unlike{{branch.id}}" data-catid="{{ branch.id }}" class="addfavor hearthidden " src="{% static 'img/liked.png'%}"/>
+              {% endif %}
+
+
+
+
+
+
+              <script type="text/javascript">
+              $('#like{{branch.id}}').click(function(){
+              var catid;
+              catid = $(this).attr("data-catid");
+              $.ajax(
+              {
+                  type:"GET",
+                  url: "/clinics/clinicaddtofavor",
+                  data:{
+                           post_id: catid
+                  },
+                  success: function( data )
+                  {
+                    $("#like{{branch.id}}").addClass("hearthidden");
+                    $("#like{{branch.id}}").removeClass("heartshow");
+                    $("#unlike{{branch.id}}").addClass("heartshow");
+                    $("#unlike{{branch.id}}").removeClass("hearthidden");
+
+                  }
+                   })
+              });
+              </script>
+
+              <script type="text/javascript">
+              $('#unlike{{branch.id}}').click(function(){
+              var uncatid;
+              uncatid = $(this).attr("data-catid");
+              $.ajax(
+              {
+                  type:"GET",
+                  url: "/clinics/clinicremovefavor",
+                  data:{
+                           post_id: uncatid
+                  },
+                  success: function( data )
+                  {
+                    $("#unlike{{branch.id}}").addClass("hearthidden");
+                    $("#unlike{{branch.id}}").removeClass("heartshow");
+                    $("#like{{branch.id}}").addClass("heartshow");
+                    $("#like{{branch.id}}").removeClass("hearthidden");
+                  }
+                   })
+              });
+              </script>
             <a href="{% url 'clinicprofile' branch.id %}" target="_blank" class="clinic-card__branch-name">{{branch.name}}</a>
             <div class="clinic-card__clinic-address">
                     <div class="clinic-card__clinic-address">
 
                     <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro1.png">&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro2.png">&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
 
-            <br> <span style="border-bottom: 1.5px dotted #000;line-height: 2;"> Bakı ş. Fətəli Xan Xoyski küç. 52</span> <br>
+            <br> <span style="border-bottom: 1.5px dotted #000;line-height: 2;"> {{branch.address}}</span> <br>
 
 
             </div>

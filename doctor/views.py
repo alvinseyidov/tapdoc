@@ -225,7 +225,7 @@ def removefavor(request, id):
     return redirect('doctordetail', id=id)
 
 
-
+ 
 
 def doctoraddtofavor(request):
 

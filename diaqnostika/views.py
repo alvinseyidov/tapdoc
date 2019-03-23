@@ -15,10 +15,12 @@ def diaqnostika(request):
     paginator = Paginator(diaqnostika_list,4)
     page = request.GET.get('page')
     diaqnostika = paginator.get_page(page)
+    xidmet_diaqnostik = Diaqnostikalar.objects.order_by('name')
 
     context = {
         "diaqnostikas": diaqnostika,
-        "diaqnostikaall": diaqnostikaall
+        "diaqnostikaall": diaqnostikaall,
+        "xidmet_diaqnostik": xidmet_diaqnostik
     }
     return render(request, 'diaqnostika.html', context)
 
@@ -34,11 +36,13 @@ def diaqnostikaspecific(request, id):
     paginator = Paginator(diaqnostika_list, 10)
     page = request.GET.get('page')
     diaqnostika = paginator.get_page(page)
+    xidmet_diaqnostikalar = Diaqnostikalar.objects.order_by('name')
 
     context = {
         "diaqnostikas": diaqnostika,
-        "xidmetdiaqnostik": xidmet_diaqnostik,
-        "diaqnostikaall": diaqnostikaall
+        "diaqnostikaall": diaqnostikaall,
+        "xidmet_diaqnostik": xidmet_diaqnostikalar,
+        "xidmet_diaqnostik_one": xidmet_diaqnostik
     }
     return render(request, 'diaqnostikaspecific.html', context)
 
@@ -53,10 +57,12 @@ def diaqnostikareyler(request):
     paginator = Paginator(diaqnostika_list, 2)
     page = request.GET.get('page')
     diaqnostika = paginator.get_page(page)
+    xidmet_diaqnostik = Diaqnostikalar.objects.order_by('name')
 
     context = {
         "diaqnostikas": diaqnostika,
-        "diaqnostikaall": diaqnostikaall
+        "diaqnostikaall": diaqnostikaall,
+        "xidmet_diaqnostik": xidmet_diaqnostik
     }
     return render(request, 'diaqnostikareyler.html', context)
 
@@ -71,10 +77,12 @@ def diaqnostikaqiymet(request):
     paginator = Paginator(diaqnostika_list, 2)
     page = request.GET.get('page')
     diaqnostika = paginator.get_page(page)
+    xidmet_diaqnostik = Diaqnostikalar.objects.order_by('name')
 
     context = {
         "diaqnostikas": diaqnostika,
-        "diaqnostikaall": diaqnostikaall
+        "diaqnostikaall": diaqnostikaall,
+        "xidmet_diaqnostik": xidmet_diaqnostik
     }
     return render(request, 'diaqnostikaqiymet.html', context)
 
@@ -89,9 +97,12 @@ def diaqnostikareyting(request):
     paginator = Paginator(diaqnostika_list, 2)
     page = request.GET.get('page')
     diaqnostika = paginator.get_page(page)
+    xidmet_diaqnostik = Diaqnostikalar.objects.order_by('name')
 
     context = {
         "diaqnostikas": diaqnostika,
-        "diaqnostikaall": diaqnostikaall
+        "diaqnostikaall": diaqnostikaall,
+        "diaqnostikalar": xidmet_diaqnostik,
+        "xidmet_diaqnostik": xidmet_diaqnostik
     }
     return render(request, 'diaqnostikareyting.html', context)

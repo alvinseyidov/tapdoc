@@ -82,6 +82,8 @@ urlpatterns += i18n_patterns(
     path('doctor/<int:id>/removefavor', views.removefavor, name='removefavor'),
     path('doctor/doctoraddtofavor', views.doctoraddtofavor, name='doctoraddtofavor'),
     path('doctor/doctorremovefavor', views.doctorremovefavor, name='doctorremovefavor'),
+    path('clinics/clinicaddtofavor', clinic_views.clinicaddtofavor, name='clinicaddtofavor'),
+    path('clinics/clinicremovefavor', clinic_views.clinicremovefavor, name='clinicremovefavor'),
     prefix_default_language=False,
 )
 
