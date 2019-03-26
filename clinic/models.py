@@ -23,6 +23,7 @@ class Clinic(models.Model):
     diaqnostikalar = models.ManyToManyField(Diaqnostikalar, through='DiaqnostikalarPrices',related_name='relate_name_diaqnostikalar', blank=True)
     filial = models.ForeignKey('self', related_name='filiallar', on_delete=models.CASCADE, null=True, blank=True)
     address = models.CharField(max_length=256)
+    phone = models.CharField(max_length=256,blank=True, null=True)
     description = RichTextField(blank=True, null=True)
     descriptionmeta = models.TextField(max_length=256,blank=True, null=True)
     image = models.ImageField(null=True, blank=True)
@@ -37,7 +38,7 @@ class Clinic(models.Model):
 
 
 class XidmetlerPrices(models.Model):
-    xidmet = models.ForeignKey(Xidmatlar, on_delete=models.CASCADE)
+    xidmet = models.ForeignKey(Xidmatlar, on_delete=models.CASCADE, related_name='qiymetler')
     klinika = models.ForeignKey(Clinic, on_delete=models.CASCADE)
     qiymet = models.CharField(max_length=64)
 
@@ -45,7 +46,7 @@ class XidmetlerPrices(models.Model):
         return self.klinika.name + ' - ' + self.xidmet.name + ' - ' + self.qiymet
 
 class DiaqnostikalarPrices(models.Model):
-    diaqnostika = models.ForeignKey(Diaqnostikalar, on_delete=models.CASCADE)
+    diaqnostika = models.ForeignKey(Diaqnostikalar, on_delete=models.CASCADE,  related_name='qiymetler')
     klinika = models.ForeignKey(Clinic, on_delete=models.CASCADE)
     qiymet = models.CharField(max_length=64)
 

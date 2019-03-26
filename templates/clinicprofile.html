@@ -1,4 +1,4 @@
-{% load static %}
+{% load static mathfilters custom_tags %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>     <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie ie6" lang="ru"><![endif]-->
 <!--[if IE 7]>        <html class="no-js lt-ie9 lt-ie8 ie ie7" lang="ru"><![endif]-->
@@ -904,15 +904,19 @@ dots[slideIndex-1].className += " w3-white";
 
 	<meta itemprop="addressLocality" content="г. Москва">
 
-	Bakı ş.
-	<span itemprop="streetAddress">Azadlıq prospekti 43</span><br />
+	<span itemprop="streetAddress">{{clinic.address}}</span><br />
 
-			<a href="https://tapdoc.az/clinic/area/svao" class="notlink"></a><a href="https://tapdoc.az/clinic/district/alekseevskij" class="notlink"></a>					<div class="clinic__metro">
+			<a href="#" class="notlink"></a><a href="#" class="notlink"></a>
+      <div class="clinic__metro">
 				<span class="i-metro-sm i-metro--line_5"></span>
 				<a href="https://tapdoc.az/clinic/station/vdnh" class="notlink">
-					Gənclik (1 км)
+					Gənclik (1 km)
 				</a>
-<br>
+<br><br>
+
+
+      {% if clinic.filial.filiallar %}
+
         <a href="javascript:void(0)" id="myBtn4" style="color: #1593db !important;">
 					Bütün Filiallar
 				</a>
@@ -922,26 +926,21 @@ dots[slideIndex-1].className += " w3-white";
           <div class="modal-content4">
             <a href="javascript:void(0)"><span class="close4">&times;</span></a>
             <div class="popup-filials-list" style="width: 287px;">
-													<div class="popup-filials-list__item js-popup-filial" data-id="clinic-13">
+              {% for x in clinic.filial.filiallar.all %}
+                          <div class="popup-filials-list__item js-popup-filial" data-id="clinic-13">
 						<div class="popup-filials-list__num">1</div>
-						<a href="{% url 'clinicdetailnerimanov'%}"><div class="popup-filials-list__name">{{clinic.name}} Nərimanov Filialı</div></a>
+						<a href="{% url 'clinicprofile' x.id %}"><div class="popup-filials-list__name">{{x.name}} </div></a>
 						İnqilab küç. 17				</div>
-									<div class="popup-filials-list__item js-popup-filial" data-id="clinic-230">
-						<div class="popup-filials-list__num">2</div>
-						<a href="{% url 'clinicdetailyasamal'%}"><div class="popup-filials-list__name">{{clinic.name}} Yasamal Filialı</div></a>
-						Səməd Vurğun küç. 55				</div>
-									<div class="popup-filials-list__item js-popup-filial" data-id="clinic-231">
-						<div class="popup-filials-list__num">3</div>
-						<a href="{% url 'clinicdetailnesimi'%}"><div class="popup-filials-list__name">{{clinic.name}} Nəsimi Filialı</div></a>
-						Azadlıq pros. 54					</div>
 
+            {% endfor %}
 
 
 							</div>
           </div>
 
         </div>
-
+        {% else %}
+        {% endif %}
         <script>
         // Get the modal
         var modal4 = document.getElementById('myModal4');
@@ -977,7 +976,7 @@ dots[slideIndex-1].className += " w3-white";
 
 																											<div class="clinic__phone" itemprop="telephone" data-ga-label="doctor clinic form"
 								     data-ga-action="clickPhoneNumber">
-																			+994 (051) 927-01-01																	</div>
+																		{{clinic.phone}}																	</div>
 																						<div class="clinic__button">
 									<button class="myBtnmuraciet" id="myBtnmuracietmrc3">Müraciət</button>
 
@@ -1200,13 +1199,13 @@ dots[slideIndex-1].className += " w3-white";
 										<div class="calendar-root"></div>
 									</div>
 									<div class="clinic__left-title">
-										<div class="clinic__title"><div style="color: #ff3c7c !important;width: 219px;border-bottom: 1.5px solid;padding: 0 0 8px 0;">Klinika Həkimləri (4)</div></div>
+										<div class="clinic__title"><div style="color: #ff3c7c !important;width: 219px;border-bottom: 1.5px solid;padding: 0 0 8px 0;">Klinika Həkimləri - {{clinic.doctors.all|length}}</div></div>
 
 
 
 
 
-                    <div class="search__checkboxes">
+                    <div class="search__checkboxes" style="float:left;">
 
                     <a class="search__checkbox link-departure" href="https://tapdoc.az/clinic/direction/desc">
                     <div class="checkbox">
@@ -1219,7 +1218,30 @@ dots[slideIndex-1].className += " w3-white";
                     <input class="checkbox__input need-dms-auth" type="checkbox" value="1" name="dms-policy" id="dms-policy" />			<label class="checkbox__label js-click-spinner" for="dms-policy">Evə Çağırış</label>
                     </div>
                     </a>
+                    <div class="search__checkbox link-departure">
+                      <div class="search__checkbox link-departure" >
+                      <div class="checkbox"  style="padding-top: 1px;">
+                      <input class="checkbox__input check" type="checkbox" value="3" name="kidsReception4" id="kidsReception4"/>			<label class="checkbox__label js-click-spinner"  style=" top: 0.5px; "
+                      for="kidsReception4"> <i class="fa fa-male" style="font-size: 18px;color:#0199F4;"></i></label>
+                      </div>
+                      </div>
 
+                      <div class="search__checkbox link-departure" >
+                      <div class="checkbox"  style="padding-top: 1px;">
+                      <input class="checkbox__input check" type="checkbox" value="3" name="kidsReception4" id="kidsReception5" />			<label class="checkbox__label js-click-spinner"  style=" top: 0.5px; "
+                      for="kidsReception5"> <i class="fa fa-female" style="font-size: 18px;color:#DD71E3;"></i></label>
+                      </div>
+                      </div>
+
+
+<script>
+$(document).ready(function(){
+    $('.check').click(function() {
+        $('.check').not(this).prop('checked', false);
+    });
+});
+
+</script>
 
 
                     <span class="dms-logo "></span>
@@ -1231,8 +1253,8 @@ dots[slideIndex-1].className += " w3-white";
 
 
 									</div>
-									<div class="clinic__select">
-										<div class="select select_sorting" data-block="select" style="float: right;margin: 56px -18px 0 0;">
+									<div class="clinic__select"  style="float:left; padding-right:0px;">
+										<div class="select select_sorting" data-block="select" style="float: right;margin: 10px 0 0 97px;">
 
                       <select>
                       <option value="1">İxtisaslar&nbsp;&nbsp;&nbsp;&nbsp;</option>
@@ -1254,7 +1276,7 @@ dots[slideIndex-1].className += " w3-white";
 						<div class="result-list schedule-load">
 
 
-              {% for doctor in clinic.doctors.all %}
+              {% for doctor in clinic.doctors.all|slice:":5" %}
 
 
 
@@ -1285,22 +1307,30 @@ dots[slideIndex-1].className += " w3-white";
               			<i class="fa fa-star" aria-hidden="true"></i>
               		</div>
               	</div>						<div class="clinic-card__rating-value">
-              							<a href="#">
-              																	5125 rəy															</a>
+              							<a href="{% url 'doctordetail' doctor.id %}">
+              																	{{ doctor.id|reviewscount }} rəy															</a>
               						</div>
               					</div>
               				</div>
               				<div class="clinic-card__info">
               					<a href="/doctor/5/detail" class="clinic-card__name">{{doctor.first_name}} {{doctor.last_name}}</a>
-              					<div class="clinic-card__type">Endokrinoloq Cərrah</div>
+              					<div class="clinic-card__type">{% for profession in doctor.professions.all %}{{profession.name}} {% endfor %}</div>
               					<div class="clinic-card__cost">
-              													Təcrübəsi - 12 il											</div><br>
-                                        <div style="margin: -17px 0 -7px 0;font-size: 12px;">Qəbula yazılma<span style="text-decoration: line-through;"> &nbsp; 50AZN</span> - <span style="border-bottom: 1.5px dotted #000;">30 AZN</span> <img style="margin: 0px 0 -5px 0;" src="/static/img/tag.png"></div>
+              													Təcrübəsi - {{doctor.tecrube}} il											</div><br>
+                                        <div style="margin: -17px 0 -7px 0;font-size: 12px;">Qəbula yazılma &nbsp; <span class="clinichover" style="text-decoration: line-through;">{{doctor.qebula_yazilma}}AZN</span>&nbsp;  <span style="font-weight: 700;border-bottom: 1.5px dotted #000;">
+                                          {% with endirim=doctor.qebula_yazilma|mul:doctor.qebula_yazilma_endirim_faiz|div:100 %}
+                                          {% with endirimli_qiymet=doctor.qebula_yazilma|sub:endirim %}
+                                                 {{ endirimli_qiymet|floatformat:"0" }}AZN
+                                              {% endwith %}
+                                              {% endwith %}
 
+
+
+
+                                        </span> <span class="doc__price-label">- {{doctor.qebula_yazilma_endirim_faiz}}%</span></div>
               					<div class="clinic-card__clinictext">
               								<div class="qebultext">Qəbula Yazılmaq Üçün:</div>
-                              <div class="qebulphone">(+994) 519-31-04</div>
-                              <div class="qebullast">Dünən bu mütəxəssisə 5 nəfər qəbula yazılıb</div>
+                              <div class="qebulphone" style=" font-weight: 600; ">{{doctor.contact_phone}}</div>
               					</div>
               				</div>
               			</div>
@@ -1322,7 +1352,7 @@ dots[slideIndex-1].className += " w3-white";
 
                                             <div class="clinic-card__clinic-address">
                                             <a href="javascript:void(0)">{{clinic.name}}</a><br>
-                                          <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
+                                          <span style="border-bottom: 1.5px dotted #000;line-height: 2;">{{clinic.address}}</span><br>
 
                                            <a class="clinic-card__metro" href="javascript:void(0)"><i><img src="/static/img/metro2.png">&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="javascript:void(0)"><i><img src="/static/img/metro1.png">&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
                                            </div>
@@ -1352,7 +1382,7 @@ dots[slideIndex-1].className += " w3-white";
 
 <div class="collapse" id="butunhekimler">
 
-
+  {% for doctor in clinic.doctors.all|slice:"5:" %}
 <div class="clinics-item result-card">
 <div class="clinic-card">
 <div class="clinic-card__inner">
@@ -1380,22 +1410,31 @@ dots[slideIndex-1].className += " w3-white";
 <i class="fa fa-star" aria-hidden="true"></i>
 </div>
 </div>						<div class="clinic-card__rating-value">
-<a href="#">
-                    5125 rəy															</a>
+<a href="{% url 'doctordetail' doctor.id %}">
+                    {{ doctor.id|reviewscount }} rəy															</a>
 </div>
 </div>
 </div>
 <div class="clinic-card__info">
 <a href="/doctor/7/detail" class="clinic-card__name">Selcan Məmmədli</a>
-<div class="clinic-card__type">Endokrinoloq Cərrah</div>
+<div class="clinic-card__type">{% for profession in doctor.professions.all %}{{profession.name}} {% endfor %}</div>
 <div class="clinic-card__cost">
             Təcrübəsi - 12 il											</div><br>
-            <div style="margin: -17px 0 -7px 0;font-size: 12px;">Qəbula yazılma<span style="text-decoration: line-through;"> &nbsp; 50AZN</span> - <span style="border-bottom: 1.5px dotted #000;">30 AZN</span> <img style="margin: 0px 0 -5px 0;" src="/static/img/tag.png"></div>
+            <div style="margin: -17px 0 -7px 0;font-size: 12px;">Qəbula yazılma &nbsp; <span class="clinichover" style="text-decoration: line-through;">{{doctor.qebula_yazilma}}AZN</span>&nbsp;  <span style="font-weight: 700;border-bottom: 1.5px dotted #000;">
+              {% with endirim=doctor.qebula_yazilma|mul:doctor.qebula_yazilma_endirim_faiz|div:100 %}
+              {% with endirimli_qiymet=doctor.qebula_yazilma|sub:endirim %}
+                     {{ endirimli_qiymet|floatformat:"0" }}AZN
+                  {% endwith %}
+                  {% endwith %}
+
+
+
+
+            </span> <span class="doc__price-label">- {{doctor.qebula_yazilma_endirim_faiz}}%</span></div>
 
 <div class="clinic-card__clinictext">
   <div class="qebultext">Qəbula Yazılmaq Üçün:</div>
-  <div class="qebulphone">(+994) 519-31-04</div>
-  <div class="qebullast">Dünən bu mütəxəssisə 5 nəfər qəbula yazılıb</div>
+  <div class="qebulphone" style=" font-weight: 600; ">{{doctor.contact_phone}}</div>
 </div>
 </div>
 </div>
@@ -1417,7 +1456,7 @@ dots[slideIndex-1].className += " w3-white";
 
                 <div class="clinic-card__clinic-address">
                 <a href="javascript:void(0)">{{clinic.name}}</a><br>
-              <span style="border-bottom: 1.5px dotted #000;line-height: 2;">Bakı ş. Fətəli Xan Xoyski küç. 53 </span><br>
+              <span style="border-bottom: 1.5px dotted #000;line-height: 2;">{{clinic.address}} </span><br>
 
                <a class="clinic-card__metro" href="javascript:void(0)"><i><img src="/static/img/metro2.png">&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="javascript:void(0)"><i><img src="/static/img/metro1.png">&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
                </div>
@@ -1431,14 +1470,17 @@ dots[slideIndex-1].className += " w3-white";
 </div>
 </div>
 </div>
+{% endfor %}
 </div>
 <div style="text-align: center;margin: 11px 0 0 0;">
-<a id="butunhekimlers" class="" data-toggle="collapse" href="#butunhekimler" role="button" aria-expanded="false" aria-controls="butunhekimler">Digər Həkimlər (3)</a>
-
+  {% if clinic.doctors.all.count > 5 %}
+<a id="butunhekimlers" class="" data-toggle="collapse" href="#butunhekimler" role="button" aria-expanded="false" aria-controls="butunhekimler">Digər Həkimlər ({{clinic.doctors.all.count}})</a>
+{% else %}
+{% endif %}
   <script>
   $('#butunhekimlers').click(function(){
       $(this).text(function(i,old){
-          return old=='Digər Həkimlər (3)' ?  'Bağla' : 'Digər Həkimlər (3)';
+          return old=='Digər Həkimlər ({{clinic.doctors.all.count}})' ?  'Bağla' : 'Digər Həkimlər ({{clinic.doctors.all.count}})';
       });
   });</script>
 

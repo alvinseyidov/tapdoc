@@ -240,6 +240,25 @@ color: #7d7d7d;
   color:#004f83 !important;
 }
 
+
+
+@media (min-width: 992px){
+.procedure-sections__subsection-list {
+    width: 780px;
+    margin-left: -18px;
+}}
+
+
+.procedures__price-table>tbody>tr>td {
+    border-top: none !important;
+}
+
+
+@media (min-width: 768px){
+.procedures__price-header {
+    margin-bottom: 13px;
+    margin-top: 19px;
+}}
 </style>
 </head>
 
@@ -537,28 +556,28 @@ color: #7d7d7d;
          </li>
       </ul>
    </div>
-
-
    <div class="procedure-sections__subsection-list">
       <h1 class="procedure-sections__title">Xidmətlərin Siyahısı</h1>
       <br>
-      {% for x in diaqnostikagrouplar %}
-      <div class="procedure__section">
-            <div class="procedure__section-subsection">
-               <a class="procedure__section-subsection-title" href="{% url 'xidmetlerdiaqspecific' x.id %}">{{x.group_name}}</a>
-               <ul class="procedures__list">
-                {% for y in x.diaqnostikalar.all %}
-                  <li class="procedures__list-item"><a href="{% url 'diaqnostikaspecific' y.id %}" class="procedures__list-link">{{y.name}}</a></li>
-                    {% endfor %}
-               </ul>
-            </div>
-      </div>
+
+      <div class="procedure-sections__subsection-list">
+        <div class="procedures__price-header">Qiymətlər</div>
+   <table class="table procedures__price-table">
+      <tbody>
+      {% for x in xidmetdiaqnostikagroup.xidmetler.all %}
+      {% if x.qiymetler.all %}
+         <tr>
+            <td><a href="{% url 'clinicsspecific' x.id %}">{{x}}</a></td>
+            <td class="procedures__price-table-col-price"><a href="/services/astana/3d-uzi-ploda" class="procedures__price-text">{% for y in x.qiymetler.all|slice:":1" %} {{y.qiymet}}{% endfor %} AZN</a></td>
+         </tr
+      {% else %}
+      {% endif %}
       {% endfor %}
-
-
-
-
+      </tbody>
+   </table>
    </div>
+
+       </div>
 </div>
 
 

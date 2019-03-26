@@ -13,7 +13,7 @@ def clinicprofile(request, id):
     for xidmetlermovcud in xidmetlerprices:
         groupsums.append(xidmetlermovcud.xidmet.service_group)
     xidmetlerlist = list(set(groupsums))
-
+ 
     diaqnostikalarprices = DiaqnostikalarPrices.objects.filter(klinika=clinic)
     diaqnostikalargroup = DiaqnostikalarGroup.objects.all()
     groupsums2 = []
@@ -137,7 +137,7 @@ def clinicsspecific(request, id):
     paginator = Paginator(clinics_list,3)
     page = request.GET.get('page')
     clinics = paginator.get_page(page)
-    xidmetler = Xidmatlar.objects.all() 
+    xidmetler = Xidmatlar.objects.all()
     context = {
         "clinics": clinics,
         "clinicsall": clinicsall,

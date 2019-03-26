@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'clinic',
     'accounts',
     'service',
+    'diaqnostika',
     'mathfilters',
     'crispy_forms',
     'ckeditor',
