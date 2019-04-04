@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-19 17:48-0700\n"
+"POT-Creation-Date: 2019-04-03 18:19-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,14 +19,468 @@ msgstr ""
 "10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%"
 "100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\tapdoc\settings.py:116
+#: .\tapdoc\settings.py:118
 msgid "English"
 msgstr ""
 
-#: .\tapdoc\settings.py:117
+#: .\tapdoc\settings.py:119
 msgid "Russian"
 msgstr ""
 
+#: .\templates\doctor.html:593 .\templates\doctor.html:792
+msgid "Ana Səhifə"
+msgstr "Главная"
+
+#: .\templates\doctor.html:703 .\templates\doctor.html:797
+#: .\templates\doctor.html:944 .\templates\footer-main.html:23
+msgid "Həkimlər"
+msgstr "Врачи"
+
+#: .\templates\doctor.html:718 .\templates\index.html:361
+msgid "Metro"
+msgstr "Метро"
+
+#: .\templates\doctor.html:718
+msgid "metro"
+msgstr "Метро"
+
+#: .\templates\doctor.html:726 .\templates\index.html:366
+#: .\templates\index.html:587
+msgid "Axtarış"
+msgstr "Поиск"
+
+#: .\templates\doctor.html:742
+msgid "Uşaq Həkimi"
+msgstr "Детский врач"
+
+#: .\templates\doctor.html:748
+msgid "Evə Çağırış"
+msgstr "Выезд на дом"
+
+#: .\templates\doctor.html:755
+msgid "Sığorta"
+msgstr "По страховке"
+
+#: .\templates\doctor.html:798 .\templates\footer-main.html:24
+msgid "Klinikalar"
+msgstr "Клиники"
+
+#: .\templates\doctor.html:799 .\templates\footer-main.html:25
+msgid "Diaqnostika"
+msgstr "Диагностикии"
+
+#: .\templates\doctor.html:800 .\templates\footer-main.html:26
+msgid "Xidmətlər"
+msgstr "Услуги"
+
+#: .\templates\doctor.html:812 .\templates\index.html:624
+msgid "Həkim İxtisasları"
+msgstr "Cпециальности врачей"
+
+#: .\templates\doctor.html:949
+msgid ""
+"Yaxşı həkim - geniş profilli mütəxəssisdir, hansı ki sizin simptonlarınıza "
+"əsaslanır, dəqiq diaqnoz qoyur və effektiv müalicə təyin edir."
+msgstr ""
+"Хороший врач - это специалист широкого профиля, который основываясь на ваших "
+"симптомах, поставит верный диагноз и назначит результативное лечение."
+
+#: .\templates\doctor.html:949
+msgid ""
+"Bizim portalda siz Bakı ərazisində ən yaxşı həkimləri tapa bilərsiniz və "
+"endirimli qiymətlərlə qəbula yazıla bilərsiniz."
+msgstr ""
+"На нашем портале вы можете выбрать врача из лучших клиник Баку и получить "
+"скидку до 50%% на приём."
+
+#: .\templates\doctor.html:951
+msgid ""
+"Əgər sizə yaxşı həkim lazımdırsa, və sizin qiymətləri müqayisə etmək üçün "
+"klinikalara zəng etməyə vaxtınız yoxdursa, tapdoc.az bu problemləri həll "
+"etmək üçün xidmətinizdədir."
+msgstr ""
+"Если Вам нужен хороший врач, но у вас нет времени самостоятельно сравнивать "
+"цены и обзванивать клиники, лучшие платные врачи города Москвы всегда к "
+"вашим услугам на TapDoc.ru."
+
+#: .\templates\doctor.html:952
+msgid "Daha Çox"
+msgstr "Свернуть"
+
+#: .\templates\doctor.html:977
+msgid "Populyarlıq"
+msgstr "Популярные"
+
+#: .\templates\doctor.html:978
+msgid "Reyting"
+msgstr "Рейтинг"
+
+#: .\templates\doctor.html:979
+msgid "Staj"
+msgstr "Стаж"
+
+#: .\templates\doctor.html:980
+msgid "Qiymət"
+msgstr "Цена"
+
+#: .\templates\doctor.html:981
+msgid "Rəylər"
+msgstr "Отзывы"
+
+#: .\templates\doctor.html:982
+msgid "Tezliklə aktiv olacaq"
+msgstr "Скоро будет активным"
+
+#: .\templates\doctor.html:1096
+msgid "rəy"
+msgstr "отзывов"
+
+#: .\templates\doctor.html:1104
+msgid "Təcrübəsi"
+msgstr "Стаж"
+
+#: .\templates\doctor.html:1105
+msgid "Qəbula yazılma"
+msgstr "Запись на приём"
+
+#: .\templates\doctor.html:1118
+msgid "Qəbula Yazılmaq Üçün"
+msgstr "Для записи на приём"
+
+#: .\templates\doctor.html:1139 .\templates\doctor.html:1197
+msgid "Həkim bir neçə klinikada fəaliyyət göstərir."
+msgstr "Врач принемает в нескольких клиниках."
+
+#: .\templates\doctor.html:1173
+msgid ""
+"Bu klinikada hal-hazırda onlayn qeydiyyat yoxdur. Qəbula yazılmaq üçün "
+"müraciət edin, sizinlə 10 dəq ərzində əlaqə saxlanılacaq."
+msgstr ""
+"В этой клиники у врача нет онлайн расписания. Оставте заявку на запись, мы "
+"перезвоним вам в течение 10 минут."
+
+#: .\templates\doctor.html:1176 .\templates\doctor.html:1312
+msgid "Müraciət"
+msgstr "ЗАПИСЬ"
+
+#: .\templates\footer-main.html:8
+msgid "XIDMƏTLƏR"
+msgstr "УСЛУГИ"
+
+#: .\templates\footer-main.html:10
+msgid "Haqqımızda"
+msgstr "О нас"
+
+#: .\templates\footer-main.html:11
+msgid "Vakansiyalar"
+msgstr "Вакансии"
+
+#: .\templates\footer-main.html:12
+msgid "Press"
+msgstr "Пресс"
+
+#: .\templates\footer-main.html:13
+msgid "Komandamız"
+msgstr "Команда"
+
+#: .\templates\footer-main.html:14
+msgid "Əlaqə"
+msgstr "Контакты"
+
+#: .\templates\footer-main.html:15
+msgid "FAQ"
+msgstr "FAQ"
+
+#: .\templates\footer-main.html:16
+msgid "Saytın Xəritəsi"
+msgstr "Карта сайта"
+
+#: .\templates\footer-main.html:17
+msgid "Razılaşmalar"
+msgstr "Соглашение"
+
+#: .\templates\footer-main.html:21
+msgid "XƏSTƏLƏR ÜÇÜN"
+msgstr "ПАЦИЕНТУ"
+
+#: .\templates\footer-main.html:27
+msgid "Tibbi Kitabxanalar"
+msgstr "Медицинская библиотека"
+
+#: .\templates\footer-main.html:28
+msgid "Xəstəliklər"
+msgstr "Болезнь"
+
+#: .\templates\footer-main.html:29
+msgid "Endirim Aksiyalar"
+msgstr "Согласие на обработку персональных данных"
+
+#: .\templates\footer-main.html:30
+msgid "Güvənirlik"
+msgstr "Справочник заболеваний"
+
+#: .\templates\footer-main.html:31
+msgid "Şəxsi Məlumatların Qorunulması"
+msgstr "Конфиденциальность"
+
+#: .\templates\footer-main.html:36
+msgid "HƏKIM VƏ KLINIKALAR"
+msgstr "ВРАЧУ И КЛИНИКЕ"
+
+#: .\templates\footer-main.html:38 .\templates\footer-main.html:45
+#: .\templates\index.html:317
+msgid "Şəxsi Kabinet"
+msgstr "Личный кабинет"
+
+#: .\templates\footer-main.html:39 .\templates\index.html:324
+msgid "Qeydiyyat"
+msgstr "Регистрация"
+
+#: .\templates\footer-main.html:43
+msgid "PARTNYORLAR"
+msgstr "ПАРТНЁРАМ"
+
+#: .\templates\footer-main.html:46
+msgid "Partnyorluq Programı"
+msgstr "Партнёрская программа"
+
+#: .\templates\footer-main.html:55
+msgid "Bizə Yazın"
+msgstr "Пишите нам"
+
+#: .\templates\footer-main.html:56
+msgid "Bizə zəng"
+msgstr "Звоните нам"
+
+#: .\templates\index.html:311
+msgid "Kömək lazımdır?"
+msgstr "Нужна помощь"
+
+#: .\templates\index.html:311
+msgid "Zəng Edin!"
+msgstr "Звоните"
+
+#: .\templates\index.html:320
+msgid "Profilim"
+msgstr "Личный кабинет"
+
+#: .\templates\index.html:321
+msgid "Çıxış"
+msgstr "Выход"
+
+#: .\templates\index.html:323
+msgid "Giriş"
+msgstr "Вход"
+
 #: .\templates\index.html:337
 msgid "Həkim Axtarın"
-msgstr "Поиск Врачей"
+msgstr "Найдите проверенного врача и запишитесь на приём"
+
+#: .\templates\index.html:351
+msgid "Həkim"
+msgstr "Врач"
+
+#: .\templates\index.html:351
+msgid "Klinika"
+msgstr "клиника"
+
+#: .\templates\index.html:351
+msgid "Xidmət"
+msgstr "услуга"
+
+#: .\templates\index.html:361
+msgid "rayon"
+msgstr "район"
+
+#: .\templates\index.html:449
+msgid "Bütün Həkimlər"
+msgstr "Все Врачи"
+
+#: .\templates\index.html:456
+msgid "Bütün Klinikalar"
+msgstr "Все Клиники"
+
+#: .\templates\index.html:463
+msgid "Tibbi Sığorta"
+msgstr "По страховому полису"
+
+#: .\templates\index.html:470
+msgid "Tibbi"
+msgstr "Все"
+
+#: .\templates\index.html:470
+msgid "Diaqnostikalar"
+msgstr "Диагностики"
+
+#: .\templates\index.html:477
+msgid "Tibbi Xidmətlər"
+msgstr "Медицинские Услуги"
+
+#: .\templates\index.html:503
+msgid "Niyə Tapdoc bu qədər yaxşıdır"
+msgstr "Почему пользоваться TapDoc так здорово"
+
+#: .\templates\index.html:506
+msgid "Ən Gerçək Rəylər"
+msgstr "Настоящие отзывы"
+
+#: .\templates\index.html:507
+msgid "Uyğun Zamana Yazıl"
+msgstr "Запись на удобное время"
+
+#: .\templates\index.html:508
+msgid "Sizə Yaxın Həkimlər"
+msgstr "Врачи рядом с вами"
+
+#: .\templates\index.html:513
+msgid ""
+"Həkimlərin reytinqi yalnız xəstələrin yoxlanılmış rəyləri üzərində qurulub"
+msgstr "Рейтинг врача основан на проверенных отзывах его пациентов"
+
+#: .\templates\index.html:516
+msgid ""
+"Həkimlər haqqında rəylər, yalnız qəbulda olan xəstələr tərəfindən yazılır"
+msgstr ""
+"Мы публикуем отзывы о враче только от его пациентов, побывавших на приеме"
+
+#: .\templates\index.html:524
+msgid "Bir neçə kliklə qəbula yazıl "
+msgstr "Записывайтесь на свободное время в два клика"
+
+#: .\templates\index.html:527
+msgid "Qəbul gününü və saatını siz özünüz seçin "
+msgstr "Выбирайте удобный день и время приема"
+
+#: .\templates\index.html:535
+msgid "Xəritədə sizə yaxın həkimi tapa bilərsiniz"
+msgstr "Поиск врачей поблизости от вашего местоположения"
+
+#: .\templates\index.html:538
+msgid "Bakı ərazisində 100-dən çox klinika burada"
+msgstr "Сотни клиник в Баку и в других регионах"
+
+#: .\templates\index.html:556
+msgid "Etibarlı həkimlər telefonunuzda."
+msgstr "Проверенные врачи у вас в телефоне"
+
+#: .\templates\index.html:558
+msgid "Sizə yaxın olan həkimləri tapmaq rahatdır"
+msgstr "Легко найти врача неподалёку от вас"
+
+#: .\templates\index.html:559
+msgid "Rahat mobil tətbiq hər zaman əlinizin altında"
+msgstr "Удобное приложение, всегда под рукой"
+
+#: .\templates\index.html:560
+msgid "Bir toxunuşla həkim qəbuluna yazılın"
+msgstr "Записывайтесь к врачу в одно касание"
+
+#: .\templates\index.html:574
+msgid "Sığortanız Varmı?"
+msgstr "Есть страховой полис?"
+
+#: .\templates\index.html:575
+msgid "TapDocda siğorta paketində olan həkimləri seçin və qəbuluna yazilin"
+msgstr ""
+"Выбирайте на TapDoc проверенных врачей, которые входят в вашу программу "
+"страхования."
+
+#: .\templates\index.html:579
+msgid "Sığorta şirkəti"
+msgstr "Страховая компания"
+
+#: .\templates\index.html:586
+msgid "Sığorta nömrəniz"
+msgstr "Номер страховки"
+
+#: .\templates\index.html:586
+msgid "Soyad"
+msgstr "Фамилия"
+
+#: .\templates\index.html:595
+msgid "Tez-tez verilən suallar"
+msgstr "Ответы на частые вопросы"
+
+#: .\templates\index.html:598
+msgid "TapDoc-da həkim qəbuluna yazılmaq, klinikada yazılmaqdan bahadır?"
+msgstr "Записываться на TapDoc дороже, чем в клинике?"
+
+#: .\templates\index.html:599
+#, python-format
+msgid ""
+"Xeyr, TapDoc-da olan qiymətlər klinikada olan qiymətlərnən arasında heç bir "
+"fərq yoxdur. Hətta, Tapdoc vasitəsiylə yazilmaq daha ucuzdur. Bizdə siz 10-"
+"50%% endirimlə yazıla bilərsiz."
+msgstr ""
+"Нет, цены на TapDoc не отличаются от цен в клиниках. Более того, во многие "
+"клиники записаться через TapDoc даже дешевле, чем по телефону медицинского "
+"центра. Максимальная скидка до 50%%. Нет, цены на TapDoc не отличаются от "
+"цен в клиниках. Более того, во многие клиники записаться через TapDoc даже "
+"дешевле, чем по телефону медицинского центра. Максимальная скидка до 50%%"
+
+#: .\templates\index.html:602
+msgid "Qəbula necə yazılmaq olar?"
+msgstr "Как записаться на приём?"
+
+#: .\templates\index.html:603
+msgid ""
+"Sizə uyğun tarix və vaxtı seçərək online vasitəsiylə yazılın. Əgər hər "
+"hansisa çətinlik yaranarsa bizimlə əlaqə nomrəmizlə saxlayın və bizim "
+"operatorlar sizə kömək edəcək."
+msgstr ""
+"Выберите удобную дату и время приема и запишитесь на прием онлайн. Если вам "
+"сложно выбрать врача самостоятельно, позвоните нам по телефону +994 ХХ ХХ и "
+"операторы вам помогут."
+
+#: .\templates\index.html:606
+msgid "Tapdoc servisin qiymət haqqi nəqədərdir?"
+msgstr "Сколько стоят услуги сервиса TapDoc?"
+
+#: .\templates\index.html:607
+msgid ""
+"Bizim servis sizlər üçün tamamilə pulsuzdur. Siz yalniz klinikaya və ya "
+"diagnostik mərkəzlərinə olan xidmət haqqi ödənişini edirsiniz."
+msgstr ""
+"Вы пользуетесь нашим сервисом бесплатно. Оплачивается только стоимость "
+"приема или диагностики в клинике."
+
+#: .\templates\index.html:610
+msgid "Həkim qəbuluna necə ödeniş olunur?"
+msgstr "Как оплачивается приём врача?"
+
+#: .\templates\index.html:611
+msgid ""
+"Həkim qəbuluna klinikada ödənilir. Tapdoc saytında hec bir əməliyyata görə "
+"ödəniş yoxdur."
+msgstr ""
+"Прием врача оплачивается в клинике. На сайте TapDoc ничего оплачивать не "
+"нужно."
+
+#: .\templates\index.html:614
+msgid "Tapdoc- klinikadir?"
+msgstr "TapDoc это – клиника?"
+
+#: .\templates\index.html:615
+msgid ""
+"Xeyir, Tapdoc – servisdir. Hansıki sizə uyğun olan klinikanın tapmağinda "
+"kömək edər və uyğun olan həkimə yazılmaqda kömək edər."
+msgstr ""
+"Нет, TapDoc — это сервис, который поможет вам найти подходящую клинику и "
+"записаться на прием к хорошему врачу."
+
+#: .\templates\index.html:641
+msgid "Həkim axtarışında köməklik"
+msgstr "Поможем найти врача"
+
+#: .\templates\index.html:643
+msgid "Bu nömrə ilə bizimlə əlaqə saxlayın"
+msgstr "Cвяжитесь с нами по телефону"
+
+#: .\templates\index.html:644
+msgid ""
+"və ya oz əlaqə nomrənizi yazin biz sizinlə 10 dəq ərzində əlaqəyə çıxacayıq."
+msgstr "или оставьте свой номер и мы вам перезвоним в течение 10 минут"
+
+#: .\templates\index.html:650
+msgid "MƏNƏ ZƏNG ET"
+msgstr "ПОЗВОНИТЕ МНЕ"

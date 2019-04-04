@@ -160,7 +160,7 @@
     z-index: 1;
 }
 .dropdowndil {
-    margin: 22px 0 0 -101px;
+    margin:22px 0 0 4px;
 }
 .dropdown-contentdil a {
     float: none;
@@ -314,15 +314,15 @@ height: 54px;
                                     +994 (051) 623-66-51                                </span>
             </div>
             <div class="dropdownmyp">
-              <span>Şəxsi Kabinet</span>
+              <span>{% trans 'Şəxsi Kabinet' %}</span>
               <div class="dropdown-contentmyp">
-              {% if user.is_authenticated %}
-                <p><a href="{% url 'account' %}">Profilim</a></p>
-                <p><a href="{% url 'logout' %}">Çıxış</a></p>
-              {% else %}
-              <p><a href="{% url 'login' %}">Daxil Ol</a></p>
-              <p><a href="{% url 'signup' %}">Qeydiyyat</a></p>
-              {% endif %}
+                {% if user.is_authenticated %}
+                    <p><a href="{% url 'account' %}">{% trans 'Profilim' %}</a></p>
+                    <p><a href="{% url 'logout' %}">{% trans 'Çıxış' %}</a></p>
+                  {% else %}
+                  <p><a href="{% url 'login' %}">{% trans 'Giriş' %}</a></p>
+                  <p><a href="{% url 'signup' %}">{% trans 'Qeydiyyat' %}</a></p>
+                  {% endif %}
               </div>
             </div>
           </aside>
@@ -334,7 +334,7 @@ height: 54px;
     <section class="main">
       <div class="main__section main__section_intro main__section_new_screen">
         <div style="margin: auto;" class="container">
-          <h2 class="search__title" style="color:white;">{% trans 'Həkim Axtarın'%}</h2>
+           <h2 class="search__title" style="color:white;">{% trans 'Həkim Axtarın' %}</h2>
           <div class="search">
             <div class="forms">
               <form id="searchForm" class="forms__form search_form" method="get" action="{% url 'doctor' %}">
@@ -348,7 +348,7 @@ height: 54px;
                                                class="forms__input search__input js-suggest-search-new"
                                                name="q"
                                                autocomplete="off"
-                                               placeholder="Həkim, Klinika, Xidmət"
+                                               placeholder="{% trans 'Həkim' %}, {% trans 'Klinika' %}, {% trans 'Xidmət' %}"
                                                value="" />
                           <button class="search__button"><i class="fa fa-search"></i></button>
                         </div>
@@ -358,12 +358,12 @@ height: 54px;
                                                class="forms__input search__input js-suggest-search-new"
                                                name="q"
                                                autocomplete="off"
-                                               placeholder="Rayon, Metro"
+                                               placeholder="{% trans 'Metro' %}, {% trans 'rayon' %} "
                                                value=""
                                                list="xidmetler"/>
                         </div>
                         <div class="search__field search__field_button">
-                          <button class="button button_search forms__button" type="submit">Axtarış</button>
+                          <button class="button button_search forms__button" type="submit">{% trans 'Axtarış' %}</button>
                         </div>
                       </div>
                       <!--<div class="search__note">
@@ -446,35 +446,35 @@ height: 54px;
                 <li class="suggested-features-showcase__item">
                   <a href="{% url 'doctor'%}">
 							<header class="suggested-feature__header">
-								<div class="suggested1"><p class="suggested-feature__description">Bütün Həkimlər</p></div>
+								<div class="suggested1"><p class="suggested-feature__description">{% trans 'Bütün Həkimlər' %}</p></div>
 							</header>
 						</a>
                 </li>
                 <li class="suggested-features-showcase__item">
                   <a href="{% url 'clinic'%}">
 								<header class="suggested-feature__header">
-									<div class="suggested2"><p class="suggested-feature__description">Bütün Klinikalar</p></div>
+									<div class="suggested2"><p class="suggested-feature__description">{% trans 'Bütün Klinikalar' %}</p></div>
 								</header>
 							</a>
                 </li>
                 <li class="suggested-features-showcase__item">
                   <a href="#insurance">
 							<header class="suggested-feature__header">
-								<div class="suggested3"><p class="suggested-feature__description" style="margin: 10px 0px 0px;padding: 74px 0 0 0;"><br>Tibbi Sığorta</p></div>
+								<div class="suggested3"><p class="suggested-feature__description" style="margin: 10px 0px 0px;padding: 74px 0 0 0;"><br>{% trans 'Tibbi Sığorta' %}</p></div>
 							</header>
 						</a>
                 </li>
                 <li class="suggested-features-showcase__item">
                   <a href="{% url 'diaqnostika' %}">
               <header class="suggested-feature__header">
-                <div class="suggested5"><p class="suggested-feature__description" style="    margin-left: -48px;    margin-right: -57px;">Tibbi <br>Diaqnostikalar</p></div>
+                <div class="suggested5"><p class="suggested-feature__description" style="    margin-left: -48px;    margin-right: -57px;">{% trans 'Tibbi' %} <br>{% trans 'Diaqnostikalar' %}</p></div>
               </header>
               </a>
                 </li>
                 <li class="suggested-features-showcase__item">
                   <a href="{% url 'xidmetler' %}">
 							<header class="suggested-feature__header">
-								<div class="suggested4"><p class="suggested-feature__description">Tibbi Xidmətlər</p></div>
+								<div class="suggested4"><p class="suggested-feature__description">{% trans 'Tibbi Xidmətlər' %}</p></div>
 							</header>
 						</a>
                 </li>
@@ -500,20 +500,20 @@ height: 54px;
             </div>
           </div>
           <div class="benefits__inner">
-            <div class="main__title">Niyə Tapdoc bu qədər rahatdır?</div>
+            <div class="main__title">{% trans 'Niyə Tapdoc bu qədər yaxşıdır' %}?</div>
             <div class="benefits__tabs">
               <div class="benefits__buttons">
-                <div class="benefits__button"><a class="active" data-rel="benefits_1" href="#">Ən Gerçək Rəylər</a></div>
-                <div class="benefits__button"><a data-rel="benefits_2" href="#">Uyğun Vaxtda Yazıl</a></div>
-                <div class="benefits__button"><a data-rel="benefits_3" href="#">Sizə Yaxın Həkimlər</a></div>
+                <div class="benefits__button"><a class="active" data-rel="benefits_1" href="#">{% trans 'Ən Gerçək Rəylər' %}</a></div>
+                <div class="benefits__button"><a data-rel="benefits_2" href="#">{% trans 'Uyğun Zamana Yazıl' %}</a></div>
+                <div class="benefits__button"><a data-rel="benefits_3" href="#">{% trans 'Sizə Yaxın Həkimlər' %}</a></div>
               </div>
               <div class="benefits__content">
                 <div class="benefits__tab active" data-tab="benefits_1">
                   <div class="benefits__note benefits__note_1">
-                    Həkimlər haqqında xəstələr tərəfində yazılmış rəylər
+                    {% trans 'Həkimlərin reytinqi yalnız xəstələrin yoxlanılmış rəyləri üzərində qurulub' %}
                   </div>
                   <div class="benefits__note benefits__note_2">
-                    Yazılan rəylər yalnız həkimin öz xəstələri tərəfindən yazılıb
+                    {% trans 'Həkimlər haqqında rəylər, yalnız qəbulda olan xəstələr tərəfindən yazılır' %}
                   </div>
                   <div class="benefits__img">
                     <img src="{% static 'img/choose1.png' %}" />
@@ -521,10 +521,10 @@ height: 54px;
                   </div>
                   <div class="benefits__tab" data-tab="benefits_2">
                     <div class="benefits__note benefits__note_3">
-                      Bir neçə klikə qəbula yazıl
+                      {% trans 'Bir neçə kliklə qəbula yazıl ' %}
                     </div>
                     <div class="benefits__note benefits__note_4">
-                      Vaxtını və saatınız siz özünüz seçin
+                      {% trans 'Qəbul gününü və saatını siz özünüz seçin ' %}
                     </div>
                     <div class="benefits__img">
                       <img src="{% static 'img/choose22.png' %}" />
@@ -532,10 +532,10 @@ height: 54px;
                     </div>
                     <div class="benefits__tab" data-tab="benefits_3">
                       <div class="benefits__note benefits__note_5">
-                        Xəritədə sizə yaxın istənilən həkimi tapa bilərsiniz
+                      {% trans 'Xəritədə sizə yaxın həkimi tapa bilərsiniz' %}
                       </div>
                       <div class="benefits__note benefits__note_6">
-                        Bakı ərazisində 100-dən çox klinikalar burada
+                        {% trans 'Bakı ərazisində 100-dən çox klinika burada' %}
                       </div>
                       <div class="benefits__img">
                         <img src="{% static 'img/choose3_moscow.png' %}" />
@@ -553,11 +553,11 @@ height: 54px;
                     <img src="{% static 'img/apps.png' %}" alt="" />
 				</div>
                     <div class="apps__right">
-                      <div class="apps__title">Bütün həkim və klinikalar telefonunuzda əlçatandır.</div>
+                      <div class="apps__title">{% trans 'Etibarlı həkimlər telefonunuzda.' %}</div>
                       <ul class="apps__list">
-                        <li>Sizə yaxın olan həkimləri tapmaq rahatdır</li>
-                        <li>İstifadəsi rahatdır, hər zaman istifadə edə bilərsiniz</li>
-                        <li>Bir neçə toxunuşla qəbula yazılın</li>
+                        <li>{% trans 'Sizə yaxın olan həkimləri tapmaq rahatdır' %}</li>
+                        <li>{% trans 'Rahat mobil tətbiq hər zaman əlinizin altında' %}</li>
+                        <li>{% trans 'Bir toxunuşla həkim qəbuluna yazılın' %}</li>
                       </ul>
                       <div class="apps__buttons">
                         <a href="https://itunes.apple.com/us/app/id1198631120?utm_content=tapdoc.azmain" target="_blank" class="apps__button apps__button_apple"></a>
@@ -571,20 +571,20 @@ height: 54px;
                 <div class="insurance">
                   <div class="insurance__container">
                     <div class="insurance__left">
-                      <div class="insurance__title">Sığortanız Varmı?</div>
-                      <div class="insurance__text">Tapdocda Sığorta paketində olan həkimləri seçin və qəbuluna yazilin.</div>
+                      <div class="insurance__title">{% trans 'Sığortanız Varmı?' %}</div>
+                      <div class="insurance__text">{% trans 'TapDocda siğorta paketində olan həkimləri seçin və qəbuluna yazilin' %}</div>
                     </div>
                     <div class="insurance__right">
                       <form class="js-dms-form" data-error="" action="https://tapdoc.az/lca/auth" method="get"> <select required name="companyId" id="companyId">
-					<option value="" disabled selected hidden>Şirkət</option>
+					<option value="" disabled selected hidden>{% trans 'Sığorta şirkəti' %}</option>
 											<option value="2">Xalq Sığorta</option>
                       <option value="12">Standart Insurence</option>
                       <option value="12">Mega Sığorta</option>
                       <option value="12">Atəşgah Sığorta</option>
                       <option value="12">A-Group Sığorta</option>
                       																			</select>
-                        <input placeholder="İd nömrəniz" required="required" maxlength="35" type="text" value="" name="number" id="number" /> <input placeholder="Soyad" required="required" maxlength="35" type="text" value="" name="lastName" id="lastName" />
-                        <input class="button button_insurance" type="submit" name="yt0" value="Axtarın" />				</form>
+                        <input placeholder="{% trans 'Sığorta nömrəniz' %}" required="required" maxlength="35" type="text" value="" name="number" id="number" /> <input placeholder="{% trans 'Soyad' %}" required="required" maxlength="35" type="text" value="" name="lastName" id="lastName" />
+                        <input class="button button_insurance" type="submit" name="yt0" value="{% trans 'Axtarış' %}" />				</form>
                     </div>
                   </div>
                 </div>
@@ -592,32 +592,27 @@ height: 54px;
               <div class="main__section main__section_faq">
                 <div class="faq">
                   <div class="faq__inner">
-                    <div class="main__title">Tez-tez verilən suallar</div>
+                    <div class="main__title">{% trans 'Tez-tez verilən suallar' %}</div>
                     <div class="faq__items">
                       <div class="faq__item active">
-                        <span class="js-main-question main-question-title">Tapdoc`da həkim qəbuluna yazilmaq, klinikada yazilmaqdan bahadir?</span>
-                        <div class="faq__text">Xeyir, Tapdoc`da olan qiymətlər klinikada olan qiymətlərnən arasında heç bir fərq yoxdur.
-                          Hətta, Tapdoc vasitəsiylə yazilmaq daha ucuzdur. Bizdə siz 10-50%
-                          endirimlə yazıla bilərsiz.</div>
+                        <span class="js-main-question main-question-title">{% trans 'TapDoc-da həkim qəbuluna yazılmaq, klinikada yazılmaqdan bahadır?' %}</span>
+                        <div class="faq__text">{% trans 'Xeyr, TapDoc-da olan qiymətlər klinikada olan qiymətlərnən arasında heç bir fərq yoxdur. Hətta, Tapdoc vasitəsiylə yazilmaq daha ucuzdur. Bizdə siz 10-50% endirimlə yazıla bilərsiz.' %}</div>
                       </div>
                       <div class="faq__item">
-                        <span class="js-main-question main-question-title">Qəbula necə yazilmaq olar?</span>
-                        <div class="faq__text">Sizə uyğun tarix və vaxtı seçərək online vasitəsiylə yazılın. Əgər hər hansisa çətinlik yaranarsa
-                          bizimlə əlaqə nomrəmizlə saxlayın və bizim operatorlar sizə kömək edəcək.</div>
+                        <span class="js-main-question main-question-title">{% trans 'Qəbula necə yazılmaq olar?' %}</span>
+                        <div class="faq__text">{% trans 'Sizə uyğun tarix və vaxtı seçərək online vasitəsiylə yazılın. Əgər hər hansisa çətinlik yaranarsa bizimlə əlaqə nomrəmizlə saxlayın və bizim operatorlar sizə kömək edəcək.' %}</div>
                       </div>
                       <div class="faq__item">
-                        <span class="js-main-question main-question-title">Tapdoc servisin qiymət haqqi nəqədərdir?</span>
-                        <div class="faq__text">Bizim servis sizlər üçün tamamilə pulsuzdur. Siz yalniz klinikaya və ya diagnostik mərkəzlərinə
-                          Olan xidmət haqqi ödənişini edirsiniz.</div>
+                        <span class="js-main-question main-question-title">{% trans 'Tapdoc servisin qiymət haqqi nəqədərdir?' %}</span>
+                        <div class="faq__text">{% trans 'Bizim servis sizlər üçün tamamilə pulsuzdur. Siz yalniz klinikaya və ya diagnostik mərkəzlərinə olan xidmət haqqi ödənişini edirsiniz.' %}</div>
                       </div>
                       <div class="faq__item">
-                        <span class="js-main-question main-question-title">Həkim qəbuluna necə ödeniş olunur?</span>
-                        <div class="faq__text">Həkim qəbuluna klinikada ödənilir. Tapdoc saytında hec bir əməliyyata görə ödəniş yoxdur.</div>
+                        <span class="js-main-question main-question-title">{% trans 'Həkim qəbuluna necə ödeniş olunur?' %}</span>
+                        <div class="faq__text">{% trans 'Həkim qəbuluna klinikada ödənilir. Tapdoc saytında hec bir əməliyyata görə ödəniş yoxdur.' %}</div>
                       </div>
                       <div class="faq__item">
-                        <span class="js-main-question main-question-title">Tapdoc- klinikadir?</span>
-                        <div class="faq__text">Xeyir, Tapdoc – servisdir. Hansıki sizə uyğun olan klinikanın tapmağinda kömək edər və uyğun
-                          olan həkimə yazılmaqda kömək edər.</div>
+                        <span class="js-main-question main-question-title">{% trans 'Tapdoc- klinikadir?' %}</span>
+                        <div class="faq__text">{% trans 'Xeyir, Tapdoc – servisdir. Hansıki sizə uyğun olan klinikanın tapmağinda kömək edər və uyğun olan həkimə yazılmaqda kömək edər.' %}</div>
                       </div>
                     </div>
                   </div>
@@ -626,7 +621,7 @@ height: 54px;
               <div class="main__section main__section_specs">
                 <div class="main__specs">
                   <div class="specs">
-                    <div class="main__title">Həkim İxtisasları</div>
+                    <div class="main__title">{% trans 'Həkim İxtisasları' %}</div>
                     <div class="specs__inner">
                       <div class="specs__items">
                         <div class="specs__cols">
@@ -643,16 +638,16 @@ height: 54px;
               <div class="main__section main__section_help">
                 <div class="help">
                   <div class="help__inner">
-                    <div class="help__title">Həkim axtarışında köməklik</div>
+                    <div class="help__title">{% trans 'Həkim axtarışında köməklik' %}</div>
                     <div class="help__text">
-                      Bu nömrə ilə bizimlə əlaqə saxlayın <span>+994(50) 623-66-51</span>
-                      <br />və ya oz əlaqə nomrənizi yazin biz sizinlə 10 dəq ərzində əlaqəyə çıxacayıq.
+                      {% trans 'Bu nömrə ilə bizimlə əlaqə saxlayın' %} <span>+994(50) 623-66-51</span>
+                      <br /> {% trans 'və ya oz əlaqə nomrənizi yazin biz sizinlə 10 dəq ərzində əlaqəyə çıxacayıq.' %}
                                     </div>
                       <div class="help__form">
                         <form class="callback-form" method="post" action="https://tapdoc.az/request/save">
                           <input type="hidden" name="promoId" value="15" />
                           <div class="help__button">
-                            <button class="button button_help" type="submit">Mənə Zəng Et</button>
+                            <button class="button button_help" type="submit">{% trans 'MƏNƏ ZƏNG ET' %}</button>
                           </div>
                           <div class="help__field">
                             <div class="forms__field">

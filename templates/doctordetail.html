@@ -70,7 +70,7 @@
                   margin-top: -8px;
                   font-weight: 400;
                   }
-                
+
 
                   .dropdownmyp {
                   display: block;
@@ -309,7 +309,7 @@
                            <div class="headerdesktop_phone-note"><span style="color: rgb(255, 37, 108); font-weight: 600;">Zəng Edin!</span> Həkim Axtarışında Kömək Üçün
                            </div>
                            <span class="headerdesktop_contact_phone ">
-                           +994 (055) 555-55-55                                </span>
+                           +994 (51) 623 6651                                </span>
                         </div>
                         <div class="dropdownmyp">
                            <span>Şəxsi Kabinet</span>
@@ -462,7 +462,7 @@
                                        <div class="doc__prof">{% for profession in doctor.professions.all %}
                                                               {{profession.name}}
                                                               {% endfor %}
-                                                                     <br/>{{doctor.tecrube}} il təcrübə, Elmlər Namizədi                            </div>
+                                                                     <br/>{{doctor.tecrube}} il təcrübə, {{doctor.title}}                           </div>
                                        <div itemprop="makesOffer" itemscope itemtype="https://schema.org/Offer">
                                           <meta itemprop="price" content="1530"/>
                                           <meta itemprop="priceCurrency" content="RUB"/>
@@ -551,7 +551,7 @@
                                                    </div>
                                                    <div class="rightbar__place-phone" data-ga-action="clickPhoneNumber"
                                                       data-ga-label="doctor online form">
-                                                      (+994) {{doctor.contact_phone}}
+                                                       {{doctor.contact_phone}}
                                                    </div>
                                                 </div>
                                              </div>
@@ -848,7 +848,7 @@
                            <div style="margin: 26px 0 22px 0;">
                              <div class="row">
                                {% for sertifikat in sertifikatlar|slice:":6" %}
-                               <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat1.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></a></div>
+                               <div class="col-6 col-sm-2"><a href="{{sertifikat.image.url}}" class="image-link"><img class="sertifikat" src="{{sertifikat.image.url}}"/></a></div>
                                {% endfor %}
                              </div>
                            </div>
@@ -858,7 +858,7 @@
                                <div style="margin: 0px 0 22px 0;">
                                  <div class="row">
                                    {% for sertifikat in sertifikatlar|slice:"6:" %}
-                                   <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat1.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></a></div>
+                                   <div class="col-6 col-sm-2"><a href="{{sertifikat.image.url}}" class="image-link"><img class="sertifikat" src="{{sertifikat.image.url}}"/></a></div>
                                    {% endfor %}
                                  </div>
 

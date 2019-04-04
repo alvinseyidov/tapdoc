@@ -1313,7 +1313,7 @@ $(document).ready(function(){
               					</div>
               				</div>
               				<div class="clinic-card__info">
-              					<a href="/doctor/5/detail" class="clinic-card__name">{{doctor.first_name}} {{doctor.last_name}}</a>
+              					<a href="{% url 'doctordetail' doctor.id %}" class="clinic-card__name">{{doctor.first_name}} {{doctor.last_name}}</a>
               					<div class="clinic-card__type">{% for profession in doctor.professions.all %}{{profession.name}} {% endfor %}</div>
               					<div class="clinic-card__cost">
               													Təcrübəsi - {{doctor.tecrube}} il											</div><br>
@@ -3198,7 +3198,7 @@ spanmrc4.onclick = function() {
                                           <div style="margin: 26px 0 22px 0;">
                                             <div class="row">
                                               {% for sertifikat in sertifikatlar|slice:":6" %}
-                                              <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat1.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></a></div>
+                                              <div class="col-6 col-sm-2"><a href="{{sertifikat.image.url}}" class="image-link"><img class="sertifikat" src="{{sertifikat.image.url}}"/></a></div>
                                               {% endfor %}
                                             </div>
                                           </div>
@@ -3208,7 +3208,7 @@ spanmrc4.onclick = function() {
                                               <div style="margin: 0px 0 22px 0;">
                                                 <div class="row">
                                                   {% for sertifikat in sertifikatlar|slice:"6:" %}
-                                                  <div class="col-6 col-sm-2"><a href="{% static 'img/sertifikat1.jpg'%}" class="image-link"><img class="sertifikat" src="{% static 'img/sertifikat1.jpg'%}"/></a></div>
+                                                  <div class="col-6 col-sm-2"><a href="{{sertifikat.image.url}}" class="image-link"><img class="sertifikat" src="{{sertifikat.image.url}}"/></a></div>
                                                   {% endfor %}
                                                 </div>
 

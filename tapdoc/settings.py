@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'mathfilters',
     'crispy_forms',
     'ckeditor',
+
 ]
 
 MIDDLEWARE = [

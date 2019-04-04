@@ -28,6 +28,7 @@ class Doctor(models.Model):
     gender = models.CharField(max_length=25, choices=GENDER, null=True, blank=True)
     first_name = models.CharField(max_length=256)
     last_name = models.CharField(max_length=256)
+    title = models.CharField(max_length=256,null=True, blank=True)
     tecrube = models.IntegerField(null=True)
     contact_phone = models.CharField(max_length=256,null=True)
     qebula_yazilma = models.CharField(max_length=256,null=True)

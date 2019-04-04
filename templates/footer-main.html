@@ -1,48 +1,49 @@
+{% load static i18n %}
 <footer class="footer">
 <div class="wrapper">
         <div class="footer__inner">
             <aside class="footer__left">
                 <div class="footer__navs">
                     <nav class="footer__nav">
-                        <div class="footer__title">XIDMƏTLƏR</div>
+                        <div class="footer__title">{% trans 'XIDMƏTLƏR' %}</div>
                         <ul class="footer__list">
-                            <li><a href="#">Haqqımızda</a></li>
-                            <li><a href="#">Vakansiyalar</a></li>
-                            <li><a href="#">Press</a></li>
-                            <li><a href="#">Komandamız</a></li>
-                            <li><a href="#">Əlaqə</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Saytın Xəritəsi</a></li>
-                            <li><a href="#">Razılaşmalar</a></li>
+                            <li><a href="#">{% trans 'Haqqımızda' %}</a></li>
+                            <li><a href="#">{% trans 'Vakansiyalar' %}</a></li>
+                            <li><a href="#">{% trans 'Press' %}</a></li>
+                            <li><a href="#">{% trans 'Komandamız' %}</a></li>
+                            <li><a href="#">{% trans 'Əlaqə' %}</a></li>
+                            <li><a href="#">{% trans 'FAQ' %}</a></li>
+                            <li><a href="#">{% trans 'Saytın Xəritəsi' %}</a></li>
+                            <li><a href="#">{% trans 'Razılaşmalar' %}</a></li>
                         </ul>
                     </nav>
                     <nav class="footer__nav">
-                        <div class="footer__title">XƏSTƏLƏR ÜÇÜN</div>
+                        <div class="footer__title">{% trans 'XƏSTƏLƏR ÜÇÜN' %}</div>
                         <ul class="footer__list">
-                            <li><a href="{% url 'doctor'%}">Həkimlər</a></li>
-                            <li><a href="{% url 'clinic'%}">Klinikalar</a></li>
-                                                                <li><a href="{% url 'diaqnostika'%}">Diaqnostika</a></li>
-                                                            <li><a href="{% url 'xidmetler'%}">Xidmətlər</a></li>
-                            <li><a href="#">Tibbi Kitabxanalar</a></li>
-                            <li><a href="#">Xəstəliklər</a></li>
-                                              <li><a href="#">Endirim Aksiyalar</a></li>
-                            <li><a href="#">Güvənirlik</a></li>
-            <li><a href="#">Şəxsi Məlumatların Qorunulması</a></li>
+                            <li><a href="{% url 'doctor'%}">{% trans 'Həkimlər' %}</a></li>
+                            <li><a href="{% url 'clinic'%}">{% trans 'Klinikalar' %}</a></li>
+                                                                <li><a href="{% url 'diaqnostika'%}">{% trans 'Diaqnostika' %}</a></li>
+                                                            <li><a href="{% url 'xidmetler'%}">{% trans 'Xidmətlər' %}</a></li>
+                            <li><a href="#">{% trans 'Tibbi Kitabxanalar' %}</a></li>
+                            <li><a href="#">{% trans 'Xəstəliklər' %}</a></li>
+                                              <li><a href="#">{% trans 'Endirim Aksiyalar' %}</a></li>
+                            <li><a href="#">{% trans 'Güvənirlik' %}</a></li>
+            <li><a href="#">{% trans 'Şəxsi Məlumatların Qorunulması' %}</a></li>
                         </ul>
                     </nav>
                     <nav class="footer__nav">
                         <div class="footer__nav-group">
-                            <div class="footer__title">HƏKIM VƏ KLINIKALAR</div>
+                            <div class="footer__title">{% trans 'HƏKIM VƏ KLINIKALAR' %}</div>
                             <ul class="footer__list">
-                                <li><a href="#" rel="nofollow">Şəxsi Kabinet</a></li>
-                                <li><a href="#" rel="nofollow">Qeydiyyat</a></li>
+                                <li><a href="#" rel="nofollow">{% trans 'Şəxsi Kabinet' %}</a></li>
+                                <li><a href="#" rel="nofollow">{% trans 'Qeydiyyat' %}</a></li>
                             </ul>
                         </div>
                         <div class="footer__nav-group">
-                            <div class="footer__title">PARTNYORLAR</div>
+                            <div class="footer__title">{% trans 'PARTNYORLAR' %}</div>
                             <ul class="footer__list">
-                                <li><a href="#" rel="nofollow">Şəxsi Kabinet</a></li>
-                                <li><a href="#" rel="nofollow">Partnyorluq Programı</a></li>
+                                <li><a href="#" rel="nofollow">{% trans 'Şəxsi Kabinet' %}</a></li>
+                                <li><a href="#" rel="nofollow">{% trans 'Partnyorluq Programı' %}</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -51,8 +52,8 @@
             <aside class="footer__right">
                 <div class="footer__logo"></div>
                 <div class="footer__contacts">
-                    Bizə Yazın: <b><a href="mailto:info@tapdoc.az">info@tapdoc.az</a></b><br>
-                                                Bizə zəng:
+                    {% trans 'Bizə Yazın' %}: <b><a href="mailto:info@tapdoc.az">info@tapdoc.az</a></b><br>
+                                                {% trans 'Bizə zəng' %}:
                                                         <span class="header_contact_phone ">
            (+994) 927-01-01						</span>
                                                     <br>

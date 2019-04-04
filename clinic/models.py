@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from clinic.widgets import *
 from ckeditor.fields import RichTextField
 
+
+
 # Create your models here.
 
 

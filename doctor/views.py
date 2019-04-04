@@ -44,7 +44,7 @@ def doctor(request):
     doctors = paginator.get_page(page)
     professions = Profession.objects.order_by('name')
     context = {
-        "doctors": doctors,
+        "doctors": doctors_list,
         "professions": professions,
         "lang": lang
     }
@@ -225,7 +225,7 @@ def removefavor(request, id):
     return redirect('doctordetail', id=id)
 
 
- 
+
 
 def doctoraddtofavor(request):
 
