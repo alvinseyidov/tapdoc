@@ -29,6 +29,14 @@
     <link rel="manifest" href="https://s.docdoc.ru/new-doc-doc/favicon/manifest.json">
     <link rel="mask-icon" href="https://s.docdoc.ru/new-doc-doc/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( document ).tooltip();
+  } );
+  </script>
     <script src="https://www.jqueryscript.net/demo/Easy-jQuery-Input-Mask-Plugin-inputmask/dist/jquery.inputmask.bundle.min.js"></script>
 
 
@@ -479,6 +487,13 @@ a:hover {
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 24px 0 rgba(0, 0, 0, 0.19);
     border-radius: 39px;
 }
+.removefavorr {
+    position: absolute;
+    margin: 0 0 0 0;
+    z-index: 2;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 24px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 39px;
+}
 @media only screen and (max-width: 900px) {
 .removefavor {
     position: absolute;
@@ -490,6 +505,63 @@ a:hover {
 }
 .hearthidden{
   display: none;
+}
+
+
+.tooltipfavor {
+  position: relative;
+  display: inline-block;
+  padding: 0 32px 0 0;
+}
+
+.tooltipfavor .tooltiptextfavor {
+  visibility: hidden;
+      width: 356px;
+      background-color: white;
+      color: #6f6f6f;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+      position: absolute;
+      z-index: 1;
+      top: 44px;
+      left: 72px;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 11px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 5px;
+}
+
+.tooltipfavor:hover .tooltiptextfavor {
+  visibility: visible;
+}
+
+
+
+
+.tooltipprice {
+  position: relative;
+  display: inline-block;
+  padding: 0 32px 0 0;
+}
+
+.tooltipprice .tooltiptextprice {
+  visibility: hidden;
+width: 356px;
+height: 98px;
+background-color: white;
+color: #6f6f6f;
+
+border-radius: 6px;
+padding: 5px 9px;
+position: absolute;
+z-index: 1;
+top: -99px;
+/* left: 72px; */
+box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 11px 0 rgba(0, 0, 0, 0.19);
+border-radius: 5px;
+}
+
+.tooltipprice:hover .tooltiptextprice {
+  visibility: visible;
 }
 </style>
 
@@ -917,15 +989,20 @@ function myFunction() {
 
 	{% for doctor in doctors %}
 
+{% if user.is_authenticated %}
   {% if user in doctor.wishlist.all %}
-  <img  id="unlike{{doctor.id}}" data-catid="{{ doctor.id }}" class="addfavor heartshow " src="{% static 'img/liked.png'%}"/>
-  <img  id="like{{doctor.id}}" data-catid="{{ doctor.id }}" class="removefavor hearthidden" src="{% static 'img/like.png'%}"/>
+    <img  id="unlike{{doctor.id}}" data-catid="{{ doctor.id }}" class="addfavor heartshow " src="{% static 'img/liked.png'%}"/>
+    <img  id="like{{doctor.id}}" data-catid="{{ doctor.id }}" class="removefavor hearthidden" src="{% static 'img/like.png'%}"/>
+
   {% else %}
-  <img  id="like{{doctor.id}}" data-catid="{{ doctor.id }}" class="removefavor heartshow" src="{% static 'img/like.png'%}"/>
-  <img  id="unlike{{doctor.id}}" data-catid="{{ doctor.id }}" class="addfavor hearthidden " src="{% static 'img/liked.png'%}"/>
+    <img  id="like{{doctor.id}}" data-catid="{{ doctor.id }}" class="removefavor heartshow" src="{% static 'img/like.png'%}"/>
+    <img  id="unlike{{doctor.id}}" data-catid="{{ doctor.id }}" class="addfavor hearthidden " src="{% static 'img/liked.png'%}"/>
   {% endif %}
 
-
+{% else %}
+<!--<a href="#" title="Favori listə əlavə etmək üçün giriş edin."><img class="removefavor" src="/static/img/like.png"></a>-->
+<div class="tooltipfavor"><img class="removefavor" src="/static/img/like.png"><span class="tooltiptextfavor">Favori listə əlavə etmək üçün sistemə giriş edin. Buradan <a href="#">giriş</a> edə bilərsiniz.</span></div>
+{% endif %}
 
 
 
@@ -991,7 +1068,8 @@ function myFunction() {
 
 				<div class="clinic-card__photo">
 					<!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
-                    <a href="{% url 'doctordetail' doctor.id %}" target="_blank" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
+                    <a href="{% url 'doctordetail' doctor.id %}" target="_blank" class="clinic-card__face" >
+
                         <img src="{{doctor.image.url}}" alt="" class="avatar-round --big"/>                    </a>
 					<div class="clinic-card__rating">
 
@@ -1021,7 +1099,7 @@ function myFunction() {
 					<div class="clinic-card__type">{% for profession in doctor.professions.all %}{{profession.name}} {% endfor %}</div>
 					<div class="clinic-card__cost">
 													Təcrübəsi - {{doctor.tecrube}} il											</div><br>
-                          <div style="margin: -17px 0 -7px 0;font-size: 12px;">Qəbula yazılma &nbsp; <span class="clinichover" style="text-decoration: line-through;">{{doctor.qebula_yazilma}}AZN</span>&nbsp;  <span style="font-weight: 700;border-bottom: 1.5px dotted #000;">
+                          <div class="tooltipprice" style="margin: -17px 0 -7px 0;font-size: 12px;"><span class="tooltiptextprice"><strong>İlkin konsultasiya qiyməti - 30 AZN</strong> <br>Ünvan: {% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.address}}{% endfor%}<br><i>Yalnız ilkin qəbul xərci göstərilir. Əlavə müayinə və digər xərclər qiymətə daxil deyildir.</i></span>Qəbula yazılma &nbsp; <span class="clinichover" style="text-decoration: line-through;">{{doctor.qebula_yazilma}}AZN</span>&nbsp;  <span style="font-weight: 700;border-bottom: 1.5px dotted #000;">
                             {% with endirim=doctor.qebula_yazilma|mul:doctor.qebula_yazilma_endirim_faiz|div:100 %}
                             {% with endirimli_qiymet=doctor.qebula_yazilma|sub:endirim %}
                                    {{ endirimli_qiymet|floatformat:"0" }}AZN
