@@ -479,6 +479,64 @@ border-radius: 7px;
 .hearthidden{
   display: none;
 }
+
+
+.tooltipfavor {
+  position: relative;
+  display: inline-block;
+  padding: 0 0 0 0;
+  float: right;
+}
+
+.tooltipfavor .tooltiptextfavor {
+    visibility: hidden;
+    width: 356px;
+    background-color: white;
+    color: #6f6f6f;
+    text-align: center;
+    border-radius: 6px;
+    padding: 6px 2px;
+    position: absolute;
+    z-index: 1;
+    top: -8px;
+    left: 31px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 11px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+.tooltipfavor:hover .tooltiptextfavor {
+  visibility: visible;
+}
+
+
+
+
+.tooltipprice {
+  position: relative;
+  display: inline-block;
+  padding: 0 0 0 0;
+}
+
+.tooltipprice .tooltiptextprice {
+  visibility: hidden;
+width: 356px;
+height: 98px;
+background-color: white;
+color: #6f6f6f;
+
+border-radius: 6px;
+padding: 5px 9px;
+position: absolute;
+z-index: 1;
+top: -99px;
+/* left: 72px; */
+box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 11px 0 rgba(0, 0, 0, 0.19);
+border-radius: 5px;
+}
+
+.tooltipprice:hover .tooltiptextprice {
+  visibility: visible;
+}
 </style>
 </head>
 
@@ -942,7 +1000,7 @@ border-radius: 7px;
       <div class="clinic-card" style="    border-bottom-left-radius: 0px;    border-bottom-right-radius: 0px;    border-top-right-radius: 4px;    border-top-left-radius: 4px;">
         <div class="clinic-card__inner">
           <div class="clinic-card__left">
-
+{% if user.is_authenticated %}
                     {% if user in diaqnostika.wishlist.all %}
                     <img  id="unlike{{diaqnostika.id}}" data-catid="{{ diaqnostika.id }}" class="addfavor heartshow " src="{% static 'img/liked.png'%}"/>
                     <img  id="like{{diaqnostika.id}}" data-catid="{{ diaqnostika.id }}" class="removefavor hearthidden" src="{% static 'img/like.png'%}"/>
@@ -951,7 +1009,10 @@ border-radius: 7px;
                     <img  id="unlike{{diaqnostika.id}}" data-catid="{{ diaqnostika.id }}" class="addfavor hearthidden " src="{% static 'img/liked.png'%}"/>
                     {% endif %}
 
-
+                    {% else %}
+                    <!--<a href="#" title="Favori listə əlavə etmək üçün giriş edin."><img class="removefavor" src="/static/img/like.png"></a>-->
+                    <div class="tooltipfavor"><img class="removefavor" src="/static/img/like.png"><span class="tooltiptextfavor">Favori listə əlavə etmək üçün sistemə giriş edin. Buradan <a href="{% url 'login' %}">giriş</a> edə bilərsiniz.</span></div>
+                    {% endif %}
 
                     <script type="text/javascript">
                     $('#like{{diaqnostika.id}}').click(function(){
@@ -1127,7 +1188,7 @@ border-radius: 7px;
       <div class="clinic-card">
         <div class="clinic-card__inner">
           <div class="clinic-card__left">
-
+{% if user.is_authenticated %}
                     {% if user in diaqnostika.wishlist.all %}
                     <img  id="unlike{{diaqnostika.id}}" data-catid="{{ diaqnostika.id }}" class="addfavor heartshow " src="{% static 'img/liked.png'%}"/>
                     <img  id="like{{diaqnostika.id}}" data-catid="{{ diaqnostika.id }}" class="removefavor hearthidden" src="{% static 'img/like.png'%}"/>
@@ -1136,7 +1197,10 @@ border-radius: 7px;
                     <img  id="unlike{{diaqnostika.id}}" data-catid="{{ diaqnostika.id }}" class="addfavor hearthidden " src="{% static 'img/liked.png'%}"/>
                     {% endif %}
 
-
+                    {% else %}
+                    <!--<a href="#" title="Favori listə əlavə etmək üçün giriş edin."><img class="removefavor" src="/static/img/like.png"></a>-->
+                    <div class="tooltipfavor"><img class="removefavor" src="/static/img/like.png"><span class="tooltiptextfavor">Favori listə əlavə etmək üçün sistemə giriş edin. Buradan <a href="{% url 'login' %}">giriş</a> edə bilərsiniz.</span></div>
+                    {% endif %}
 
                     <script type="text/javascript">
                     $('#like{{diaqnostika.id}}').click(function(){

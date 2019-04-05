@@ -478,6 +478,64 @@ border-radius: 7px;
 .hearthidden{
   display: none;
 }
+
+
+.tooltipfavor {
+  position: relative;
+  display: inline-block;
+  padding: 0 0 0 0;
+  float: right;
+}
+
+.tooltipfavor .tooltiptextfavor {
+    visibility: hidden;
+    width: 356px;
+    background-color: white;
+    color: #6f6f6f;
+    text-align: center;
+    border-radius: 6px;
+    padding: 6px 2px;
+    position: absolute;
+    z-index: 1;
+    top: -8px;
+    left: 31px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 11px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+.tooltipfavor:hover .tooltiptextfavor {
+  visibility: visible;
+}
+
+
+
+
+.tooltipprice {
+  position: relative;
+  display: inline-block;
+  padding: 0 0 0 0;
+}
+
+.tooltipprice .tooltiptextprice {
+  visibility: hidden;
+width: 356px;
+height: 98px;
+background-color: white;
+color: #6f6f6f;
+
+border-radius: 6px;
+padding: 5px 9px;
+position: absolute;
+z-index: 1;
+top: -99px;
+/* left: 72px; */
+box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 11px 0 rgba(0, 0, 0, 0.19);
+border-radius: 5px;
+}
+
+.tooltipprice:hover .tooltiptextprice {
+  visibility: visible;
+}
 </style>
 </head>
 
@@ -942,60 +1000,6 @@ border-radius: 7px;
         <div class="clinic-card__inner">
           <div class="clinic-card__left">
 
-                    {% if user in diaqnostika.wishlist.all %}
-                    <img  id="unlike{{diaqnostika.id}}" data-catid="{{ diaqnostika.id }}" class="addfavor heartshow " src="{% static 'img/liked.png'%}"/>
-                    <img  id="like{{diaqnostika.id}}" data-catid="{{ diaqnostika.id }}" class="removefavor hearthidden" src="{% static 'img/like.png'%}"/>
-                    {% else %}
-                    <img  id="like{{diaqnostika.id}}" data-catid="{{ diaqnostika.id }}" class="removefavor heartshow" src="{% static 'img/like.png'%}"/>
-                    <img  id="unlike{{diaqnostika.id}}" data-catid="{{ diaqnostika.id }}" class="addfavor hearthidden " src="{% static 'img/liked.png'%}"/>
-                    {% endif %}
-
-
-
-                    <script type="text/javascript">
-                    $('#like{{diaqnostika.id}}').click(function(){
-                    var catid;
-                    catid = $(this).attr("data-catid");
-                    $.ajax(
-                    {
-                        type:"GET",
-                        url: "/clinics/clinicaddtofavor",
-                        data:{
-                                 post_id: catid
-                        },
-                        success: function( data )
-                        {
-                          $("#like{{diaqnostika.id}}").addClass("hearthidden");
-                          $("#like{{diaqnostika.id}}").removeClass("heartshow");
-                          $("#unlike{{diaqnostika.id}}").addClass("heartshow");
-                          $("#unlike{{diaqnostika.id}}").removeClass("hearthidden");
-
-                        }
-                         })
-                    });
-                    </script>
-
-                    <script type="text/javascript">
-                    $('#unlike{{diaqnostika.id}}').click(function(){
-                    var uncatid;
-                    uncatid = $(this).attr("data-catid");
-                    $.ajax(
-                    {
-                        type:"GET",
-                        url: "/clinics/clinicremovefavor",
-                        data:{
-                                 post_id: uncatid
-                        },
-                        success: function( data )
-                        {
-                          $("#unlike{{diaqnostika.id}}").addClass("hearthidden");
-                          $("#unlike{{diaqnostika.id}}").removeClass("heartshow");
-                          $("#like{{diaqnostika.id}}").addClass("heartshow");
-                          $("#like{{diaqnostika.id}}").removeClass("hearthidden");
-                        }
-                         })
-                    });
-                    </script>
             <div class="clinic-card__photo">
               <!--a href="#" class="clinic-card__like clinic-card__like_active"></a-->
                         <a href="{% url 'clinicprofile' diaqnostika.id %}" class="clinic-card__face" title="Медицинский центр Трастмед на Таганке">
@@ -1126,7 +1130,7 @@ border-radius: 7px;
       <div class="clinic-card">
         <div class="clinic-card__inner">
           <div class="clinic-card__left">
-
+{% if user.is_authenticated %}
                     {% if user in diaqnostika.wishlist.all %}
                     <img  id="unlike{{diaqnostika.id}}" data-catid="{{ diaqnostika.id }}" class="addfavor heartshow " src="{% static 'img/liked.png'%}"/>
                     <img  id="like{{diaqnostika.id}}" data-catid="{{ diaqnostika.id }}" class="removefavor hearthidden" src="{% static 'img/like.png'%}"/>
@@ -1135,7 +1139,10 @@ border-radius: 7px;
                     <img  id="unlike{{diaqnostika.id}}" data-catid="{{ diaqnostika.id }}" class="addfavor hearthidden " src="{% static 'img/liked.png'%}"/>
                     {% endif %}
 
-
+                    {% else %}
+                    <!--<a href="#" title="Favori listə əlavə etmək üçün giriş edin."><img class="removefavor" src="/static/img/like.png"></a>-->
+                    <div class="tooltipfavor"><img class="removefavor" src="/static/img/like.png"><span class="tooltiptextfavor">Favori listə əlavə etmək üçün sistemə giriş edin. Buradan <a href="{% url 'login' %}">giriş</a> edə bilərsiniz.</span></div>
+                    {% endif %}
 
                     <script type="text/javascript">
                     $('#like{{diaqnostika.id}}').click(function(){
@@ -1314,7 +1321,7 @@ border-radius: 7px;
         <div class="clinic-card__branch">
   <div class="clinic-card__inner">
     <div class="clinic-card__left">
-
+{% if user.is_authenticated %}
     {% if user in branch.wishlist.all %}
     <img  id="unlike{{branch.id}}" data-catid="{{ branch.id }}" class="addfavor heartshow " src="{% static 'img/liked.png'%}"/>
     <img  id="like{{branch.id}}" data-catid="{{ branch.id }}" class="removefavor hearthidden" src="{% static 'img/like.png'%}"/>
@@ -1324,7 +1331,10 @@ border-radius: 7px;
     {% endif %}
 
 
-
+    {% else %}
+    <!--<a href="#" title="Favori listə əlavə etmək üçün giriş edin."><img class="removefavor" src="/static/img/like.png"></a>-->
+    <div class="tooltipfavor"><img class="removefavor" src="/static/img/like.png"><span class="tooltiptextfavor">Favori listə əlavə etmək üçün sistemə giriş edin. Buradan <a href="{% url 'login' %}">giriş</a> edə bilərsiniz.</span></div>
+    {% endif %}
 
 
 
@@ -1491,7 +1501,7 @@ border-radius: 7px;
           <div class="clinic-card__branch">
     <div class="clinic-card__inner">
       <div class="clinic-card__left">
-
+{% if user.is_authenticated %}
       {% if user in branch.wishlist.all %}
       <img  id="unlike{{branch.id}}" data-catid="{{ branch.id }}" class="addfavor heartshow " src="{% static 'img/liked.png'%}"/>
       <img  id="like{{branch.id}}" data-catid="{{ branch.id }}" class="removefavor hearthidden" src="{% static 'img/like.png'%}"/>
@@ -1501,7 +1511,10 @@ border-radius: 7px;
       {% endif %}
 
 
-
+      {% else %}
+      <!--<a href="#" title="Favori listə əlavə etmək üçün giriş edin."><img class="removefavor" src="/static/img/like.png"></a>-->
+      <div class="tooltipfavor"><img class="removefavor" src="/static/img/like.png"><span class="tooltiptextfavor">Favori listə əlavə etmək üçün sistemə giriş edin. Buradan <a href="{% url 'login' %}">giriş</a> edə bilərsiniz.</span></div>
+      {% endif %}
 
 
 

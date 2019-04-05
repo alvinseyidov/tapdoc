@@ -395,6 +395,63 @@ border-radius: 7px;
   display: none;
 }
 
+
+.tooltipfavor {
+  position: relative;
+  display: inline-block;
+  padding: 0 0 0 0;
+  float: right;
+}
+
+.tooltipfavor .tooltiptextfavor {
+    visibility: hidden;
+    width: 356px;
+    background-color: white;
+    color: #6f6f6f;
+    text-align: center;
+    border-radius: 6px;
+    padding: 6px 2px;
+    position: absolute;
+    z-index: 1;
+    top: -8px;
+    left: 31px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 11px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+.tooltipfavor:hover .tooltiptextfavor {
+  visibility: visible;
+}
+
+
+
+
+.tooltipprice {
+  position: relative;
+  display: inline-block;
+  padding: 0 0 0 0;
+}
+
+.tooltipprice .tooltiptextprice {
+  visibility: hidden;
+width: 356px;
+height: 98px;
+background-color: white;
+color: #6f6f6f;
+
+border-radius: 6px;
+padding: 5px 9px;
+position: absolute;
+z-index: 1;
+top: -99px;
+/* left: 72px; */
+box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 11px 0 rgba(0, 0, 0, 0.19);
+border-radius: 5px;
+}
+
+.tooltipprice:hover .tooltiptextprice {
+  visibility: visible;
+}
 </style>
 
 </head>
@@ -686,14 +743,14 @@ for="kidsReception3"> Sığorta</label>
            <div class="sorting">
                                    <div class="sorting__clinics">{{xidmet.name}} Klinikalar - {{clinics|length}}</div>
                                <div class="sorting__label"></div>
-               <div class="sorting__items">
-                                                                                                   <a href="#" class="sorting__item " rel="nofollow" style=" text-decoration: none !important;">
-                               Reyting                            </a>
-                                                                                                                           <a href="#" class="sorting__item " rel="nofollow" style=" text-decoration: none !important;">
-                               Rəylər                            </a>
-                                                                                                                           <a href="#" class="sorting__item " rel="nofollow" style=" text-decoration: none !important;">
-                               Qiymət                            </a>
-                                                                                                                                                   </div>
+                               <div class="sorting__items">
+                                         <a href="{% url 'clinicreyting'%}" class="sorting__item " rel="nofollow" style=" text-decoration: none !important;background:#d7d7d7;">
+                                               Reyting</a>
+                       <a href="{% url 'clinicreyler'%}" class="sorting__item " rel="nofollow" style=" text-decoration: none !important;">
+                                               Rəylər</a>
+                     <a href="{% url 'clinicqiymet'%}" class="sorting__item " rel="nofollow" style=" text-decoration: none !important;">
+                                               Qiymət</a>
+                                                </div>
                <div class="sorting__select">
                    <div class="select select_sorting" data-block="select">
                                                <div class="select__head">Рейтингу</div>
@@ -724,6 +781,7 @@ for="kidsReception3"> Sığorta</label>
   <div class="clinic-card">
     <div class="clinic-card__inner">
       <div class="clinic-card__left">
+        {% if user.is_authenticated %}
         {% if user in clinic.wishlist.all %}
         <img  id="unlike{{clinic.id}}" data-catid="{{ clinic.id }}" class="addfavor heartshow " src="{% static 'img/liked.png'%}"/>
         <img  id="like{{clinic.id}}" data-catid="{{ clinic.id }}" class="removefavor hearthidden" src="{% static 'img/like.png'%}"/>
@@ -733,7 +791,10 @@ for="kidsReception3"> Sığorta</label>
         {% endif %}
 
 
-
+        {% else %}
+        <!--<a href="#" title="Favori listə əlavə etmək üçün giriş edin."><img class="removefavor" src="/static/img/like.png"></a>-->
+        <div class="tooltipfavor"><img class="removefavor" src="/static/img/like.png"><span class="tooltiptextfavor">Favori listə əlavə etmək üçün sistemə giriş edin. Buradan <a href="{% url 'login' %}">giriş</a> edə bilərsiniz.</span></div>
+        {% endif %}
 
 
 

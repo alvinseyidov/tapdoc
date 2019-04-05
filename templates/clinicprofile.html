@@ -639,6 +639,64 @@ a:hover{
 a:active{
   text-decoration:none !important;
 }
+
+
+.tooltipfavor {
+  position: relative;
+  display: inline-block;
+  padding: 0 32px 0 0;
+  float: right;
+}
+
+.tooltipfavor .tooltiptextfavor {
+    visibility: hidden;
+    width: 356px;
+    background-color: white;
+    color: #6f6f6f;
+    text-align: center;
+    border-radius: 6px;
+    padding: 6px 2px;
+    position: absolute;
+    z-index: 1;
+    top: -8px;
+    left: 37px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 11px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+.tooltipfavor:hover .tooltiptextfavor {
+  visibility: visible;
+}
+
+
+
+
+.tooltipprice {
+  position: relative;
+  display: inline-block;
+  padding: 0 0 0 0;
+}
+
+.tooltipprice .tooltiptextprice {
+  visibility: hidden;
+width: 356px;
+height: 98px;
+background-color: white;
+color: #6f6f6f;
+
+border-radius: 6px;
+padding: 5px 9px;
+position: absolute;
+z-index: 1;
+top: -99px;
+/* left: 72px; */
+box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 11px 0 rgba(0, 0, 0, 0.19);
+border-radius: 5px;
+}
+
+.tooltipprice:hover .tooltiptextprice {
+  visibility: visible;
+}
 </style>
 </head>
 
