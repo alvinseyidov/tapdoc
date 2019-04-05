@@ -63,6 +63,7 @@ class Review(models.Model):
     doctor = models.ForeignKey(Doctor, related_name='reviews', on_delete=models.CASCADE)
     starter = models.ForeignKey(User, related_name='reviews', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+    clinic = models.ForeignKey(Clinic,on_delete=models.CASCADE,blank=True, null=True)
     star = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)], null=True)
     message = models.TextField(max_length=4000)
     published = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(1)], null=True)
