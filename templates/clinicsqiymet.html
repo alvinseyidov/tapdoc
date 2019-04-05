@@ -22,7 +22,7 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
      <script src="https://www.jqueryscript.net/demo/Easy-jQuery-Input-Mask-Plugin-inputmask/dist/jquery.inputmask.bundle.min.js"></script>
 
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
      <script src="{% static 'js/selectize.js'%}"></script>
        <script src="{% static 'js/selectizeindex.js'%}"></script>
 
@@ -1033,7 +1033,7 @@ data-ga-action="clickPhoneNumber">
   {{clinic.address}} <br>
 
 
-<a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro1.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro2.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+<a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro1.png"/>&nbsp;</i>{{clinic.metro1}}&nbsp;<span class="doctor-card-clinics__station-distance">({{clinic.metro1distance}} m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro2.png"/>&nbsp;</i>{{clinic.metro2}}&nbsp;<span class="doctor-card-clinics__station-distance">({{clinic.metro2distance}} m)</span></a>
 </div>
         </div>
 
@@ -1144,7 +1144,7 @@ data-ga-action="clickPhoneNumber">
           <div class="clinic-card__clinic-address">
                   <div class="clinic-card__clinic-address">
 
-                  <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro1.png">&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro2.png">&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+                  <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro1.png">&nbsp;</i>{{branch.metro1}}&nbsp;<span class="doctor-card-clinics__station-distance">({{branch.metro1distance}} m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro2.png">&nbsp;</i>{{branch.metro2}}&nbsp;<span class="doctor-card-clinics__station-distance">({{branch.metro2distance}} m)</span></a>
 
           <br> <span style="border-bottom: 1.5px dotted #000;line-height: 2;"> {{branch.address}}</span> <br>
 
@@ -1646,7 +1646,7 @@ data-ga-action="clickPhoneNumber">
             <div class="clinic-card__clinic-address">
                     <div class="clinic-card__clinic-address">
 
-                    <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro1.png">&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro2.png">&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+                    <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro1.png">&nbsp;</i>{{branch.metro1}}&nbsp;<span class="doctor-card-clinics__station-distance">({{branch.metro1distance}} m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="https://tapdoc.az/static/img/metro2.png">&nbsp;</i>{{branch.metro2}}&nbsp;<span class="doctor-card-clinics__station-distance">({{branch.metro2distance}} m)</span></a>
 
             <br> <span style="border-bottom: 1.5px dotted #000;line-height: 2;"> {{branch.address}}</span> <br>
 

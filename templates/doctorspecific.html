@@ -24,8 +24,7 @@
 <link rel="stylesheet" href="{% static 'css/styleselect.css'%}">
 	         <link rel="stylesheet" href="{% static 'css/doctorstyle.css'%}">
         <link rel="apple-touch-icon" sizes="180x180" href="https://s.docdoc.ru/new-doc-doc/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="https://s.docdoc.ru/new-doc-doc/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://s.docdoc.ru/new-doc-doc/favicon/favicon-16x16.png" sizes="16x16">
+     <link rel="icon" type="image/png" href="https://s.docdoc.ru/new-doc-doc/favicon/favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="https://s.docdoc.ru/new-doc-doc/favicon/manifest.json">
     <link rel="mask-icon" href="https://s.docdoc.ru/new-doc-doc/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -1244,7 +1243,7 @@ function myFunction() {
                                 <a href="{% url 'clinicprofile'  '2'%}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Avrasiya Hospital</span></a><br>
                                 <span style="border-bottom: 1.5px dotted #000;line-height: 2;">{% for clinic in doctor.clinics.all|slice:":1"  %}{{clinic.address}}{% endfor%}</span><br>
 
-                                 <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+                                 <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1}}{% endfor%}&nbsp;<span class="doctor-card-clinics__station-distance">({% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1distance}}{% endfor%} m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro2}}{% endfor%}&nbsp;<span class="doctor-card-clinics__station-distance">({% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro2distance}}{% endfor %} m)</span></a>
                                  </div>
                         </div>
                   </div>
@@ -1320,7 +1319,7 @@ function myFunction() {
                         <a href="{% url 'clinicprofile' '8' %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Vital Klinikası</span></a><br>
                       <span style="border-bottom: 1.5px dotted #000;line-height: 2;">{% for clinic in doctor.clinics.all|slice:"1:2"  %}{{clinic.address}}{% endfor%} </span><br>
 
-                       <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+                       <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1}}{% endfor%}&nbsp;<span class="doctor-card-clinics__station-distance">({% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1distance}}{% endfor%} m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro2}}{% endfor%}&nbsp;<span class="doctor-card-clinics__station-distance">({% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro2distance}}{% endfor %} m)</span></a>
                        </div>
               </div>
                     </div>
@@ -1380,7 +1379,7 @@ function myFunction() {
                               <a href="{% url 'clinicprofile' clinic.id %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">{{clinic.name}}</span></a><br>
                             <span style="border-bottom: 1.5px dotted #000;line-height: 2;">{{clinic.address}} </span><br>
 
-                             <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>{{clinic.metro1}}&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>{{clinic.metro1}}&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+                             <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1}}{% endfor%}&nbsp;<span class="doctor-card-clinics__station-distance">({% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1distance}}{% endfor%} m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro2}}{% endfor%}&nbsp;<span class="doctor-card-clinics__station-distance">({% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro2distance}}{% endfor %} m)</span></a>
                              </div>
                     </div>
 

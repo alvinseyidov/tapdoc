@@ -948,7 +948,8 @@ dots[slideIndex-1].className += " w3-white";
 
 							<div class='balloon__info'>
 											Bakı ş. Azadlıq Prospekti 43<br />
-																<span class="rightbar__metro"><i class="i-metro-sm i-metro--line_5"></i>Gənclik(1 км)</span>
+																<span class="rightbar__metro"><i class="i-metro-sm i-metro--line_5"></i>{{clinic.metro1}}({{clinic.metro1distance}} km)</span><br>
+                                <span class="rightbar__metro"><i class="i-metro-sm i-metro--line_5"></i>{{clinic.metro2}}({{clinic.metro2distance}} km)</span>
 									</div>
 
 
@@ -958,7 +959,7 @@ dots[slideIndex-1].className += " w3-white";
 
 </div>
 
-<div class="clinic__address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+<div class="clinic__address" itemprop="address" style=" padding-bottom: 0 !important; ">
 
 	<meta itemprop="addressLocality" content="г. Москва">
 
@@ -966,10 +967,14 @@ dots[slideIndex-1].className += " w3-white";
 
 			<a href="#" class="notlink"></a><a href="#" class="notlink"></a>
       <div class="clinic__metro">
-				<span class="i-metro-sm i-metro--line_5"></span>
-				<a href="https://tapdoc.az/clinic/station/vdnh" class="notlink">
-					Gənclik (1 km)
-				</a>
+				<div style="margin-top:20px;"><span class="i-metro-sm i-metro--line_5" ></span>
+				<a href="#" class="notlink">
+					{{clinic.metro1}} ({{clinic.metro1distance}} km)
+				</a></div><div style="margin-top:10px;">
+        <span class="i-metro-sm i-metro--line_5"></span>
+        <a href="#" class="notlink">
+					{{clinic.metro2}} ({{clinic.metro2distance}} km)
+				</a></div>
 <br><br>
 
 
@@ -1032,8 +1037,7 @@ dots[slideIndex-1].className += " w3-white";
 
 	</div>
 
-																											<div class="clinic__phone" itemprop="telephone" data-ga-label="doctor clinic form"
-								     data-ga-action="clickPhoneNumber">
+																											<div class="clinic__phone" >
 																		{{clinic.phone}}																	</div>
 																						<div class="clinic__button">
 									<button class="myBtnmuraciet" id="myBtnmuracietmrc3">Müraciət</button>
@@ -1412,7 +1416,7 @@ $(document).ready(function(){
                                             <a href="javascript:void(0)">{{clinic.name}}</a><br>
                                           <span style="border-bottom: 1.5px dotted #000;line-height: 2;">{{clinic.address}}</span><br>
 
-                                           <a class="clinic-card__metro" href="javascript:void(0)"><i><img src="/static/img/metro2.png">&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="javascript:void(0)"><i><img src="/static/img/metro1.png">&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+                                           <a class="clinic-card__metro" href="javascript:void(0)"><i><img src="/static/img/metro2.png">&nbsp;</i>{{clinic.metro1}}&nbsp;<span class="doctor-card-clinics__station-distance">({{clinic.metro1distance}} m)</span></a>, <a class="clinic-card__metro" href="javascript:void(0)"><i><img src="/static/img/metro1.png">&nbsp;</i>{{clinic.metro2}}&nbsp;<span class="doctor-card-clinics__station-distance">({{clinic.metro2distance}} m)</span></a>
                                            </div>
                                   </div>
 
