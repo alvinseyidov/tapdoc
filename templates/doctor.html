@@ -1099,17 +1099,17 @@ function myFunction() {
 					<div class="clinic-card__type">{% for profession in doctor.professions.all %}{{profession.name}} {% endfor %}</div>
 					<div class="clinic-card__cost">
 													Təcrübəsi - {{doctor.tecrube}} il											</div><br>
-                          <div class="tooltipprice" style="margin: -17px 0 -7px 0;font-size: 12px;"><span class="tooltiptextprice"><strong>İlkin konsultasiya qiyməti - 30 AZN</strong> <br>Ünvan: {% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.address}}{% endfor%}<br><i>Yalnız ilkin qəbul xərci göstərilir. Əlavə müayinə və digər xərclər qiymətə daxil deyildir.</i></span>Qəbula yazılma &nbsp; <span class="clinichover" style="text-decoration: line-through;">{{doctor.qebula_yazilma}}AZN</span>&nbsp;  <span style="font-weight: 700;border-bottom: 1.5px dotted #000;">
+                          <div class="tooltipprice" style="margin: -17px 0 -7px 0;font-size: 12px;"><span class="tooltiptextprice"><strong>İlkin konsultasiya qiyməti - <span style="font-weight: 700;border-bottom: 1.5px dotted #000;">
                             {% with endirim=doctor.qebula_yazilma|mul:doctor.qebula_yazilma_endirim_faiz|div:100 %}
                             {% with endirimli_qiymet=doctor.qebula_yazilma|sub:endirim %}
                                    {{ endirimli_qiymet|floatformat:"0" }}AZN
                                 {% endwith %}
+                                {% endwith %}  </span></strong> <br>Ünvan: {% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.address}}{% endfor%}<br><i>Yalnız ilkin qəbul xərci göstərilir. Əlavə müayinə və digər xərclər qiymətə daxil deyildir.</i></span>Qəbula yazılma &nbsp; <span class="clinichover" style="text-decoration: line-through;">{{doctor.qebula_yazilma}}AZN</span>&nbsp;  <span style="font-weight: 700;border-bottom: 1.5px dotted #000;">
+                            {% with endirim=doctor.qebula_yazilma|mul:doctor.qebula_yazilma_endirim_faiz|div:100 %}
+                            {% with endirimli_qiymet=doctor.qebula_yazilma|sub:endirim %}
+                                   {{ endirimli_qiymet|floatformat:"0" }}AZN
                                 {% endwith %}
-
-
-
-
-                          </span> <span class="doc__price-label">- {{doctor.qebula_yazilma_endirim_faiz}}%</span></div>
+                                {% endwith %}  </span> <span class="doc__price-label">- {{doctor.qebula_yazilma_endirim_faiz}}%</span></div>
 
 					<div class="clinic-card__clinictext">
 								<div class="qebultext">Qəbula Yazılmaq Üçün:</div>
@@ -1174,7 +1174,7 @@ function myFunction() {
               		              <a href="{% url 'clinicprofile'  '2'%}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">Avrasiya Hospital</span></a><br>
                                 <span style="border-bottom: 1.5px dotted #000;line-height: 2;">{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.address}}{% endfor%} </span><br>
 
-              	                 <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>Gənclik&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>Nərimanov&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+              	                 <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1}}{% endfor%}&nbsp;<span class="doctor-card-clinics__station-distance">({% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1distance}}{% endfor%} m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro2}}{% endfor%}&nbsp;<span class="doctor-card-clinics__station-distance">({% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro2distance}}{% endfor %} m)</span></a>
                                  </div>
               					</div>
 									</div>
@@ -1295,7 +1295,7 @@ function myFunction() {
                               <a href="{% url 'clinicprofile' clinic.id %}"><span class="clinichover" style="text-transform: uppercase;font-size: 14px;">{{clinic.name}}</span></a><br>
                             <span style="border-bottom: 1.5px dotted #000;line-height: 2;">{{clinic.address}} </span><br>
 
-                             <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>{{clinic.metro1}}&nbsp;<span class="doctor-card-clinics__station-distance">(490 m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>{{clinic.metro1}}&nbsp;<span class="doctor-card-clinics__station-distance">(580 m)</span></a>
+                             <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro2.png"/>&nbsp;</i>{{clinic.metro1}}&nbsp;<span class="doctor-card-clinics__station-distance">({% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1distance}}{% endfor%} m)</span></a>, <a class="clinic-card__metro" href="#"><i><img src="/static/img/metro1.png"/>&nbsp;</i>{{clinic.metro2}}&nbsp;<span class="doctor-card-clinics__station-distance">({% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro2distance}}{% endfor%} m)</span></a>
                              </div>
                     </div>
 
