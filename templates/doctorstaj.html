@@ -585,6 +585,63 @@ a:hover {
 .hearthidden{
   display: none;
 }
+
+
+.tooltipfavor {
+  position: relative;
+  display: inline-block;
+  padding: 0 32px 0 0;
+}
+
+.tooltipfavor .tooltiptextfavor {
+  visibility: hidden;
+      width: 356px;
+      background-color: white;
+      color: #6f6f6f;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+      position: absolute;
+      z-index: 1;
+      top: 44px;
+      left: 72px;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 11px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 5px;
+}
+
+.tooltipfavor:hover .tooltiptextfavor {
+  visibility: visible;
+}
+
+
+
+
+.tooltipprice {
+  position: relative;
+  display: inline-block;
+  padding: 0 32px 0 0;
+}
+
+.tooltipprice .tooltiptextprice {
+  visibility: hidden;
+width: 356px;
+height: 98px;
+background-color: white;
+color: #6f6f6f;
+
+border-radius: 6px;
+padding: 5px 9px;
+position: absolute;
+z-index: 1;
+top: -99px;
+/* left: 72px; */
+box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 11px 0 rgba(0, 0, 0, 0.19);
+border-radius: 5px;
+}
+
+.tooltipprice:hover .tooltiptextprice {
+  visibility: visible;
+}
 </style>
 
 </head>
@@ -663,7 +720,13 @@ a:hover {
                  </div>
      <div class="headerdesktopright"><div class="headerdesktop_phone"><div class="headerdesktop_phone-note"><span style="color: rgb(255, 37, 108); font-weight: 600;">Zəng Edin!</span> Həkim Axtarışında Kömək Üçün
         </div> <span class="headerdesktop_contact_phone ">
-                      +994 (051) 623-66-51                                </span></div> <div class="dropdownmyp"><span>Şəxsi Kabinet</span> <div class="dropdown-contentmyp"><p><a href="/account/">Profilim</a></p> <p><a href="/logout/">Çıxış</a></p></div></div></div></div>
+                      +994 (051) 623-66-51                                </span></div> <div class="dropdownmyp"><span>Şəxsi Kabinet</span> <div class="dropdown-contentmyp">{% if user.is_authenticated %}
+                          <p><a href="{% url 'account' %}">Profilim</a></p>
+                          <p><a href="{% url 'logout' %}">Çıxış</a></p>
+                        {% else %}
+                        <p><a href="{% url 'login' %}">Giriş</a></p>
+                        <p><a href="{% url 'signup' %}">Qeydiyyat</a></p>
+                        {% endif %}</div></div></div></div>
 
 
 
@@ -1001,7 +1064,7 @@ function myFunction() {
 
 	{% for doctor in doctors %}
 
-
+{% if user.is_authenticated %}
     {% if user in doctor.wishlist.all %}
     <img  id="unlike{{doctor.id}}" data-catid="{{ doctor.id }}" class="addfavor heartshow " src="{% static 'img/liked.png'%}"/>
     <img  id="like{{doctor.id}}" data-catid="{{ doctor.id }}" class="removefavor hearthidden" src="{% static 'img/like.png'%}"/>
@@ -1011,7 +1074,10 @@ function myFunction() {
     {% endif %}
 
 
-
+    {% else %}
+    <!--<a href="#" title="Favori listə əlavə etmək üçün giriş edin."><img class="removefavor" src="/static/img/like.png"></a>-->
+    <div class="tooltipfavor"><img class="removefavor" src="/static/img/like.png"><span class="tooltiptextfavor">Favori listə əlavə etmək üçün sistemə giriş edin. Buradan <a href="{% url 'login' %}">giriş</a> edə bilərsiniz.</span></div>
+    {% endif %}
 
 
 
