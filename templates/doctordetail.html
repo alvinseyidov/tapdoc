@@ -533,7 +533,11 @@
                                           Qəbula yazılma
                                           <span class="doc__price-old">{{doctor.qebula_yazilma}}</span>
                                           <span class="doc__price-value doc__price-tooltip js-tooltip-custom js-tooltip-custom-interactive">
-                                          {{endirimli_qiymet}} AZN.
+                                            {% with endirim=doctor.qebula_yazilma|mul:doctor.qebula_yazilma_endirim_faiz|div:100 %}
+                                            {% with endirimli_qiymet=doctor.qebula_yazilma|sub:endirim %}
+                                                   {{ endirimli_qiymet|floatformat:"0" }}AZN
+                                                {% endwith %}
+                                                {% endwith %}.
 
                                           </span>
                                           <span class="doc__price-label">-{{doctor.qebula_yazilma_endirim_faiz}}%</span>
@@ -609,8 +613,12 @@
                                                       <span class="rightbar__metro"><i class="i-metro-sm i-metro--line_11"></i>{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro2}}{% endfor%} ({% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro2distance}}{% endfor%} m)</span>
 
                                                    </div>
-                                                   <div class="rightbar__place-price">Həkim qəbulu qiyməti:
-                                                      {{doctor.endirimli_qiymet}} AZN.
+                                                   <div class="rightbar__place-price">Həkim qəbulu: <span class="clinichover" style="text-decoration: line-through;font-weight: 100;">{{doctor.qebula_yazilma}}AZN</span>
+                                                     {% with endirim=doctor.qebula_yazilma|mul:doctor.qebula_yazilma_endirim_faiz|div:100 %}
+                                                     {% with endirimli_qiymet=doctor.qebula_yazilma|sub:endirim %}
+                                                            {{ endirimli_qiymet|floatformat:"0" }} AZN
+                                                         {% endwith %}
+                                                         {% endwith %}
                                                    </div>
                                                    <div class="rightbar__place-phone" data-ga-action="clickPhoneNumber"
                                                       data-ga-label="doctor online form">
@@ -668,7 +676,7 @@
                                        <a href="javascript:void(0);" class="doctor__tablink" data-rel="info">О враче</a>
                                     </div>
                                     <div class="doctor__tab doctor__info" data-tab="info">
-                                       <div class="doctor__title">Haqqında Məlumat</div>
+                                       <div class="doctor__title"></div>
                                        <div class="doctor__text">
                                           <p>{{doctor.description|safe}}</p>
                                        </div>
@@ -1044,13 +1052,14 @@
 
                                                                        <!-- /ko -->
                                                                    <!-- ko if: clinicAddressText -->
-                                                                   <span class="popup-book__info-address">Ünvan</span> <span data-bind="text: clinicAddressText">Azadlıq prosp. 43</span><br>
+                                                                   <span class="popup-book__info-address">Ünvan</span> <span data-bind="text: clinicAddressText"><span data-bind="text: closestStation">{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.address}}{% endfor%} </span></span><br>
                                                                    <!-- /ko -->
 
                                                                    <!-- ko if: closestStation -->
                                                                      Metro
                                                                      <span class="popup-book__info-stations">
-                                                                       <span data-bind="text: closestStation">Gənclik M (550 mt)</span>
+                                                                       <span data-bind="text: closestStation">{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1}}{% endfor%} ( {% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1distance}}{% endfor%} m)</span><br>
+
                                                                      </span>
                                                                    <!-- /ko -->
 
@@ -1118,7 +1127,7 @@
                                                                                    <option value="saab">Vital Klinikası</option>
                                                                                  </select>
                                                                                  {% else %}
-                                                                                 <input name="carlist" readonly="true" value="Vital Klinikası" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;"/>
+                                                                                 <input name="carlist" readonly="true" value="{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.name}}{% endfor%}" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;"/>
                                                                                  {% endif %}
                                                                            </div>
 
