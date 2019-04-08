@@ -1465,7 +1465,7 @@ $(document).ready(function(){
               <div class="modal-contentmuracietmrc1" style=" max-height: 677px; ">
               <a href="javascript:void(0)"><span class="closemuraciet closemuracietmrc12{{doctor.id}}">&times;</span></a>
               <style>
-                  input[type="text"]#prefixmrc12{{doctor.id}} {
+                  input[type="text"]#prefixmrc12 {
                     -webkit-appearance: none!important;
                 text-decoration: none;
                 text-align: right;
@@ -1481,7 +1481,7 @@ $(document).ready(function(){
 
               }
 
-              input[type="text"]#phoneInputmrc12{{doctor.id}} {
+              input[type="text"]#phoneInputmrc12 {
                 -webkit-appearance: none!important;
                 border: 1px solid #e1e1e5;
                 margin: -43px 0 0px 53px;
@@ -1690,15 +1690,15 @@ $(document).ready(function(){
                           <div class="form-input-withlabel" data-bind="css: { valided: patientPhoneValid }">
                               <div class="form-input-icoo "><i class="fa fa-phone"></i></div>
 
-                        <input type="text" id="prefixmrc1" value="+994" disabled/>
-                        <input  type="text" id="phoneInputmrc1" placeholder="(___) ___-____" />
+                        <input type="text" id="prefixmrc12" value="+994" disabled/>
+                        <input  type="text" id="phoneInputmrc12" placeholder="(___) ___-____" />
 
 
                         <!-- Phone Number Input Mask Start -->
                         <script>
 
-                          let phoneInputsmrc1 = $("#phoneInputmrc1");
-                        phoneInputsmrc1.inputmask(" (99) 999 99 99", {
+                          let phoneInputsmrc12 = $("#phoneInputmrc12");
+                        phoneInputsmrc12.inputmask(" (99) 999 99 99", {
 
                         "onincomplete": function() {
                           $(this).addClass("incomplete");
@@ -1898,7 +1898,7 @@ $(document).ready(function(){
 <div class="modal-contentmuracietmrc1" style=" max-height: 677px; ">
 <a href="javascript:void(0)"><span class="closemuraciet closemuracietmrc13{{doctor.id}}">&times;</span></a>
 <style>
-    input[type="text"]#prefixmrc13{{doctor.id}} {
+    input[type="text"]#prefixmrc13 {
       -webkit-appearance: none!important;
   text-decoration: none;
   text-align: right;
@@ -1914,7 +1914,7 @@ $(document).ready(function(){
 
 }
 
-input[type="text"]#phoneInputmrc13{{doctor.id}} {
+input[type="text"]#phoneInputmrc13 {
   -webkit-appearance: none!important;
   border: 1px solid #e1e1e5;
   margin: -43px 0 0px 53px;
@@ -1947,7 +1947,7 @@ input[type="text"]#phoneInputmrc13{{doctor.id}} {
   <div class="popup-book__infobox"><div class="popup-book__info clearfix">
   <div class="popup-book__doc">
     <div class="popup-book__pic">
-      <img data-bind="attr: {src: doctor.image}" src="/media/taleh_rFqJF06.jpg">
+      <img data-bind="attr: {src: doctor.image}" src="{{doctor.image.url}}">
     </div>
     <div class="doc__rating">
       <div class="rate">
@@ -2123,15 +2123,15 @@ input[type="text"]#phoneInputmrc13{{doctor.id}} {
             <div class="form-input-withlabel" data-bind="css: { valided: patientPhoneValid }">
                 <div class="form-input-icoo "><i class="fa fa-phone"></i></div>
 
-          <input type="text" id="prefixmrc1" value="+994" disabled/>
-          <input  type="text" id="phoneInputmrc1" placeholder="(___) ___-____" />
+          <input type="text" id="prefixmrc13" value="+994" disabled/>
+          <input  type="text" id="phoneInputmrc13" placeholder="(___) ___-____" />
 
 
           <!-- Phone Number Input Mask Start -->
           <script>
 
-            let phoneInputsmrc1 = $("#phoneInputmrc1");
-          phoneInputsmrc1.inputmask(" (99) 999 99 99", {
+            let phoneInputsmrc13 = $("#phoneInputmrc13");
+          phoneInputsmrc13.inputmask(" (99) 999 99 99", {
 
           "onincomplete": function() {
             $(this).addClass("incomplete");
