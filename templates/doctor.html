@@ -1408,7 +1408,7 @@ function myFunction() {
     </div>
     <div class="popup-book__float">
       <div class="popup-book__info-name" data-bind="text: doctor.name">{{doctor.first_name}}  {{doctor.last_name}}</div>
-      <span data-bind="text: specialityName">Uroloq, Cərrah</span> <span data-bind="text: clinicSubtitle"> - Vital Klinikası</span><br>
+      <span data-bind="text: specialityName">Uroloq, Cərrah</span> <span data-bind="text: clinicSubtitle"> - {% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.name}}{% endfor %}</span><br>
           <!-- ko if: priceSelectorVisible -->
       <span class="popup-book__info-price">Həkim Qəbulu</span> <span data-bind="text: price.actualPriceText"> 50 AZN</span><br>
           <!-- /ko -->
@@ -1477,13 +1477,13 @@ function myFunction() {
                       click: changeSlotClick" style="cursor: pointer">
                   <div class="form-input-icoo "><i class="fa fa-hospital-o fa-flip-horizontal"></i></div>
 
-                  {% if doctor.id == 4 %}
+                  {% if doctor.clinics.count > 1 %}
                   <select name="carlist" form="carform" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;">
                     <option value="volvo">{% for clinic in doctor.clinics.all|slice:"1:2" %}{{clinic.name}}{% endfor%}</option>
                     <option value="volvo">{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.name}}{% endfor%}</option>
                   </select>
                   {% else %}
-                  <input name="carlist" readonly="true" value="Vital Klinikası" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;"/>
+                  <input name="carlist" readonly="true" value="{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.name}}{% endfor %}" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;"/>
                   {% endif %}
 
               </div>
