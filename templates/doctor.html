@@ -1408,9 +1408,9 @@ function myFunction() {
     </div>
     <div class="popup-book__float">
       <div class="popup-book__info-name" data-bind="text: doctor.name">{{doctor.first_name}}  {{doctor.last_name}}</div>
-      <span data-bind="text: specialityName">Uroloq, Cərrah</span> <span data-bind="text: clinicSubtitle"> - {% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.name}}{% endfor %}</span><br>
+      <span data-bind="text: specialityName">Uroloq, Cərrah</span> <br><span data-bind="text: clinicSubtitle"> {% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.name}}{% endfor %}</span><br>
           <!-- ko if: priceSelectorVisible -->
-      <span class="popup-book__info-price">Həkim Qəbulu</span> <span data-bind="text: price.actualPriceText">
+      <span class="popup-book__info-price"><strong>Qəbul: </strong></span> <span data-bind="text: price.actualPriceText">
 
 
 
@@ -1434,12 +1434,12 @@ function myFunction() {
       </span><br>
           <!-- /ko -->
       <!-- ko if: clinicAddressText -->
-      <span class="popup-book__info-address">Ünvan</span> <span data-bind="text: clinicAddressText">{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.address}}{% endfor %}</span><br>
+      <span style=" margin-right: 8px; "><strong>Ünvan: </strong></span> <span data-bind="text: clinicAddressText">{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.address}}{% endfor %}</span><br>
       <!-- /ko -->
 
       <!-- ko if: closestStation -->
-        Metro
-        <span class="popup-book__info-stations">
+        <strong>Metro: </strong>
+        <span style=" margin-left: 11px; ">
           <span data-bind="text: closestStation">{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1}} ({{clinic.metro1distance}}){% endfor %}</span>
         </span>
       <!-- /ko -->
