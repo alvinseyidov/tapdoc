@@ -1052,12 +1052,35 @@
 
                                                                        <!-- /ko -->
                                                                    <!-- ko if: clinicAddressText -->
-                                                                   <span class="popup-book__info-address">Ünvan</span> <span data-bind="text: clinicAddressText"><span data-bind="text: closestStation">{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.address}}{% endfor%} </span></span><br>
+                                                                   <span data-bind="text: specialityName">Uroloq, Cərrah</span> 
+                                                                   <span class="popup-book__info-price"><strong>Qəbul: </strong></span> <span data-bind="text: price.actualPriceText">
+
+
+
+
+                                                                     <span class="clinichover" style="text-decoration: line-through;font-weight: 100;">{{doctor.qebula_yazilma}}AZN</span>
+                                                                       {% with endirim=doctor.qebula_yazilma|mul:doctor.qebula_yazilma_endirim_faiz|div:100 %}
+                                                                       {% with endirimli_qiymet=doctor.qebula_yazilma|sub:endirim %}
+                                                                              {{ endirimli_qiymet|floatformat:"0" }} AZN
+                                                                           {% endwith %}
+                                                                           {% endwith %}
+
+
+
+
+
+
+
+
+
+
+                                                                   </span><br>
+                                                                   <span style=" margin-right: 8px; "><strong>Ünvan: </strong></span> <span data-bind="text: clinicAddressText"><span data-bind="text: closestStation">{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.address}}{% endfor%} </span></span><br>
                                                                    <!-- /ko -->
 
                                                                    <!-- ko if: closestStation -->
-                                                                     Metro
-                                                                     <span class="popup-book__info-stations">
+                                                                     <strong>Metro: </strong>
+                                                                     <span style=" margin-left: 11px; ">
                                                                        <span data-bind="text: closestStation">{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1}}{% endfor%} ( {% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1distance}}{% endfor%} m)</span><br>
 
                                                                      </span>
