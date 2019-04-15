@@ -8,10 +8,11 @@ from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import to_locale, get_language
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-
+@login_required(login_url='/admin/')
 def homepage(request):
     professions = Profession.objects.all()
     lang = get_language()
@@ -30,7 +31,7 @@ def logindoc(request):
 def loginclinic(request):
     return render(request, 'loginclinic.html')
 
-
+@login_required(login_url='/admin/')
 def doctor(request):
     lang = get_language()
     doctors_list = Doctor.objects.all()
@@ -50,6 +51,7 @@ def doctor(request):
     }
     return render(request, 'doctor.html', context)
 
+@login_required(login_url='/admin/')
 def doctorstaj(request):
     doctors_list = Doctor.objects.order_by('-tecrube')
     query = request.GET.get('q')
@@ -68,6 +70,7 @@ def doctorstaj(request):
     }
     return render(request, 'doctorstaj.html', context)
 
+@login_required(login_url='/admin/')
 def doctorreyler(request):
     doctors_list = Doctor.objects.all().annotate(num_reviews=Count('reviews')).order_by('-num_reviews')
     query = request.GET.get('q')
@@ -86,6 +89,7 @@ def doctorreyler(request):
     }
     return render(request, 'doctorreyler.html', context)
 
+@login_required(login_url='/admin/')
 def doctorqiymet(request):
     doctors_list = Doctor.objects.order_by('-qebula_yazilma')
     query = request.GET.get('q')
@@ -104,6 +108,7 @@ def doctorqiymet(request):
     }
     return render(request, 'doctorqiymet.html', context)
 
+@login_required(login_url='/admin/')
 def doctorreyting(request):
     doctors_list = Doctor.objects.all()
     query = request.GET.get('q')
@@ -122,6 +127,7 @@ def doctorreyting(request):
     }
     return render(request, 'doctorreyting.html', context)
 
+@login_required(login_url='/admin/')
 def doctorspecific(request, id):
     profession = Profession.objects.get(pk=id)
     doctors_list = profession.doctors.all()
@@ -140,7 +146,7 @@ def doctorspecific(request, id):
 
 
 
-
+@login_required(login_url='/admin/')
 def doctordetail(request, id):
     doctor = get_object_or_404(Doctor, id=id)
     wishlist = doctor.wishlist.all()
@@ -178,32 +184,32 @@ def doctordetail(request, id):
     return render(request, 'doctordetail.html',context)
 
 
-
+@login_required(login_url='/admin/')
 def clinicdetail(request):
     doctorid = 1
     return render(request, 'clinicdetail.html')
 
-
+@login_required(login_url='/admin/')
 def clinicdetailnerimanov(request):
     doctorid = 1
     return render(request, 'clinicdetailnerimanov.html')
 
-
+@login_required(login_url='/admin/')
 def clinicdetailnesimi(request):
     doctorid = 1
     return render(request, 'clinicdetailnesimi.html')
 
-
+@login_required(login_url='/admin/')
 def clinicdetailyasamal(request):
     doctorid = 1
     return render(request, 'clinicdetailyasamal.html')
 
-
+@login_required(login_url='/admin/')
 def clinicdetailistanbul(request):
     doctorid = 1
     return render(request, 'clinicdetailistanbul.html')
 
-
+@login_required(login_url='/admin/')
 def clinicdetailvital(request):
     doctorid = 1
     return render(request, 'clinicdetailvital.html')
@@ -211,13 +217,14 @@ def clinicdetailvital(request):
 
 
 
-
+@login_required(login_url='/admin/')
 def addtofavor(request, id):
     doctor = get_object_or_404(Doctor, id=id)
     doctor.wishlist.add(request.user)
 
     return redirect('doctordetail', id=id)
 
+@login_required(login_url='/admin/')
 def removefavor(request, id):
     doctor = get_object_or_404(Doctor, id=id)
     doctor.wishlist.remove(request.user)
@@ -226,7 +233,7 @@ def removefavor(request, id):
 
 
 
-
+@login_required(login_url='/admin/')
 def doctoraddtofavor(request):
 
     if request.method == 'GET':
@@ -237,7 +244,7 @@ def doctoraddtofavor(request):
     else:
         return HttpResponse("Request method is not a GET")
 
-
+@login_required(login_url='/admin/')
 def doctorremovefavor(request):
     if request.method == 'GET':
         post_id = request.GET['post_id']

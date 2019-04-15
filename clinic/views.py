@@ -2,9 +2,10 @@ from django.shortcuts import get_object_or_404, render, HttpResponse, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from clinic.models import Clinic, Gallery, Sertifikat, XidmetlerPrices, DiaqnostikalarPrices
 from service.models import XidmatlarGroup, DiaqnostikalarGroup, Xidmatlar, Diaqnostikalar
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
+@login_required(login_url='/admin/')
 def clinicprofile(request, id):
     clinic = get_object_or_404(Clinic, id=id)
     xidmetlerprices = XidmetlerPrices.objects.filter(klinika=clinic)
@@ -13,7 +14,7 @@ def clinicprofile(request, id):
     for xidmetlermovcud in xidmetlerprices:
         groupsums.append(xidmetlermovcud.xidmet.service_group)
     xidmetlerlist = list(set(groupsums))
- 
+
     diaqnostikalarprices = DiaqnostikalarPrices.objects.filter(klinika=clinic)
     diaqnostikalargroup = DiaqnostikalarGroup.objects.all()
     groupsums2 = []
@@ -45,7 +46,7 @@ def clinicprofile(request, id):
     return render(request, 'clinicprofile.html', context)
 
 
-
+@login_required(login_url='/admin/')
 def clinicsqiymet(request):
     clinics_list = Clinic.objects.filter(type='MRK')
     clinicsall = Clinic.objects.all()
@@ -67,6 +68,7 @@ def clinicsqiymet(request):
     }
     return render(request, 'clinicsqiymet.html', context)
 
+@login_required(login_url='/admin/')
 def clinicsreyler(request):
     clinics_list = Clinic.objects.filter(type='MRK')
     clinicsall = Clinic.objects.all()
@@ -88,6 +90,7 @@ def clinicsreyler(request):
     }
     return render(request, 'clinicsreyler.html', context)
 
+@login_required(login_url='/admin/')
 def clinicsreyting(request):
     clinics_list = Clinic.objects.filter(type='MRK')
     clinicsall = Clinic.objects.all()
@@ -109,6 +112,7 @@ def clinicsreyting(request):
     }
     return render(request, 'clinicsreyting.html', context)
 
+@login_required(login_url='/admin/')
 def clinics(request):
     clinics_list = Clinic.objects.filter(type='MRK')
     clinicsall = Clinic.objects.all()
@@ -130,6 +134,7 @@ def clinics(request):
     }
     return render(request, 'clinics.html', context)
 
+@login_required(login_url='/admin/')
 def clinicsspecific(request, id):
     xidmet = Xidmatlar.objects.get(pk=id)
     clinics_list = xidmet.relate_name_xidmetler.all()
@@ -149,7 +154,7 @@ def clinicsspecific(request, id):
 
 
 
-
+@login_required(login_url='/admin/')
 def clinicaddtofavor(request):
 
     if request.method == 'GET':
@@ -160,7 +165,7 @@ def clinicaddtofavor(request):
     else:
         return HttpResponse("Request method is not a GET")
 
-
+@login_required(login_url='/admin/')
 def clinicremovefavor(request):
     if request.method == 'GET':
         post_id = request.GET['post_id']

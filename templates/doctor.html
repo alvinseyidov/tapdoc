@@ -1493,7 +1493,7 @@ function myFunction() {
               <div class="form-input-withlabel" data-bind="css: { valided: patientNameValid }">
                   <div class="form-input-icoo "><i class="fa fa-user"></i></div>
                   <input type="text" style=" padding-left: 22px !important; " class="form-input form-input--border form-input--label form-input--size_small form-input--font_big"
-                   placeholder="Ad Soysad">
+                   placeholder="Ad Soysad" required>
               </div>
           </div>
 
@@ -1508,7 +1508,7 @@ function myFunction() {
                   <div class="form-input-icoo "><i class="fa fa-phone"></i></div>
 
             <input type="text" id="prefix{{doctor.id}}" value="+994" disabled/>
-            <input  type="text" id="phoneInput{{ doctor.id }}" placeholder="(___) ___-____" />
+            <input  type="text" id="phoneInput{{ doctor.id }}" placeholder="(___) ___-____"  required>
 
 
             <!-- Phone Number Input Mask Start -->
@@ -1550,7 +1550,7 @@ function myFunction() {
           }
           </style>
           <div class="popup-book__request clearfix">
-              <button id="muracietbuttonag" class="muracietbutton popup-book__send button button--color_green" disabled>
+              <button id="muracietbuttonag" class="muracietbutton popup-book__send button button--color_green">
                   <div class="button__cont">Göndər</div>
               </button>
           </div>
@@ -1558,25 +1558,14 @@ function myFunction() {
           <!-- ko if: showSMSVerificationForm --><!-- /ko -->
         <!-- ko if: insuranceState() == 1 --><!-- /ko -->
           <div class="popup-book__legal-links">
-            <input type="checkbox" name="optionag" id="optionag"> 
+            <input type="checkbox" name="optionag" id="optionag" required>
               <a>istifadəçi razılığının şərtləri</a>,
               <a>şəxsi məlumatları qorunması şərtlərini</a>
             və
               <a>şəxsi məlumatların emalına razılıq</a> verirəm.
 
           </div>
-          <script>
-            var checker = document.getElementById('optionag');
-            var sendbtn = document.getElementById('muracietbuttonag');
-            checker.onchange = function(){
-if(this.checked){
-    sendbtn.disabled = false;
-} else {
-    sendbtn.disabled = true;
-}
 
-}
-            </script>
         </form>
       </div>
       <!-- /ko -->

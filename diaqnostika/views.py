@@ -2,8 +2,10 @@ from django.shortcuts import get_object_or_404, render, HttpResponse, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from clinic.models import Clinic
 from service.models import Diaqnostikalar
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+@login_required(login_url='/admin/')
 def diaqnostika(request):
     diaqnostika_list = Clinic.objects.filter(type='MRK')
     diaqnostikaall = Clinic.objects.all()
@@ -24,6 +26,7 @@ def diaqnostika(request):
     }
     return render(request, 'diaqnostika.html', context)
 
+@login_required(login_url='/admin/')
 def diaqnostikaspecific(request, id):
     xidmet_diaqnostik = Diaqnostikalar.objects.get(pk=id)
     diaqnostikaall = Clinic.objects.all()
@@ -46,6 +49,7 @@ def diaqnostikaspecific(request, id):
     }
     return render(request, 'diaqnostikaspecific.html', context)
 
+@login_required(login_url='/admin/')
 def diaqnostikareyler(request):
     diaqnostika_list = Clinic.objects.filter(type='MRK')
     diaqnostikaall = Clinic.objects.all()
@@ -66,6 +70,7 @@ def diaqnostikareyler(request):
     }
     return render(request, 'diaqnostikareyler.html', context)
 
+@login_required(login_url='/admin/')
 def diaqnostikaqiymet(request):
     diaqnostika_list = Clinic.objects.filter(type='MRK')
     diaqnostikaall = Clinic.objects.all()
@@ -86,6 +91,7 @@ def diaqnostikaqiymet(request):
     }
     return render(request, 'diaqnostikaqiymet.html', context)
 
+@login_required(login_url='/admin/')
 def diaqnostikareyting(request):
     diaqnostika_list = Clinic.objects.filter(type='MRK')
     diaqnostikaall = Clinic.objects.all()
