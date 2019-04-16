@@ -37,7 +37,6 @@
     $( document ).tooltip();
   } );
   </script>
-    <script src="https://www.jqueryscript.net/demo/Easy-jQuery-Input-Mask-Plugin-inputmask/dist/jquery.inputmask.bundle.min.js"></script>
 
 
 
@@ -1340,8 +1339,7 @@ function myFunction() {
     text-decoration: none;
     text-align: right;
     width: 75px;
-    border: 1px solid #e1e1e5;
-    border-right: 0px;
+
     /* margin: 0 0 0 -7px; */
     background: white;
     height: 43px;
@@ -1349,20 +1347,19 @@ function myFunction() {
     font-size: 20px;
     color: #828288;
   }
-  input[type="text"]#phoneInput{{doctor.id}} {
-    -webkit-appearance: none!important;
-    border: 1px solid #e1e1e5;
-    margin: -43px 0 0px 53px;
-    border-left: 0px;
+  input[type="text"]#phone-number {
+    webkit-appearance: none!important;
+    margin: -43px 0 0px 0;
+
     outline: none;
     height: 43px;
     background: #fff;
     border-radius: 4px;
-    width: 181px;
+    width: 234px;
     display: block;
     box-sizing: border-box;
-    padding: 0 0 0 6px;
-    font-size: 20px;
+    padding: 0 0 0 0;
+    font-size: 17px;
     color: #828288;
     line-height: normal;
     -webkit-appearance: none;
@@ -1375,6 +1372,7 @@ function myFunction() {
     -webkit-backface-visibility: hidden;
     font-family: 'CalibriCommon', sans-serif;
   }
+  input:focus:required:invalid  { border:1px solid red;}
       </style>
     <div class="popup-book"><div class="popup-book__head"><span data-bind="text: headingText">Müraciət Et</span></div>
 
@@ -1458,7 +1456,7 @@ function myFunction() {
 
 
 
-        <form>
+        <form id="feedback" class="simple-form">
           <!-- ko if: dateSelectorVisible() && interval() == null -->
           <div class="popup-book__item" >
               <div class="popup-book__label">
@@ -1498,59 +1496,22 @@ function myFunction() {
           </div>
 
 
-
-
-          <div class="popup-book__item popup-book__phone">
-              <div class="popup-book__label">
-                  <span>Telefon</span>
+          <div class="popup-book__item popup-book__fio ">
+              <div class="popup-book__label"><span data-bind="text: patientNameFieldLabel">Telefon</span>
               </div>
-              <div class="form-input-withlabel" data-bind="css: { valided: patientPhoneValid }">
+              <div class="form-input-withlabel" data-bind="css: { valided: patientNameValid }">
                   <div class="form-input-icoo "><i class="fa fa-phone"></i></div>
-
-            <input type="text" id="prefix{{doctor.id}}" value="+994" disabled/>
-            <input  type="text" id="phoneInput{{ doctor.id }}" placeholder="(___) ___-____"  required>
-
-
-            <!-- Phone Number Input Mask Start -->
-            <script>
-              let phoneInputs{{ doctor.id }} = $("#phoneInput{{ doctor.id }}");
-            phoneInputs{{ doctor.id }}.inputmask(" (99) 999 99 99", {
-            "onincomplete": function() {
-              $(this).addClass("incomplete");
-            },
-            "oncomplete": function() {
-              $(this).removeClass("incomplete");
-            }
-            });</script>
-
-            <!-- Phone Number Input Mask End -->
-
-
+                    <input type="text" style=" padding-left: 22px !important; " class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" id="phone-number{{doctor.id}}" placeholder="(__)___-__-__" required>
               </div>
-              <!-- ko if: showPhoneNotText -->
-              <div class="popup-book__label valided-info">
-                  <span><i class="fa fa-info-circle"></i></span>
-              </div>
-              <div class="popup-book__note" data-bind="text: phoneNoteText">Sizinlə ən qısa zamanda əlaqə saxlanılacaq.</div>
-              <!-- /ko -->
-              <!-- ko if: showSmsSentText --><!-- /ko -->
           </div>
+          <script>$(document).ready(function(){
 
-          <!-- ko if: showConfirmCall > 0--><!-- /ko -->
+        $('#phone-number{{doctor.id}}').mask('(000) 000-00-00');
+       })</script>
 
-          <!-- ko if: isSpam --><!-- /ko -->
 
-          <!-- ko ifnot: showSMSVerificationForm -->
-          <style>
-          button.muracietbutton:disabled {
-              background-color: #d4d1d1;
-              color: #8e8e8e;
-              cursor: not-allowed;
-  pointer-events: all !important;
-          }
-          </style>
           <div class="popup-book__request clearfix">
-              <button id="muracietbuttonag" class="muracietbutton popup-book__send button button--color_green">
+              <button  class="muracietbutton popup-book__send button button--color_green">
                   <div class="button__cont">Göndər</div>
               </button>
           </div>
@@ -1558,7 +1519,7 @@ function myFunction() {
           <!-- ko if: showSMSVerificationForm --><!-- /ko -->
         <!-- ko if: insuranceState() == 1 --><!-- /ko -->
           <div class="popup-book__legal-links">
-            <input type="checkbox" name="optionag" id="optionag" required>
+            <input type="checkbox" name="optionag" id="optionag" style="    height: 20px;    width: 20px;    float: left;    margin: 1px -7px -4px 12px;" required>
               <a>istifadəçi razılığının şərtləri</a>,
               <a>şəxsi məlumatları qorunması şərtlərini</a>
             və
@@ -1695,6 +1656,7 @@ window.onclick = function(event) {
 
     {% include 'footer-main.html' %}
 
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 
     <script src="https://docdoc.ru/widget/js?2937290733" type="text/javascript" id="docdoc-platform2"></script>
     <script src="https://s.docdoc.ru/compile/common.js?2937290733"></script>

@@ -1412,46 +1412,47 @@ function myFunction() {
 
     <!-- Müraciət Form Popup Content Start -->
     <style>
-        input[type="text"]#prefix{{doctor.id}} {
-          -webkit-appearance: none!important;
-      text-decoration: none;
-      text-align: right;
-      width: 75px;
-      border: 1px solid #e1e1e5;
-      border-right: 0px;
-      /* margin: 0 0 0 -7px; */
-      background: white;
-      height: 43px;
-      padding: 0 22px 0 0;
-      font-size: 20px;
-      color: #828288;
-    }
-    input[type="text"]#phoneInput{{doctor.id}} {
+
+    input[type="text"]#prefix{{doctor.id}} {
       -webkit-appearance: none!important;
-      border: 1px solid #e1e1e5;
-      margin: -43px 0 0px 53px;
-      border-left: 0px;
-      outline: none;
-      height: 43px;
-      background: #fff;
-      border-radius: 4px;
-      width: 181px;
-      display: block;
-      box-sizing: border-box;
-      padding: 0 0 0 6px;
-      font-size: 20px;
-      color: #828288;
-      line-height: normal;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      -webkit-transition: border-color 0.1s linear 0s;
-      -moz-transition: border-color 0.1s linear 0s;
-      -o-transition: border-color 0.1s linear 0s;
-      transition: border-color 0.1s linear 0s;
-      -webkit-backface-visibility: hidden;
-      font-family: 'CalibriCommon', sans-serif;
-    }
+  text-decoration: none;
+  text-align: right;
+  width: 75px;
+
+  /* margin: 0 0 0 -7px; */
+  background: white;
+  height: 43px;
+  padding: 0 22px 0 0;
+  font-size: 20px;
+  color: #828288;
+}
+input[type="text"]#phone-number {
+  webkit-appearance: none!important;
+  margin: -43px 0 0px 0;
+
+  outline: none;
+  height: 43px;
+  background: #fff;
+  border-radius: 4px;
+  width: 234px;
+  display: block;
+  box-sizing: border-box;
+  padding: 0 0 0 0;
+  font-size: 17px;
+  color: #828288;
+  line-height: normal;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.1s linear 0s;
+  -moz-transition: border-color 0.1s linear 0s;
+  -o-transition: border-color 0.1s linear 0s;
+  transition: border-color 0.1s linear 0s;
+  -webkit-backface-visibility: hidden;
+  font-family: 'CalibriCommon', sans-serif;
+}
+input:focus:required:invalid  { border:1px solid red;}
+
         </style>
       <div class="popup-book"><div class="popup-book__head"><span data-bind="text: headingText">Müraciət Et</span></div>
 
@@ -1533,37 +1534,8 @@ function myFunction() {
         <!-- ko if: step() == STEP_PATIENT_NAME -->
         <div class="popup-book-step">
 
-            <div class="popup-book__item" data-bind="visible: specialitySelectorVisible" style="display: none;">
-                <div class="popup-book__label"><span>Специальность</span></div>
-                <div class="form-input-withlabel valided">
-                    <select class="popup-book-overlay-select" data-bind="
-                value: speciality,
-                options: specialities,
-                optionsText: 'name',
-                disable: disableInputs,
-                event:{ change: specialityChanged }
-              "><option value="">Уролог</option></select>
-                    <div class="form-input-icoo "><i class="fa fa-stethoscope"></i></div>
-                    <div class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="css: {'form-input--disabled': disableInputs}">&nbsp;</div>
-                </div>
-            </div>
 
-            <div class="popup-book__item" data-bind="visible: clinicSelectorVisible" style="display: none;">
-                <div class="popup-book__label"><span>Клиника</span></div>
-                <div class="form-input-withlabel valided">
-                    <select class="popup-book-overlay-select" data-bind="
-                value: clinic,
-                options: clinics,
-                optionsText: function(item) {
-                                return item.isPrivateDoctor ? item.address : item.name
-                            },
-                disable: disableInputs
-              "><option value="">МедЦентрСервис на Сухаревской</option></select>
-                    <div class="form-input-icoo "><i class="fa fa-map-marker"></i></div>
-                    <div class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="css: {'form-input--disabled': disableInputs}">&nbsp;</div>
-                </div>
-            </div>
-
+          <form id="feedback" class="simple-form">
             <!-- ko if: dateSelectorVisible() && interval() == null -->
             <div class="popup-book__item" >
                 <div class="popup-book__label">
@@ -1586,8 +1558,7 @@ function myFunction() {
 
                 </div>
 
-                <div class="form-input--busy" data-bind="visible: slotField.isSlotBusy()" style="display: none;">Ой! Просим прощения, кто-то вас опередил. Пожалуйста, выберите другое время приема.</div>
-                <div class="clearfix"></div>
+
             </div>
             <!-- /ko -->
 
@@ -1598,124 +1569,44 @@ function myFunction() {
                 </div>
                 <div class="form-input-withlabel" data-bind="css: { valided: patientNameValid }">
                     <div class="form-input-icoo "><i class="fa fa-user"></i></div>
-                    <input type="text" style=" padding-left: 22px !important; " class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
-                attr: {placeholder: patientNameFieldPlaceHolder},
-                textInput: patientNameInput,
-                disable: disableInputs,
-                valueUpdate: 'afterkeydown',
-                event: {keyup: patientNameKeypress, blur: patientNameBlur},
-                css: {'form-input--disabled': disableInputs}
-              " placeholder="Ad Soyad">
+                    <input type="text" style=" padding-left: 22px !important; " class="form-input form-input--border form-input--label form-input--size_small form-input--font_big"
+                     placeholder="Ad Soysad" required>
                 </div>
             </div>
 
-            <div class="popup-book__item popup-book__lastname" style="display: none;">
-                <div class="popup-book__label"><span>Фамилия</span></div>
-                <div class="form-input-withlabel" data-bind="css: { valided: patientLastNameValid }">
-                    <div class="form-input-icoo "><i class="fa fa-user"></i></div>
-                    <input type="text" placeholder="Фамилия" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
-                textInput: patientLastNameInput,
-                disable: disableInputs,
-                valueUpdate: 'afterkeydown',
-                event: {keyup: patientLastNameKeypress, blur: patientLastNameBlur},
-                css: {'form-input--disabled': disableInputs}
-              ">
-                </div>
-            </div>
 
-            <div class="popup-book__item popup-book__age" style="display: none;">
-                <div class="popup-book__label">
-                    <span>Ваш возраст</span>
+            <div class="popup-book__item popup-book__fio ">
+                <div class="popup-book__label"><span data-bind="text: patientNameFieldLabel">Telefon</span>
                 </div>
-                <div class="form-input-withlabel" data-bind="css: { valided: patientAgeInput }">
-                    <div class="form-input-icoo "><i class="fa fa-edit"></i></div>
-                    <input type="text" placeholder="Возраст пациента" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
-                textInput: patientAgeInput,
-                disable: disableInputs,
-                valueUpdate: 'afterkeydown',
-                event: {keyup: patientAgeKeypress, blur: patientAgeBlur},
-                hasFocus: patientAgeHasFocus,
-                css: {'form-input--disabled': disableInputs}
-              ">
-                </div>
-            </div>
-            <div class="popup-book__item popup-book__birthdate"  style="display: none;">
-                <div class="popup-book__label">
-                    <span>Введите дату рождения пациента</span>
-                </div>
-                <div class="form-input-withlabel" data-bind="css: { valided: patientBirthDateInput }">
-                    <div class="form-input-icoo"><i class="fa fa-edit"></i></div>
-                    <input type="text" placeholder="дд-мм-гггг" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
-                birthDateTextInput: patientBirthDateInput,
-                disable: disableInputs,
-                event: { keyup: patientBirthDateKeypress, blur: patientBirthDateBlur },
-                hasFocus: patientBirthDateHasFocus,
-                css: {'form-input--disabled': disableInputs}
-              ">
-                </div>
-            </div>
-            <div class="popup-book__item popup-book__phone">
-                <div class="popup-book__label">
-                    <span>Telefon</span>
-                </div>
-                <div class="form-input-withlabel" data-bind="css: { valided: patientPhoneValid }">
+                <div class="form-input-withlabel" data-bind="css: { valided: patientNameValid }">
                     <div class="form-input-icoo "><i class="fa fa-phone"></i></div>
-
-              <input type="text" id="prefix{{doctor.id}}" value="+994" disabled/>
-              <input  type="text" id="phoneInput{{ doctor.id }}" placeholder="(___) ___-____" />
-
-
-              <!-- Phone Number Input Mask Start -->
-              <script>
-                let phoneInputs{{ doctor.id }} = $("#phoneInput{{ doctor.id }}");
-              phoneInputs{{ doctor.id }}.inputmask(" (99) 999 99 99", {
-              "onincomplete": function() {
-                $(this).addClass("incomplete");
-              },
-              "oncomplete": function() {
-                $(this).removeClass("incomplete");
-              }
-              });</script>
-
-              <!-- Phone Number Input Mask End -->
-
-
+                      <input type="text" style=" padding-left: 22px !important; " class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" id="phone-number{{doctor.id}}" placeholder="(__)___-__-__" required>
                 </div>
-                <!-- ko if: showPhoneNotText -->
-                <div class="popup-book__label valided-info">
-                    <span><i class="fa fa-info-circle"></i></span>
-                </div>
-                <div class="popup-book__note" data-bind="text: phoneNoteText">Sizinlə ən qısa zamanda əlaqə saxlanılacaq.</div>
-                <!-- /ko -->
-                <!-- ko if: showSmsSentText --><!-- /ko -->
             </div>
+            <script>$(document).ready(function(){
 
-            <!-- ko if: showConfirmCall > 0--><!-- /ko -->
+          $('#phone-number{{doctor.id}}').mask('(000) 000-00-00');
+         })</script>
 
-            <!-- ko if: isSpam --><!-- /ko -->
 
-            <!-- ko ifnot: showSMSVerificationForm -->
             <div class="popup-book__request clearfix">
-                <button class="popup-book__send button button--color_green" data-bind="
-                            visible: !isSpam(),
-                enable: uiSendRequestButtonNew().enable,
-                css: uiSendRequestButtonNew().css,
-                click: sendRequestClick
-              ">
-                    <div class="button__cont" data-bind="text: uiSendRequestButtonNew().text">Göndər</div>
+                <button  class="muracietbutton popup-book__send button button--color_green">
+                    <div class="button__cont">Göndər</div>
                 </button>
             </div>
             <!-- /ko -->
             <!-- ko if: showSMSVerificationForm --><!-- /ko -->
           <!-- ko if: insuranceState() == 1 --><!-- /ko -->
             <div class="popup-book__legal-links">
-                «Göndər» klikləməklə siz
-                <a data-bind="click: function () { getBaseUrl('/offer') }">istifadəçi razılığının şərtləri</a>,
-                <a data-bind="click: function () { getBaseUrl('/confidentiality') }">şəxsi məlumatları qorunması şərtlərini</a>
+              <input type="checkbox" name="optionag" id="optionag" style="    height: 20px;    width: 20px;    float: left;    margin: 1px -7px -4px 12px;" required>
+                <a>istifadəçi razılığının şərtləri</a>,
+                <a>şəxsi məlumatları qorunması şərtlərini</a>
               və
-                <a data-bind="click: function () { getBaseUrl('/agreement') }">şəxsi məlumatların emalına razılıq</a> vermiş olursunuz.
+                <a>şəxsi məlumatların emalına razılıq</a> verirəm.
 
             </div>
+
+          </form>
         </div>
         <!-- /ko -->
 

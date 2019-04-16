@@ -20,7 +20,6 @@
    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-     <script src="https://www.jqueryscript.net/demo/Easy-jQuery-Input-Mask-Plugin-inputmask/dist/jquery.inputmask.bundle.min.js"></script>
 
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
      <script src="{% static 'js/selectize.js'%}"></script>
@@ -894,7 +893,7 @@ for="kidsReception3"> Sığorta</label>
 
 
                        <div class="clinic-address__button clinic-card__clinic-button js-book-clinic" style=" margin: auto;width: 186px; ">
-             <button class="myBtnmuraciet" id="myBtnmuraciet1{{clinic.id}}">Müraciət</button>
+             <button class="myBtnmuraciet" id="myBtnmuraciet134{{clinic.id}}">Müraciət</button>
              <div style="    margin: 9px 0 0 0;text-align: center;">və ya zəng edin</div>
              <div style="    margin: 11px 0 0 0;font-size: 18px;text-align: center;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form"
 data-ga-action="clickPhoneNumber">
@@ -908,6 +907,264 @@ data-ga-action="clickPhoneNumber">
 
    </div>
  </div>
+
+
+
+
+  <!--  Müraciət clinic Form Popup Content Start -->
+  <div id="myModalmuraciet134{{clinic.id}}" class="modalmuraciet modalmuraciet134{{clinic.id}}" >
+
+
+  <div class="modal-contentmuraciet modal-contentmuraciet134{{clinic.id}}" style=" max-height: 677px; ">
+  <a href="javascript:void(0)"><span class="closemuraciet closemuraciet134{{clinic.id}}">&times;</span></a>
+
+
+
+
+  <style>
+  input[type="text"]#prefix{{doctor.id}} {
+    -webkit-appearance: none!important;
+ text-decoration: none;
+ text-align: right;
+ width: 75px;
+
+ /* margin: 0 0 0 -7px; */
+ background: white;
+ height: 43px;
+ padding: 0 22px 0 0;
+ font-size: 20px;
+ color: #828288;
+ }
+ input[type="text"]#phone-number {
+ webkit-appearance: none!important;
+ margin: -43px 0 0px 0;
+
+ outline: none;
+ height: 43px;
+ background: #fff;
+ border-radius: 4px;
+ width: 234px;
+ display: block;
+ box-sizing: border-box;
+ padding: 0 0 0 0;
+ font-size: 17px;
+ color: #828288;
+ line-height: normal;
+ -webkit-appearance: none;
+ -moz-appearance: none;
+ appearance: none;
+ -webkit-transition: border-color 0.1s linear 0s;
+ -moz-transition: border-color 0.1s linear 0s;
+ -o-transition: border-color 0.1s linear 0s;
+ transition: border-color 0.1s linear 0s;
+ -webkit-backface-visibility: hidden;
+ font-family: 'CalibriCommon', sans-serif;
+ }
+ input:focus:required:invalid  { border:1px solid red;}
+     </style>
+   <div class="popup-book"><div class="popup-book__head"><span data-bind="text: headingText">Müraciət Et</span></div>
+
+   <div class="popup-book__infobox"><div class="popup-book__info clearfix">
+   <div class="popup-book__doc">
+     <div class="popup-book__pic">
+       <img src="{{clinic.image.url}}">
+     </div>
+     <div class="doc__rating">
+       <div class="rate">
+         <!-- ko if: isNewDoctor --><!-- /ko -->
+         <!-- ko if: inRatingTest && !isNewDoctor --><!-- /ko -->
+         <!-- ko ifnot: inRatingTest -->
+         <div class="rate__default" style="    margin: 0 0 0 -11px;">
+           <i class="fa fa-star" aria-hidden="true"></i>
+           <i class="fa fa-star" aria-hidden="true"></i>
+           <i class="fa fa-star" aria-hidden="true"></i>
+           <i class="fa fa-star" aria-hidden="true"></i>
+           <i class="fa fa-star" aria-hidden="true"></i>
+         </div>
+         <div class="rate__value" data-bind="style: { width: doctor.ratingPercent}" style="width: 89%;margin: 0 0 0 -11px;">
+           <i class="fa fa-star" aria-hidden="true"></i>
+           <i class="fa fa-star" aria-hidden="true"></i>
+           <i class="fa fa-star" aria-hidden="true"></i>
+           <i class="fa fa-star" aria-hidden="true"></i>
+           <i class="fa fa-star" aria-hidden="true"></i>
+         </div>
+         <!-- /ko -->
+       </div>
+     </div>
+   </div>
+   <div class="popup-book__float">
+     <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">{{clinic.name}}</span><br>
+     </div>
+         <!-- ko if: priceSelectorVisible -->
+
+         <!-- /ko -->
+     <!-- ko if: clinicAddressText -->
+     <span  style="margin-right: 13px;"><b>Ünvan: </b></span> <span data-bind="text: clinicAddressText">{{clinic.address}}</span><br>
+     <!-- /ko -->
+
+     <!-- ko if: closestStation -->
+
+     <!-- /ko -->
+
+   </div>
+   </div>
+
+   </div>
+   <!-- /ko -->
+
+   <div class="popup-book__content">
+     <!-- ko if: step() == STEP_SLOTS --><!-- /ko -->
+
+     <!-- ko if: step() == STEP_PATIENT_NAME -->
+     <div class="popup-book-step">
+
+
+
+
+                 <form id="feedback" class="simple-form">
+                   <!-- ko if: dateSelectorVisible() && interval() == null -->
+                   <div class="popup-book__item" >
+                       <div class="popup-book__label">
+                           <span data-bind="text: slotLabelText, css: {'mark-label-exclusive': isExclusiveLabel}">Klinika</span>
+                       </div>
+
+                       <div class="form-input-withlabel js-popup-date-back valided" data-bind="
+                               css: {'form-input--disabled': dateSelectorInputCss(), 'valided': dateSelectorInputValid()},
+                               click: changeSlotClick" style="cursor: pointer">
+                           <div class="form-input-icoo "><i class="fa fa-hospital-o fa-flip-horizontal"></i></div>
+
+                           {% if clinic.filiallar.count > 0 %}
+                           <select name="carlist" form="carform" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;">
+                             {% for filial in clinic.filiallar.all %}
+                             <option value="volvo">{{filial.name}}</option>
+                             {% endfor %}
+                           </select>
+                           {% else %}
+                           <input name="carlist" readonly="true" value="{{clinic.name}}" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;"/>
+                           {% endif %}
+
+                       </div>
+
+
+                   </div>
+                   <!-- /ko -->
+
+                   <!-- ko if: interval() != null --><!-- /ko -->
+
+                   <div class="popup-book__item popup-book__fio ">
+                       <div class="popup-book__label"><span data-bind="text: patientNameFieldLabel">Ad Soyad</span>
+                       </div>
+                       <div class="form-input-withlabel" data-bind="css: { valided: patientNameValid }">
+                           <div class="form-input-icoo "><i class="fa fa-user"></i></div>
+                           <input type="text" style=" padding-left: 22px !important; " class="form-input form-input--border form-input--label form-input--size_small form-input--font_big"
+                            placeholder="Ad Soysad" required>
+                       </div>
+                   </div>
+
+
+                   <div class="popup-book__item popup-book__fio ">
+                       <div class="popup-book__label"><span data-bind="text: patientNameFieldLabel">Telefon</span>
+                       </div>
+                       <div class="form-input-withlabel" data-bind="css: { valided: patientNameValid }">
+                           <div class="form-input-icoo "><i class="fa fa-phone"></i></div>
+                             <input type="text" style=" padding-left: 22px !important; " class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" id="phone-number{{clinic.id}}" placeholder="(__)___-__-__" required>
+                       </div>
+                   </div>
+                   <script>$(document).ready(function(){
+
+                 $('#phone-number{{clinic.id}}').mask('(000) 000-00-00');
+                })</script>
+
+
+                   <div class="popup-book__request clearfix">
+                       <button  class="muracietbutton popup-book__send button button--color_green">
+                           <div class="button__cont">Göndər</div>
+                       </button>
+                   </div>
+                   <!-- /ko -->
+                   <!-- ko if: showSMSVerificationForm --><!-- /ko -->
+                 <!-- ko if: insuranceState() == 1 --><!-- /ko -->
+                   <div class="popup-book__legal-links">
+                     <input type="checkbox" name="optionag" id="optionag" style="    height: 20px;    width: 20px;    float: left;    margin: 1px -7px -4px 12px;" required>
+                       <a>istifadəçi razılığının şərtləri</a>,
+                       <a>şəxsi məlumatları qorunması şərtlərini</a>
+                     və
+                       <a>şəxsi məlumatların emalına razılıq</a> verirəm.
+
+                   </div>
+
+                 </form>
+
+     </div>
+     <!-- /ko -->
+
+     <!-- ko if: step() == STEP_THANKYOU --><!-- /ko -->
+   </div>
+
+   <!-- ko if: step() == STEP_THANKYOU --><!-- /ko -->
+
+
+   </div>
+
+
+  </div>
+
+  </div>
+  <script>
+
+
+  </script>
+
+
+  <script>
+  // Get the modal
+  var modal134{{clinic.id}} = document.getElementById('myModalmuraciet134{{clinic.id}}');
+
+
+  // Get the button that opens the modal
+  var btn134{{clinic.id}} = document.getElementById("myBtnmuraciet134{{clinic.id}}");
+
+  // Get the <span> element that closes the modal
+  var span134{{clinic.id}} = document.getElementsByClassName("closemuraciet134{{clinic.id}}")[0];
+
+  // When the user clicks the button, open the modal
+  btn134{{clinic.id}}.onclick = function() {
+   modal134{{clinic.id}}.style.display = "block";
+   //document.getElementById('bodyy').style.overflow="hidden";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span134{{clinic.id}}.onclick = function() {
+   modal134{{clinic.id}}.style.display = "none";
+   document.getElementById('bodyy').style.overflow="initial";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+
+
+
+
+  // Get the modal
+
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+  //alert(event.target)
+   if (event.target == modal4) {
+       modal4.style.display = "none";
+
+   }
+
+  }
+
+
+
+  </script>
+  <!-- Müraciət clinic Form Popup Content End  -->
+
+
+
+
 
 
 
@@ -1048,7 +1305,7 @@ data-ga-action="clickPhoneNumber">
                         </div>
 
                       <div class="clinic-address__button clinic-card__clinic-button js-book-clinic">
-            <button class="myBtnmuraciet" id="myBtnmuraciet2{{clinic.id}}">Müraciət</button>
+            <button class="myBtnmuraciet" id="myBtnmuraciet33{{clinic.id}}">Müraciət</button>
           </div>
           <div style="    text-align:center;    margin: 7px 0 -5px 0;">və ya zəng edin</div>
           <div style="    text-align:center;" class="clinic-card__clinic-phone" data-ga-label="doctor clinic form" data-ga-action="clickPhoneNumber">
@@ -1061,6 +1318,280 @@ data-ga-action="clickPhoneNumber">
 
   </div>
 </div>
+
+
+
+
+
+<!--  Müraciət clinic Form Popup Content Start -->
+<div id="myModalmuraciet33{{clinic.id}}" class="modalmuraciet modalmuraciet33{{clinic.id}}" >
+
+
+<div class="modal-contentmuraciet modal-contentmuraciet33{{clinic.id}}" style=" max-height: 677px; ">
+<a href="javascript:void(0)"><span class="closemuraciet closemuraciet33{{clinic.id}}">&times;</span></a>
+
+
+
+
+<style>
+   input[type="text"]#prefix{{clinic.id}} {
+     -webkit-appearance: none!important;
+ text-decoration: none;
+ text-align: right;
+ width: 75px;
+ border: 1px solid #e1e1e5;
+ border-right: 0px;
+ /* margin: 0 0 0 -7px; */
+ background: white;
+ height: 43px;
+ padding: 0 22px 0 0;
+ font-size: 15px;
+ color: #828288;
+
+}
+
+input[type="text"]#phoneInput{{clinic.id}} {
+ -webkit-appearance: none!important;
+ border: 1px solid #e1e1e5;
+ margin: -43px 0 0px 53px;
+ border-left: 0px;
+ outline: none;
+ height: 43px;
+ background: #fff;
+ border-radius: 4px;
+ width: 181px;
+ display: block;
+ box-sizing: border-box;
+ padding: 0 0 0 6px;
+ font-size: 15px;
+ color: #828288;
+ line-height: normal;
+ -webkit-appearance: none;
+ -moz-appearance: none;
+ appearance: none;
+ -webkit-transition: border-color 0.1s linear 0s;
+ -moz-transition: border-color 0.1s linear 0s;
+ -o-transition: border-color 0.1s linear 0s;
+ transition: border-color 0.1s linear 0s;
+ -webkit-backface-visibility: hidden;
+ font-family: 'CalibriCommon', sans-serif;
+
+}
+   </style>
+ <div class="popup-book"><div class="popup-book__head"><span data-bind="text: headingText">Müraciət Et</span></div>
+
+ <div class="popup-book__infobox"><div class="popup-book__info clearfix">
+ <div class="popup-book__doc">
+   <div class="popup-book__pic">
+     <img src="{{clinic.image.url}}">
+   </div>
+   <div class="doc__rating">
+     <div class="rate">
+       <!-- ko if: isNewDoctor --><!-- /ko -->
+       <!-- ko if: inRatingTest && !isNewDoctor --><!-- /ko -->
+       <!-- ko ifnot: inRatingTest -->
+       <div class="rate__default" style="    margin: 0 0 0 -11px;">
+         <i class="fa fa-star" aria-hidden="true"></i>
+         <i class="fa fa-star" aria-hidden="true"></i>
+         <i class="fa fa-star" aria-hidden="true"></i>
+         <i class="fa fa-star" aria-hidden="true"></i>
+         <i class="fa fa-star" aria-hidden="true"></i>
+       </div>
+       <div class="rate__value" data-bind="style: { width: doctor.ratingPercent}" style="width: 89%;margin: 0 0 0 -11px;">
+         <i class="fa fa-star" aria-hidden="true"></i>
+         <i class="fa fa-star" aria-hidden="true"></i>
+         <i class="fa fa-star" aria-hidden="true"></i>
+         <i class="fa fa-star" aria-hidden="true"></i>
+         <i class="fa fa-star" aria-hidden="true"></i>
+       </div>
+       <!-- /ko -->
+     </div>
+   </div>
+ </div>
+ <div class="popup-book__float">
+   <div class="popup-book__info-name" data-bind="text: doctor.name"><span data-bind="text: specialityName"></span> <span data-bind="text: clinicSubtitle" style="    font-size: 18px;">{{clinic.name}}</span><br>
+   </div>
+       <!-- ko if: priceSelectorVisible -->
+
+       <!-- /ko -->
+   <!-- ko if: clinicAddressText -->
+   <span  style="margin-right: 13px;"><b>Ünvan: </b></span> <span data-bind="text: clinicAddressText">{{clinic.address}}</span><br>
+   <!-- /ko -->
+
+   <!-- ko if: closestStation -->
+     <b>Metro</b>
+     <span style="margin-right: 28px;margin-top: 2px;float: right;">
+       <span data-bind="text: closestStation">{{clinic.metro1}}({{clinic.metro1distance}})</span><br>
+       <span data-bind="text: closestStation">{{clinic.metro2}}({{clinic.metro2distance}})</span>
+     </span>
+   <!-- /ko -->
+
+ </div>
+ </div>
+
+ </div>
+ <!-- /ko -->
+
+ <div class="popup-book__content">
+   <!-- ko if: step() == STEP_SLOTS --><!-- /ko -->
+
+   <!-- ko if: step() == STEP_PATIENT_NAME -->
+   <div class="popup-book-step">
+
+
+
+
+                               <form id="feedback" class="simple-form">
+                                 <!-- ko if: dateSelectorVisible() && interval() == null -->
+                                 <div class="popup-book__item" >
+                                     <div class="popup-book__label">
+                                         <span data-bind="text: slotLabelText, css: {'mark-label-exclusive': isExclusiveLabel}">Klinika</span>
+                                     </div>
+
+                                     <div class="form-input-withlabel js-popup-date-back valided" data-bind="
+                                             css: {'form-input--disabled': dateSelectorInputCss(), 'valided': dateSelectorInputValid()},
+                                             click: changeSlotClick" style="cursor: pointer">
+                                         <div class="form-input-icoo "><i class="fa fa-hospital-o fa-flip-horizontal"></i></div>
+
+                                         {% if clinic.filial.count > 0 %}
+                                         <select name="carlist" form="carform" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;">
+                                           {% for filial in clinic.filial.all %}
+                                           <option value="volvo">{{filial.name}}</option>
+                                           {% endfor %}
+                                         </select>
+                                         {% else %}
+                                         <input name="carlist" readonly="true" value="{{clinic.name}}" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;"/>
+                                         {% endif %}
+
+                                     </div>
+
+
+                                 </div>
+                                 <!-- /ko -->
+
+                                 <!-- ko if: interval() != null --><!-- /ko -->
+
+                                 <div class="popup-book__item popup-book__fio ">
+                                     <div class="popup-book__label"><span data-bind="text: patientNameFieldLabel">Ad Soyad</span>
+                                     </div>
+                                     <div class="form-input-withlabel" data-bind="css: { valided: patientNameValid }">
+                                         <div class="form-input-icoo "><i class="fa fa-user"></i></div>
+                                         <input type="text" style=" padding-left: 22px !important; " class="form-input form-input--border form-input--label form-input--size_small form-input--font_big"
+                                          placeholder="Ad Soysad" required>
+                                     </div>
+                                 </div>
+
+
+                                 <div class="popup-book__item popup-book__fio ">
+                                     <div class="popup-book__label"><span data-bind="text: patientNameFieldLabel">Telefon</span>
+                                     </div>
+                                     <div class="form-input-withlabel" data-bind="css: { valided: patientNameValid }">
+                                         <div class="form-input-icoo "><i class="fa fa-phone"></i></div>
+                                           <input type="text" style=" padding-left: 22px !important; " class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" id="phone-number{{clinic.id}}" placeholder="(__)___-__-__" required>
+                                     </div>
+                                 </div>
+                                 <script>$(document).ready(function(){
+
+                               $('#phone-number{{clinic.id}}').mask('(000) 000-00-00');
+                              })</script>
+
+
+                                 <div class="popup-book__request clearfix">
+                                     <button  class="muracietbutton popup-book__send button button--color_green">
+                                         <div class="button__cont">Göndər</div>
+                                     </button>
+                                 </div>
+                                 <!-- /ko -->
+                                 <!-- ko if: showSMSVerificationForm --><!-- /ko -->
+                               <!-- ko if: insuranceState() == 1 --><!-- /ko -->
+                                 <div class="popup-book__legal-links">
+                                   <input type="checkbox" name="optionag" id="optionag" style="    height: 20px;    width: 20px;    float: left;    margin: 1px -7px -4px 12px;" required>
+                                     <a>istifadəçi razılığının şərtləri</a>,
+                                     <a>şəxsi məlumatları qorunması şərtlərini</a>
+                                   və
+                                     <a>şəxsi məlumatların emalına razılıq</a> verirəm.
+
+                                 </div>
+
+                               </form>
+
+
+
+   </div>
+   <!-- /ko -->
+
+   <!-- ko if: step() == STEP_THANKYOU --><!-- /ko -->
+ </div>
+
+ <!-- ko if: step() == STEP_THANKYOU --><!-- /ko -->
+
+
+ </div>
+
+
+</div>
+
+</div>
+<script>
+
+
+</script>
+
+
+<script>
+// Get the modal
+var modal33{{clinic.id}} = document.getElementById('myModalmuraciet33{{clinic.id}}');
+
+
+// Get the button that opens the modal
+var btn33{{clinic.id}} = document.getElementById("myBtnmuraciet33{{clinic.id}}");
+
+// Get the <span> element that closes the modal
+var span33{{clinic.id}} = document.getElementsByClassName("closemuraciet33{{clinic.id}}")[0];
+
+// When the user clicks the button, open the modal
+btn33{{clinic.id}}.onclick = function() {
+ modal33{{clinic.id}}.style.display = "block";
+ //document.getElementById('bodyy').style.overflow="hidden";
+}
+
+// When the user clicks on <span> (x), close the modal
+span33{{clinic.id}}.onclick = function() {
+ modal33{{clinic.id}}.style.display = "none";
+ document.getElementById('bodyy').style.overflow="initial";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+
+
+
+
+// Get the modal
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+//alert(event.target)
+ if (event.target == modal4) {
+     modal4.style.display = "none";
+
+ }
+
+}
+
+
+
+</script>
+<!-- Müraciət clinic Form Popup Content End  -->
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1321,41 +1852,11 @@ data-ga-action="clickPhoneNumber">
               <!-- ko if: step() == STEP_PATIENT_NAME -->
               <div class="popup-book-step">
 
-                  <div class="popup-book__item" data-bind="visible: specialitySelectorVisible" style="display: none;">
-                      <div class="popup-book__label"><span>Специальность</span></div>
-                      <div class="form-input-withlabel valided">
-                          <select class="popup-book-overlay-select" data-bind="
-                      value: speciality,
-                      options: specialities,
-                      optionsText: 'name',
-                      disable: disableInputs,
-                      event:{ change: specialityChanged }
-                    "><option value="">Уролог</option></select>
-                          <div class="form-input-icoo "><i class="fa fa-stethoscope"></i></div>
-                          <div class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="css: {'form-input--disabled': disableInputs}">&nbsp;</div>
-                      </div>
-                  </div>
-
-                  <div class="popup-book__item" data-bind="visible: clinicSelectorVisible" style="display: none;">
-                      <div class="popup-book__label"><span>Клиника</span></div>
-                      <div class="form-input-withlabel valided">
-                          <select class="popup-book-overlay-select" data-bind="
-                      value: clinic,
-                      options: clinics,
-                      optionsText: function(item) {
-                                      return item.isPrivateDoctor ? item.address : item.name
-                                  },
-                      disable: disableInputs
-                    "><option value="">МедЦентрСервис на Сухаревской</option></select>
-                          <div class="form-input-icoo "><i class="fa fa-map-marker"></i></div>
-                          <div class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="css: {'form-input--disabled': disableInputs}">&nbsp;</div>
-                      </div>
-                  </div>
-
+                <form id="feedback" class="simple-form">
                   <!-- ko if: dateSelectorVisible() && interval() == null -->
                   <div class="popup-book__item" >
                       <div class="popup-book__label">
-                          <span data-bind="text: slotLabelText, css: {'mark-label-exclusive': isExclusiveLabel}">Filial Seçin</span>
+                          <span data-bind="text: slotLabelText, css: {'mark-label-exclusive': isExclusiveLabel}">Klinika</span>
                       </div>
 
                       <div class="form-input-withlabel js-popup-date-back valided" data-bind="
@@ -1363,17 +1864,12 @@ data-ga-action="clickPhoneNumber">
                               click: changeSlotClick" style="cursor: pointer">
                           <div class="form-input-icoo "><i class="fa fa-hospital-o fa-flip-horizontal"></i></div>
 
+                          <input name="carlist" readonly="true" value="{{branch.name}}" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;"/>
 
-                            <select name="carlist" form="carform" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0px 0 0px 20px;font-family: sans-serif;font-size: 14px;">
-                              <option value="volvo">Nərimanov Filialı</option>
-                              <option value="saab">Nəsimi Filialı</option>
-                              <option value="saab">Əcəmi Filialı</option>
 
-                            </select>
                       </div>
 
-                      <div class="form-input--busy" data-bind="visible: slotField.isSlotBusy()" style="display: none;">Ой! Просим прощения, кто-то вас опередил. Пожалуйста, выберите другое время приема.</div>
-                      <div class="clearfix"></div>
+
                   </div>
                   <!-- /ko -->
 
@@ -1384,126 +1880,44 @@ data-ga-action="clickPhoneNumber">
                       </div>
                       <div class="form-input-withlabel" data-bind="css: { valided: patientNameValid }">
                           <div class="form-input-icoo "><i class="fa fa-user"></i></div>
-                          <input type="text" style="padding-left: 22px !important;font-size: 15px;font-family: sans-serif;" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
-                      attr: {placeholder: patientNameFieldPlaceHolder},
-                      textInput: patientNameInput,
-                      disable: disableInputs,
-                      valueUpdate: 'afterkeydown',
-                      event: {keyup: patientNameKeypress, blur: patientNameBlur},
-                      css: {'form-input--disabled': disableInputs}
-                    " placeholder="Ad Soyad">
+                          <input type="text" style=" padding-left: 22px !important; " class="form-input form-input--border form-input--label form-input--size_small form-input--font_big"
+                           placeholder="Ad Soysad" required>
                       </div>
                   </div>
 
-                  <div class="popup-book__item popup-book__lastname" style="display: none;">
-                      <div class="popup-book__label"><span>Фамилия</span></div>
-                      <div class="form-input-withlabel" data-bind="css: { valided: patientLastNameValid }">
-                          <div class="form-input-icoo "><i class="fa fa-user"></i></div>
-                          <input type="text" placeholder="Фамилия" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
-                      textInput: patientLastNameInput,
-                      disable: disableInputs,
-                      valueUpdate: 'afterkeydown',
-                      event: {keyup: patientLastNameKeypress, blur: patientLastNameBlur},
-                      css: {'form-input--disabled': disableInputs}
-                    ">
-                      </div>
-                  </div>
 
-                  <div class="popup-book__item popup-book__age" style="display: none;">
-                      <div class="popup-book__label">
-                          <span>Ваш возраст</span>
+                  <div class="popup-book__item popup-book__fio ">
+                      <div class="popup-book__label"><span data-bind="text: patientNameFieldLabel">Telefon</span>
                       </div>
-                      <div class="form-input-withlabel" data-bind="css: { valided: patientAgeInput }">
-                          <div class="form-input-icoo "><i class="fa fa-edit"></i></div>
-                          <input type="text" placeholder="Возраст пациента" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
-                      textInput: patientAgeInput,
-                      disable: disableInputs,
-                      valueUpdate: 'afterkeydown',
-                      event: {keyup: patientAgeKeypress, blur: patientAgeBlur},
-                      hasFocus: patientAgeHasFocus,
-                      css: {'form-input--disabled': disableInputs}
-                    ">
-                      </div>
-                  </div>
-                  <div class="popup-book__item popup-book__birthdate"  style="display: none;">
-                      <div class="popup-book__label">
-                          <span>Введите дату рождения пациента</span>
-                      </div>
-                      <div class="form-input-withlabel" data-bind="css: { valided: patientBirthDateInput }">
-                          <div class="form-input-icoo"><i class="fa fa-edit"></i></div>
-                          <input type="text" placeholder="дд-мм-гггг" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
-                      birthDateTextInput: patientBirthDateInput,
-                      disable: disableInputs,
-                      event: { keyup: patientBirthDateKeypress, blur: patientBirthDateBlur },
-                      hasFocus: patientBirthDateHasFocus,
-                      css: {'form-input--disabled': disableInputs}
-                    ">
-                      </div>
-                  </div>
-                  <div class="popup-book__item popup-book__phone">
-                      <div class="popup-book__label">
-                          <span>Telefon</span>
-                      </div>
-                      <div class="form-input-withlabel" data-bind="css: { valided: patientPhoneValid }">
+                      <div class="form-input-withlabel" data-bind="css: { valided: patientNameValid }">
                           <div class="form-input-icoo "><i class="fa fa-phone"></i></div>
-
-                    <input type="text" id="prefix{{doctor.id}}" value="+994" disabled/>
-                    <input  type="text" id="phoneInput{{ doctor.id }}" placeholder="(___) ___-____" />
-
-
-                    <!-- Phone Number Input Mask Start -->
-                    <script>
-
-                      let phoneInputs{{ doctor.id }} = $("#phoneInput{{ doctor.id }}");
-                    phoneInputs{{ doctor.id }}.inputmask(" (99) 999 99 99", {
-
-                    "onincomplete": function() {
-                      $(this).addClass("incomplete");
-                    },
-                    "oncomplete": function() {
-                      $(this).removeClass("incomplete");
-                    }
-                    });</script>
-
-                    <!-- Phone Number Input Mask End -->
-
-
+                            <input type="text" style=" padding-left: 22px !important; " class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" id="phone-number{{branch.id}}" placeholder="(__)___-__-__" required>
                       </div>
-                      <!-- ko if: showPhoneNotText -->
-                      <div class="popup-book__label valided-info">
-                          <span><i class="fa fa-info-circle"></i></span>
-                      </div>
-                      <div class="popup-book__note" data-bind="text: phoneNoteText">Sizinlə ən qısa zamanda əlaqə saxlanılacaq.</div>
-                      <!-- /ko -->
-                      <!-- ko if: showSmsSentText --><!-- /ko -->
                   </div>
+                  <script>$(document).ready(function(){
 
-                  <!-- ko if: showConfirmCall > 0--><!-- /ko -->
+                $('#phone-number{{branch.id}}').mask('(000) 000-00-00');
+               })</script>
 
-                  <!-- ko if: isSpam --><!-- /ko -->
 
-                  <!-- ko ifnot: showSMSVerificationForm -->
-                  <div class="popup-book__request clearfix" style="padding-top: 36px;">
-                      <button class="popup-book__send button button--color_green" data-bind="
-                                  visible: !isSpam(),
-                      enable: uiSendRequestButtonNew().enable,
-                      css: uiSendRequestButtonNew().css,
-                      click: sendRequestClick
-                    ">
-                          <div class="button__cont" data-bind="text: uiSendRequestButtonNew().text">Göndər</div>
+                  <div class="popup-book__request clearfix">
+                      <button  class="muracietbutton popup-book__send button button--color_green">
+                          <div class="button__cont">Göndər</div>
                       </button>
                   </div>
                   <!-- /ko -->
                   <!-- ko if: showSMSVerificationForm --><!-- /ko -->
                 <!-- ko if: insuranceState() == 1 --><!-- /ko -->
                   <div class="popup-book__legal-links">
-                      «Göndər» klikləməklə siz
-                      <a data-bind="click: function () { getBaseUrl('/offer') }">istifadəçi razılığının şərtləri</a>,
-                      <a data-bind="click: function () { getBaseUrl('/confidentiality') }">şəxsi məlumatları qorunması şərtlərini</a>
+                    <input type="checkbox" name="optionag" id="optionag" style="    height: 20px;    width: 20px;    float: left;    margin: 1px -7px -4px 12px;" required>
+                      <a>istifadəçi razılığının şərtləri</a>,
+                      <a>şəxsi məlumatları qorunması şərtlərini</a>
                     və
-                      <a data-bind="click: function () { getBaseUrl('/agreement') }">şəxsi məlumatların emalına razılıq</a> vermiş olursunuz.
+                      <a>şəxsi məlumatların emalına razılıq</a> verirəm.
 
                   </div>
+
+                </form>
               </div>
               <!-- /ko -->
 
@@ -1825,41 +2239,11 @@ data-ga-action="clickPhoneNumber">
                 <!-- ko if: step() == STEP_PATIENT_NAME -->
                 <div class="popup-book-step">
 
-                    <div class="popup-book__item" data-bind="visible: specialitySelectorVisible" style="display: none;">
-                        <div class="popup-book__label"><span>Специальность</span></div>
-                        <div class="form-input-withlabel valided">
-                            <select class="popup-book-overlay-select" data-bind="
-                        value: speciality,
-                        options: specialities,
-                        optionsText: 'name',
-                        disable: disableInputs,
-                        event:{ change: specialityChanged }
-                      "><option value="">Уролог</option></select>
-                            <div class="form-input-icoo "><i class="fa fa-stethoscope"></i></div>
-                            <div class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="css: {'form-input--disabled': disableInputs}">&nbsp;</div>
-                        </div>
-                    </div>
-
-                    <div class="popup-book__item" data-bind="visible: clinicSelectorVisible" style="display: none;">
-                        <div class="popup-book__label"><span>Клиника</span></div>
-                        <div class="form-input-withlabel valided">
-                            <select class="popup-book-overlay-select" data-bind="
-                        value: clinic,
-                        options: clinics,
-                        optionsText: function(item) {
-                                        return item.isPrivateDoctor ? item.address : item.name
-                                    },
-                        disable: disableInputs
-                      "><option value="">МедЦентрСервис на Сухаревской</option></select>
-                            <div class="form-input-icoo "><i class="fa fa-map-marker"></i></div>
-                            <div class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="css: {'form-input--disabled': disableInputs}">&nbsp;</div>
-                        </div>
-                    </div>
-
+                  <form id="feedback" class="simple-form">
                     <!-- ko if: dateSelectorVisible() && interval() == null -->
                     <div class="popup-book__item" >
                         <div class="popup-book__label">
-                            <span data-bind="text: slotLabelText, css: {'mark-label-exclusive': isExclusiveLabel}">Filial Seçin</span>
+                            <span data-bind="text: slotLabelText, css: {'mark-label-exclusive': isExclusiveLabel}">Klinika</span>
                         </div>
 
                         <div class="form-input-withlabel js-popup-date-back valided" data-bind="
@@ -1867,17 +2251,12 @@ data-ga-action="clickPhoneNumber">
                                 click: changeSlotClick" style="cursor: pointer">
                             <div class="form-input-icoo "><i class="fa fa-hospital-o fa-flip-horizontal"></i></div>
 
+                            <input name="carlist" readonly="true" value="{{branch.name}}" class="ignore form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0 0 0 20px;"/>
 
-                              <select name="carlist" form="carform" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" style="padding: 0px 0 0px 20px;font-family: sans-serif;font-size: 14px;">
-                                <option value="volvo">Nərimanov Filialı</option>
-                                <option value="saab">Nəsimi Filialı</option>
-                                <option value="saab">Əcəmi Filialı</option>
 
-                              </select>
                         </div>
 
-                        <div class="form-input--busy" data-bind="visible: slotField.isSlotBusy()" style="display: none;">Ой! Просим прощения, кто-то вас опередил. Пожалуйста, выберите другое время приема.</div>
-                        <div class="clearfix"></div>
+
                     </div>
                     <!-- /ko -->
 
@@ -1888,126 +2267,44 @@ data-ga-action="clickPhoneNumber">
                         </div>
                         <div class="form-input-withlabel" data-bind="css: { valided: patientNameValid }">
                             <div class="form-input-icoo "><i class="fa fa-user"></i></div>
-                            <input type="text" style="padding-left: 22px !important;font-size: 15px;font-family: sans-serif;" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
-                        attr: {placeholder: patientNameFieldPlaceHolder},
-                        textInput: patientNameInput,
-                        disable: disableInputs,
-                        valueUpdate: 'afterkeydown',
-                        event: {keyup: patientNameKeypress, blur: patientNameBlur},
-                        css: {'form-input--disabled': disableInputs}
-                      " placeholder="Ad Soyad">
+                            <input type="text" style=" padding-left: 22px !important; " class="form-input form-input--border form-input--label form-input--size_small form-input--font_big"
+                             placeholder="Ad Soysad" required>
                         </div>
                     </div>
 
-                    <div class="popup-book__item popup-book__lastname" style="display: none;">
-                        <div class="popup-book__label"><span>Фамилия</span></div>
-                        <div class="form-input-withlabel" data-bind="css: { valided: patientLastNameValid }">
-                            <div class="form-input-icoo "><i class="fa fa-user"></i></div>
-                            <input type="text" placeholder="Фамилия" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
-                        textInput: patientLastNameInput,
-                        disable: disableInputs,
-                        valueUpdate: 'afterkeydown',
-                        event: {keyup: patientLastNameKeypress, blur: patientLastNameBlur},
-                        css: {'form-input--disabled': disableInputs}
-                      ">
-                        </div>
-                    </div>
 
-                    <div class="popup-book__item popup-book__age" style="display: none;">
-                        <div class="popup-book__label">
-                            <span>Ваш возраст</span>
+                    <div class="popup-book__item popup-book__fio ">
+                        <div class="popup-book__label"><span data-bind="text: patientNameFieldLabel">Telefon</span>
                         </div>
-                        <div class="form-input-withlabel" data-bind="css: { valided: patientAgeInput }">
-                            <div class="form-input-icoo "><i class="fa fa-edit"></i></div>
-                            <input type="text" placeholder="Возраст пациента" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
-                        textInput: patientAgeInput,
-                        disable: disableInputs,
-                        valueUpdate: 'afterkeydown',
-                        event: {keyup: patientAgeKeypress, blur: patientAgeBlur},
-                        hasFocus: patientAgeHasFocus,
-                        css: {'form-input--disabled': disableInputs}
-                      ">
-                        </div>
-                    </div>
-                    <div class="popup-book__item popup-book__birthdate"  style="display: none;">
-                        <div class="popup-book__label">
-                            <span>Введите дату рождения пациента</span>
-                        </div>
-                        <div class="form-input-withlabel" data-bind="css: { valided: patientBirthDateInput }">
-                            <div class="form-input-icoo"><i class="fa fa-edit"></i></div>
-                            <input type="text" placeholder="дд-мм-гггг" class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" data-bind="
-                        birthDateTextInput: patientBirthDateInput,
-                        disable: disableInputs,
-                        event: { keyup: patientBirthDateKeypress, blur: patientBirthDateBlur },
-                        hasFocus: patientBirthDateHasFocus,
-                        css: {'form-input--disabled': disableInputs}
-                      ">
-                        </div>
-                    </div>
-                    <div class="popup-book__item popup-book__phone">
-                        <div class="popup-book__label">
-                            <span>Telefon</span>
-                        </div>
-                        <div class="form-input-withlabel" data-bind="css: { valided: patientPhoneValid }">
+                        <div class="form-input-withlabel" data-bind="css: { valided: patientNameValid }">
                             <div class="form-input-icoo "><i class="fa fa-phone"></i></div>
-
-                      <input type="text" id="prefix{{doctor.id}}" value="+994" disabled/>
-                      <input  type="text" id="phoneInput{{ doctor.id }}" placeholder="(___) ___-____" />
-
-
-                      <!-- Phone Number Input Mask Start -->
-                      <script>
-
-                        let phoneInputs{{ doctor.id }} = $("#phoneInput{{ doctor.id }}");
-                      phoneInputs{{ doctor.id }}.inputmask(" (99) 999 99 99", {
-
-                      "onincomplete": function() {
-                        $(this).addClass("incomplete");
-                      },
-                      "oncomplete": function() {
-                        $(this).removeClass("incomplete");
-                      }
-                      });</script>
-
-                      <!-- Phone Number Input Mask End -->
-
-
+                              <input type="text" style=" padding-left: 22px !important; " class="form-input form-input--border form-input--label form-input--size_small form-input--font_big" id="phone-number{{branch.id}}" placeholder="(__)___-__-__" required>
                         </div>
-                        <!-- ko if: showPhoneNotText -->
-                        <div class="popup-book__label valided-info">
-                            <span><i class="fa fa-info-circle"></i></span>
-                        </div>
-                        <div class="popup-book__note" data-bind="text: phoneNoteText">Sizinlə ən qısa zamanda əlaqə saxlanılacaq.</div>
-                        <!-- /ko -->
-                        <!-- ko if: showSmsSentText --><!-- /ko -->
                     </div>
+                    <script>$(document).ready(function(){
 
-                    <!-- ko if: showConfirmCall > 0--><!-- /ko -->
+                  $('#phone-number{{branch.id}}').mask('(000) 000-00-00');
+                 })</script>
 
-                    <!-- ko if: isSpam --><!-- /ko -->
 
-                    <!-- ko ifnot: showSMSVerificationForm -->
-                    <div class="popup-book__request clearfix" style="padding-top: 36px;">
-                        <button class="popup-book__send button button--color_green" data-bind="
-                                    visible: !isSpam(),
-                        enable: uiSendRequestButtonNew().enable,
-                        css: uiSendRequestButtonNew().css,
-                        click: sendRequestClick
-                      ">
-                            <div class="button__cont" data-bind="text: uiSendRequestButtonNew().text">Göndər</div>
+                    <div class="popup-book__request clearfix">
+                        <button  class="muracietbutton popup-book__send button button--color_green">
+                            <div class="button__cont">Göndər</div>
                         </button>
                     </div>
                     <!-- /ko -->
                     <!-- ko if: showSMSVerificationForm --><!-- /ko -->
                   <!-- ko if: insuranceState() == 1 --><!-- /ko -->
                     <div class="popup-book__legal-links">
-                        «Göndər» klikləməklə siz
-                        <a data-bind="click: function () { getBaseUrl('/offer') }">istifadəçi razılığının şərtləri</a>,
-                        <a data-bind="click: function () { getBaseUrl('/confidentiality') }">şəxsi məlumatları qorunması şərtlərini</a>
+                      <input type="checkbox" name="optionag" id="optionag" style="    height: 20px;    width: 20px;    float: left;    margin: 1px -7px -4px 12px;" required>
+                        <a>istifadəçi razılığının şərtləri</a>,
+                        <a>şəxsi məlumatları qorunması şərtlərini</a>
                       və
-                        <a data-bind="click: function () { getBaseUrl('/agreement') }">şəxsi məlumatların emalına razılıq</a> vermiş olursunuz.
+                        <a>şəxsi məlumatların emalına razılıq</a> verirəm.
 
                     </div>
+
+                  </form>
                 </div>
                 <!-- /ko -->
 
@@ -2167,6 +2464,8 @@ data-ga-action="clickPhoneNumber">
 
 
    {% include 'footer-main.html' %}
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
 
    <script src="https://docdoc.ru/widget/js?2937290733" type="text/javascript" id="docdoc-platform2"></script>
    <script src="https://s.docdoc.ru/compile/common.js?2937290733"></script>
