@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['tapdoc.az']
 # Application definition
 
 INSTALLED_APPS = [
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'ckeditor',
     'translations',
+    'modeltranslation'
 
 ]
 
@@ -115,11 +117,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
+
+gettext = lambda s: s
 LANGUAGES = (
-    ('en', 'English'),
-    ('ru', 'Russian'),
+    ('az', gettext('Azerbaijan')),
+    ('ru', gettext('Russian')),
 )
-LANGUAGE_CODE = 'en-us'
+MODELTRANSLATION_LANGUAGES = ('az', 'ru')
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'az'
+LANGUAGE_CODE = 'az'
 
 TIME_ZONE = 'UTC'
 

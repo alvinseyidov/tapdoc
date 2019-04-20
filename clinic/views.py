@@ -55,7 +55,7 @@ def clinicsqiymet(request):
     if query:
         clinics_list = clinics_list.filter(name__icontains=query)
 
-    paginator = Paginator(clinics_list,3)
+    paginator = Paginator(clinics_list,10)
     page = request.GET.get('page')
     clinics = paginator.get_page(page)
     xidmetler = Xidmatlar.objects.all()
@@ -121,7 +121,7 @@ def clinics(request):
     if query:
         clinics_list = clinics_list.filter(name__icontains=query)
 
-    paginator = Paginator(clinics_list,5)
+    paginator = Paginator(clinics_list,10)
     page = request.GET.get('page')
     clinics = paginator.get_page(page)
     xidmetler = Xidmatlar.objects.all()
