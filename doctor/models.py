@@ -12,7 +12,7 @@ from ckeditor.fields import RichTextField
 
 
 class Profession(models.Model):
-    name = models.CharField(verbose_name='İxtisas adı',default='İxtisas Adı', max_length=256)
+    name = models.CharField(verbose_name='İxtisas adı', max_length=256)
     description = models.TextField(max_length=10000, verbose_name='Qısa Məlumat', blank=True, null=True)
 
 

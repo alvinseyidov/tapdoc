@@ -11,7 +11,7 @@ from django.utils.translation import to_locale, get_language
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
- 
+
 @login_required(login_url='/admin/')
 def homepage(request):
     professions = Profession.objects.all()
