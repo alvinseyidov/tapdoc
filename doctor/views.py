@@ -14,7 +14,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/admin/')
 def homepage(request):
-    professions = Profession.objects.all()
+    professions = Profession.objects.order_by('name')
     lang = get_language()
     context = {
         "professions": professions,
