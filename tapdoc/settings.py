@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'doctor',
     'accounts',
     'service',
+    'insurance',
     'diaqnostika',
     'mathfilters',
     'crispy_forms',
@@ -90,8 +91,12 @@ WSGI_APPLICATION = 'tapdoc.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dl8fu3mo65kb6',
+        'USER': 'tvtzwsjyxjjunb',
+        'PASSWORD': 'b0bc266cd2dc21dbe26813023e61671822f18a6fdd4f1bb6a038009b62c10ffa',
+        'HOST': 'ec2-107-22-162-8.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -154,3 +159,13 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGOUT_REDIRECT_URL = 'homepage'
 LOGIN_REDIRECT_URL = 'account'
+
+
+CKEDITOR_UPLOAD_PATH = 'media/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': None,
+    },
+}

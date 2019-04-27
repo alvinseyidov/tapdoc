@@ -36,7 +36,7 @@ def accountsettings(request):
     if request.method == 'POST':
 
         p_form = ProfileUpdateForm(request.POST,
-                                   
+
                                    instance=request.user.profile)
         if p_form.is_valid():
 

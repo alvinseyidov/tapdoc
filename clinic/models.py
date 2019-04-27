@@ -9,7 +9,7 @@ from ckeditor.fields import RichTextField
 
 # Create your models here.
 
-DEFAULT = 'default.jpg'
+DEFAULT = 'defaultclinic.png'
 class Clinic(models.Model):
     MERKEZ = 'MRK'
     FILIAL = 'FLL'
@@ -21,8 +21,8 @@ class Clinic(models.Model):
 
     type = models.CharField(max_length=25,verbose_name='Klinika Növü', choices=CLINIC_TYPES, null=True, blank=True)
     name = models.CharField(max_length=256, verbose_name='Klinika Adı', blank=True, null=True)
-    xidmetler = models.ManyToManyField(Xidmatlar, verbose_name='Xidmətlər və qiymətləri', through='XidmetlerPrices',related_name='relate_name_xidmetler', blank=True)
-    diaqnostikalar = models.ManyToManyField(Diaqnostikalar,verbose_name='Diaqnostik Xidmətlər və qiymətləri',  through='DiaqnostikalarPrices',related_name='relate_name_diaqnostikalar', blank=True)
+    xidmetler = models.ManyToManyField(Xidmatlar, verbose_name='Xidmətlər və qiymətləri', through='XidmetlerPrices',related_name='relate_name_xidmetler', null=True, blank=True)
+    diaqnostikalar = models.ManyToManyField(Diaqnostikalar,verbose_name='Diaqnostik Xidmətlər və qiymətləri',  through='DiaqnostikalarPrices',related_name='relate_name_diaqnostikalar', null=True, blank=True)
     filial = models.ForeignKey('self', verbose_name='Aid olduğu mərkəz klinika', related_name='filiallar', on_delete=models.CASCADE, null=True, blank=True)
     address = models.CharField(max_length=256,verbose_name='Klinika Ünvanı' , blank=True, null=True)
     phone = models.CharField(max_length=256,verbose_name='Əlaqə Telefonu', blank=True, null=True)
@@ -37,7 +37,7 @@ class Clinic(models.Model):
     metro1distance = models.CharField(verbose_name='1-ci Metroya olan Məsafə', max_length=256,null=True, blank=True)
     metro2 = models.CharField(verbose_name='Yaxın Olduğu 2-ci Metro', max_length=256,null=True, blank=True)
     metro2distance = models.CharField(verbose_name='2-ci Metroya olan Məsafə', max_length=256,null=True, blank=True)
-    wishlist = models.ManyToManyField(User, related_name='clinicwishlist', blank=True)
+    wishlist = models.ManyToManyField(User, related_name='clinicwishlist', null=True, blank=True)
 
 
     def __str__(self):
@@ -48,26 +48,26 @@ class Clinic(models.Model):
         self.save()
 
 class XidmetlerPrices(models.Model):
-    xidmet = models.ForeignKey(Xidmatlar,verbose_name='Xidmətin Adı', on_delete=models.CASCADE, related_name='qiymetler')
-    klinika = models.ForeignKey(Clinic, on_delete=models.CASCADE)
-    qiymet = models.CharField(verbose_name='Qiymət',max_length=64)
+    xidmet = models.ForeignKey(Xidmatlar,verbose_name='Xidmətin Adı', on_delete=models.CASCADE, related_name='qiymetler', null=True, blank=True)
+    klinika = models.ForeignKey(Clinic, on_delete=models.CASCADE, null=True, blank=True)
+    qiymet = models.CharField(verbose_name='Qiymət',max_length=64, null=True, blank=True)
 
     def __str__(self):
         return self.klinika.name + ' - ' + self.xidmet.name + ' - ' + self.qiymet
 
 class DiaqnostikalarPrices(models.Model):
-    diaqnostika = models.ForeignKey(Diaqnostikalar, verbose_name='Diaqnpstik Xidmətin Adı',on_delete=models.CASCADE,  related_name='qiymetler')
-    klinika = models.ForeignKey(Clinic, on_delete=models.CASCADE)
-    qiymet = models.CharField(verbose_name='Adı',max_length=64)
+    diaqnostika = models.ForeignKey(Diaqnostikalar, verbose_name='Diaqnpstik Xidmətin Adı',on_delete=models.CASCADE,  related_name='qiymetler', null=True, blank=True)
+    klinika = models.ForeignKey(Clinic, on_delete=models.CASCADE, null=True, blank=True)
+    qiymet = models.CharField(verbose_name='Adı',max_length=64, null=True, blank=True)
 
     def __str__(self):
         return self.klinika.name + ' - ' + self.diaqnostika.name + ' - ' + self.qiymet
 
 
 class Gallery(models.Model):
-    name = models.CharField(max_length=256)
+    name = models.CharField(max_length=256, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    clinic = models.ForeignKey(Clinic, related_name='gallery', on_delete=models.CASCADE)
+    clinic = models.ForeignKey(Clinic, related_name='gallery', on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -76,21 +76,21 @@ class Gallery(models.Model):
 
 
 class Sertifikat(models.Model):
-    name = models.CharField(max_length=256)
+    name = models.CharField(max_length=256, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    clinic = models.ForeignKey(Clinic, related_name='sertifikatlar', on_delete=models.CASCADE)
+    clinic = models.ForeignKey(Clinic, related_name='sertifikatlar', on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.name
 
 
 class Review(models.Model):
-    clinic = models.ForeignKey(Clinic, related_name='clinicreviews', on_delete=models.CASCADE)
-    starter = models.ForeignKey(User, related_name='clinicreviews', on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-    star = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)], null=True)
-    message = models.TextField(max_length=4000)
+    clinic = models.ForeignKey(Clinic, related_name='clinicreviews', on_delete=models.CASCADE, null=True, blank=True)
+    starter = models.ForeignKey(User, related_name='clinicreviews', on_delete=models.CASCADE, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    star = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)], null=True, blank=True)
+    message = models.TextField(max_length=4000, null=True, blank=True)
 
-    published = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(1)], null=True)
+    published = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(1)], null=True, blank=True)
     def __str__(self):
         return self.clinic.name
