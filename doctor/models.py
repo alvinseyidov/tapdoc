@@ -58,7 +58,11 @@ class Doctor(models.Model):
 
 class ClinicSaatlar(models.Model):
     clinic = models.ForeignKey(Clinic,verbose_name='Clinic', on_delete=models.CASCADE, related_name='hekimler', null=True, blank=True)
-    be_cm_issaati = models.CharField(verbose_name='BE - Cümə İş Saatı', max_length=256,null=True, blank=True)
+    bir_issaati = models.CharField(verbose_name='1-ci gün İş Saatı', max_length=256,null=True, blank=True)
+    iki_issaati = models.CharField(verbose_name='2-ci gün İş Saatı', max_length=256,null=True, blank=True)
+    uc_issaati = models.CharField(verbose_name='3-ci gün  İş Saatı', max_length=256,null=True, blank=True)
+    dord_issaati = models.CharField(verbose_name='4-ci gün  İş Saatı', max_length=256,null=True, blank=True)
+    bes_issaati = models.CharField(verbose_name='5-ci gün  İş Saatı', max_length=256,null=True, blank=True)
     sn_issaati = models.CharField(verbose_name='Şənbə İş Saatı', max_length=256,null=True, blank=True)
     bz_issaati = models.CharField(verbose_name='Bazar İş Saatı', max_length=256,null=True, blank=True)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True, blank=True)
@@ -76,7 +80,6 @@ class InsurancePackage(models.Model):
         (C, 'C Paket')
     )
     company = models.ForeignKey(Company,verbose_name='Company', on_delete=models.CASCADE, related_name='hekimler', null=True, blank=True)
-    packages = models.CharField(verbose_name='Paketler', max_length=25, choices=PACKAGE, null=True, blank=True)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True, blank=True)
     def __str__(self):
         return self.doctor.first_name
