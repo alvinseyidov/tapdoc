@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['tapdoc.az']
 # Application definition
 
 INSTALLED_APPS = [
-    'doctor.apps.SuitConfig',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
