@@ -819,7 +819,7 @@ $(document).ready(function(){
 <div style="width:100%">
 <div style="margin:25px 0 200px 0">
   <ul class="listspec" style="padding-left:10px;">
-    {% for profession in professions|slice:":10"%}
+    {% for profession in professions|slice:":14"%}
       <a href="{% url 'doctorspecific' profession.id %}"><li class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">{{profession.name}}  </span><span class="numberspec">{{profession.doctors.count}}</span>
       </li></a>
     {% endfor %}
@@ -832,7 +832,7 @@ $(document).ready(function(){
 <div style="width:100%">
 <div style="margin:25px 0 200px 0">
   <ul class="listspec" style="padding-left:10px;">
-    {% for profession in professions|slice:"10:20"%}
+    {% for profession in professions|slice:"14:28"%}
       <a href="{% url 'doctorspecific' profession.id %}"><li class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"> {{profession.name}} </span><span class="numberspec">{{profession.doctors.count}}</span>
       </li></a>
       {% endfor %}
@@ -845,7 +845,7 @@ $(document).ready(function(){
 <div style="width:100%">
 <div style="margin:25px 0 200px 0">
   <ul class="listspec" style="padding-left:10px;">
-{% for profession in professions|slice:"20:30"%}
+{% for profession in professions|slice:"28:42"%}
       <a href="{% url 'doctorspecific' profession.id %}"><li class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;"> {{profession.name}} </span><span class="numberspec">{{profession.doctors.count}}</span>
       </li></a>
 {% endfor %}
@@ -858,7 +858,7 @@ $(document).ready(function(){
 <div style="width:100%">
 <div style="margin:25px 0 200px 0">
   <ul class="listspec" style="padding-left:10px;">
-    {% for profession in professions|slice:"30:40"%}
+    {% for profession in professions|slice:"42:56"%}
       <a href="{% url 'doctorspecific' profession.id %}"><li class="ixtisasspecli" style="margin:0 0 .5em 0;"><span class="ixtisasspec" style="padding-left:.9em;">{{profession.name}}</span><span class="numberspec">{{profession.doctors.count}}</span>
       </li></a>
       {% endfor %}

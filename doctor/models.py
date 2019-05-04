@@ -33,6 +33,8 @@ class Doctor(models.Model):
     gender = models.CharField(verbose_name='Həkimin Cinsi', max_length=25, choices=GENDER, null=True, blank=True)
     evde_muayine = models.BooleanField(verbose_name='Evdə müayinə', null=True, blank=True)
     evde_muayine_qiymet = models.CharField(verbose_name='Evdə Müayinə Qiyməti', max_length=256,null=True, blank=True)
+    usaq_hekimi = models.BooleanField(verbose_name='Uşaq həkimi?', null=True, blank=True)
+    usaq_hekimi_qiymet = models.CharField(verbose_name='Uşaq Həkimi Müayinə Qiyməti', max_length=256,null=True, blank=True)
     first_name = models.CharField(verbose_name='Həkimin Adı', max_length=256,null=True, blank=True)
     last_name = models.CharField(verbose_name='Həkimin Soyadı', max_length=256,null=True, blank=True)
     title = models.CharField(verbose_name='Həkimin titulu', max_length=256,null=True, blank=True)
