@@ -1,6 +1,7 @@
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import get_object_or_404, render, HttpResponse, redirect
 from doctor.models import Doctor, Sertifikat, Profession
+from insurance.models import Company
 from .forms import ReviewForm
 from django.db.models import Avg
 from django.db.models import Count
@@ -15,9 +16,11 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url='/admin/')
 def homepage(request):
     professions = Profession.objects.order_by('name')
+    insurances = Company.objects.order_by('name')
     lang = get_language()
     context = {
         "professions": professions,
+        "insurances" : insurances,
         "lang": lang
     }
     return render(request, 'index.html',context)
