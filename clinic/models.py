@@ -19,11 +19,19 @@ class Clinic(models.Model):
         (FILIAL, 'filial')
     )
 
+
+    CITY = (
+        ('Bakı', 'Bakı'),
+        ('Sumqayıt', 'Sumqayıt'),
+        ('Gəncə', 'Gəncə'),
+        ('Qəbələ', 'Qəbələ')
+    )
     type = models.CharField(max_length=25,verbose_name='Klinika Növü', choices=CLINIC_TYPES, null=True, blank=True)
     name = models.CharField(max_length=256, verbose_name='Klinika Adı', blank=True, null=True)
     xidmetler = models.ManyToManyField(Xidmatlar, verbose_name='Xidmətlər və qiymətləri', through='XidmetlerPrices',related_name='relate_name_xidmetler', null=True, blank=True)
     diaqnostikalar = models.ManyToManyField(Diaqnostikalar,verbose_name='Diaqnostik Xidmətlər və qiymətləri',  through='DiaqnostikalarPrices',related_name='relate_name_diaqnostikalar', null=True, blank=True)
     filial = models.ForeignKey('self', verbose_name='Aid olduğu mərkəz klinika', related_name='filiallar', on_delete=models.CASCADE, null=True, blank=True)
+    city = models.CharField(max_length=25,verbose_name='Şəhər', choices=CITY, null=True, blank=True)
     address = models.CharField(max_length=256,verbose_name='Klinika Ünvanı' , blank=True, null=True)
     phone = models.CharField(max_length=256,verbose_name='Əlaqə Telefonu', blank=True, null=True)
     description = RichTextField(verbose_name='Klinika Profil Məlumatı', blank=True, null=True)
