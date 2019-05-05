@@ -72,15 +72,7 @@ class ClinicSaatlar(models.Model):
         return self.clinic.name
 
 class InsurancePackage(models.Model):
-    A = 'A'
-    B = 'B'
-    C = 'C'
-
-    PACKAGE = (
-        (A, 'A Paket'),
-        (B, 'B Paket'),
-        (C, 'C Paket')
-    )
+    
     company = models.ForeignKey(Company,verbose_name='Company', on_delete=models.CASCADE, related_name='hekimler', null=True, blank=True)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True, blank=True)
     def __str__(self):
