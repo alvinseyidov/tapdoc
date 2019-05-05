@@ -32,6 +32,8 @@ class Clinic(models.Model):
     diaqnostikalar = models.ManyToManyField(Diaqnostikalar,verbose_name='Diaqnostik Xidmətlər və qiymətləri',  through='DiaqnostikalarPrices',related_name='relate_name_diaqnostikalar', null=True, blank=True)
     filial = models.ForeignKey('self', verbose_name='Aid olduğu mərkəz klinika', related_name='filiallar', on_delete=models.CASCADE, null=True, blank=True)
     fulltime = models.BooleanField(verbose_name='24 saat işləyir', null=True, blank=True)
+    senbe = models.BooleanField(verbose_name='Şənbə işləyir', null=True, blank=True)
+    bazar = models.BooleanField(verbose_name='Bazar işləyir', null=True, blank=True)
     city = models.CharField(max_length=25,verbose_name='Şəhər', choices=CITY, null=True, blank=True)
     address = models.CharField(max_length=256,verbose_name='Klinika Ünvanı' , blank=True, null=True)
     phone = models.CharField(max_length=256,verbose_name='Əlaqə Telefonu', blank=True, null=True)
