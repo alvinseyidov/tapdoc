@@ -12,7 +12,7 @@
                <link rel="stylesheet" href="https://tapdoc.az/static/compile/font_awesome.css">
                <title>{{doctor.first_name}} {{doctor.last_name}}</title>
                <link rel="stylesheet" href="https://tapdoc.az/static/compile/fonts.css?2937290733">
-               <link rel="stylesheet" href="{% static 'css/footerstyle.css' %}">
+                <link rel="stylesheet" href="{% static 'css/footerstyle.css' %}">
                <link rel="stylesheet" href="{% static 'css/viewbox.css' %}">
                  <link rel="stylesheet" type="text/css" href="{% static 'css/rfclinic.css'%}">
                <link rel="apple-touch-icon" sizes="180x180" href="https://s.docdoc.ru/new-doc-doc/favicon/apple-touch-icon.png">
@@ -531,6 +531,11 @@
                                        </div>
                                        <div class="doc__price">
                                           Qəbula yazılma
+
+                                              {% if doctor.qebula_yazilma_endirim_faiz != '0' %}
+
+
+
                                           <span class="doc__price-old">{{doctor.qebula_yazilma}}</span>
                                           <span class="doc__price-value doc__price-tooltip js-tooltip-custom js-tooltip-custom-interactive">
                                             {% with endirim=doctor.qebula_yazilma|mul:doctor.qebula_yazilma_endirim_faiz|div:100 %}
@@ -542,6 +547,24 @@
                                           </span>
                                           <span class="doc__price-label">-{{doctor.qebula_yazilma_endirim_faiz}}%</span>
 
+
+
+
+
+
+
+
+                                          {% else %}
+
+
+                                          <span class="doc__price-value doc__price-tooltip js-tooltip-custom js-tooltip-custom-interactive">
+                                             {{doctor.qebula_yazilma}} AZN
+
+
+                                          </span>
+
+
+                                          {% endif %}
                                        </div>
                                     </div>
                                  </div>
