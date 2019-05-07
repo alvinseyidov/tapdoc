@@ -124,7 +124,7 @@ def clinics(request):
     paginator = Paginator(clinics_list,10)
     page = request.GET.get('page')
     clinics = paginator.get_page(page)
-    xidmetler = Xidmatlar.objects.all()
+    xidmetler = XidmatlarGroup.objects.all() 
     diaqnostikalar = Diaqnostikalar.objects.all()
     context = {
         "clinics": clinics,
