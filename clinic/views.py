@@ -58,7 +58,7 @@ def clinicsqiymet(request):
     paginator = Paginator(clinics_list,10)
     page = request.GET.get('page')
     clinics = paginator.get_page(page)
-    xidmetler = Xidmatlar.objects.all()
+    xidmetler = XidmatlarGroup.objects.order_by('group_name')
     diaqnostikalar = Diaqnostikalar.objects.all()
     context = {
         "clinics": clinics,
@@ -80,7 +80,7 @@ def clinicsreyler(request):
     paginator = Paginator(clinics_list,3)
     page = request.GET.get('page')
     clinics = paginator.get_page(page)
-    xidmetler = Xidmatlar.objects.all()
+    xidmetler = XidmatlarGroup.objects.order_by('group_name')
     diaqnostikalar = Diaqnostikalar.objects.all()
     context = {
         "clinics": clinics,
@@ -102,7 +102,7 @@ def clinicsreyting(request):
     paginator = Paginator(clinics_list,3)
     page = request.GET.get('page')
     clinics = paginator.get_page(page)
-    xidmetler = Xidmatlar.objects.all()
+    xidmetler = XidmatlarGroup.objects.order_by('group_name')
     diaqnostikalar = Diaqnostikalar.objects.all()
     context = {
         "clinics": clinics,
@@ -124,7 +124,7 @@ def clinics(request):
     paginator = Paginator(clinics_list,10)
     page = request.GET.get('page')
     clinics = paginator.get_page(page)
-    xidmetler = XidmatlarGroup.objects.all() 
+    xidmetler = XidmatlarGroup.objects.order_by('group_name')
     diaqnostikalar = Diaqnostikalar.objects.all()
     context = {
         "clinics": clinics,
@@ -142,7 +142,7 @@ def clinicsspecific(request, id):
     paginator = Paginator(clinics_list,3)
     page = request.GET.get('page')
     clinics = paginator.get_page(page)
-    xidmetler = Xidmatlar.objects.all()
+    xidmetler = XidmatlarGroup.objects.order_by('group_name')
     context = {
         "clinics": clinics,
         "clinicsall": clinicsall,
