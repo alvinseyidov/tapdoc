@@ -11,8 +11,8 @@ class Xidmatlar(models.Model):
     service_group = models.ForeignKey(XidmatlarGroup, verbose_name='Xidmətin Adı',related_name='xidmetler', on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=256,blank=True,null=True)
 
-    def __str__(self):  
-        return self.name
+    def __str__(self):
+        return self.name 
 
 class DiaqnostikalarGroup(models.Model):
     group_name = models.CharField(max_length=128, verbose_name='Diaqnostik Xidmət Qrupun Adı',null=True, blank=True)
