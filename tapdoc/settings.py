@@ -50,9 +50,12 @@ INSTALLED_APPS = [
     'ckeditor',
     'translations',
     'modeltranslation',
-    'storages'
+    'storages',
+    'photologue',
+    'django.contrib.sites',
 
 ]
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

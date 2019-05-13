@@ -30,6 +30,7 @@ urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
 ]
 urlpatterns += i18n_patterns(
+    path('photologue/', include('photologue.urls', namespace='photologue')),
     path('', views.homepage, name='homepage'),
     path('doctor/', views.doctor, name='doctor'),
     path('doctor/staj', views.doctorstaj, name='doctorstaj'),

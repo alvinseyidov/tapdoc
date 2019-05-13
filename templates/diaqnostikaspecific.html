@@ -1154,12 +1154,10 @@ border-radius: 5px;
 
 
 
-              <div class="clinic-card__type">diaqnostika mərkəzi</div>
-              <div class="clinic-card__cost">
-                              Ortalama xidmət qiymətləri - yüksək											</div>
 
               <div class="clinic-card__clinictext">
-                «Avrasiya Klinikası» — yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir. Yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.Yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.					<a href="{% url 'clinicprofile' diaqnostika.id %}">Ətraflı</a>
+              {{diaqnostika.descriptionmetadiaqnostika}}
+              				<a href="{% url 'clinicprofile' diaqnostika.id %}">Ətraflı</a>
               </div>
             </div>
           </div>
@@ -1545,12 +1543,9 @@ border-radius: 5px;
             </div>
             <div class="clinic-card__info">
               <a href="{% url 'clinicprofile' diaqnostika.id %}" class="clinic-card__name">{{diaqnostika.name}}</a>
-              <div class="clinic-card__type">diaqnostika mərkəzi</div>
-              <div class="clinic-card__cost">
-                              Ortalama xidmət qiymətləri - yüksək											</div>
-
-              <div class="clinic-card__clinictext">
-                «Vital Klinikası» — yaxşı xidmət səviyyəsinə malik yüksək ixtisaslı tibbi müalicə təmin edən multidisipliner klinik və diaqnostik mərkəzdir.						<a href="https://tapdoc.az/clinic/trastmed">Ətraflı</a>
+            <div class="clinic-card__clinictext">
+              {{diaqnostika.descriptionmetadiaqnostika}}
+              <a href="https://tapdoc.az/clinic/trastmed">Ətraflı</a>
               </div>
 
               <!-- Collapsible Begin -->

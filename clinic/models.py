@@ -39,6 +39,7 @@ class Clinic(models.Model):
     phone = models.CharField(max_length=256,verbose_name='Əlaqə Telefonu', blank=True, null=True)
     description = RichTextField(verbose_name='Klinika Profil Məlumatı', blank=True, null=True)
     descriptionmeta = models.TextField(max_length=256,verbose_name='Klinika Kard Məlumatı', blank=True, null=True)
+    descriptionmetadiaqnostika = models.TextField(max_length=256,verbose_name='Diaqnostika Kard Məlumatı', blank=True, null=True)
     image = models.ImageField(verbose_name='Profil Şəkli', default=DEFAULT, null=True, blank=True)
     location = LocationField(verbose_name='Klinika Xəritədə Yeri', blank=True, max_length=255)
     be_cm_issaati = models.CharField(verbose_name='BE - Cümə İş Saatı', max_length=256,null=True, blank=True)
