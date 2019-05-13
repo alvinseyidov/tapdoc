@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'ckeditor',
     'translations',
-    'modeltranslation'
+    'modeltranslation',
+    'storages'
 
 ]
 
@@ -155,8 +156,23 @@ STATICFILES_DIRS = [
     STATIC_DIR,
 ]
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
+
+AWS_STORAGE_BUCKET_NAME = 'bucketeer-ae096a17-ba37-4424-b06e-8c05c862f866'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+MEDIA_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+MEDIA_ROOT = ''
+AWS_ACCESS_KEY_ID = "AKIAVZH4SBSYWW3FG4WC"
+AWS_SECRET_ACCESS_KEY = "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"
+
+
+
+
+
+#MEDIA_URL = '/media/'
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGOUT_REDIRECT_URL = 'homepage'
 LOGIN_REDIRECT_URL = 'account'
 
