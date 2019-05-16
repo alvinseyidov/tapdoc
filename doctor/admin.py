@@ -1,6 +1,7 @@
 from django.contrib import admin
 from doctor.models import Doctor, Review, Clinic, Profession,Sertifikat,ClinicSaatlar,InsurancePackage
 from django.template.loader import render_to_string
+from django.utils.safestring import mark_safe
 
 class SertifikatTabularInline(admin.TabularInline):
     model = Sertifikat
@@ -24,7 +25,7 @@ class DoctorAdmin(admin.ModelAdmin):
             height=obj.headshot.height,
             )
     )
-    
+
     def thumb(self, obj):
         return  render_to_string('thumb.html',{
                     'image': obj.image
