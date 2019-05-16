@@ -14,7 +14,7 @@ class InsurancePackageTabularInline(admin.TabularInline):
 class DoctorAdmin(admin.ModelAdmin):
     exclude = ('wishlist',)
     search_fields = ('first_name', 'last_name', )
-    list_display = ['first_name','last_name','qebula_yazilma','get_products','thumb']
+    list_display = ['first_name','last_name','qebula_yazilma','klinika','thumb']
 
     def thumb(self, obj):
         return  render_to_string('thumb.html',{
@@ -23,7 +23,7 @@ class DoctorAdmin(admin.ModelAdmin):
 
     thumb.allow_tags = True
 
-    def get_products(self, obj):
+    def klinika(self, obj):
         return "\n".join([p.name for p in obj.clinics.all()])
 
 
