@@ -1,6 +1,6 @@
 from django.contrib import admin
 from clinic.models import Clinic, Gallery, Sertifikat, XidmetlerPrices, DiaqnostikalarPrices, Review
-
+from django.template.loader import render_to_string
 # Register your models here.
 class XidmetlerPricesTabularInline(admin.TabularInline):
     model = XidmetlerPrices
