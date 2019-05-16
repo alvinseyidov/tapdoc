@@ -16,7 +16,7 @@ class SertifikatTabularInline(admin.TabularInline):
 
 class ClinicAdmin(admin.ModelAdmin):
     exclude = ('wishlist',)
-    list_display = ['name','type','address']
+    list_display = ['name','type','address','thumb']
 
     def thumb(self, obj):
         return  render_to_string('thumb.html',{
