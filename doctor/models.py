@@ -31,15 +31,15 @@ class Doctor(models.Model):
         (FEMALE, 'Qadın')
     )
     gender = models.CharField(verbose_name='Həkimin Cinsi', max_length=25, choices=GENDER, null=True, blank=True)
-    evde_muayine = models.BooleanField(verbose_name='Evdə müayinə', null=True, blank=True)
-    evde_muayine_qiymet = models.CharField(verbose_name='Evdə Müayinə Qiyməti', max_length=256,null=True, blank=True)
-    usaq_hekimi = models.BooleanField(verbose_name='Uşaq həkimi?', null=True, blank=True)
-    usaq_hekimi_qiymet = models.CharField(verbose_name='Uşaq Həkimi Müayinə Qiyməti', max_length=256,null=True, blank=True)
     first_name = models.CharField(verbose_name='Həkimin Adı', max_length=256,null=True, blank=True)
     last_name = models.CharField(verbose_name='Həkimin Soyadı', max_length=256,null=True, blank=True)
     title = models.CharField(verbose_name='Həkimin titulu', max_length=256,null=True, blank=True)
     tecrube = models.IntegerField(verbose_name='Həkimin Təcrübəsi', null=True, blank=True)
     contact_phone = models.CharField(verbose_name='Qəbul Üçün Telefon', max_length=256,null=True, blank=True)
+    evde_muayine = models.BooleanField(verbose_name='Evdə müayinə', null=True, blank=True)
+    evde_muayine_qiymet = models.CharField(verbose_name='Evdə Müayinə Qiyməti', max_length=256,null=True, blank=True)
+    usaq_hekimi = models.BooleanField(verbose_name='Uşaq həkimi?', null=True, blank=True)
+    usaq_hekimi_qiymet = models.CharField(verbose_name='Uşaq Həkimi Müayinə Qiyməti', max_length=256,null=True, blank=True)
     qebula_yazilma = models.CharField(verbose_name='Həkimin Qəbulu Qiyməti', max_length=256,null=True, blank=True)
     qebula_yazilma_endirim_faiz = models.CharField(verbose_name='Həkim Qəbulu Endirim %-lə', max_length=256,null=True, blank=True)
     clinics = models.ManyToManyField(Clinic, verbose_name='İşlədiyi Klinikalar' , through='ClinicSaatlar', related_name='doctors', null=True, blank=True)
@@ -72,7 +72,7 @@ class ClinicSaatlar(models.Model):
         return self.clinic.name
 
 class InsurancePackage(models.Model):
-    
+
     company = models.ForeignKey(Company,verbose_name='Company', on_delete=models.CASCADE, related_name='hekimler', null=True, blank=True)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True, blank=True)
     def __str__(self):
