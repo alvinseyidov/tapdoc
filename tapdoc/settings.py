@@ -51,11 +51,10 @@ INSTALLED_APPS = [
     'translations',
     'modeltranslation',
     'storages',
-    'photologue',
-    'django.contrib.sites',
+    'sorl.thumbnail'
 
 ]
-SITE_ID = 1
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -169,7 +168,7 @@ MEDIA_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
 MEDIA_ROOT = ''
 AWS_ACCESS_KEY_ID = "AKIAVZH4SBSYWW3FG4WC"
 AWS_SECRET_ACCESS_KEY = "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"
-
+AWS_DEFAULT_ACL = None
 
 
 

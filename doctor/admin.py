@@ -1,5 +1,6 @@
 from django.contrib import admin
 from doctor.models import Doctor, Review, Clinic, Profession,Sertifikat,ClinicSaatlar,InsurancePackage
+from django.template.loader import render_to_string
 
 class SertifikatTabularInline(admin.TabularInline):
     model = Sertifikat
@@ -13,8 +14,20 @@ class InsurancePackageTabularInline(admin.TabularInline):
 class DoctorAdmin(admin.ModelAdmin):
     exclude = ('wishlist',)
     search_fields = ('first_name', 'last_name', )
-    list_display = ['first_name','last_name','gender','qebula_yazilma','image']
-    list_display_links = ['first_name','last_name','gender','qebula_yazilma']
+    list_display = ['first_name','last_name','qebula_yazilma','get_products','thumb']
+
+    def thumb(self, obj):
+        return  render_to_string('thumb.html',{
+                    'image': obj.image
+                })
+
+    thumb.allow_tags = True
+
+    def get_products(self, obj):
+        return "\n".join([p.name for p in obj.clinics.all()])
+
+
+    list_display_links = ['first_name','last_name','get_products','qebula_yazilma']
     inlines = [SertifikatTabularInline,ClinicSaatlarTabularInline,InsurancePackageTabularInline]
     class Meta:
         model = Doctor
