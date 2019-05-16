@@ -16,6 +16,17 @@ class SertifikatTabularInline(admin.TabularInline):
 
 class ClinicAdmin(admin.ModelAdmin):
     exclude = ('wishlist',)
+    list_display = ['name','type','address']
+
+    def thumb(self, obj):
+        return  render_to_string('thumb.html',{
+                    'image': obj.image
+                })
+
+    thumb.allow_tags = True
+
+    list_display_links = ['name','type','address']
+
     inlines = [XidmetlerPricesTabularInline, DiaqnostikalarPricesTabularInline, GalleryTabularInline, SertifikatTabularInline]
     class Meta:
         model = Clinic
