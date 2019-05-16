@@ -27,7 +27,7 @@ class DoctorAdmin(admin.ModelAdmin):
         return "\n".join([p.name for p in obj.clinics.all()])
 
 
-    list_display_links = ['first_name','last_name','get_products','qebula_yazilma']
+    list_display_links = ['first_name','last_name','qebula_yazilma']
     inlines = [SertifikatTabularInline,ClinicSaatlarTabularInline,InsurancePackageTabularInline]
     class Meta:
         model = Doctor
