@@ -15,7 +15,7 @@
                 <link rel="stylesheet" href="{% static 'css/footerstyle.css' %}">
                <link rel="stylesheet" href="{% static 'css/viewbox.css' %}">
                  <link rel="stylesheet" type="text/css" href="{% static 'css/rfclinic.css'%}">
-               <link rel="apple-touch-icon" sizes="180x180" href="https://s.docdoc.ru/new-doc-doc/favicon/apple-touch-icon.png">
+                <link rel="apple-touch-icon" sizes="180x180" href="https://s.docdoc.ru/new-doc-doc/favicon/apple-touch-icon.png">
                 <link rel="icon" type="image/png" href="https://s.docdoc.ru/new-doc-doc/favicon/favicon-32x32.png" sizes="32x32">
                <link href="{% static 'css/langbasic.css'%}" rel="stylesheet" />
                <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -632,8 +632,8 @@
                                                       <span itemprop="streetAddress">{{clinic.address}}</span>
                                                       </a>
                                                       <br>
-                                                      <span class="rightbar__metro"><i class="i-metro-sm i-metro--line_11"></i>{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1}}{% endfor%} ( {% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1distance}}{% endfor%} m)</span><br>
-                                                      <span class="rightbar__metro"><i class="i-metro-sm i-metro--line_11"></i>{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro2}}{% endfor%} ({% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro2distance}}{% endfor%} m)</span>
+                                                      <span class="rightbar__metro"><i class="i-metro-sm i-metro--line_11"></i>{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1}}{% endfor%} ( {% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1distance}}{% endfor%} )</span><br>
+                                                      <span class="rightbar__metro"><i class="i-metro-sm i-metro--line_11"></i>{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro2}}{% endfor%} ({% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro2distance}}{% endfor%} )</span>
 
                                                    </div>
                                                    <div class="rightbar__place-price">Həkim qəbulu: <span class="clinichover" style="text-decoration: line-through;font-weight: 100;">{{doctor.qebula_yazilma}}AZN</span>
@@ -1100,7 +1100,7 @@
                                                                    <!-- ko if: closestStation -->
                                                                      <strong>Metro: </strong>
                                                                      <span style=" margin-left: 11px; ">
-                                                                       <span data-bind="text: closestStation">{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1}}{% endfor%} ( {% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1distance}}{% endfor%} m)</span><br>
+                                                                       <span data-bind="text: closestStation">{% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1}}{% endfor%} ( {% for clinic in doctor.clinics.all|slice:":1" %}{{clinic.metro1distance}}{% endfor%} )</span><br>
 
                                                                      </span>
                                                                    <!-- /ko -->
