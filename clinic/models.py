@@ -63,6 +63,7 @@ class XidmetlerPrices(models.Model):
     xidmet = models.ForeignKey(Xidmatlar,verbose_name='Xidmətin Adı', on_delete=models.CASCADE, related_name='qiymetler', null=True, blank=True)
     klinika = models.ForeignKey(Clinic, on_delete=models.CASCADE, null=True, blank=True)
     qiymet = models.CharField(verbose_name='Qiymət',max_length=64, null=True, blank=True)
+    endirimli_qiymet = models.CharField(verbose_name='Endirimli Qiymət',max_length=64, null=True, blank=True)
 
     def __str__(self):
         return self.klinika.name + ' - ' + self.xidmet.name + ' - ' + self.qiymet
@@ -70,7 +71,8 @@ class XidmetlerPrices(models.Model):
 class DiaqnostikalarPrices(models.Model):
     diaqnostika = models.ForeignKey(Diaqnostikalar, verbose_name='Diaqnpstik Xidmətin Adı',on_delete=models.CASCADE,  related_name='qiymetler', null=True, blank=True)
     klinika = models.ForeignKey(Clinic, on_delete=models.CASCADE, null=True, blank=True)
-    qiymet = models.CharField(verbose_name='Adı',max_length=64, null=True, blank=True)
+    qiymet = models.CharField(verbose_name='Qiymət',max_length=64, null=True, blank=True)
+    endirimli_qiymet = models.CharField(verbose_name='Endirimli Qiymət',max_length=64, null=True, blank=True)
 
     def __str__(self):
         return self.klinika.name + ' - ' + self.diaqnostika.name + ' - ' + self.qiymet
