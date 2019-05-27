@@ -1,5 +1,5 @@
 from modeltranslation.translator import translator, TranslationOptions
-from .models import XidmatlarGroup, Xidmatlar, DiaqnostikalarGroup, Diaqnostikalar
+from .models import XidmatlarGroup, Xidmatlar, DiaqnostikalarGroup, Diaqnostikalar, Xidmat, Diaqnostika
 
 class XidmatlarGroupTranslationOptions(TranslationOptions):
     fields = ('group_name',)
@@ -10,6 +10,16 @@ class XidmatlarTranslationOptions(TranslationOptions):
     fields = ('name', )
 
 translator.register(Xidmatlar, XidmatlarTranslationOptions)
+
+class XidmatTranslationOptions(TranslationOptions):
+    fields = ('name', )
+
+translator.register(Xidmat, XidmatlarTranslationOptions)
+
+class DiaqnostikaTranslationOptions(TranslationOptions):
+    fields = ('name', )
+
+translator.register(Diaqnostika, XidmatlarTranslationOptions)
 
 class DiaqnostikalarGroupTranslationOptions(TranslationOptions):
     fields = ('group_name',)
