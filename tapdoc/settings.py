@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'translations',
     'modeltranslation',
     'storages',
-    'sorl.thumbnail'
+    'sorl.thumbnail',
+    'mptt',
 
 ]
 

@@ -1,10 +1,10 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
-from service.models import Xidmatlar, Diaqnostikalar
+from service.models import Xidmatlar, Diaqnostikalar, Xidmat, Diaqnostika
 from django.contrib.auth.models import User
 from clinic.widgets import *
 from ckeditor.fields import RichTextField
-
+from mptt.models import MPTTModel, TreeForeignKey, TreeManyToManyField
 
 
 # Create your models here.
@@ -28,8 +28,8 @@ class Clinic(models.Model):
     )
     type = models.CharField(max_length=25,verbose_name='Klinika Növü', choices=CLINIC_TYPES, null=True, blank=True)
     name = models.CharField(max_length=256, verbose_name='Klinika Adı', blank=True, null=True)
-    xidmetler = models.ManyToManyField(Xidmatlar, verbose_name='Xidmətlər və qiymətləri', through='XidmetlerPrices',related_name='relate_name_xidmetler', null=True, blank=True)
-    diaqnostikalar = models.ManyToManyField(Diaqnostikalar,verbose_name='Diaqnostik Xidmətlər və qiymətləri',  through='DiaqnostikalarPrices',related_name='relate_name_diaqnostikalar', null=True, blank=True)
+    xidmetler = TreeManyToManyField(Xidmat, verbose_name='Xidmətlər və qiymətləri', through='XidmetlerPrices',related_name='relate_name_xidmetler', null=True, blank=True)
+    diaqnostikalar = TreeManyToManyField(Diaqnostika,verbose_name='Diaqnostik Xidmətlər və qiymətləri',  through='DiaqnostikalarPrices',related_name='relate_name_diaqnostikalar', null=True, blank=True)
     filial = models.ForeignKey('self', verbose_name='Aid olduğu mərkəz klinika', related_name='filiallar', on_delete=models.CASCADE, null=True, blank=True)
     fulltime = models.BooleanField(verbose_name='24 saat işləyir', null=True, blank=True)
     senbe = models.BooleanField(verbose_name='Şənbə işləyir', null=True, blank=True)
@@ -60,7 +60,7 @@ class Clinic(models.Model):
         self.save()
 
 class XidmetlerPrices(models.Model):
-    xidmet = models.ForeignKey(Xidmatlar,verbose_name='Xidmətin Adı', on_delete=models.CASCADE, related_name='qiymetler', null=True, blank=True)
+    xidmet = TreeForeignKey(Xidmat,verbose_name='Xidmətin Adı', on_delete=models.CASCADE, related_name='qiymetler', null=True, blank=True)
     klinika = models.ForeignKey(Clinic, on_delete=models.CASCADE, null=True, blank=True)
     qiymet = models.CharField(verbose_name='Qiymət',max_length=64, null=True, blank=True)
     endirim_faizi = models.CharField(verbose_name='Endirim Faizi',max_length=64, null=True, blank=True)
@@ -69,7 +69,7 @@ class XidmetlerPrices(models.Model):
         return self.klinika.name + ' - ' + self.xidmet.name + ' - ' + self.qiymet
 
 class DiaqnostikalarPrices(models.Model):
-    diaqnostika = models.ForeignKey(Diaqnostikalar, verbose_name='Diaqnpstik Xidmətin Adı',on_delete=models.CASCADE,  related_name='qiymetler', null=True, blank=True)
+    diaqnostika = TreeForeignKey(Diaqnostika, verbose_name='Diaqnpstik Xidmətin Adı',on_delete=models.CASCADE,  related_name='qiymetler', null=True, blank=True)
     klinika = models.ForeignKey(Clinic, on_delete=models.CASCADE, null=True, blank=True)
     qiymet = models.CharField(verbose_name='Qiymət',max_length=64, null=True, blank=True)
     endirim_faizi = models.CharField(verbose_name='Endirim Faizi',max_length=64, null=True, blank=True)
