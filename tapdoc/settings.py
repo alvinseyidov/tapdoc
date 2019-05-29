@@ -32,7 +32,8 @@ ALLOWED_HOSTS = ['tapdoc.az']
 # Application definition
 
 INSTALLED_APPS = [
-
+    'jet.dashboard',
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
     'storages',
     'sorl.thumbnail',
     'mptt',
+    'inline_actions',
 
 ]
 

@@ -2,6 +2,9 @@ from django.contrib import admin
 from doctor.models import Doctor, Review, Clinic, Profession,Sertifikat,ClinicSaatlar,InsurancePackage
 from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
+from inline_actions.admin import InlineActionsMixin
+from inline_actions.admin import InlineActionsModelAdminMixin
+
 
 class SertifikatTabularInline(admin.TabularInline):
     model = Sertifikat
@@ -11,6 +14,7 @@ class ClinicSaatlarTabularInline(admin.TabularInline):
 
 class InsurancePackageTabularInline(admin.TabularInline):
     model = InsurancePackage
+
 
 class DoctorAdmin(admin.ModelAdmin):
     exclude = ('wishlist',)

@@ -26,6 +26,8 @@ from django.contrib.auth import views as auth_views
 from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
+    path('jet/', include('jet.urls', 'jet')),
+    path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
     path('admin/', admin.site.urls, name='admin'),
     path('i18n/', include('django.conf.urls.i18n')),
 ]
