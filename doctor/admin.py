@@ -2,8 +2,6 @@ from django.contrib import admin
 from doctor.models import Doctor, Review, Clinic, Profession,Sertifikat,ClinicSaatlar,InsurancePackage
 from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
-from inline_actions.admin import InlineActionsMixin
-from inline_actions.admin import InlineActionsModelAdminMixin
 
 
 class SertifikatTabularInline(admin.TabularInline):
@@ -19,7 +17,7 @@ class InsurancePackageTabularInline(admin.TabularInline):
 class DoctorAdmin(admin.ModelAdmin):
     exclude = ('wishlist',)
     search_fields = ('first_name', 'last_name', )
-    list_display = ['first_name','last_name','qebula_yazilma','klinika','thumb']
+    list_display = ['first_name','last_name','klinika','thumb']
     readonly_fields = ['headshot_image']
 
     def headshot_image(self, obj):
@@ -41,7 +39,7 @@ class DoctorAdmin(admin.ModelAdmin):
         return "\n".join([p.name for p in obj.clinics.all()])
 
 
-    list_display_links = ['first_name','last_name','qebula_yazilma']
+    list_display_links = ['first_name','last_name']
     inlines = [SertifikatTabularInline,ClinicSaatlarTabularInline,InsurancePackageTabularInline]
     class Meta:
         model = Doctor
