@@ -8,6 +8,8 @@ django-braces==1.13.0
 django-ckeditor==5.6.1
 django-crispy-forms==1.7.2
 django-i18n-model==0.0.9
+django-inline-actions==2.1.0
+django-jet==1.0.8
 django-js-asset==1.2.2
 django-location-field==2.1.0
 django-map-widgets==0.2.2
