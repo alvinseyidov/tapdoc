@@ -173,8 +173,8 @@ def doctordetail(request, id):
         form = ReviewForm()
 
     sertifikatlar = Sertifikat.objects.filter(doctor=doctor)
-    endirimli_qiymet = int(doctor.qebula_yazilma) - (int(doctor.qebula_yazilma) * int(doctor.qebula_yazilma_endirim_faiz)/100)
-    endirimli_qiymet = int(endirimli_qiymet)
+    endirimli_qiymet = 0 #int(doctor.qebula_yazilma) - (int(doctor.qebula_yazilma) * int(doctor.qebula_yazilma_endirim_faiz)/100)
+    endirimli_qiymet = 0 #int(endirimli_qiymet)
     context = {
         'wishlist': wishlist,
         'doctor': doctor,
