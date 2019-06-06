@@ -37,7 +37,7 @@ def loginclinic(request):
 @login_required(login_url='/admin/')
 def doctor(request):
     lang = get_language()
-    doctors_list = Doctor.objects.all().order_by('id')
+    doctors_list = Doctor.objects.all()
     query = request.GET.get('q')
     querygeo = request.GET.get('geo')
     if query:
@@ -48,7 +48,7 @@ def doctor(request):
     doctors = paginator.get_page(page)
     professions = Profession.objects.order_by('name')
     context = {
-        "doctors": doctors_list,
+        "doctors": doctors,
         "professions": professions,
         "lang": lang
     }
@@ -71,7 +71,7 @@ def doctorstaj(request):
         "doctors": doctors,
         "professions": professions
     }
-    return render(request, 'doctorstaj.html', context)
+    return render(request, 'doctor.html', context)
 
 @login_required(login_url='/admin/')
 def doctorreyler(request):

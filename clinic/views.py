@@ -121,7 +121,7 @@ def clinics(request):
     if query:
         clinics_list = clinics_list.filter(name__icontains=query)
 
-    paginator = Paginator(clinics_list,10)
+    paginator = Paginator(clinicsall,10)
     page = request.GET.get('page')
     clinics = paginator.get_page(page)
     xidmetler = XidmatlarGroup.objects.order_by('group_name')
