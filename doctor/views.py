@@ -37,7 +37,7 @@ def loginclinic(request):
 @login_required(login_url='/admin/')
 def doctor(request):
     lang = get_language()
-    doctors_list = Doctor.objects.all()
+    doctors_list = Doctor.objects.all().order_by('pk')
     query = request.GET.get('q')
     querygeo = request.GET.get('geo')
     if query:

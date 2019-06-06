@@ -4,7 +4,7 @@
 <!--[if IE 7]>        <html class="no-js lt-ie9 lt-ie8 ie ie7" lang="ru"><![endif]-->
 <!--[if IE 8]>        <html class="no-js lt-ie9 ie ie8" lang="ru"><![endif]-->
 <!--[if gt IE 8]><!--><html class="no-js" lang="ru"><!--<![endif]-->
- 
+
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
     <title>Tapdoc - Həkimlər</title>
@@ -1114,7 +1114,9 @@ function myFunction() {
 
 
 
-
+                          {% for clinicbir in doctor.clinics.all|slice:":1" %}
+                              {{clinicbir.name}}
+                          {% endfor %}
 
                           {% for clinicbir in doctor.clinics.all|slice:":1" %}
                           {% if clinicbir.qebula_yazilma_endirim_faiz %}
