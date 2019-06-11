@@ -1,5 +1,5 @@
 from django.contrib import admin
-from clinic.models import Clinic, Gallery, Sertifikat, XidmetlerPrices, DiaqnostikalarPrices, Review
+from clinic.models import Clinic, Gallery, Sertifikat, XidmetlerPrices, DiaqnostikalarPrices, Review, City
 from django.template.loader import render_to_string
 # Register your models here.
 class XidmetlerPricesTabularInline(admin.TabularInline):
@@ -35,3 +35,4 @@ admin.site.register(Clinic, ClinicAdmin )
 
 
 admin.site.register(Review)
+admin.site.register(City)

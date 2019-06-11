@@ -1,4 +1,4 @@
-{% load static mathfilters custom_tags %}
+{% load static mathfilters custom_tags custom_tags3 %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>     <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie ie6" lang="ru"><![endif]-->
 <!--[if IE 7]>        <html class="no-js lt-ie9 lt-ie8 ie ie7" lang="ru"><![endif]-->
@@ -1114,10 +1114,14 @@ function myFunction() {
 
 
 
-                          {% for clinicbir in doctor.clinics.all|slice:":1" %}
-                              {{clinicbir.name}}
-                          {% endfor %}
+                          {% for clinicbir in doctor.clinics.all %}
+                              {{clinicbir.qebula_yazilma}}
+                              {{clinicbir}}
+                              {{clinicbir.ClinicSaatlar}}
 
+                          {% endfor %}
+                          
+                          {{ doctor.id|reviewscount }}
                           {% for clinicbir in doctor.clinics.all|slice:":1" %}
                           {% if clinicbir.qebula_yazilma_endirim_faiz %}
                           {% if clinicbir.qebula_yazilma_endirim_faiz != '0' %}

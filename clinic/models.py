@@ -8,6 +8,14 @@ from mptt.models import MPTTModel, TreeForeignKey, TreeManyToManyField
 
 
 # Create your models here.
+class City(models.Model):
+    name = models.CharField(verbose_name='Şəhər adı', max_length=256, null=True, blank=True)
+
+
+    def __str__(self):
+        return self.name
+
+
 
 DEFAULT = 'defaultclinic.png'
 class Clinic(models.Model):
@@ -34,7 +42,7 @@ class Clinic(models.Model):
     fulltime = models.BooleanField(verbose_name='24 saat işləyir', null=True, blank=True)
     senbe = models.BooleanField(verbose_name='Şənbə işləyir', null=True, blank=True)
     bazar = models.BooleanField(verbose_name='Bazar işləyir', null=True, blank=True)
-    city = models.CharField(max_length=25,verbose_name='Şəhər', choices=CITY, null=True, blank=True)
+    city = models.ForeignKey(City,verbose_name='Şəhər', on_delete=models.CASCADE, related_name='Klinikalar', null=True, blank=True)
     address = models.CharField(max_length=256,verbose_name='Klinika Ünvanı' , blank=True, null=True)
     phone = models.CharField(max_length=256,verbose_name='Əlaqə Telefonu', blank=True, null=True)
     description = RichTextField(verbose_name='Klinika Profil Məlumatı', blank=True, null=True)
