@@ -51,7 +51,7 @@ class Doctor(models.Model):
         self.image.delete(save=False)  # delete old image file
         self.image = DEFAULT
         self.save()
-
+ 
 class ClinicSaatlar(models.Model):
     clinic = models.ForeignKey(Clinic,verbose_name='Clinic', on_delete=models.CASCADE, related_name='hekimler', null=True, blank=True)
     evde_muayine = models.BooleanField(verbose_name='Evdə müayinə', null=True, blank=True)

@@ -1399,17 +1399,12 @@ $(document).ready(function(){
               					<div class="clinic-card__type">{% for profession in doctor.professions.all %}{{profession.name}} {% endfor %}</div>
               					<div class="clinic-card__cost">
               													Təcrübəsi - {{doctor.tecrube}} il											</div><br>
-                                        <div style="margin: -17px 0 -7px 0;font-size: 12px;">Qəbula yazılma &nbsp; <span class="clinichover" style="text-decoration: line-through;">{{doctor.qebula_yazilma}}AZN</span>&nbsp;  <span style="font-weight: 700;border-bottom: 1.5px dotted #000;">
-                                          {% with endirim=doctor.qebula_yazilma|mul:doctor.qebula_yazilma_endirim_faiz|div:100 %}
-                                          {% with endirimli_qiymet=doctor.qebula_yazilma|sub:endirim %}
-                                                 {{ endirimli_qiymet|floatformat:"0" }}AZN
-                                              {% endwith %}
-                                              {% endwith %}
+                                        <div style="margin: -17px 0 -7px 0;font-size: 12px;">Qəbula yazılma &nbsp; <span class="clinichover" style="text-decoration: line-through;"></span>&nbsp;  <span style="font-weight: 700;border-bottom: 1.5px dotted #000;">
 
 
 
 
-                                        </span> <span class="doc__price-label">- {{doctor.qebula_yazilma_endirim_faiz}}%</span></div>
+                                        </span> <span class="doc__price-label">- </span></div>
               					<div class="clinic-card__clinictext">
               								<div class="qebultext">Qəbula Yazılmaq Üçün:</div>
                               <div class="qebulphone" style=" font-weight: 600; ">{{doctor.contact_phone}}</div>
@@ -1842,17 +1837,12 @@ $(document).ready(function(){
 <div class="clinic-card__type">{% for profession in doctor.professions.all %}{{profession.name}} {% endfor %}</div>
 <div class="clinic-card__cost">
             Təcrübəsi - 12 il											</div><br>
-            <div style="margin: -17px 0 -7px 0;font-size: 12px;">Qəbula yazılma &nbsp; <span class="clinichover" style="text-decoration: line-through;">{{doctor.qebula_yazilma}}AZN</span>&nbsp;  <span style="font-weight: 700;border-bottom: 1.5px dotted #000;">
-              {% with endirim=doctor.qebula_yazilma|mul:doctor.qebula_yazilma_endirim_faiz|div:100 %}
-              {% with endirimli_qiymet=doctor.qebula_yazilma|sub:endirim %}
-                     {{ endirimli_qiymet|floatformat:"0" }}AZN
-                  {% endwith %}
-                  {% endwith %}
+            <div style="margin: -17px 0 -7px 0;font-size: 12px;">Qəbula yazılma &nbsp; <span class="clinichover" style="text-decoration: line-through;"></span>&nbsp;  <span style="font-weight: 700;border-bottom: 1.5px dotted #000;">
 
 
 
 
-            </span> <span class="doc__price-label">- {{doctor.qebula_yazilma_endirim_faiz}}%</span></div>
+            </span> <span class="doc__price-label">- </span></div>
 
 <div class="clinic-card__clinictext">
   <div class="qebultext">Qəbula Yazılmaq Üçün:</div>
