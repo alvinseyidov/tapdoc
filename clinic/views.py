@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render, HttpResponse, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from clinic.models import Clinic, Gallery, Sertifikat, XidmetlerPrices, DiaqnostikalarPrices
-from service.models import XidmatlarGroup, DiaqnostikalarGroup, Xidmatlar, Diaqnostikalar
+from service.models import XidmatlarGroup, DiaqnostikalarGroup, Xidmatlar, Diaqnostikalar, Xidmat
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -124,7 +124,8 @@ def clinics(request):
     paginator = Paginator(clinicsall,10)
     page = request.GET.get('page')
     clinics = paginator.get_page(page)
-    xidmetler = XidmatlarGroup.objects.order_by('group_name')
+    xidmatlar = Xidmat.objects.order_by('name')
+    xidmetler = Xidmat.objects.filter(level__lte=0)
     diaqnostikalar = Diaqnostikalar.objects.all()
     context = {
         "clinics": clinics,

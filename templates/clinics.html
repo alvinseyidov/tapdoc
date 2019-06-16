@@ -670,7 +670,7 @@ for="kidsReception3"> Sığorta</label>
        <div class="specs__items">
          <div class="specs__cols" data-width="250">
 
-           {% for xidmet in xidmetler%}
+           {% for xidmet in xidmetler %}
                <div>
                  <a href="{% url 'clinicsspecific' xidmet.id %}" class="ixtisaslar">
                    <span>{{xidmet.relate_name_xidmetler.count}}</span> <span class="dotted">{{xidmet}} </span>
